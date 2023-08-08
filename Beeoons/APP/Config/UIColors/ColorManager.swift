@@ -78,6 +78,14 @@ extension UIColor {
         }
     }
     
+    public static var UnderLineColor : UIColor {
+        
+        get {
+            return UIColor(named: "UnderLineColor")!
+        }
+    }
+    
+    
     
     
 }

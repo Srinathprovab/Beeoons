@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Oswald-Regular.ttf">
+            <string>Oswald-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="DealsCVCell" customModule="Beeoons" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="259" height="170"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="259" height="170"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qCR-h7-ZHc">
+                        <rect key="frame" x="0.0" y="0.0" width="259" height="170"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCc-GU-MYN">
+                                <rect key="frame" x="0.0" y="0.0" width="259" height="120"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="ApF-TK-yDy">
+                                        <rect key="frame" x="0.0" y="0.0" width="259" height="120"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DUBAI- EMIRATES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRi-IU-Tfu">
+                                        <rect key="frame" x="12" y="10" width="103.66666666666667" height="24"/>
+                                        <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald" pointSize="16"/>
+                                        <color key="textColor" name="WhiteColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyO-aV-p6B">
+                                        <rect key="frame" x="12" y="42" width="14" height="21"/>
+                                        <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald" pointSize="14"/>
+                                        <color key="textColor" name="ButtonColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lv0-8G-h7g">
+                                        <rect key="frame" x="12" y="63" width="14" height="21"/>
+                                        <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="WhiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="ApF-TK-yDy" firstAttribute="top" secondItem="dCc-GU-MYN" secondAttribute="top" id="3U4-87-Bfk"/>
+                                    <constraint firstItem="ApF-TK-yDy" firstAttribute="leading" secondItem="dCc-GU-MYN" secondAttribute="leading" id="C9K-9h-zNS"/>
+                                    <constraint firstAttribute="bottom" secondItem="ApF-TK-yDy" secondAttribute="bottom" id="Cxz-2p-S4A"/>
+                                    <constraint firstItem="lv0-8G-h7g" firstAttribute="top" secondItem="kyO-aV-p6B" secondAttribute="bottom" id="G2T-gF-MgW"/>
+                                    <constraint firstItem="kyO-aV-p6B" firstAttribute="leading" secondItem="dCc-GU-MYN" secondAttribute="leading" constant="12" id="GjZ-lt-trj"/>
+                                    <constraint firstItem="sRi-IU-Tfu" firstAttribute="top" secondItem="dCc-GU-MYN" secondAttribute="top" constant="10" id="O1p-D5-BhK"/>
+                                    <constraint firstAttribute="trailing" secondItem="ApF-TK-yDy" secondAttribute="trailing" id="R7A-U3-VwC"/>
+                                    <constraint firstAttribute="height" constant="120" id="heY-rp-xoO"/>
+                                    <constraint firstItem="kyO-aV-p6B" firstAttribute="top" secondItem="sRi-IU-Tfu" secondAttribute="bottom" constant="8" id="l3p-bi-nrb"/>
+                                    <constraint firstItem="sRi-IU-Tfu" firstAttribute="leading" secondItem="dCc-GU-MYN" secondAttribute="leading" constant="12" id="nHp-Ei-ZfZ"/>
+                                    <constraint firstItem="lv0-8G-h7g" firstAttribute="leading" secondItem="dCc-GU-MYN" secondAttribute="leading" constant="12" id="u9U-aK-XTD"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fhd-mD-U5Q">
+                                <rect key="frame" x="0.0" y="120" width="259" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEp-MS-kad">
+                                        <rect key="frame" x="13" y="7.3333333333333286" width="179.66666666666666" height="35.666666666666664"/>
+                                        <string key="text">Elegant design With exquisite view white 
+sands world of hospitality</string>
+                                        <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i7j-U6-Z74">
+                                        <rect key="frame" x="201" y="15" width="50" height="20"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BOOK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fU4-Ix-Hm1">
+                                                <rect key="frame" x="12.333333333333341" y="1" width="25.333333333333329" height="18"/>
+                                                <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald" pointSize="12"/>
+                                                <color key="textColor" name="WhiteColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="at8-ce-0ww">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="20"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="didTapOnBookFlightBtn:" destination="gTV-IL-0wX" eventType="touchUpInside" id="5ae-Y8-937"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" name="ButtonColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="at8-ce-0ww" secondAttribute="trailing" id="3M7-jI-No5"/>
+                                            <constraint firstAttribute="width" constant="50" id="CeC-t9-i9D"/>
+                                            <constraint firstItem="fU4-Ix-Hm1" firstAttribute="centerX" secondItem="i7j-U6-Z74" secondAttribute="centerX" id="VAX-Vy-9d1"/>
+                                            <constraint firstAttribute="bottom" secondItem="at8-ce-0ww" secondAttribute="bottom" id="phT-vj-jB4"/>
+                                            <constraint firstItem="at8-ce-0ww" firstAttribute="leading" secondItem="i7j-U6-Z74" secondAttribute="leading" id="qsj-9l-ZqJ"/>
+                                            <constraint firstAttribute="height" constant="20" id="ruc-ON-Mcx"/>
+                                            <constraint firstItem="fU4-Ix-Hm1" firstAttribute="centerY" secondItem="i7j-U6-Z74" secondAttribute="centerY" id="u3r-Zb-Ysl"/>
+                                            <constraint firstItem="at8-ce-0ww" firstAttribute="top" secondItem="i7j-U6-Z74" secondAttribute="top" id="uhb-ev-dfP"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="IEp-MS-kad" firstAttribute="centerY" secondItem="fhd-mD-U5Q" secondAttribute="centerY" id="8gY-0S-2Xh"/>
+                                    <constraint firstItem="IEp-MS-kad" firstAttribute="leading" secondItem="fhd-mD-U5Q" secondAttribute="leading" constant="13" id="Hfs-Af-3wq"/>
+                                    <constraint firstAttribute="trailing" secondItem="i7j-U6-Z74" secondAttribute="trailing" constant="8" id="aHd-zm-8ZZ"/>
+                                    <constraint firstItem="i7j-U6-Z74" firstAttribute="centerY" secondItem="IEp-MS-kad" secondAttribute="centerY" id="jdI-oO-zjD"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fhd-mD-U5Q" firstAttribute="leading" secondItem="qCR-h7-ZHc" secondAttribute="leading" id="7vK-4a-5U6"/>
+                            <constraint firstItem="dCc-GU-MYN" firstAttribute="top" secondItem="qCR-h7-ZHc" secondAttribute="top" id="AMa-19-g3J"/>
+                            <constraint firstAttribute="bottom" secondItem="fhd-mD-U5Q" secondAttribute="bottom" id="QJF-NM-MCc"/>
+                            <constraint firstAttribute="trailing" secondItem="fhd-mD-U5Q" secondAttribute="trailing" id="dEn-7t-JgY"/>
+                            <constraint firstItem="fhd-mD-U5Q" firstAttribute="top" secondItem="dCc-GU-MYN" secondAttribute="bottom" id="hPp-Oe-L1p"/>
+                            <constraint firstAttribute="trailing" secondItem="dCc-GU-MYN" secondAttribute="trailing" id="lXB-ah-JDJ"/>
+                            <constraint firstItem="dCc-GU-MYN" firstAttribute="leading" secondItem="qCR-h7-ZHc" secondAttribute="leading" id="mGw-9L-fPX"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="qCR-h7-ZHc" secondAttribute="trailing" id="KWP-wU-Qde"/>
+                <constraint firstAttribute="bottom" secondItem="qCR-h7-ZHc" secondAttribute="bottom" id="MPh-pO-XEy"/>
+                <constraint firstItem="qCR-h7-ZHc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="bi7-qV-oaJ"/>
+                <constraint firstItem="qCR-h7-ZHc" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="kKj-XV-Qe4"/>
+            </constraints>
+            <size key="customSize" width="251" height="144"/>
+            <connections>
+                <outlet property="bookBtn" destination="at8-ce-0ww" id="LFn-h3-s4h"/>
+                <outlet property="holderView" destination="qCR-h7-ZHc" id="nIc-V7-0Xg"/>
+            </connections>
+            <point key="canvasLocation" x="222.13740458015266" y="52.816901408450704"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="bg" width="258" height="123"/>
+        <namedColor name="ButtonColor">
+            <color red="0.75700002908706665" green="0.63099998235702515" blue="0.49000000953674316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="WhiteColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

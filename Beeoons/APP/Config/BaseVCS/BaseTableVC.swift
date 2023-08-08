@@ -7,8 +7,8 @@
 
 import UIKit
 
-class BaseTableVC: UIViewController {
-    
+class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVCellDelegate, FlightDealsTVCellDelegate {
+   
     
     
     @IBOutlet weak var commonScrollView: UITableView!
@@ -91,7 +91,14 @@ class BaseTableVC: UIViewController {
     }
     
     
-  //functions
+    //functions
+    func didTapOnMenuBtnAction(cell: MenuBtnWithLogoTVCell) {}
+    func didTapOnLangBtnAction(cell: MenuBtnWithLogoTVCell) {}
+    func didTapOnDashboardTab(cell: SelectTabTVCell) {}
+    func didTapOnBookFlightBtn(cell: DealsCVCell) {}
+    func didTapOnBookHoteltBtn(cell:HotelDealsCVCell){}
+    
+    
     
     
     
@@ -162,9 +169,32 @@ extension BaseTableVC: UITableViewDataSource {
                 
                 //Sign & SignUp Cells
                 
-//            case .EmptyTVCell:
-//                let cell: EmptyTVCell = commonTV.dequeTVCell(indexPath: indexPath)
-//                commonCell = cell
+            case .EmptyTVCell:
+                let cell: EmptyTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
+                
+                
+            case .MenuBtnWithLogoTVCell:
+                let cell: MenuBtnWithLogoTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+            case .SelectTabTVCell:
+                let cell: SelectTabTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+            case .DearMemberTVCell:
+                let cell: DearMemberTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
+                
+                
+            case .FlightDealsTVCell:
+                let cell: FlightDealsTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
                 
                 
                 

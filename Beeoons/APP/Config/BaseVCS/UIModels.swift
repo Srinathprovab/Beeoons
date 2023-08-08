@@ -21,7 +21,11 @@ enum socialSignUpType {
 }
 
 enum TVCellType {
-//    case EmptyTVCell
+    case EmptyTVCell
+    case MenuBtnWithLogoTVCell
+    case SelectTabTVCell
+    case DearMemberTVCell
+    case FlightDealsTVCell
     
 }
 
