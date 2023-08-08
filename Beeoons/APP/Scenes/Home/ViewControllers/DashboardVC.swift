@@ -31,16 +31,17 @@ class DashboardVC: BaseTableVC {
     
     func setupTVCell() {
         tablerow.removeAll()
-        tablerow.append(TableRow(height:30,bgColor: .WhiteColor,cellType: .EmptyTVCell))
+        tablerow.append(TableRow(height:50,bgColor: .WhiteColor,cellType: .EmptyTVCell))
         tablerow.append(TableRow(cellType: .MenuBtnWithLogoTVCell))
         tablerow.append(TableRow(cellType: .SelectTabTVCell))
+        tablerow.append(TableRow(title:"FLIGHT",cellType: .FlightDealsTVCell))
         tablerow.append(TableRow(title:"Dear Members,",
                                  subTitle: "As of 20 September 2022, Miles & Smiles award ticket issuance and profile updates will be made with verification code to be sent your phone",
                                  cellType: .DearMemberTVCell))
         tablerow.append(TableRow(title:"Dear Passengers,",
                                  subTitle: "You can Access the Announcement regarding our flights to Ukraine, Belarus and Russia and the rights granted to our passengers for our flights to these countries",
                                  cellType: .DearMemberTVCell))
-        tablerow.append(TableRow(title:"FLIGHT",cellType: .FlightDealsTVCell))
+      
         tablerow.append(TableRow(title:"HOTEL",cellType: .FlightDealsTVCell))
         
         tablerow.append(TableRow(height:80,bgColor: .WhiteColor,cellType: .EmptyTVCell))
