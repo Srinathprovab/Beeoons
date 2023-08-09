@@ -28,9 +28,9 @@ var key = ""
 let screenHeight = UIScreen.main.bounds.size.height
 //var data : Data?
 var loderBool = false
-
-var BASE_URL = "https://kuwaitways.com/mobile_webservices/index.php/"
-var BASE_URL1 = "https://kuwaitways.com/mobile_webservices/index.php/"
+var callapibool = false
+var BASE_URL = "https://beeoons.com/pro/web_service/index.php/"
+var BASE_URL1 = "https://beeoons.com/pro/web_service/index.php/"
 
 
 
@@ -38,6 +38,7 @@ var BASE_URL1 = "https://kuwaitways.com/mobile_webservices/index.php/"
 struct ApiEndpoints {
     
     static let indexpage = "general/index"
+    static let get_airport_code_list = "ajax/get_airport_code_list"
     
     
     

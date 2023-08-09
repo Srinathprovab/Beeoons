@@ -86,6 +86,14 @@ extension UIColor {
     }
     
     
+    public static var Journytabunselectedcolor : UIColor {
+        
+        get {
+            return UIColor(named: "Journytabunselectedcolor")!
+        }
+    }
+    
+    
     
     
 }

@@ -63,7 +63,7 @@ class HomeVC: UIViewController {
         myaccountlbl.textColor = .ButtonColor
         mybookinglbl.textColor = .WhiteColor
         tab1img.image = UIImage(named: "tab1")?.withRenderingMode(.alwaysOriginal).withTintColor(.WhiteColor)
-        tab2img.image = UIImage(named: "tab2")?.withRenderingMode(.alwaysOriginal)
+        tab2img.image = UIImage(named: "tab22")?.withRenderingMode(.alwaysOriginal)
         tab3img.image = UIImage(named: "tab3")?.withRenderingMode(.alwaysOriginal)
     }
     
@@ -76,7 +76,7 @@ class HomeVC: UIViewController {
         mybookinglbl.textColor = .ButtonColor
         tab1img.image = UIImage(named: "tab1")?.withRenderingMode(.alwaysOriginal).withTintColor(.WhiteColor)
         tab2img.image = UIImage(named: "tab2")?.withRenderingMode(.alwaysOriginal)
-        tab3img.image = UIImage(named: "tab3")?.withRenderingMode(.alwaysOriginal)
+        tab3img.image = UIImage(named: "tab33")?.withRenderingMode(.alwaysOriginal)
     }
     
     

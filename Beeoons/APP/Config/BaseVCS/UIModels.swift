@@ -26,6 +26,9 @@ enum TVCellType {
     case SelectTabTVCell
     case DearMemberTVCell
     case FlightDealsTVCell
+    case BookFlightTVCell
+    case TravellerEconomyTVCell
+    case ButtonTVCell
     
 }
 

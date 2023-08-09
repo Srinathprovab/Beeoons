@@ -72,13 +72,28 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XK3-j8-bDw">
+                                <rect key="frame" x="0.0" y="167" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Ja2-mP-Bf1"/>
+                                    <constraint firstAttribute="width" constant="30" id="wkN-V5-jWn"/>
+                                </constraints>
+                                <color key="tintColor" name="PriceBoxColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system"/>
+                                <connections>
+                                    <action selector="previousButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="UjE-QV-1D0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="gye-HC-dvC" firstAttribute="centerX" secondItem="5jr-n6-3B7" secondAttribute="centerX" id="1bk-g2-84k"/>
                             <constraint firstAttribute="trailing" secondItem="Pye-gO-Qra" secondAttribute="trailing" id="4R8-is-I7P"/>
+                            <constraint firstItem="XK3-j8-bDw" firstAttribute="centerY" secondItem="Pye-gO-Qra" secondAttribute="centerY" id="59I-Jy-he8"/>
                             <constraint firstItem="xXM-T8-Iah" firstAttribute="bottom" secondItem="jlL-KO-1Pu" secondAttribute="bottom" id="7Pl-g3-FA3"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="272" id="ETR-YS-UMa"/>
+                            <constraint firstItem="XK3-j8-bDw" firstAttribute="leading" secondItem="5jr-n6-3B7" secondAttribute="leading" id="EXx-Ym-zXg"/>
                             <constraint firstAttribute="bottom" secondItem="Pye-gO-Qra" secondAttribute="bottom" id="NHv-en-cfZ"/>
                             <constraint firstItem="gye-HC-dvC" firstAttribute="top" secondItem="5jr-n6-3B7" secondAttribute="top" constant="20" id="VSH-Tv-thU"/>
                             <constraint firstItem="Pye-gO-Qra" firstAttribute="top" secondItem="jlL-KO-1Pu" secondAttribute="bottom" constant="15" id="Z89-R0-fc0"/>
@@ -89,9 +104,24 @@
                             <constraint firstItem="jlL-KO-1Pu" firstAttribute="top" secondItem="gye-HC-dvC" secondAttribute="bottom" constant="3" id="xcR-uL-mhS"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="soD-36-NKo">
+                        <rect key="frame" x="403" y="167" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="4xm-Gh-q9K"/>
+                            <constraint firstAttribute="width" constant="30" id="byq-KX-n7v"/>
+                        </constraints>
+                        <color key="tintColor" name="PriceBoxColor"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system"/>
+                        <connections>
+                            <action selector="nextButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="9DK-JQ-Qug"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="5jr-n6-3B7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="4Js-lz-vRV"/>
+                    <constraint firstItem="soD-36-NKo" firstAttribute="centerY" secondItem="XK3-j8-bDw" secondAttribute="centerY" id="D6k-Bd-4Bc"/>
+                    <constraint firstAttribute="trailing" secondItem="soD-36-NKo" secondAttribute="trailing" id="ESs-TC-hBm"/>
                     <constraint firstAttribute="trailing" secondItem="5jr-n6-3B7" secondAttribute="trailing" id="Ol4-FH-oFD"/>
                     <constraint firstAttribute="bottom" secondItem="5jr-n6-3B7" secondAttribute="bottom" id="gfO-Ka-hOc"/>
                     <constraint firstItem="5jr-n6-3B7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="w7F-Wc-YJg"/>
@@ -107,9 +137,14 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="chevron.backward" catalog="system" width="97" height="128"/>
+        <image name="chevron.right" catalog="system" width="97" height="128"/>
         <image name="flightback" width="149" height="50.333332061767578"/>
         <namedColor name="ButtonColor">
             <color red="0.75700002908706665" green="0.63099998235702515" blue="0.49000000953674316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PriceBoxColor">
+            <color red="0.17299999296665192" green="0.41600000858306885" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

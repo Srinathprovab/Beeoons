@@ -18,15 +18,24 @@ class FlightDealsTVCell: TableViewCell, DealsCVCellDelegate, HotelDealsCVCellDel
     @IBOutlet weak var cvheight: NSLayoutConstraint!
     
     var delegate:FlightDealsTVCellDelegate?
+    var currentIndex = 0
+    var currentCellIndex = 0
+    var key = String()
+    var flightcount = 10
+    var hotelcount = 5
+    var itemCount = Int()
+    var autoScrollTimer: Timer?
+    var nextButtonAction: (() -> Void)?
+    var previousButtonAction: (() -> Void)?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-       
+        
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -36,15 +45,21 @@ class FlightDealsTVCell: TableViewCell, DealsCVCellDelegate, HotelDealsCVCellDel
         if titlelbl.text == "FLIGHT" {
             cvheight.constant = 181
             setupFlightCV()
+            itemCount = flightcount
+           // startAutoScroll()
         }else {
             cvheight.constant = 235
             setupHotelCV()
+            itemCount = hotelcount
+          //  startAutoScroll()
         }
+        
+        dealsCV.reloadData()
     }
     
     
     func setupFlightCV() {
-       
+        
         let nib = UINib(nibName: "DealsCVCell", bundle: nil)
         dealsCV.register(nib, forCellWithReuseIdentifier: "cell")
         dealsCV.delegate = self
@@ -60,11 +75,11 @@ class FlightDealsTVCell: TableViewCell, DealsCVCellDelegate, HotelDealsCVCellDel
         dealsCV.layer.cornerRadius = 4
         dealsCV.clipsToBounds = true
         dealsCV.showsVerticalScrollIndicator = false
-    
+        
     }
     
     func setupHotelCV() {
-       
+        
         let nib = UINib(nibName: "HotelDealsCVCell", bundle: nil)
         dealsCV.register(nib, forCellWithReuseIdentifier: "cell1")
         dealsCV.delegate = self
@@ -80,7 +95,7 @@ class FlightDealsTVCell: TableViewCell, DealsCVCellDelegate, HotelDealsCVCellDel
         dealsCV.layer.cornerRadius = 4
         dealsCV.clipsToBounds = true
         dealsCV.showsVerticalScrollIndicator = false
-    
+        
     }
     
     
@@ -93,7 +108,16 @@ class FlightDealsTVCell: TableViewCell, DealsCVCellDelegate, HotelDealsCVCellDel
         delegate?.didTapOnBookHoteltBtn(cell: cell)
     }
     
+    @IBAction func nextButtonTapped(_ sender: UIButton) {
+        
+        nextButtonAction?()
+    }
     
+    @IBAction func previousButtonTapped(_ sender: UIButton) {
+        
+        previousButtonAction?()
+        
+    }
     
 }
 
@@ -104,14 +128,23 @@ extension FlightDealsTVCell:UICollectionViewDelegate,UICollectionViewDataSource 
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if titlelbl.text == "FLIGHT" {
-            return 10
+            return flightcount
         }else {
-           return 5
+            return hotelcount
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var commonCell = UICollectionViewCell()
+        
+        // Set up next and previous button actions
+        self.nextButtonAction = { [weak self] in
+            self?.showNextCard()
+        }
+        
+        self.previousButtonAction = { [weak self] in
+            self?.showPreviousCard()
+        }
         
         if titlelbl.text == "FLIGHT" {
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? DealsCVCell {
@@ -127,10 +160,97 @@ extension FlightDealsTVCell:UICollectionViewDelegate,UICollectionViewDataSource 
             }
         }
         
-      
+        
         return commonCell
     }
     
     
-  
+    
+    // MARK: Button Actions
+    
+    func showNextCard() {
+        currentIndex += 1
+        
+        
+        if cellInfo?.key == "FLIGHT" {
+            
+            if currentIndex >= flightcount {
+                currentIndex = 0
+            }
+        }else {
+            
+            if currentIndex >= hotelcount {
+                currentIndex = 0
+            }
+        }
+        
+        
+        // Scroll to the next cell
+        let indexPath = IndexPath(item: currentIndex, section: 0)
+        dealsCV.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+    }
+    
+    func showPreviousCard() {
+        currentIndex -= 1
+        
+        
+        if cellInfo?.key == "FLIGHT" {
+            
+            if currentIndex < 0 {
+                currentIndex = flightcount - 1
+            }
+        }else {
+            
+            if currentIndex < 0 {
+                currentIndex = hotelcount - 1
+            }
+        }
+        
+        
+        // Scroll to the previous cell
+        let indexPath = IndexPath(item: currentIndex, section: 0)
+        dealsCV.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+    }
+    
+    
+    
+    // MARK: - Auto Scrolling
+    
+    func startAutoScroll() {
+        autoScrollTimer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(scrollToNextItem), userInfo: nil, repeats: true)
+    }
+    
+    func stopAutoScroll() {
+        autoScrollTimer?.invalidate()
+        autoScrollTimer = nil
+    }
+    
+    @objc func scrollToNextItem() {
+        
+        
+        guard itemCount > 0 else {
+            return // No items in the collection view
+        }
+        
+        let currentIndexPaths = dealsCV.indexPathsForVisibleItems.sorted()
+        let lastIndexPath = currentIndexPaths.last ?? IndexPath(item: 0, section: 0)
+        
+        var nextIndexPath: IndexPath
+        
+        if lastIndexPath.item == itemCount - 1 {
+            nextIndexPath = IndexPath(item: 0, section: lastIndexPath.section)
+        } else {
+            nextIndexPath = IndexPath(item: lastIndexPath.item + 1, section: lastIndexPath.section)
+        }
+        
+        if nextIndexPath.item >= itemCount {
+            nextIndexPath = IndexPath(item: 0, section: nextIndexPath.section) // Adjust the index path if it exceeds the bounds
+        }
+        
+        dealsCV.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
+    }
+    
+    
+    
+    
 }

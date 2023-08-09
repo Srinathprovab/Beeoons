@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVCellDelegate, FlightDealsTVCellDelegate {
+class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVCellDelegate, FlightDealsTVCellDelegate, BookFlightTVCellDelegate, TravellerEconomyTVCellDelegate, ButtonTVCellDelegate {
    
     
     
@@ -97,6 +97,18 @@ class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVC
     func didTapOnDashboardTab(cell: SelectTabTVCell) {}
     func didTapOnBookFlightBtn(cell: DealsCVCell) {}
     func didTapOnBookHoteltBtn(cell:HotelDealsCVCell){}
+    func didTapOnBnAction(cell:ButtonTVCell){}
+    
+    func didTapOnFromCityBtnAction(cell: BookFlightTVCell) {}
+    func didTapOnToCityBtnAction(cell: BookFlightTVCell) {}
+    func didTapOnSelectDepartureDateBtnAction(cell: BookFlightTVCell) {}
+    func didTapOnArrivalDateBtnAction(cell: BookFlightTVCell) {}
+    func didTapOnSelectTravellersBtnAction(cell: BookFlightTVCell) {}
+    func didTapOnSelectClassBtnAction(cell: BookFlightTVCell) {}
+    func didTapOnAddAirlineButtonAction(cell:BookFlightTVCell){}
+    func didTapOnDecrementButton(cell: TravellerEconomyTVCell) {}
+    func didTapOnIncrementButton(cell: TravellerEconomyTVCell) {}
+    
     
     
     
@@ -196,6 +208,26 @@ extension BaseTableVC: UITableViewDataSource {
                 cell.delegate = self
                 commonCell = cell
                 
+                
+                
+            case .BookFlightTVCell:
+                let cell: BookFlightTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+                
+            case .TravellerEconomyTVCell:
+                let cell: TravellerEconomyTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+               
+                
+            case .ButtonTVCell:
+                let cell: ButtonTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
                 
                 
             default:
