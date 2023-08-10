@@ -7,8 +7,9 @@
 
 import UIKit
 
-class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVCellDelegate, FlightDealsTVCellDelegate, BookFlightTVCellDelegate, TravellerEconomyTVCellDelegate, ButtonTVCellDelegate {
-   
+class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVCellDelegate, FlightDealsTVCellDelegate, BookFlightTVCellDelegate, TravellerEconomyTVCellDelegate, ButtonTVCellDelegate, FlightResultTVCellDelegate, CheckBoxTVCellDelegate, checkOptionsTVCellDelegate, SliderTVCellDelegate, SortByPriceTVCellDelegate {
+    
+    
     
     
     @IBOutlet weak var commonScrollView: UITableView!
@@ -108,6 +109,19 @@ class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVC
     func didTapOnAddAirlineButtonAction(cell:BookFlightTVCell){}
     func didTapOnDecrementButton(cell: TravellerEconomyTVCell) {}
     func didTapOnIncrementButton(cell: TravellerEconomyTVCell) {}
+    func didTapOnSearchFlightBtnAction(cell:BookFlightTVCell) {}
+    func didTapOnFlightDetails(cell:FlightResultTVCell){}
+    
+    func didTapOnCheckBoxDropDownBtn(cell: CheckBoxTVCell) {}
+    func didTapOnShowMoreBtn(cell: CheckBoxTVCell) {}
+    func didTapOnCheckBox(cell: checkOptionsTVCell) {}
+    func didTapOnDeselectCheckBox(cell: checkOptionsTVCell) {}
+    func didTapOnMenuOptionBtn(cell: checkOptionsTVCell) {}
+    func didTapOnShowSliderBtn(cell: SliderTVCell) {}
+    func didTapOnLowToHeighBtnAction(cell: SortByPriceTVCell) {}
+    func didTapOnHeighToLowBtnAction(cell: SortByPriceTVCell) {}
+    
+    
     
     
     
@@ -222,10 +236,41 @@ extension BaseTableVC: UITableViewDataSource {
                 cell.delegate = self
                 commonCell = cell
                 
-               
+                
                 
             case .ButtonTVCell:
                 let cell: ButtonTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+                
+            case .FlightResultTVCell:
+                let cell: FlightResultTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+            case .CheckBoxTVCell:
+                let cell: CheckBoxTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+            case .checkOptionsTVCell:
+                let cell: checkOptionsTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+            case .SliderTVCell:
+                let cell: SliderTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+            case .SortByPriceTVCell:
+                let cell:  SortByPriceTVCell = commonTV.dequeTVCell(indexPath: indexPath)
                 cell.delegate = self
                 commonCell = cell
                 

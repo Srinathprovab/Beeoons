@@ -14,7 +14,6 @@ class AddTravellersVC: BaseTableVC {
     @IBOutlet weak var titlelbl: UILabel!
     
     
-    
     var tableRow = [TableRow]()
     var count = 1
     var keyString = String()
@@ -22,19 +21,20 @@ class AddTravellersVC: BaseTableVC {
     var childCount = 0
     var infantsCount = 0
     var roomCountArray = [Int]()
-    static var newInstance: TravellerEconomyVC? {
-        let storyboard = UIStoryboard(name: Storyboard.Main.name,
+    
+    static var newInstance: AddTravellersVC? {
+        let storyboard = UIStoryboard(name: Storyboard.Flight.name,
                                       bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: self.className()) as? TravellerEconomyVC
+        let vc = storyboard.instantiateViewController(withIdentifier: self.className()) as? AddTravellersVC
         return vc
     }
     
     
     @objc func offline(){
-        guard let vc = NoInternetConnectionVC.newInstance.self else {return}
-        vc.modalPresentationStyle = .fullScreen
-        callapibool = true
-        present(vc, animated: false)
+        //        guard let vc = NoInternetConnectionVC.newInstance.self else {return}
+        //        vc.modalPresentationStyle = .fullScreen
+        //        callapibool = true
+        //        present(vc, animated: false)
     }
     
     
@@ -43,7 +43,7 @@ class AddTravellersVC: BaseTableVC {
         NotificationCenter.default.addObserver(self, selector: #selector(offline), name: NSNotification.Name("offline"), object: nil)
         
         if let selectedTab = defaults.string(forKey: UserDefaultsKeys.tabselect){
-            if selectedTab == "Flight" {
+            if selectedTab == "FLIGHT" {
                 
                 if let journeyType = defaults.string(forKey: UserDefaultsKeys.journeyType) {
                     if journeyType == "oneway" {
@@ -72,13 +72,7 @@ class AddTravellersVC: BaseTableVC {
     }
     
     func setupUI() {
-        self.view.backgroundColor = .black.withAlphaComponent(0.3)
-        holderView.backgroundColor = .black.withAlphaComponent(0.3)
-        nav.backBtn.addTarget(self, action: #selector(gotoBackScreen), for: .touchUpInside)
-        nav.titlelbl.text = "Select Traveller , Economy"
-        
-        
-        
+        titlelbl.text = "Choose a passenger"
         commonTableView.backgroundColor = .WhiteColor
         commonTableView.registerTVCells(["RadioButtonTVCell",
                                          "TravellerEconomyTVCell",
@@ -102,29 +96,29 @@ class AddTravellersVC: BaseTableVC {
         
         if let journeyType = defaults.string(forKey: UserDefaultsKeys.journeyType) {
             if journeyType == "oneway" {
-                tableRow.append(TableRow(title:"Adults",subTitle: "12 Years And Above",text: "\(defaults.string(forKey: UserDefaultsKeys.adultCount) ?? "1")",cellType:.TravellerEconomyTVCell))
-                tableRow.append(TableRow(title:"Children",subTitle: "2 - 12 Years",text: "\(defaults.string(forKey: UserDefaultsKeys.childCount) ?? "0")",cellType:.TravellerEconomyTVCell))
-                tableRow.append(TableRow(title:"Infant",subTitle: "2 Years",text: "\(defaults.string(forKey: UserDefaultsKeys.infantsCount) ?? "0")",cellType:.TravellerEconomyTVCell))
+                tableRow.append(TableRow(title:"Adult",subTitle: "+12 yrs",text: "\(defaults.string(forKey: UserDefaultsKeys.adultCount) ?? "1")",cellType:.TravellerEconomyTVCell))
+                tableRow.append(TableRow(title:"Children",subTitle: "+2-12 yrs",text: "\(defaults.string(forKey: UserDefaultsKeys.childCount) ?? "0")",cellType:.TravellerEconomyTVCell))
+                tableRow.append(TableRow(title:"Infant",subTitle: "Under 2",text: "\(defaults.string(forKey: UserDefaultsKeys.infantsCount) ?? "0")",cellType:.TravellerEconomyTVCell))
             }else if journeyType == "circle" {
-                tableRow.append(TableRow(title:"Adults",subTitle: "12 Years And Above",text: "\(defaults.string(forKey: UserDefaultsKeys.radultCount) ?? "1")",cellType:.TravellerEconomyTVCell))
-                tableRow.append(TableRow(title:"Children",subTitle: "2 - 12 Years",text: "\(defaults.string(forKey: UserDefaultsKeys.rchildCount) ?? "0")",cellType:.TravellerEconomyTVCell))
-                tableRow.append(TableRow(title:"Infant",subTitle: "2 Years",text: "\(defaults.string(forKey: UserDefaultsKeys.rinfantsCount) ?? "0")",cellType:.TravellerEconomyTVCell))
+                tableRow.append(TableRow(title:"Adult",subTitle: "+12 yrs",text: "\(defaults.string(forKey: UserDefaultsKeys.radultCount) ?? "1")",cellType:.TravellerEconomyTVCell))
+                tableRow.append(TableRow(title:"Children",subTitle: "+2-12 yrs",text: "\(defaults.string(forKey: UserDefaultsKeys.rchildCount) ?? "0")",cellType:.TravellerEconomyTVCell))
+                tableRow.append(TableRow(title:"Infant",subTitle: "Under 2",text: "\(defaults.string(forKey: UserDefaultsKeys.rinfantsCount) ?? "0")",cellType:.TravellerEconomyTVCell))
             }else {
-                tableRow.append(TableRow(title:"Adults",subTitle: "12 Years And Above",text: "\(defaults.string(forKey: UserDefaultsKeys.madultCount) ?? "1")",cellType:.TravellerEconomyTVCell))
-                tableRow.append(TableRow(title:"Children",subTitle: "2 - 12 Years",text: "\(defaults.string(forKey: UserDefaultsKeys.mchildCount) ?? "0")",cellType:.TravellerEconomyTVCell))
-                tableRow.append(TableRow(title:"Infant",subTitle: "2 Years",text: "\(defaults.string(forKey: UserDefaultsKeys.minfantsCount) ?? "0")",cellType:.TravellerEconomyTVCell))
+                tableRow.append(TableRow(title:"Adult",subTitle: "+12 yrs",text: "\(defaults.string(forKey: UserDefaultsKeys.madultCount) ?? "1")",cellType:.TravellerEconomyTVCell))
+                tableRow.append(TableRow(title:"Children",subTitle: "+2-12 yrs",text: "\(defaults.string(forKey: UserDefaultsKeys.mchildCount) ?? "0")",cellType:.TravellerEconomyTVCell))
+                tableRow.append(TableRow(title:"Infant",subTitle: "Under 2",text: "\(defaults.string(forKey: UserDefaultsKeys.minfantsCount) ?? "0")",cellType:.TravellerEconomyTVCell))
             }
         }
         
         
         
         
-//        tableRow.append(TableRow(height:20,cellType:.EmptyTVCell))
-//        tableRow.append(TableRow(title:"Select Class",cellType:.TitleLblTVCell))
-//        tableRow.append(TableRow(cellType:.CommonTVCell))
+        //        tableRow.append(TableRow(height:20,cellType:.EmptyTVCell))
+        //        tableRow.append(TableRow(title:"Select Class",cellType:.TitleLblTVCell))
+        //        tableRow.append(TableRow(cellType:.CommonTVCell))
         
-        tableRow.append(TableRow(height:30,cellType:.EmptyTVCell))
-        tableRow.append(TableRow(title:"Done",cellType:.ButtonTVCell))
+        tableRow.append(TableRow(height:100,cellType:.EmptyTVCell))
+        tableRow.append(TableRow(title:"Done",bgColor: .ButtonColor,cellType:.ButtonTVCell))
         tableRow.append(TableRow(height:50,cellType:.EmptyTVCell))
         
         
@@ -137,9 +131,6 @@ class AddTravellersVC: BaseTableVC {
     @objc func gotoBackScreen() {
         self.dismiss(animated: true)
     }
-    
-    
-    
     
     
     
@@ -157,11 +148,11 @@ class AddTravellersVC: BaseTableVC {
                 cell.countlbl.text = "\(cell.count)"
             }
             
-            if cell.titlelbl.text == "Adults" {
+            if cell.titlelbl.text == "Adult" {
                 adultsCount = cell.count
-            }else if cell.titlelbl.text == "Child"{
+            }else if cell.titlelbl.text == "Children"{
                 childCount = cell.count
-            }else if cell.titlelbl.text == "Infants"{
+            }else if cell.titlelbl.text == "Infant"{
                 infantsCount = cell.count
             }
         }
@@ -179,18 +170,18 @@ class AddTravellersVC: BaseTableVC {
         }
         print(cell.count)
         
-        if cell.titlelbl.text == "Adults" {
+        if cell.titlelbl.text == "Adult" {
             if cell.count == 0 {
                 cell.count = 1
             }
             adultsCount = cell.count
-           // deleteRecords(title: "Adult", index: cell.count)
-        }else if cell.titlelbl.text == "Child"{
+            // deleteRecords(title: "Adult", index: cell.count)
+        }else if cell.titlelbl.text == "Children"{
             childCount = cell.count
-           // deleteRecords(title: "Child", index: cell.count)
+            // deleteRecords(title: "Child", index: cell.count)
         }else {
             infantsCount = cell.count
-           // deleteRecords(title: "Infantas", index: cell.count)
+            // deleteRecords(title: "Infantas", index: cell.count)
         }
         
         
@@ -210,29 +201,29 @@ class AddTravellersVC: BaseTableVC {
     
     
     
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if let cell = tableView.cellForRow(at: indexPath) as? RadioButtonTVCell {
-//            cell.radioImg.image = UIImage(named: "radioSelected")?.withRenderingMode(.alwaysOriginal).withTintColor(.AppBackgroundColor)
-//
-//
-//            if let journeyType = defaults.string(forKey: UserDefaultsKeys.journeyType) {
-//                if journeyType == "oneway" {
-//                    defaults.set(cell.titlelbl.text ?? "", forKey: UserDefaultsKeys.selectClass)
-//                }else if journeyType == "circle" {
-//                    defaults.set(cell.titlelbl.text ?? "", forKey: UserDefaultsKeys.rselectClass)
-//                }else {
-//                    defaults.set(cell.titlelbl.text ?? "", forKey: UserDefaultsKeys.mselectClass)
-//                }
-//            }
-//
-//        }
-//    }
+    //    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //        if let cell = tableView.cellForRow(at: indexPath) as? RadioButtonTVCell {
+    //            cell.radioImg.image = UIImage(named: "radioSelected")?.withRenderingMode(.alwaysOriginal).withTintColor(.AppBackgroundColor)
+    //
+    //
+    //            if let journeyType = defaults.string(forKey: UserDefaultsKeys.journeyType) {
+    //                if journeyType == "oneway" {
+    //                    defaults.set(cell.titlelbl.text ?? "", forKey: UserDefaultsKeys.selectClass)
+    //                }else if journeyType == "circle" {
+    //                    defaults.set(cell.titlelbl.text ?? "", forKey: UserDefaultsKeys.rselectClass)
+    //                }else {
+    //                    defaults.set(cell.titlelbl.text ?? "", forKey: UserDefaultsKeys.mselectClass)
+    //                }
+    //            }
+    //
+    //        }
+    //    }
     
-//    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-//        if let cell = tableView.cellForRow(at: indexPath) as? RadioButtonTVCell {
-//            cell.radioImg.image = UIImage(named: "radioUnselected")
-//        }
-//    }
+    //    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    //        if let cell = tableView.cellForRow(at: indexPath) as? RadioButtonTVCell {
+    //            cell.radioImg.image = UIImage(named: "radioUnselected")
+    //        }
+    //    }
     
     func gotoBookFlightVC() {
         
@@ -240,15 +231,15 @@ class AddTravellersVC: BaseTableVC {
             if journeyType == "oneway" {
                 
                 
-                let totaltraverlers = "\(defaults.string(forKey: UserDefaultsKeys.totalTravellerCount) ?? "1") Traveller - \(defaults.string(forKey: UserDefaultsKeys.selectClass) ?? "Economy")"
+                let totaltraverlers = "\(defaults.string(forKey: UserDefaultsKeys.totalTravellerCount) ?? "1") Traveller"
                 defaults.set(totaltraverlers, forKey: UserDefaultsKeys.travellerDetails)
                 
                 
             }else if journeyType == "circle" {
-                let totaltraverlers = "\(defaults.string(forKey: UserDefaultsKeys.totalTravellerCount) ?? "1") Traveller - \(defaults.string(forKey: UserDefaultsKeys.rselectClass) ?? "Economy")"
+                let totaltraverlers = "\(defaults.string(forKey: UserDefaultsKeys.totalTravellerCount) ?? "1") Traveller"
                 defaults.set(totaltraverlers, forKey: UserDefaultsKeys.rtravellerDetails)
             }else{
-                let totaltraverlers = "\(defaults.string(forKey: UserDefaultsKeys.totalTravellerCount) ?? "1") Traveller - \(defaults.string(forKey: UserDefaultsKeys.mselectClass) ?? "Economy")"
+                let totaltraverlers = "\(defaults.string(forKey: UserDefaultsKeys.totalTravellerCount) ?? "1") Traveller"
                 defaults.set(totaltraverlers, forKey: UserDefaultsKeys.mtravellerDetails)
             }
         }
@@ -296,44 +287,51 @@ class AddTravellersVC: BaseTableVC {
     
     
     //MARK: - DELETING COREDATA OBJECT
-//    func deleteRecords(title:String,index:Int) {
-//
-//        print("DELETING COREDATA OBJECT")
-//
-//        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "PassengerDetails")
-//        request.predicate = NSPredicate(format: "title = %@", "\(title)")
-//        request.returnsObjectsAsFaults = false
-//
-//        do {
-//            let objects = try context.fetch(request)
-//
-//            if title == "Adult" {
-//                if objects.count > 0 && objects.count > adultsCount {
-//                    context.delete(objects[index] as! NSManagedObject)
-//                }
-//            }else if title == "Child" {
-//                if objects.count > 0 && objects.count > childCount {
-//                    context.delete(objects[index] as! NSManagedObject)
-//                }
-//            }else {
-//                if objects.count > 0 && objects.count > infantsCount {
-//                    context.delete(objects[index] as! NSManagedObject)
-//                }
-//            }
-//
-//
-//
-//        } catch {
-//            print ("There was an error")
-//        }
-//
-//
-//        do {
-//            try context.save()
-//        } catch {
-//            print ("There was an error")
-//        }
-//    }
+    //    func deleteRecords(title:String,index:Int) {
+    //
+    //        print("DELETING COREDATA OBJECT")
+    //
+    //        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "PassengerDetails")
+    //        request.predicate = NSPredicate(format: "title = %@", "\(title)")
+    //        request.returnsObjectsAsFaults = false
+    //
+    //        do {
+    //            let objects = try context.fetch(request)
+    //
+    //            if title == "Adult" {
+    //                if objects.count > 0 && objects.count > adultsCount {
+    //                    context.delete(objects[index] as! NSManagedObject)
+    //                }
+    //            }else if title == "Child" {
+    //                if objects.count > 0 && objects.count > childCount {
+    //                    context.delete(objects[index] as! NSManagedObject)
+    //                }
+    //            }else {
+    //                if objects.count > 0 && objects.count > infantsCount {
+    //                    context.delete(objects[index] as! NSManagedObject)
+    //                }
+    //            }
+    //
+    //
+    //
+    //        } catch {
+    //            print ("There was an error")
+    //        }
+    //
+    //
+    //        do {
+    //            try context.save()
+    //        } catch {
+    //            print ("There was an error")
+    //        }
+    //    }
+    
+    
+    @IBAction func backBtnAction(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    
+    
 }
 
 

@@ -237,19 +237,21 @@ extension SelectCityVC {
         cell.selectionStyle = .none
         if( isSearchBool == true){
             let dict = cityList[indexPath.row]
-            cell.titlelbl.text = dict.label
+            cell.titlelbl.text = dict.city
             cell.subtitlelbl.text = dict.value ?? ""
+            cell.label = dict.value ?? ""
             cell.id = dict.id ?? ""
             cell.citycode = dict.code ?? ""
-            cell.cityname = "\(dict.city ?? "") (\(dict.code ?? ""))"
+            cell.cityname = "\(dict.city ?? "")"
            
         }else{
             let dict = cityList[indexPath.row]
-            cell.titlelbl.text = dict.label
+            cell.titlelbl.text = dict.city
             cell.subtitlelbl.text = dict.value ?? ""
+            cell.label = dict.value ?? ""
             cell.id = dict.id ?? ""
             cell.citycode = dict.code ?? ""
-            cell.cityname = "\(dict.city ?? "") (\(dict.code ?? ""))"
+            cell.cityname = "\(dict.city ?? "")"
         }
         
         return cell
@@ -269,22 +271,22 @@ extension SelectCityVC {
                     if let selectedJourneyType = defaults.string(forKey: UserDefaultsKeys.journeyType) {
                         if selectedJourneyType == "oneway" {
                             if titleStr == "From Destination" {
-                                defaults.set(cell.titlelbl.text , forKey: UserDefaultsKeys.fromCity)
+                                defaults.set(cell.label , forKey: UserDefaultsKeys.fromCity)
                                 defaults.set(cell.id , forKey: UserDefaultsKeys.fromlocid)
                                 defaults.set(cell.cityname , forKey: UserDefaultsKeys.fromcityname)
                             }else {
-                                defaults.set(cell.titlelbl.text , forKey: UserDefaultsKeys.toCity)
+                                defaults.set(cell.label , forKey: UserDefaultsKeys.toCity)
                                 defaults.set(cell.id , forKey: UserDefaultsKeys.tolocid)
                                 defaults.set(cell.cityname , forKey: UserDefaultsKeys.tocityname)
                                 
                             }
                         }else if selectedJourneyType == "circle" {
                             if titleStr == "From Destination" {
-                                defaults.set(cell.titlelbl.text, forKey: UserDefaultsKeys.rfromCity)
+                                defaults.set(cell.label, forKey: UserDefaultsKeys.rfromCity)
                                 defaults.set(cell.id , forKey: UserDefaultsKeys.rfromlocid)
                                 defaults.set(cell.cityname , forKey: UserDefaultsKeys.rfromcityname)
                             }else {
-                                defaults.set(cell.titlelbl.text, forKey: UserDefaultsKeys.rtoCity)
+                                defaults.set(cell.label, forKey: UserDefaultsKeys.rtoCity)
                                 defaults.set(cell.id , forKey: UserDefaultsKeys.rtolocid)
                                 defaults.set(cell.cityname , forKey: UserDefaultsKeys.rtocityname)
                             }

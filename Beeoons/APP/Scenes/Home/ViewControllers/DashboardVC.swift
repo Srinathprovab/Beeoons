@@ -33,7 +33,6 @@ class DashboardVC: BaseTableVC {
             defaults.set("", forKey: UserDefaultsKeys.rtoCity)
             defaults.set("", forKey: UserDefaultsKeys.calDepDate)
             defaults.set("", forKey: UserDefaultsKeys.rcalDepDate)
-            defaults.set("", forKey: UserDefaultsKeys.rcalRetDate)
             
             defaults.set("Economy", forKey: UserDefaultsKeys.selectClass)
             defaults.set("1", forKey: UserDefaultsKeys.adultCount)
@@ -47,14 +46,14 @@ class DashboardVC: BaseTableVC {
             
             
             defaults.set("1", forKey: UserDefaultsKeys.totalTravellerCount)
-            let totaltraverlers = "\(defaults.string(forKey: UserDefaultsKeys.totalTravellerCount) ?? "1") Traveller - \(defaults.string(forKey: UserDefaultsKeys.selectClass) ?? "Economy")"
+            let totaltraverlers = "\(defaults.string(forKey: UserDefaultsKeys.totalTravellerCount) ?? "1") Traveller"
             defaults.set(totaltraverlers, forKey: UserDefaultsKeys.travellerDetails)
             
-            let totaltraverlers1 = "\(defaults.string(forKey: UserDefaultsKeys.totalTravellerCount) ?? "1") Traveller - \(defaults.string(forKey: UserDefaultsKeys.rselectClass) ?? "Economy")"
+            let totaltraverlers1 = "\(defaults.string(forKey: UserDefaultsKeys.totalTravellerCount) ?? "1") Traveller"
             defaults.set(totaltraverlers1, forKey: UserDefaultsKeys.rtravellerDetails)
             
             
-            let totaltraverlers2 = "\(defaults.string(forKey: UserDefaultsKeys.totalTravellerCount) ?? "1") Traveller - \(defaults.string(forKey: UserDefaultsKeys.mselectClass) ?? "Economy")"
+            let totaltraverlers2 = "\(defaults.string(forKey: UserDefaultsKeys.totalTravellerCount) ?? "1") Traveller"
             defaults.set(totaltraverlers2, forKey: UserDefaultsKeys.mtravellerDetails)
             
             

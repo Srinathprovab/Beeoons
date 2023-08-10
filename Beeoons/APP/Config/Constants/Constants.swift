@@ -32,6 +32,27 @@ var callapibool = false
 var BASE_URL = "https://beeoons.com/pro/web_service/index.php/"
 var BASE_URL1 = "https://beeoons.com/pro/web_service/index.php/"
 
+//Flight Result
+var selectedAccesskey = ""
+var searchid = ""
+var bookingsource = ""
+var selectedResult = ""
+
+
+
+
+//MARK: - FILTERS
+var prices = [String]()
+var noofStopsA = [String]()
+var fareTypeA = [String]()
+var airlinesA = [String]()
+var cancellationsTypeA = [String]()
+var connectingFlightsA = [String]()
+var connectingAirportA = [String]()
+var departureTimeA = [String]()
+var arrivalTimeA = [String]()
+
+
 
 
 /* URL endpoints */
@@ -39,7 +60,8 @@ struct ApiEndpoints {
     
     static let indexpage = "general/index"
     static let get_airport_code_list = "ajax/get_airport_code_list"
-    
+    static let mobilepreflightsearch = "general/mobile_pre_flight_search"
+
     
     
     

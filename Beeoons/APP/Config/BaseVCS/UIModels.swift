@@ -29,6 +29,11 @@ enum TVCellType {
     case BookFlightTVCell
     case TravellerEconomyTVCell
     case ButtonTVCell
+    case FlightResultTVCell
+    case CheckBoxTVCell
+    case checkOptionsTVCell
+    case SliderTVCell
+    case SortByPriceTVCell
     
 }
 
@@ -46,6 +51,7 @@ enum BorderSeq {
     case twosides
     case none
 }
+
 
 
 class TableRow {

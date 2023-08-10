@@ -373,24 +373,6 @@ class ServiceManager {
             encoding: URLEncoding.default,
             headers: nil).validate().responseJSON { resp in
                 
-              
-                print(resp.response?.statusCode as Any)
-                if let data = resp.data { // Assuming `response` is the API response object
-                    do {
-                        if let json = try JSONSerialization.jsonObject(with:  data , options: []) as? [String: Any] {
-
-                            let arrJson = try JSONSerialization.data(withJSONObject: json, options: JSONSerialization.WritingOptions.prettyPrinted)
-                            let theJSONText = NSString(data: arrJson, encoding: String.Encoding.utf8.rawValue)
-                            print(theJSONText ?? "")
-                        }
-                    } catch {
-                        print(error.localizedDescription)
-                    }
-                }
-                
-                
-                
-                
                 
                 
                 
@@ -407,7 +389,28 @@ class ServiceManager {
                             let jsonData = try JSONSerialization.data(withJSONObject: resp.value as Any,options: [])
                             if let jsonResponse = try? JSONDecoder().decode(T.self, from: jsonData) {
                                 
-                            
+                                
+                                
+                                print(resp.response?.statusCode as Any)
+                                if let data = resp.data { // Assuming `response` is the API response object
+                                    do {
+                                        if let json = try JSONSerialization.jsonObject(with:  data , options: []) as? [String: Any] {
+                                            
+                                            let arrJson = try JSONSerialization.data(withJSONObject: json, options: JSONSerialization.WritingOptions.prettyPrinted)
+                                            let theJSONText = NSString(data: arrJson, encoding: String.Encoding.utf8.rawValue)
+                                            print(theJSONText ?? "")
+                                        }
+                                    } catch {
+                                        print(error.localizedDescription)
+                                    }
+                                }
+                                
+                                
+                                
+                                
+                                
+                                
+                                
                                 completionHandler(true, jsonResponse, nil)
                             }else {
                                 NotificationCenter.default.post(name: NSNotification.Name("resultnil"), object: nil)

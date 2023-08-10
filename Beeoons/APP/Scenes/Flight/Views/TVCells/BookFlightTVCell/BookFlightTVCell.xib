@@ -388,12 +388,24 @@
                                                 <color key="textColor" name="WhiteColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y4I-KM-lbD">
+                                                <rect key="frame" x="0.0" y="0.0" width="362" height="50"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="didTapOnSearchFlightBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Xga-el-TWA"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBrownColor"/>
                                         <constraints>
                                             <constraint firstItem="RhU-1S-10Y" firstAttribute="centerX" secondItem="uxz-ud-Hlq" secondAttribute="centerX" id="69n-4q-BLR"/>
+                                            <constraint firstAttribute="bottom" secondItem="y4I-KM-lbD" secondAttribute="bottom" id="IoR-SM-RBG"/>
+                                            <constraint firstAttribute="trailing" secondItem="y4I-KM-lbD" secondAttribute="trailing" id="QIz-av-qwb"/>
                                             <constraint firstAttribute="height" constant="50" id="Qox-Xo-Bul"/>
                                             <constraint firstItem="RhU-1S-10Y" firstAttribute="centerY" secondItem="uxz-ud-Hlq" secondAttribute="centerY" id="dIx-fV-n3y"/>
+                                            <constraint firstItem="y4I-KM-lbD" firstAttribute="top" secondItem="uxz-ud-Hlq" secondAttribute="top" id="kPZ-wb-tLI"/>
+                                            <constraint firstItem="y4I-KM-lbD" firstAttribute="leading" secondItem="uxz-ud-Hlq" secondAttribute="leading" id="w8w-Xw-4lM"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -455,10 +467,15 @@
                 <outlet property="airlineViewHeight" destination="nHr-I7-yZb" id="xbq-0n-eRe"/>
                 <outlet property="arrivalDateView" destination="9GP-46-Rjy" id="Hl4-9u-jn5"/>
                 <outlet property="arrivalDatelbl" destination="COd-ye-wzP" id="yLu-6Z-IvP"/>
+                <outlet property="classView" destination="grF-Oi-qWe" id="aiU-Ve-jwg"/>
                 <outlet property="classlbl" destination="JpT-0q-euz" id="eyI-Yi-qCr"/>
+                <outlet property="depView" destination="HYK-md-7Km" id="yeh-kV-oW4"/>
                 <outlet property="departureDatelbl" destination="ews-mT-rLf" id="KoC-Ng-ola"/>
+                <outlet property="fromView" destination="C2D-aZ-NQN" id="B9G-LQ-I8N"/>
                 <outlet property="fromlbl" destination="DgJ-9R-Ftk" id="98d-h3-VRJ"/>
                 <outlet property="holderView" destination="PdS-O1-yqp" id="4ig-Wi-Zi1"/>
+                <outlet property="retView" destination="9GP-46-Rjy" id="JHo-gB-oAk"/>
+                <outlet property="toView" destination="kt3-xo-2Uh" id="F7q-Lk-EuT"/>
                 <outlet property="tocitylbl" destination="RET-Iq-6S6" id="6WY-0Y-djm"/>
                 <outlet property="travellerlbl" destination="6Ij-NP-Jmj" id="bTa-C5-OHM"/>
             </connections>

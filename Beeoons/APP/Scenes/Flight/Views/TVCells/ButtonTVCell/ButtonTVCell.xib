@@ -51,6 +51,11 @@
                             <constraint firstItem="ebr-kY-7M6" firstAttribute="leading" secondItem="P5c-p7-ve4" secondAttribute="leading" id="fVg-0f-MSg"/>
                             <constraint firstAttribute="bottom" secondItem="ebr-kY-7M6" secondAttribute="bottom" id="i5Y-Ac-YLr"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>

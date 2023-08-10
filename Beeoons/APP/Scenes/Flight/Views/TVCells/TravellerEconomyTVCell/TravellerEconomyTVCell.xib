@@ -126,10 +126,10 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WA7-lC-b5V">
-                                <rect key="frame" x="0.0" y="87" width="451" height="1"/>
+                                <rect key="frame" x="16" y="87" width="422" height="1"/>
                                 <color key="backgroundColor" name="UnderLineColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="5gq-Yp-3cG"/>
+                                    <constraint firstAttribute="height" constant="1" id="hiZ-11-UAF"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -137,12 +137,12 @@
                         <constraints>
                             <constraint firstItem="Yqs-hY-bqC" firstAttribute="leading" secondItem="AoI-Uj-Csl" secondAttribute="leading" constant="16" id="0fy-1h-dud"/>
                             <constraint firstAttribute="height" constant="88" id="AzC-LD-lgg"/>
-                            <constraint firstItem="WA7-lC-b5V" firstAttribute="leading" secondItem="AoI-Uj-Csl" secondAttribute="leading" id="JoL-1y-TOy"/>
+                            <constraint firstAttribute="bottom" secondItem="WA7-lC-b5V" secondAttribute="bottom" id="L4m-rF-9fL"/>
                             <constraint firstItem="Yqs-hY-bqC" firstAttribute="top" secondItem="AoI-Uj-Csl" secondAttribute="top" constant="18" id="Rej-0V-tHO"/>
                             <constraint firstItem="5oy-py-TLR" firstAttribute="centerY" secondItem="Yqs-hY-bqC" secondAttribute="centerY" id="S6l-La-SjA"/>
-                            <constraint firstAttribute="bottom" secondItem="WA7-lC-b5V" secondAttribute="bottom" id="YNd-Oe-LE5"/>
-                            <constraint firstAttribute="trailing" secondItem="WA7-lC-b5V" secondAttribute="trailing" id="ioG-2O-lC0"/>
+                            <constraint firstItem="WA7-lC-b5V" firstAttribute="trailing" secondItem="5oy-py-TLR" secondAttribute="trailing" id="lJD-kb-43J"/>
                             <constraint firstAttribute="trailing" secondItem="5oy-py-TLR" secondAttribute="trailing" constant="13" id="p6Y-pI-NYK"/>
+                            <constraint firstItem="WA7-lC-b5V" firstAttribute="leading" secondItem="Yqs-hY-bqC" secondAttribute="leading" id="ugI-HF-y4K"/>
                         </constraints>
                     </view>
                 </subviews>

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DropDown
 
 protocol BookFlightTVCellDelegate {
     func didTapOnFromCityBtnAction(cell:BookFlightTVCell)
@@ -15,6 +16,7 @@ protocol BookFlightTVCellDelegate {
     func didTapOnSelectTravellersBtnAction(cell:BookFlightTVCell)
     func didTapOnSelectClassBtnAction(cell:BookFlightTVCell)
     func didTapOnAddAirlineButtonAction(cell:BookFlightTVCell)
+    func didTapOnSearchFlightBtnAction(cell:BookFlightTVCell)
 
 }
 
@@ -31,8 +33,13 @@ class BookFlightTVCell: TableViewCell {
     @IBOutlet weak var airlineViewHeight: NSLayoutConstraint!
     @IBOutlet weak var addairlinelbl: UILabel!
     @IBOutlet weak var arrivalDateView: UIView!
+    @IBOutlet weak var classView: UIView!
+    @IBOutlet weak var fromView: UIView!
+    @IBOutlet weak var toView: UIView!
+    @IBOutlet weak var depView: UIView!
+    @IBOutlet weak var retView: UIView!
     
-    
+    let dropDown = DropDown()
     var tapairlinebool = true
     var delegate:BookFlightTVCellDelegate?
     override func awakeFromNib() {
@@ -73,6 +80,10 @@ class BookFlightTVCell: TableViewCell {
                 }
             }
             
+            self.travellerlbl.text = "\(defaults.string(forKey: UserDefaultsKeys.travellerDetails) ?? "Traveller(s)")"
+            self.classlbl.text = "\(defaults.string(forKey: UserDefaultsKeys.selectClass) ?? "Class")"
+
+            
         }else {
             arrivalDateView.isHidden = false
             
@@ -107,7 +118,10 @@ class BookFlightTVCell: TableViewCell {
             }
             
             
-            
+            self.travellerlbl.text = "\(defaults.string(forKey: UserDefaultsKeys.rtravellerDetails) ?? "Traveller(s)")"
+            self.classlbl.text = "\(defaults.string(forKey: UserDefaultsKeys.rselectClass) ?? "Class")"
+
+
         }
         
         
@@ -120,8 +134,32 @@ class BookFlightTVCell: TableViewCell {
         holderView.layer.borderColor = UIColor.WhiteColor.cgColor
         airlineViewHeight.constant = 40
         addairlineView.isHidden = true
+        setupDropDown()
     }
     
+    
+    
+    func setupDropDown() {
+        
+        dropDown.dataSource = ["Economy","PremimumEconomy","Business","First"]
+        dropDown.textFont = .OswaldLight(size: 16)
+        dropDown.direction = .bottom
+        dropDown.backgroundColor = .WhiteColor
+        dropDown.anchorView = self.classView
+        dropDown.bottomOffset = CGPoint(x: 0, y: classView.frame.size.height + 10)
+        dropDown.selectionAction = { [weak self] (index: Int, item: String) in
+            
+            let jt = defaults.string(forKey: UserDefaultsKeys.journeyType)
+            if jt == "oneway" {
+                self?.classlbl.text = item
+                defaults.set(self?.classlbl.text, forKey: UserDefaultsKeys.selectClass)
+            }else {
+                self?.classlbl.text = item
+                defaults.set(self?.classlbl.text, forKey: UserDefaultsKeys.rselectClass)
+            }
+            
+        }
+    }
     
     
     
@@ -147,7 +185,8 @@ class BookFlightTVCell: TableViewCell {
     }
     
     @IBAction func didTapOnSelectClassBtnAction(_ sender: Any) {
-        delegate?.didTapOnSelectClassBtnAction(cell: self)
+        //delegate?.didTapOnSelectClassBtnAction(cell: self)
+        dropDown.show()
     }
     
     
@@ -164,6 +203,12 @@ class BookFlightTVCell: TableViewCell {
             tapairlinebool = true
         }
         delegate?.didTapOnAddAirlineButtonAction(cell: self)
+    }
+    
+    
+    
+    @IBAction func didTapOnSearchFlightBtnAction(_ sender: Any) {
+        delegate?.didTapOnSearchFlightBtnAction(cell: self)
     }
     
     
