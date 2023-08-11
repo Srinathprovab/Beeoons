@@ -17,7 +17,7 @@ protocol BookFlightTVCellDelegate {
     func didTapOnSelectClassBtnAction(cell:BookFlightTVCell)
     func didTapOnAddAirlineButtonAction(cell:BookFlightTVCell)
     func didTapOnSearchFlightBtnAction(cell:BookFlightTVCell)
-
+    func didTapOnAirLineDropDownBtn(cell:BookFlightTVCell)
 }
 
 class BookFlightTVCell: TableViewCell {
@@ -38,8 +38,17 @@ class BookFlightTVCell: TableViewCell {
     @IBOutlet weak var toView: UIView!
     @IBOutlet weak var depView: UIView!
     @IBOutlet weak var retView: UIView!
+    @IBOutlet weak var airlinelbl: UILabel!
     
+    var cname = String()
+    var countryCode = String()
+    var countryNames = [String]()
+    var countrycodesArray = [String]()
+    var originArray = [String]()
+    var isocountrycodeArray = [String]()
+    var filterdcountrylist = [Country_list]()
     let dropDown = DropDown()
+    let airlinedropDown = DropDown()
     var tapairlinebool = true
     var delegate:BookFlightTVCellDelegate?
     override func awakeFromNib() {
@@ -56,6 +65,9 @@ class BookFlightTVCell: TableViewCell {
     
     
     override func updateUI() {
+        filterdcountrylist = countrylist
+        loadCountryNamesAndCode()
+        
         let jt = defaults.string(forKey: UserDefaultsKeys.journeyType)
         if jt == "oneway" {
             arrivalDateView.isHidden = true
@@ -82,7 +94,7 @@ class BookFlightTVCell: TableViewCell {
             
             self.travellerlbl.text = "\(defaults.string(forKey: UserDefaultsKeys.travellerDetails) ?? "Traveller(s)")"
             self.classlbl.text = "\(defaults.string(forKey: UserDefaultsKeys.selectClass) ?? "Class")"
-
+            
             
         }else {
             arrivalDateView.isHidden = false
@@ -98,7 +110,7 @@ class BookFlightTVCell: TableViewCell {
             }
             
             
-           
+            
             
             if let datestr1 = defaults.string(forKey: UserDefaultsKeys.rcalDepDate), let datestr2 = defaults.string(forKey: UserDefaultsKeys.rcalRetDate){
                 if datestr1.isEmpty == true {
@@ -120,12 +132,30 @@ class BookFlightTVCell: TableViewCell {
             
             self.travellerlbl.text = "\(defaults.string(forKey: UserDefaultsKeys.rtravellerDetails) ?? "Traveller(s)")"
             self.classlbl.text = "\(defaults.string(forKey: UserDefaultsKeys.rselectClass) ?? "Class")"
-
-
+            
+            
         }
         
         
         
+    }
+    
+    func loadCountryNamesAndCode(){
+        countryNames.removeAll()
+        countrycodesArray.removeAll()
+        isocountrycodeArray.removeAll()
+        originArray.removeAll()
+        
+        filterdcountrylist.forEach { i in
+            countryNames.append(i.name ?? "")
+            countrycodesArray.append(i.country_code ?? "")
+            isocountrycodeArray.append(i.iso_country_code ?? "")
+            originArray.append(i.origin ?? "")
+        }
+        
+        DispatchQueue.main.async {[self] in
+            airlinedropDown.dataSource = countryNames
+        }
     }
     
     
@@ -135,6 +165,7 @@ class BookFlightTVCell: TableViewCell {
         airlineViewHeight.constant = 40
         addairlineView.isHidden = true
         setupDropDown()
+        setupAirlineDropDown()
     }
     
     
@@ -157,6 +188,22 @@ class BookFlightTVCell: TableViewCell {
                 self?.classlbl.text = item
                 defaults.set(self?.classlbl.text, forKey: UserDefaultsKeys.rselectClass)
             }
+            
+        }
+    }
+    
+    
+    
+    func setupAirlineDropDown() {
+        
+        airlinedropDown.direction = .bottom
+        airlinedropDown.backgroundColor = .WhiteColor
+        airlinedropDown.anchorView = self.addairlineView
+        airlinedropDown.bottomOffset = CGPoint(x: 0, y: self.addairlineView.frame.size.height + 10)
+        airlinedropDown.selectionAction = { [weak self] (index: Int, item: String) in
+            
+            self?.airlinelbl.text = self?.countryNames[index] ?? ""
+            self?.delegate?.didTapOnAirLineDropDownBtn(cell: self!)
             
         }
     }
@@ -209,6 +256,12 @@ class BookFlightTVCell: TableViewCell {
     
     @IBAction func didTapOnSearchFlightBtnAction(_ sender: Any) {
         delegate?.didTapOnSearchFlightBtnAction(cell: self)
+    }
+    
+    
+    
+    @IBAction func didTapOnAirLineDropDownBtn(_ sender: Any) {
+        airlinedropDown.show()
     }
     
     

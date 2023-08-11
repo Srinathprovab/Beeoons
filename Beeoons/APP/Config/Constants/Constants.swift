@@ -29,15 +29,20 @@ let screenHeight = UIScreen.main.bounds.size.height
 //var data : Data?
 var loderBool = false
 var callapibool = false
+var menubool = false
+var mobilenoMaxLengthBool = false
+
 var BASE_URL = "https://beeoons.com/pro/web_service/index.php/"
 var BASE_URL1 = "https://beeoons.com/pro/web_service/index.php/"
+
+var countrylist = [Country_list]()
 
 //Flight Result
 var selectedAccesskey = ""
 var searchid = ""
 var bookingsource = ""
 var selectedResult = ""
-
+var fd = [[FlightDetails]]()
 
 
 
@@ -61,7 +66,13 @@ struct ApiEndpoints {
     static let indexpage = "general/index"
     static let get_airport_code_list = "ajax/get_airport_code_list"
     static let mobilepreflightsearch = "general/mobile_pre_flight_search"
+    static let getFlightDetails = "flight/getFlightDetails"
+    static let mobile_register_on_light_box = "auth/mobile_register_on_light_box"
+    static let countrylist = "flight/country_list"
+    static let authmobile_login = "auth/mobile_login"
+    static let authajax_logout = "auth/ajax_logout"
 
+    
     
     
     

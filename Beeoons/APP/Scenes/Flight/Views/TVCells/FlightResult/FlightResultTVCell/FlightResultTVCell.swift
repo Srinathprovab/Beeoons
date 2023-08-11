@@ -23,7 +23,7 @@ class FlightResultTVCell: TableViewCell {
     @IBOutlet weak var flightinfoTV: UITableView!
     @IBOutlet weak var tvHeight: NSLayoutConstraint!
     
-    var selectedResult = String()
+    var accesskey = String()
     var fdetails = [Summary]()
     var delegate:FlightResultTVCellDelegate?
     override func awakeFromNib() {
@@ -41,8 +41,7 @@ class FlightResultTVCell: TableViewCell {
     
     
     override func updateUI() {
-        selectedResult = cellInfo?.title ?? ""
-        selectedAccesskey = cellInfo?.title ?? ""
+        accesskey = cellInfo?.title ?? ""
         pricelbl.text = cellInfo?.kwdprice ?? ""
         refundablelbl.text = cellInfo?.refundable ?? ""
         fdetails = cellInfo?.moreData as? [Summary] ?? []

@@ -34,6 +34,10 @@ enum TVCellType {
     case checkOptionsTVCell
     case SliderTVCell
     case SortByPriceTVCell
+    case AddItineraryTVCell
+    case MenuBGTVCell
+    case MenuOptionTVCell
+    case RegisterUserTVCell
     
 }
 

@@ -18,6 +18,7 @@ class BookFlightVC: BaseTableVC {
     @IBOutlet weak var multicitylbl: UILabel!
     
     
+    var selectedAirlineName = String()
     var payload = [String:Any]()
     var tablerow = [TableRow]()
     static var newInstance: BookFlightVC? {
@@ -205,6 +206,11 @@ class BookFlightVC: BaseTableVC {
     }
     
     
+    //MARK: - didTapOnAirLineDropDownBtn
+    override func didTapOnAirLineDropDownBtn(cell:BookFlightTVCell){
+        selectedAirlineName = cell.airlinelbl.text ?? ""
+    }
+    
     //MARK: - didTapOnAddAirlineButtonAction
     override func didTapOnSearchFlightBtnAction(cell:BookFlightTVCell) {
         
@@ -230,7 +236,7 @@ class BookFlightVC: BaseTableVC {
                 payload["depature"] = defaults.string(forKey: UserDefaultsKeys.calDepDate)
                 payload["return"] = ""
                 payload["carrier"] = ""
-                payload["psscarrier"] = "ALL"
+                payload["psscarrier"] = ""
                 payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass) ?? "Economy"
                 payload["search_flight"] = "Search"
                 payload["search_source"] = "search"
@@ -272,7 +278,7 @@ class BookFlightVC: BaseTableVC {
                 payload["depature"] = defaults.string(forKey: UserDefaultsKeys.rcalDepDate)
                 payload["return"] = defaults.string(forKey: UserDefaultsKeys.rcalRetDate)
                 payload["carrier"] = ""
-                payload["psscarrier"] = "ALL"
+                payload["psscarrier"] = ""
                 payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass) ?? "Economy"
                 payload["search_flight"] = "Search"
                 payload["search_source"] = "search"

@@ -9,7 +9,7 @@ import Foundation
 
 
 protocol FlightDetailsViewModelDelegate : BaseViewModelProtocol {
-    func flightDetails(response : OnewayModel)
+    func flightDetails(response : FlightDetailsModel)
 }
 
 class FlightDetailsViewModel {
@@ -20,13 +20,13 @@ class FlightDetailsViewModel {
     }
     
     
-    func CALL_GET_FLIGHT_LIST_API(dictParam: [String: Any]){
+    func CALL_GET_FLIGHT_DETAILS_API(dictParam: [String: Any]){
         let parms = NSDictionary(dictionary:dictParam)
         print("Parameters = \(parms)")
         
         self.view?.showLoader()
         
-        ServiceManager.postOrPutApiCall(endPoint: ApiEndpoints.mobilepreflightsearch,urlParams: parms as? Dictionary<String, String> , parameters: parms, resultType: OnewayModel.self, p:dictParam) { sucess, result, errorMessage in
+        ServiceManager.postOrPutApiCall(endPoint: ApiEndpoints.getFlightDetails , parameters: parms, resultType: FlightDetailsModel.self, p:dictParam) { sucess, result, errorMessage in
             
             DispatchQueue.main.async {
                 self.view?.hideLoader()

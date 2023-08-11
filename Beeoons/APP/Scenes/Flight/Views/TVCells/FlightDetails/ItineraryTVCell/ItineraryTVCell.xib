@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Oswald-Light.ttf">
+            <string>Oswald-Light</string>
+        </array>
+        <array key="Oswald-Regular.ttf">
+            <string>Oswald-Regular</string>
+        </array>
+        <array key="Oswald-SemiBold.ttf">
+            <string>Oswald-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="171" id="KGk-i7-Jjw" customClass="ItineraryTVCell" customModule="Beeoons" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="501" height="171"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="501" height="171"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qcz-yL-YLC">
+                        <rect key="frame" x="0.0" y="0.0" width="501" height="171"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vOx-Cf-lz6">
+                                <rect key="frame" x="10" y="10" width="44" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="Dhs-zO-woh"/>
+                                    <constraint firstAttribute="height" constant="33" id="Njc-Mr-LZT"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="No7-c6-X6i">
+                                <rect key="frame" x="64" y="14.333333333333334" width="31" height="24.333333333333329"/>
+                                <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VME-mw-fBN">
+                                <rect key="frame" x="105" y="16" width="25.333333333333343" height="21"/>
+                                <fontDescription key="fontDescription" name="Oswald-Light" family="Oswald" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="beH-az-xef">
+                                <rect key="frame" x="10" y="48.666666666666664" width="481" height="86.333333333333343"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line" translatesAutoresizingMaskIntoConstraints="NO" id="kUV-4P-JH8">
+                                        <rect key="frame" x="183.66666666666666" y="37.333333333333336" width="113.99999999999997" height="12"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="114" id="Gos-ll-y5b"/>
+                                            <constraint firstAttribute="height" constant="12" id="yTv-Kb-jVz"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSy-gy-3gq">
+                                        <rect key="frame" x="228" y="13.333333333333336" width="25.333333333333343" height="21"/>
+                                        <fontDescription key="fontDescription" name="Oswald-Light" family="Oswald" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVk-tt-8Wl">
+                                        <rect key="frame" x="228" y="52.333333333333336" width="25.333333333333343" height="21.000000000000007"/>
+                                        <fontDescription key="fontDescription" name="Oswald-Light" family="Oswald" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="hMF-Do-cQn">
+                                        <rect key="frame" x="5" y="8.3333333333333357" width="173.66666666666666" height="70"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9db-hb-h2l">
+                                                <rect key="frame" x="0.0" y="0.0" width="173.66666666666666" height="24"/>
+                                                <fontDescription key="fontDescription" name="Oswald-SemiBold" family="Oswald" pointSize="16"/>
+                                                <color key="textColor" name="PriceBoxColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SPP-Md-6O9">
+                                                <rect key="frame" x="0.0" y="26" width="173.66666666666666" height="21"/>
+                                                <fontDescription key="fontDescription" name="Oswald-Light" family="Oswald" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGX-7t-2UR">
+                                                <rect key="frame" x="0.0" y="49" width="173.66666666666666" height="21"/>
+                                                <fontDescription key="fontDescription" name="Oswald-Light" family="Oswald" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Vr3-AN-b7z">
+                                        <rect key="frame" x="302.66666666666669" y="8.3333333333333357" width="173.33333333333331" height="70"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeQ-CO-fjq">
+                                                <rect key="frame" x="0.0" y="0.0" width="173.33333333333334" height="24"/>
+                                                <fontDescription key="fontDescription" name="Oswald-SemiBold" family="Oswald" pointSize="16"/>
+                                                <color key="textColor" name="PriceBoxColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BDK-HW-4q8">
+                                                <rect key="frame" x="0.0" y="26" width="173.33333333333334" height="21"/>
+                                                <fontDescription key="fontDescription" name="Oswald-Light" family="Oswald" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2M0-a7-l3G">
+                                                <rect key="frame" x="0.0" y="49" width="173.33333333333334" height="21"/>
+                                                <fontDescription key="fontDescription" name="Oswald-Light" family="Oswald" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="kUV-4P-JH8" firstAttribute="top" secondItem="nSy-gy-3gq" secondAttribute="bottom" constant="3" id="0la-EF-qwE"/>
+                                    <constraint firstItem="hMF-Do-cQn" firstAttribute="centerY" secondItem="kUV-4P-JH8" secondAttribute="centerY" id="7KV-dK-bSL"/>
+                                    <constraint firstItem="kUV-4P-JH8" firstAttribute="centerY" secondItem="beH-az-xef" secondAttribute="centerY" id="Ap3-Ac-PEP"/>
+                                    <constraint firstItem="Vr3-AN-b7z" firstAttribute="centerY" secondItem="kUV-4P-JH8" secondAttribute="centerY" id="BA4-kc-xae"/>
+                                    <constraint firstItem="hMF-Do-cQn" firstAttribute="leading" secondItem="beH-az-xef" secondAttribute="leading" constant="5" id="HMy-0J-eC5"/>
+                                    <constraint firstAttribute="height" constant="86.329999999999998" id="IGC-4p-ZaV"/>
+                                    <constraint firstItem="hVk-tt-8Wl" firstAttribute="top" secondItem="kUV-4P-JH8" secondAttribute="bottom" constant="3" id="Nju-l3-erY"/>
+                                    <constraint firstItem="kUV-4P-JH8" firstAttribute="centerX" secondItem="beH-az-xef" secondAttribute="centerX" id="WG2-Vf-Lz1"/>
+                                    <constraint firstItem="nSy-gy-3gq" firstAttribute="centerX" secondItem="kUV-4P-JH8" secondAttribute="centerX" id="Xci-tI-XZa"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vr3-AN-b7z" secondAttribute="trailing" constant="5" id="YEq-Kq-Fgv"/>
+                                    <constraint firstItem="Vr3-AN-b7z" firstAttribute="leading" secondItem="kUV-4P-JH8" secondAttribute="trailing" constant="5" id="Yhi-OT-Y3G"/>
+                                    <constraint firstItem="hVk-tt-8Wl" firstAttribute="centerX" secondItem="kUV-4P-JH8" secondAttribute="centerX" id="k6m-1B-Sjt"/>
+                                    <constraint firstItem="kUV-4P-JH8" firstAttribute="leading" secondItem="hMF-Do-cQn" secondAttribute="trailing" constant="5" id="p8R-sH-l6U"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Pc-Cg-InY">
+                                <rect key="frame" x="15" y="144" width="471" height="25"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3B-cb-gGX">
+                                        <rect key="frame" x="220" y="0.66666666666665719" width="31" height="24"/>
+                                        <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="PriceBoxColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="5k9-fe-p5x"/>
+                                    <constraint firstItem="Y3B-cb-gGX" firstAttribute="centerY" secondItem="4Pc-Cg-InY" secondAttribute="centerY" id="JtB-6J-EQs"/>
+                                    <constraint firstItem="Y3B-cb-gGX" firstAttribute="centerX" secondItem="4Pc-Cg-InY" secondAttribute="centerX" id="z7n-9i-dnp"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4Pc-Cg-InY" firstAttribute="leading" secondItem="qGX-7t-2UR" secondAttribute="leading" id="18M-Ig-8f6"/>
+                            <constraint firstItem="vOx-Cf-lz6" firstAttribute="leading" secondItem="qcz-yL-YLC" secondAttribute="leading" constant="10" id="4lg-M4-chS"/>
+                            <constraint firstAttribute="trailing" secondItem="beH-az-xef" secondAttribute="trailing" constant="10" id="8Dr-e0-7Oe"/>
+                            <constraint firstItem="beH-az-xef" firstAttribute="top" secondItem="No7-c6-X6i" secondAttribute="bottom" constant="10" id="9KE-HI-KC3"/>
+                            <constraint firstAttribute="bottom" secondItem="beH-az-xef" secondAttribute="bottom" constant="36" id="9MB-kJ-N0u"/>
+                            <constraint firstItem="4Pc-Cg-InY" firstAttribute="trailing" secondItem="2M0-a7-l3G" secondAttribute="trailing" id="Iwv-Cv-a7J"/>
+                            <constraint firstItem="vOx-Cf-lz6" firstAttribute="top" secondItem="qcz-yL-YLC" secondAttribute="top" constant="10" id="KXm-gg-rog"/>
+                            <constraint firstItem="VME-mw-fBN" firstAttribute="centerY" secondItem="vOx-Cf-lz6" secondAttribute="centerY" id="M2y-wf-dDh"/>
+                            <constraint firstItem="VME-mw-fBN" firstAttribute="leading" secondItem="No7-c6-X6i" secondAttribute="trailing" constant="10" id="OrD-hI-5JH"/>
+                            <constraint firstAttribute="bottom" secondItem="4Pc-Cg-InY" secondAttribute="bottom" constant="2" id="cFS-Ub-r5G"/>
+                            <constraint firstItem="beH-az-xef" firstAttribute="leading" secondItem="qcz-yL-YLC" secondAttribute="leading" constant="10" id="jcO-iI-05C"/>
+                            <constraint firstItem="No7-c6-X6i" firstAttribute="leading" secondItem="vOx-Cf-lz6" secondAttribute="trailing" constant="10" id="xJx-gK-hq6"/>
+                            <constraint firstItem="No7-c6-X6i" firstAttribute="centerY" secondItem="vOx-Cf-lz6" secondAttribute="centerY" id="zMK-7w-Cod"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="qcz-yL-YLC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="7fh-HM-UK2"/>
+                    <constraint firstItem="qcz-yL-YLC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="TBm-9g-aZb"/>
+                    <constraint firstAttribute="trailing" secondItem="qcz-yL-YLC" secondAttribute="trailing" id="lgI-Y6-wr1"/>
+                    <constraint firstAttribute="bottom" secondItem="qcz-yL-YLC" secondAttribute="bottom" id="zQa-l6-DqK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="bottomView" destination="4Pc-Cg-InY" id="gjs-dc-dlO"/>
+                <outlet property="cityscodelbl" destination="VME-mw-fBN" id="PJl-9x-TSl"/>
+                <outlet property="flightnolbl" destination="No7-c6-X6i" id="qYQ-Fw-QbF"/>
+                <outlet property="fromCitylbl" destination="qGX-7t-2UR" id="QIU-bZ-aw4"/>
+                <outlet property="fromDatelbl" destination="SPP-Md-6O9" id="WWc-dT-H7a"/>
+                <outlet property="fromcitytimelbl" destination="9db-hb-h2l" id="quv-i6-Aam"/>
+                <outlet property="hourslbl" destination="nSy-gy-3gq" id="FYt-Ni-bm0"/>
+                <outlet property="layoverCitylbl" destination="Y3B-cb-gGX" id="9KE-I4-3jE"/>
+                <outlet property="operatorImg" destination="vOx-Cf-lz6" id="YLA-T7-xqp"/>
+                <outlet property="stopslbl" destination="hVk-tt-8Wl" id="1cA-wk-nRG"/>
+                <outlet property="toCitylbl" destination="2M0-a7-l3G" id="gFL-dH-c2G"/>
+                <outlet property="toDatelbl" destination="BDK-HW-4q8" id="BnU-ac-K5n"/>
+                <outlet property="tocitytimelbl" destination="DeQ-CO-fjq" id="8C9-Os-O98"/>
+            </connections>
+            <point key="canvasLocation" x="81.679389312977094" y="105.98591549295776"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="line" width="111" height="12"/>
+        <namedColor name="PriceBoxColor">
+            <color red="0.17299999296665192" green="0.41600000858306885" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -7,8 +7,7 @@
 
 import UIKit
 
-class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVCellDelegate, FlightDealsTVCellDelegate, BookFlightTVCellDelegate, TravellerEconomyTVCellDelegate, ButtonTVCellDelegate, FlightResultTVCellDelegate, CheckBoxTVCellDelegate, checkOptionsTVCellDelegate, SliderTVCellDelegate, SortByPriceTVCellDelegate {
-    
+class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVCellDelegate, FlightDealsTVCellDelegate, BookFlightTVCellDelegate, TravellerEconomyTVCellDelegate, ButtonTVCellDelegate, FlightResultTVCellDelegate, CheckBoxTVCellDelegate, checkOptionsTVCellDelegate, SliderTVCellDelegate, SortByPriceTVCellDelegate, MenuOptionTVCellDelegate, MenuBGTVCellDelegate, RegisterUserTVCellDelegate {
     
     
     
@@ -111,7 +110,8 @@ class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVC
     func didTapOnIncrementButton(cell: TravellerEconomyTVCell) {}
     func didTapOnSearchFlightBtnAction(cell:BookFlightTVCell) {}
     func didTapOnFlightDetails(cell:FlightResultTVCell){}
-    
+    func didTapOnAirLineDropDownBtn(cell:BookFlightTVCell){}
+
     func didTapOnCheckBoxDropDownBtn(cell: CheckBoxTVCell) {}
     func didTapOnShowMoreBtn(cell: CheckBoxTVCell) {}
     func didTapOnCheckBox(cell: checkOptionsTVCell) {}
@@ -120,6 +120,13 @@ class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVC
     func didTapOnShowSliderBtn(cell: SliderTVCell) {}
     func didTapOnLowToHeighBtnAction(cell: SortByPriceTVCell) {}
     func didTapOnHeighToLowBtnAction(cell: SortByPriceTVCell) {}
+    
+    func didTapOnMenuOtptionBtnAction(cell: MenuOptionTVCell) {}
+    func didTapOnLoginBtnAction(cell:MenuBGTVCell){}
+    func editingText(tf: UITextField) {}
+    func didTapOnRegisterBtnAction(cell: RegisterUserTVCell) {}
+    func didTapOnLoginBtnAction(cell: RegisterUserTVCell) {}
+    func didTapOnCountryCodeBtnAction(cell: RegisterUserTVCell) {}
     
     
     
@@ -273,6 +280,38 @@ extension BaseTableVC: UITableViewDataSource {
                 let cell:  SortByPriceTVCell = commonTV.dequeTVCell(indexPath: indexPath)
                 cell.delegate = self
                 commonCell = cell
+                
+                
+            case .AddItineraryTVCell:
+                let cell:  AddItineraryTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
+                
+                
+                
+            case .MenuBGTVCell:
+                let cell:  MenuBGTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+            case .MenuOptionTVCell:
+                let cell:  MenuOptionTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+            case .RegisterUserTVCell:
+                let cell:  RegisterUserTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+                
+                
+                
+                
+                
+                
                 
                 
             default:

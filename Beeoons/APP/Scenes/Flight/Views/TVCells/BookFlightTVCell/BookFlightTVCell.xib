@@ -339,15 +339,27 @@
                                                             <constraint firstAttribute="height" constant="24" id="vOG-29-6Xg"/>
                                                         </constraints>
                                                     </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2jg-Bn-Sc6">
+                                                        <rect key="frame" x="0.0" y="0.0" width="160" height="50"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <action selector="didTapOnAirLineDropDownBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="FRE-MI-3D5"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
+                                                    <constraint firstItem="2jg-Bn-Sc6" firstAttribute="top" secondItem="Def-IY-cCd" secondAttribute="top" id="0n4-G3-lOn"/>
                                                     <constraint firstAttribute="trailing" secondItem="Ogm-nB-iD1" secondAttribute="trailing" constant="13" id="B7l-aO-XfV"/>
                                                     <constraint firstItem="e3q-xF-JRV" firstAttribute="leading" secondItem="Def-IY-cCd" secondAttribute="leading" constant="25" id="NQ1-eE-pHl"/>
                                                     <constraint firstItem="e3q-xF-JRV" firstAttribute="centerY" secondItem="Def-IY-cCd" secondAttribute="centerY" id="SsX-ot-c1e"/>
                                                     <constraint firstAttribute="width" constant="160" id="Ta5-4N-SLe"/>
                                                     <constraint firstItem="Ogm-nB-iD1" firstAttribute="centerY" secondItem="Def-IY-cCd" secondAttribute="centerY" id="Ued-ZJ-5Vt"/>
                                                     <constraint firstAttribute="height" constant="50" id="X2l-zb-dBv"/>
+                                                    <constraint firstAttribute="bottom" secondItem="2jg-Bn-Sc6" secondAttribute="bottom" id="a8i-XI-0hc"/>
+                                                    <constraint firstItem="2jg-Bn-Sc6" firstAttribute="leading" secondItem="Def-IY-cCd" secondAttribute="leading" id="h9i-0D-l7d"/>
+                                                    <constraint firstAttribute="trailing" secondItem="2jg-Bn-Sc6" secondAttribute="trailing" id="lwS-wl-FAh"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -465,6 +477,7 @@
                 <outlet property="addairlineView" destination="Def-IY-cCd" id="Gwf-Iz-ya3"/>
                 <outlet property="addairlinelbl" destination="SqJ-Ga-sZc" id="PoI-qg-4Ji"/>
                 <outlet property="airlineViewHeight" destination="nHr-I7-yZb" id="xbq-0n-eRe"/>
+                <outlet property="airlinelbl" destination="e3q-xF-JRV" id="Zv9-U0-goc"/>
                 <outlet property="arrivalDateView" destination="9GP-46-Rjy" id="Hl4-9u-jn5"/>
                 <outlet property="arrivalDatelbl" destination="COd-ye-wzP" id="yLu-6Z-IvP"/>
                 <outlet property="classView" destination="grF-Oi-qWe" id="aiU-Ve-jwg"/>

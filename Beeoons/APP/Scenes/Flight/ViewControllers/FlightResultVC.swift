@@ -78,7 +78,7 @@ class FlightResultVC: BaseTableVC {
     
     //MARK: - didTapOnFlightDetails
     override func didTapOnFlightDetails(cell:FlightResultTVCell){
-        selectedResult = cell.selectedResult
+        selectedAccesskey = cell.accesskey
         goToFlightInfoVC()
     }
     
@@ -106,7 +106,7 @@ class FlightResultVC: BaseTableVC {
     
     //MARK: - didTapOnEditFlightSearchBtnAction
     @IBAction func didTapOnEditFlightSearchBtnAction(_ sender: Any) {
-        gotoModifySearchVC()
+       // gotoModifySearchVC()
     }
     
     
@@ -116,7 +116,7 @@ class FlightResultVC: BaseTableVC {
         vc.modalPresentationStyle = .overCurrentContext
         vc.delegate = self
         vc.filterTapKey = "sort"
-        self.present(vc, animated: false)
+       // self.present(vc, animated: false)
     }
     
     
@@ -134,7 +134,7 @@ extension FlightResultVC:OnewayViewModelDelegate {
         loderBool = false
         
         searchid = "\(response.data?.search_id ?? 0)"
-        bookingsource = "\(response.data?.booking_source ?? "")"
+        bookingsource = "\(response.data?.booking_source_key ?? "")"
         oneWayFlights = response.data?.j_flight_list ?? [[]]
         
         let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
@@ -187,10 +187,10 @@ extension FlightResultVC:OnewayViewModelDelegate {
     func setupTVCells(jfl:[[J_flight_list]]) {
         tablerow.removeAll()
         
-        oneWayFlights.forEach { i in
+        jfl.forEach { i in
             i.forEach { j in
                
-                tablerow.append(TableRow(title:j.selectedResult,
+                tablerow.append(TableRow(title:j.access_key,
                                          kwdprice:"\(j.price?.api_currency ?? ""):\(j.price?.api_total_display_fare ?? 0.0)",
                                          refundable:j.fareType,
                                          moreData: j.flight_details?.summary,

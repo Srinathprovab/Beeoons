@@ -1216,7 +1216,7 @@ stops</string>
         <!--Filter SearchVC-->
         <scene sceneID="PPN-k2-9nb">
             <objects>
-                <viewController storyboardIdentifier="FilterSearchVC" id="Lrk-68-CXa" customClass="FilterSearchVC" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FilterSearchVC" id="Lrk-68-CXa" customClass="FilterSearchVC" customModule="Beeoons" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LDL-TF-8dD">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1470,12 +1470,20 @@ stops</string>
                                             <constraint firstAttribute="trailing" secondItem="NP8-oJ-rbQ" secondAttribute="trailing" constant="12" id="yTs-oN-RxP"/>
                                         </constraints>
                                     </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fmc-gZ-CX6">
+                                        <rect key="frame" x="0.0" y="57" width="393" height="616"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="fmc-gZ-CX6" secondAttribute="trailing" id="2LF-oP-vdH"/>
                                     <constraint firstAttribute="trailing" secondItem="4fB-Dc-ykX" secondAttribute="trailing" id="CtO-fF-QW2"/>
                                     <constraint firstItem="4fB-Dc-ykX" firstAttribute="leading" secondItem="Qv8-oN-Wjr" secondAttribute="leading" id="NMG-6u-RvA"/>
                                     <constraint firstItem="4fB-Dc-ykX" firstAttribute="top" secondItem="Qv8-oN-Wjr" secondAttribute="top" id="Qlc-tb-xd2"/>
+                                    <constraint firstItem="fmc-gZ-CX6" firstAttribute="leading" secondItem="Qv8-oN-Wjr" secondAttribute="leading" id="Zcq-US-eTb"/>
+                                    <constraint firstItem="fmc-gZ-CX6" firstAttribute="top" secondItem="4fB-Dc-ykX" secondAttribute="bottom" id="yHz-cv-Emk"/>
+                                    <constraint firstAttribute="bottom" secondItem="fmc-gZ-CX6" secondAttribute="bottom" id="yLM-Jo-oyt"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1491,6 +1499,7 @@ stops</string>
                     <connections>
                         <outlet property="cityHolderView" destination="4fB-Dc-ykX" id="uFq-kG-OzM"/>
                         <outlet property="cityslbl" destination="BzC-dL-y4v" id="k1D-ju-vHo"/>
+                        <outlet property="commonTableView" destination="fmc-gZ-CX6" id="k5V-3C-WAP"/>
                         <outlet property="hourlbl" destination="GML-l0-4cD" id="GhY-bM-4VU"/>
                     </connections>
                 </viewController>
@@ -1512,7 +1521,7 @@ stops</string>
         <image name="sort" width="8.6666669845581055" height="10.333333015441895"/>
         <image name="time" width="24" height="24"/>
         <namedColor name="ButtonColor">
-            <color red="0.75686274509803919" green="0.63137254901960782" blue="0.49019607843137253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.75700002908706665" green="0.63099998235702515" blue="0.49000000953674316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="NavBackColor">
             <color red="0.17299999296665192" green="0.41600000858306885" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

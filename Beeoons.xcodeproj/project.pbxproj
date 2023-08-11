@@ -14,7 +14,6 @@
 		650344DA2A835A0D00B13434 /* BookFlightTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 650344D82A835A0D00B13434 /* BookFlightTVCell.xib */; };
 		650344DE2A83704500B13434 /* SelectCityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650344DD2A83704500B13434 /* SelectCityVC.swift */; };
 		650344E12A83737800B13434 /* SelectCityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650344DF2A83737800B13434 /* SelectCityModel.swift */; };
-		650344E22A83737800B13434 /* Country_list.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650344E02A83737800B13434 /* Country_list.swift */; };
 		650344E42A8373E400B13434 /* SelectCityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650344E32A8373E400B13434 /* SelectCityViewModel.swift */; };
 		650344E82A8380AF00B13434 /* FromCityTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650344E62A8380AF00B13434 /* FromCityTVCell.swift */; };
 		650344E92A8380AF00B13434 /* FromCityTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 650344E72A8380AF00B13434 /* FromCityTVCell.xib */; };
@@ -138,6 +137,34 @@
 		65D482382A82750A00E7423E /* DealsCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D482362A82750A00E7423E /* DealsCVCell.xib */; };
 		65D4823C2A827E4F00E7423E /* HotelDealsCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D4823A2A827E4F00E7423E /* HotelDealsCVCell.swift */; };
 		65D4823D2A827E4F00E7423E /* HotelDealsCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D4823B2A827E4F00E7423E /* HotelDealsCVCell.xib */; };
+		65E537F02A85CB96007EE11A /* FlightDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E537EF2A85CB96007EE11A /* FlightDetailsModel.swift */; };
+		65E537F22A85CBCC007EE11A /* FlightDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E537F12A85CBCC007EE11A /* FlightDetails.swift */; };
+		65E537F62A85CBE3007EE11A /* PriceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E537F52A85CBE3007EE11A /* PriceDetails.swift */; };
+		65E537F82A85CBEF007EE11A /* FareRulehtml.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E537F72A85CBEF007EE11A /* FareRulehtml.swift */; };
+		65E537FE2A85EBF0007EE11A /* ItineraryTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E537FC2A85EBF0007EE11A /* ItineraryTVCell.swift */; };
+		65E537FF2A85EBF0007EE11A /* ItineraryTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E537FD2A85EBF0007EE11A /* ItineraryTVCell.xib */; };
+		65E538032A85F0AB007EE11A /* AddItineraryTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E538012A85F0AB007EE11A /* AddItineraryTVCell.swift */; };
+		65E538042A85F0AB007EE11A /* AddItineraryTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E538022A85F0AB007EE11A /* AddItineraryTVCell.xib */; };
+		65E538062A85F7C5007EE11A /* NoInternetConnectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E538052A85F7C5007EE11A /* NoInternetConnectionVC.swift */; };
+		65E538082A85F99D007EE11A /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E538072A85F99D007EE11A /* SideMenuVC.swift */; };
+		65E5380D2A85FF79007EE11A /* MenuBGTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E5380B2A85FF79007EE11A /* MenuBGTVCell.swift */; };
+		65E5380E2A85FF79007EE11A /* MenuBGTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E5380C2A85FF79007EE11A /* MenuBGTVCell.xib */; };
+		65E538122A860220007EE11A /* MenuOptionTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E538102A860220007EE11A /* MenuOptionTVCell.swift */; };
+		65E538132A860220007EE11A /* MenuOptionTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E538112A860220007EE11A /* MenuOptionTVCell.xib */; };
+		65E538152A861284007EE11A /* RegisterUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E538142A861284007EE11A /* RegisterUserVC.swift */; };
+		65E538192A86150D007EE11A /* RegisterUserTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E538172A86150D007EE11A /* RegisterUserTVCell.swift */; };
+		65E5381A2A86150D007EE11A /* RegisterUserTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E538182A86150D007EE11A /* RegisterUserTVCell.xib */; };
+		65E5381D2A8624FE007EE11A /* RegisterUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E5381C2A8624FE007EE11A /* RegisterUserModel.swift */; };
+		65E5381F2A862522007EE11A /* RegisterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E5381E2A862522007EE11A /* RegisterData.swift */; };
+		65E538212A862569007EE11A /* RegisterUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E538202A862569007EE11A /* RegisterUserViewModel.swift */; };
+		65E538242A8627F0007EE11A /* CountryListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E538232A8627F0007EE11A /* CountryListModel.swift */; };
+		65E538262A862807007EE11A /* Country_list.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E538252A862807007EE11A /* Country_list.swift */; };
+		65E538282A8628A0007EE11A /* GetCountryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E538272A8628A0007EE11A /* GetCountryListViewModel.swift */; };
+		65E5382B2A86358D007EE11A /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E5382A2A86358D007EE11A /* LoginModel.swift */; };
+		65E5382D2A8635B8007EE11A /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E5382C2A8635B8007EE11A /* LoginData.swift */; };
+		65E5382F2A86365C007EE11A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E5382E2A86365C007EE11A /* LoginViewModel.swift */; };
+		65E538312A86424A007EE11A /* LogoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E538302A86424A007EE11A /* LogoutModel.swift */; };
+		65E538332A86428C007EE11A /* LogoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E538322A86428C007EE11A /* LogoutViewModel.swift */; };
 		993BFFB2433EB5D865CAE1FD /* Pods_BeeoonsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF5E6E7E0303C05C903D6C7 /* Pods_BeeoonsTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -165,7 +192,6 @@
 		650344D82A835A0D00B13434 /* BookFlightTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookFlightTVCell.xib; sourceTree = "<group>"; };
 		650344DD2A83704500B13434 /* SelectCityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCityVC.swift; sourceTree = "<group>"; };
 		650344DF2A83737800B13434 /* SelectCityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCityModel.swift; sourceTree = "<group>"; };
-		650344E02A83737800B13434 /* Country_list.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country_list.swift; sourceTree = "<group>"; };
 		650344E32A8373E400B13434 /* SelectCityViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCityViewModel.swift; sourceTree = "<group>"; };
 		650344E62A8380AF00B13434 /* FromCityTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromCityTVCell.swift; sourceTree = "<group>"; };
 		650344E72A8380AF00B13434 /* FromCityTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FromCityTVCell.xib; sourceTree = "<group>"; };
@@ -293,6 +319,34 @@
 		65D482362A82750A00E7423E /* DealsCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DealsCVCell.xib; sourceTree = "<group>"; };
 		65D4823A2A827E4F00E7423E /* HotelDealsCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelDealsCVCell.swift; sourceTree = "<group>"; };
 		65D4823B2A827E4F00E7423E /* HotelDealsCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HotelDealsCVCell.xib; sourceTree = "<group>"; };
+		65E537EF2A85CB96007EE11A /* FlightDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailsModel.swift; sourceTree = "<group>"; };
+		65E537F12A85CBCC007EE11A /* FlightDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightDetails.swift; sourceTree = "<group>"; };
+		65E537F52A85CBE3007EE11A /* PriceDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceDetails.swift; sourceTree = "<group>"; };
+		65E537F72A85CBEF007EE11A /* FareRulehtml.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FareRulehtml.swift; sourceTree = "<group>"; };
+		65E537FC2A85EBF0007EE11A /* ItineraryTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryTVCell.swift; sourceTree = "<group>"; };
+		65E537FD2A85EBF0007EE11A /* ItineraryTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItineraryTVCell.xib; sourceTree = "<group>"; };
+		65E538012A85F0AB007EE11A /* AddItineraryTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItineraryTVCell.swift; sourceTree = "<group>"; };
+		65E538022A85F0AB007EE11A /* AddItineraryTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddItineraryTVCell.xib; sourceTree = "<group>"; };
+		65E538052A85F7C5007EE11A /* NoInternetConnectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetConnectionVC.swift; sourceTree = "<group>"; };
+		65E538072A85F99D007EE11A /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
+		65E5380B2A85FF79007EE11A /* MenuBGTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBGTVCell.swift; sourceTree = "<group>"; };
+		65E5380C2A85FF79007EE11A /* MenuBGTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuBGTVCell.xib; sourceTree = "<group>"; };
+		65E538102A860220007EE11A /* MenuOptionTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptionTVCell.swift; sourceTree = "<group>"; };
+		65E538112A860220007EE11A /* MenuOptionTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuOptionTVCell.xib; sourceTree = "<group>"; };
+		65E538142A861284007EE11A /* RegisterUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserVC.swift; sourceTree = "<group>"; };
+		65E538172A86150D007EE11A /* RegisterUserTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserTVCell.swift; sourceTree = "<group>"; };
+		65E538182A86150D007EE11A /* RegisterUserTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterUserTVCell.xib; sourceTree = "<group>"; };
+		65E5381C2A8624FE007EE11A /* RegisterUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserModel.swift; sourceTree = "<group>"; };
+		65E5381E2A862522007EE11A /* RegisterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterData.swift; sourceTree = "<group>"; };
+		65E538202A862569007EE11A /* RegisterUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewModel.swift; sourceTree = "<group>"; };
+		65E538232A8627F0007EE11A /* CountryListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListModel.swift; sourceTree = "<group>"; };
+		65E538252A862807007EE11A /* Country_list.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country_list.swift; sourceTree = "<group>"; };
+		65E538272A8628A0007EE11A /* GetCountryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCountryListViewModel.swift; sourceTree = "<group>"; };
+		65E5382A2A86358D007EE11A /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		65E5382C2A8635B8007EE11A /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
+		65E5382E2A86365C007EE11A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		65E538302A86424A007EE11A /* LogoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutModel.swift; sourceTree = "<group>"; };
+		65E538322A86428C007EE11A /* LogoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewModel.swift; sourceTree = "<group>"; };
 		832681B78E9E0AFDA4DFEA1D /* Pods-BeeoonsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeoonsTests.debug.xcconfig"; path = "Target Support Files/Pods-BeeoonsTests/Pods-BeeoonsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8DF5E6E7E0303C05C903D6C7 /* Pods_BeeoonsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeeoonsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A814F9175552C31342223BE7 /* Pods_Beeoons.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Beeoons.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -428,6 +482,7 @@
 		650345392A84FE0500B13434 /* Filters */ = {
 			isa = PBXGroup;
 			children = (
+				650345562A85060F00B13434 /* SortByPriceTVCell */,
 				650345502A85039000B13434 /* SliderTVCell */,
 				650345472A85008C00B13434 /* CheckBoxTVCell */,
 				6503453E2A84FEC500B13434 /* checkOptionsTVCell */,
@@ -764,8 +819,8 @@
 		65D481DE2A8221E400E7423E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				65E537EE2A85CB83007EE11A /* FlightDetailsModel */,
 				650345102A84A6A700B13434 /* Oneway */,
-				650344E02A83737800B13434 /* Country_list.swift */,
 				650344DF2A83737800B13434 /* SelectCityModel.swift */,
 			);
 			path = Models;
@@ -783,10 +838,10 @@
 		65D481E02A8221F700E7423E /* TVCells */ = {
 			isa = PBXGroup;
 			children = (
-				650345562A85060F00B13434 /* SortByPriceTVCell */,
+				65E537F92A85EB8C007EE11A /* FlightDetails */,
+				65E537FA2A85EBB7007EE11A /* FlightResult */,
 				650345392A84FE0500B13434 /* Filters */,
 				650345302A84C2BC00B13434 /* AddFlightInfoTVCell */,
-				650345292A84ADC200B13434 /* FlightResultTVCell */,
 				650345072A83A5B900B13434 /* ButtonTVCell */,
 				650345022A839E6900B13434 /* TravellerEconomyTVCell */,
 				650344E52A83809C00B13434 /* FromCityTVCell */,
@@ -799,6 +854,7 @@
 			isa = PBXGroup;
 			children = (
 				65D481FD2A82352E00E7423E /* LoginVC.swift */,
+				65E538142A861284007EE11A /* RegisterUserVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -822,6 +878,7 @@
 		65D481E42A82225500E7423E /* TVCells */ = {
 			isa = PBXGroup;
 			children = (
+				65E538162A8614F3007EE11A /* RegisterUserTVCell */,
 			);
 			path = TVCells;
 			sourceTree = "<group>";
@@ -829,6 +886,9 @@
 		65D481E52A82225C00E7423E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				65E538202A862569007EE11A /* RegisterUserViewModel.swift */,
+				65E5382E2A86365C007EE11A /* LoginViewModel.swift */,
+				65E538322A86428C007EE11A /* LogoutViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -836,6 +896,8 @@
 		65D481E62A82226A00E7423E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				65E538292A86357F007EE11A /* LoginModel */,
+				65E5381B2A8624EC007EE11A /* RegisterUserModel */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -905,6 +967,8 @@
 				65D482142A825C1800E7423E /* DashboardVC.swift */,
 				65D482162A825C8400E7423E /* MyAccountVC.swift */,
 				65D482182A825C9600E7423E /* MyBookingsVC.swift */,
+				65E538052A85F7C5007EE11A /* NoInternetConnectionVC.swift */,
+				65E538072A85F99D007EE11A /* SideMenuVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -921,6 +985,7 @@
 		65D481F62A82231100E7423E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				65E538272A8628A0007EE11A /* GetCountryListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -928,6 +993,7 @@
 		65D481F72A82231700E7423E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				65E538222A8627DF007EE11A /* CountryListModel */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -955,6 +1021,7 @@
 		65D4820E2A825AB500E7423E /* TVCells */ = {
 			isa = PBXGroup;
 			children = (
+				65E538092A85FF60007EE11A /* Menu */,
 				65D4822F2A82702000E7423E /* FlightDealsTVCell */,
 				65D4822A2A826D5C00E7423E /* DearMemberTVCell */,
 				65D4821F2A8266D900E7423E /* SelectTabTVCell */,
@@ -1044,6 +1111,116 @@
 				65D4823B2A827E4F00E7423E /* HotelDealsCVCell.xib */,
 			);
 			path = HotelDealsCVCell;
+			sourceTree = "<group>";
+		};
+		65E537EE2A85CB83007EE11A /* FlightDetailsModel */ = {
+			isa = PBXGroup;
+			children = (
+				65E537EF2A85CB96007EE11A /* FlightDetailsModel.swift */,
+				65E537F12A85CBCC007EE11A /* FlightDetails.swift */,
+				65E537F52A85CBE3007EE11A /* PriceDetails.swift */,
+				65E537F72A85CBEF007EE11A /* FareRulehtml.swift */,
+			);
+			path = FlightDetailsModel;
+			sourceTree = "<group>";
+		};
+		65E537F92A85EB8C007EE11A /* FlightDetails */ = {
+			isa = PBXGroup;
+			children = (
+				65E538002A85F09F007EE11A /* AddItineraryTVCell */,
+				65E537FB2A85EBD7007EE11A /* ItineraryTVCell */,
+			);
+			path = FlightDetails;
+			sourceTree = "<group>";
+		};
+		65E537FA2A85EBB7007EE11A /* FlightResult */ = {
+			isa = PBXGroup;
+			children = (
+				650345292A84ADC200B13434 /* FlightResultTVCell */,
+			);
+			path = FlightResult;
+			sourceTree = "<group>";
+		};
+		65E537FB2A85EBD7007EE11A /* ItineraryTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65E537FC2A85EBF0007EE11A /* ItineraryTVCell.swift */,
+				65E537FD2A85EBF0007EE11A /* ItineraryTVCell.xib */,
+			);
+			path = ItineraryTVCell;
+			sourceTree = "<group>";
+		};
+		65E538002A85F09F007EE11A /* AddItineraryTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65E538012A85F0AB007EE11A /* AddItineraryTVCell.swift */,
+				65E538022A85F0AB007EE11A /* AddItineraryTVCell.xib */,
+			);
+			path = AddItineraryTVCell;
+			sourceTree = "<group>";
+		};
+		65E538092A85FF60007EE11A /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				65E5380F2A860207007EE11A /* MenuOptionTVCell */,
+				65E5380A2A85FF66007EE11A /* MenuBGTVCell */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		65E5380A2A85FF66007EE11A /* MenuBGTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65E5380B2A85FF79007EE11A /* MenuBGTVCell.swift */,
+				65E5380C2A85FF79007EE11A /* MenuBGTVCell.xib */,
+			);
+			path = MenuBGTVCell;
+			sourceTree = "<group>";
+		};
+		65E5380F2A860207007EE11A /* MenuOptionTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65E538102A860220007EE11A /* MenuOptionTVCell.swift */,
+				65E538112A860220007EE11A /* MenuOptionTVCell.xib */,
+			);
+			path = MenuOptionTVCell;
+			sourceTree = "<group>";
+		};
+		65E538162A8614F3007EE11A /* RegisterUserTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65E538172A86150D007EE11A /* RegisterUserTVCell.swift */,
+				65E538182A86150D007EE11A /* RegisterUserTVCell.xib */,
+			);
+			path = RegisterUserTVCell;
+			sourceTree = "<group>";
+		};
+		65E5381B2A8624EC007EE11A /* RegisterUserModel */ = {
+			isa = PBXGroup;
+			children = (
+				65E5381C2A8624FE007EE11A /* RegisterUserModel.swift */,
+				65E5381E2A862522007EE11A /* RegisterData.swift */,
+			);
+			path = RegisterUserModel;
+			sourceTree = "<group>";
+		};
+		65E538222A8627DF007EE11A /* CountryListModel */ = {
+			isa = PBXGroup;
+			children = (
+				65E538232A8627F0007EE11A /* CountryListModel.swift */,
+				65E538252A862807007EE11A /* Country_list.swift */,
+			);
+			path = CountryListModel;
+			sourceTree = "<group>";
+		};
+		65E538292A86357F007EE11A /* LoginModel */ = {
+			isa = PBXGroup;
+			children = (
+				65E5382A2A86358D007EE11A /* LoginModel.swift */,
+				65E5382C2A8635B8007EE11A /* LoginData.swift */,
+				65E538302A86424A007EE11A /* LogoutModel.swift */,
+			);
+			path = LoginModel;
 			sourceTree = "<group>";
 		};
 		68ECED6CA8B81970D4936E3A /* Frameworks */ = {
@@ -1165,6 +1342,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65E537FF2A85EBF0007EE11A /* ItineraryTVCell.xib in Resources */,
 				65D4814D2A8220A700E7423E /* sigvar bold.ttf in Resources */,
 				65D4814F2A8220A700E7423E /* SigvarRegular.ttf in Resources */,
 				65D4821E2A8260F000E7423E /* MenuBtnWithLogoTVCell.xib in Resources */,
@@ -1178,6 +1356,7 @@
 				65D481642A8220B700E7423E /* Oswald-ExtraLight.ttf in Resources */,
 				65D481F22A8222DA00E7423E /* Login.storyboard in Resources */,
 				650344FD2A838A4200B13434 /* CalendarCVCell.xib in Resources */,
+				65E5380E2A85FF79007EE11A /* MenuBGTVCell.xib in Resources */,
 				65D481512A8220A700E7423E /* SigvarBoldItalic.ttf in Resources */,
 				6503452F2A84BD2C00B13434 /* loderimg.gif in Resources */,
 				6503452D2A84ADDE00B13434 /* FlightResultTVCell.xib in Resources */,
@@ -1193,10 +1372,13 @@
 				65D480FD2A82203E00E7423E /* Main.storyboard in Resources */,
 				65D4814E2A8220A700E7423E /* sigvar bold italic.ttf in Resources */,
 				65D482072A8239C000E7423E /* Myriad Pro Regular.ttf in Resources */,
+				65E5381A2A86150D007EE11A /* RegisterUserTVCell.xib in Resources */,
 				6503455E2A85063400B13434 /* SortByPriceTVCell.xib in Resources */,
+				65E538132A860220007EE11A /* MenuOptionTVCell.xib in Resources */,
 				65D482052A8239C000E7423E /* Myriad Pro Bold.ttf in Resources */,
 				650344DA2A835A0D00B13434 /* BookFlightTVCell.xib in Resources */,
 				65D481F02A8222C100E7423E /* Flight.storyboard in Resources */,
+				65E538042A85F0AB007EE11A /* AddItineraryTVCell.xib in Resources */,
 				65D481522A8220A700E7423E /* SigvarBold.ttf in Resources */,
 				65D482332A82703A00E7423E /* FlightDealsTVCell.xib in Resources */,
 				65D481632A8220B700E7423E /* Oswald-Regular.ttf in Resources */,
@@ -1347,20 +1529,27 @@
 				65D481B72A82212300E7423E /* DateExtension.swift in Sources */,
 				650345622A851DE400B13434 /* FlightDetailsViewModel.swift in Sources */,
 				650344D92A835A0D00B13434 /* BookFlightTVCell.swift in Sources */,
+				65E538192A86150D007EE11A /* RegisterUserTVCell.swift in Sources */,
 				650345142A84A7BA00B13434 /* FlightData.swift in Sources */,
 				650345052A839E7B00B13434 /* TravellerEconomyTVCell.swift in Sources */,
+				65E538032A85F0AB007EE11A /* AddItineraryTVCell.swift in Sources */,
 				6503454E2A8502E300B13434 /* SliderTVCell.swift in Sources */,
 				65D480FA2A82203E00E7423E /* ViewController.swift in Sources */,
 				6503455D2A85063400B13434 /* SortByPriceTVCell.swift in Sources */,
 				650345282A84ABE900B13434 /* Destination.swift in Sources */,
 				65D481B32A82212300E7423E /* UIKitHelper.swift in Sources */,
+				65E537F82A85CBEF007EE11A /* FareRulehtml.swift in Sources */,
 				6503451C2A84A87A00B13434 /* Flight_details.swift in Sources */,
 				65D480F62A82203E00E7423E /* AppDelegate.swift in Sources */,
 				65D481D42A82212300E7423E /* BaseViewModelProtocol.swift in Sources */,
 				65D481B02A82212300E7423E /* TableViewHelper.swift in Sources */,
 				65D481D52A82212300E7423E /* ProgressHUD.swift in Sources */,
+				65E538122A860220007EE11A /* MenuOptionTVCell.swift in Sources */,
 				65D482152A825C1800E7423E /* DashboardVC.swift in Sources */,
+				65E537F62A85CBE3007EE11A /* PriceDetails.swift in Sources */,
 				65D4820D2A82558B00E7423E /* HomeVC.swift in Sources */,
+				65E5381F2A862522007EE11A /* RegisterData.swift in Sources */,
+				65E5382B2A86358D007EE11A /* LoginModel.swift in Sources */,
 				65D481D12A82212300E7423E /* NSObject+Helper.swift in Sources */,
 				650345122A84A78B00B13434 /* OnewayModel.swift in Sources */,
 				6503452C2A84ADDE00B13434 /* FlightResultTVCell.swift in Sources */,
@@ -1368,6 +1557,7 @@
 				65D481D22A82212300E7423E /* Decodable.swift in Sources */,
 				65D481A92A82212300E7423E /* UIModels.swift in Sources */,
 				65D482122A825B5300E7423E /* EmptyTVCell.swift in Sources */,
+				65E5380D2A85FF79007EE11A /* MenuBGTVCell.swift in Sources */,
 				6503451E2A84A88500B13434 /* Price.swift in Sources */,
 				650345542A85057D00B13434 /* StarRatingCVCell.swift in Sources */,
 				65D481D62A82212300E7423E /* StoryboardExtension.swift in Sources */,
@@ -1380,37 +1570,51 @@
 				65D482222A8266F400E7423E /* SelectTabTVCell.swift in Sources */,
 				65D4813E2A82208F00E7423E /* UIFontHelper.swift in Sources */,
 				65D481AE2A82212300E7423E /* NavBar.swift in Sources */,
+				65E537F22A85CBCC007EE11A /* FlightDetails.swift in Sources */,
 				6503451A2A84A81800B13434 /* J_flight_list.swift in Sources */,
+				65E537FE2A85EBF0007EE11A /* ItineraryTVCell.swift in Sources */,
 				65D481B82A82212300E7423E /* UITapGestureRecognizer.swift in Sources */,
+				65E538062A85F7C5007EE11A /* NoInternetConnectionVC.swift in Sources */,
 				650345362A84D19700B13434 /* ModifySearchVC.swift in Sources */,
 				65D481B62A82212300E7423E /* TextFieldExtension.swift in Sources */,
 				65D481A62A82212300E7423E /* BaseVC.swift in Sources */,
 				650345162A84A7EB00B13434 /* Search_params.swift in Sources */,
+				65E538082A85F99D007EE11A /* SideMenuVC.swift in Sources */,
 				650345382A84FBDF00B13434 /* FilterSearchVC.swift in Sources */,
-				650344E22A83737800B13434 /* Country_list.swift in Sources */,
 				650345182A84A80900B13434 /* Attr.swift in Sources */,
 				65D4821D2A8260F000E7423E /* MenuBtnWithLogoTVCell.swift in Sources */,
 				65D482192A825C9600E7423E /* MyBookingsVC.swift in Sources */,
 				650345242A84A99C00B13434 /* OnewayViewModel.swift in Sources */,
+				65E5382D2A8635B8007EE11A /* LoginData.swift in Sources */,
 				65D481AC2A82212300E7423E /* SessionManager.swift in Sources */,
 				650344FC2A838A4200B13434 /* CalendarCVCell.swift in Sources */,
 				6503454A2A8500A500B13434 /* CheckBoxTVCell.swift in Sources */,
 				65D481FC2A82258F00E7423E /* ColorManager.swift in Sources */,
 				65D481FB2A82258F00E7423E /* UIColorManager.swift in Sources */,
+				65E537F02A85CB96007EE11A /* FlightDetailsModel.swift in Sources */,
 				650344D52A83514700B13434 /* BookFlightVC.swift in Sources */,
 				65D481AA2A82212300E7423E /* Constants.swift in Sources */,
 				65D481B52A82212300E7423E /* StringExtension.swift in Sources */,
+				65E5381D2A8624FE007EE11A /* RegisterUserModel.swift in Sources */,
 				65D482282A82694F00E7423E /* SelectTabCVCell.swift in Sources */,
 				650345332A84C2DB00B13434 /* AddFlightInfoTVCell.swift in Sources */,
+				65E538332A86428C007EE11A /* LogoutViewModel.swift in Sources */,
 				65D482372A82750A00E7423E /* DealsCVCell.swift in Sources */,
 				65D481B22A82212300E7423E /* ButtonExtension.swift in Sources */,
 				650344E12A83737800B13434 /* SelectCityModel.swift in Sources */,
+				65E538282A8628A0007EE11A /* GetCountryListViewModel.swift in Sources */,
+				65E538212A862569007EE11A /* RegisterUserViewModel.swift in Sources */,
 				65D4823C2A827E4F00E7423E /* HotelDealsCVCell.swift in Sources */,
+				65E538242A8627F0007EE11A /* CountryListModel.swift in Sources */,
+				65E538312A86424A007EE11A /* LogoutModel.swift in Sources */,
+				65E538262A862807007EE11A /* Country_list.swift in Sources */,
 				65D481B12A82212300E7423E /* UIViewControllerExtension.swift in Sources */,
 				65D481D02A82212300E7423E /* DeviceName.swift in Sources */,
+				65E5382F2A86365C007EE11A /* LoginViewModel.swift in Sources */,
 				65D481D32A82212300E7423E /* Loader.swift in Sources */,
 				650345222A84A92F00B13434 /* Summary.swift in Sources */,
 				6503450F2A84A22100B13434 /* CommonFunctions.swift in Sources */,
+				65E538152A861284007EE11A /* RegisterUserVC.swift in Sources */,
 				65D481AF2A82212300E7423E /* ServiceManager.swift in Sources */,
 				650345202A84A8F100B13434 /* Session_expiry_details.swift in Sources */,
 				65D482172A825C8400E7423E /* MyAccountVC.swift in Sources */,
@@ -1594,7 +1798,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 5TLY5PME9K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Beeoons/Info.plist;
@@ -1624,7 +1828,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 5TLY5PME9K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Beeoons/Info.plist;
