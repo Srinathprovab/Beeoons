@@ -103,7 +103,7 @@ class DashboardVC: BaseTableVC {
         tablerow.append(TableRow(height:50,bgColor: .WhiteColor,cellType: .EmptyTVCell))
         tablerow.append(TableRow(cellType: .MenuBtnWithLogoTVCell))
         tablerow.append(TableRow(cellType: .SelectTabTVCell))
-        tablerow.append(TableRow(title:"FLIGHT",cellType: .FlightDealsTVCell))
+        tablerow.append(TableRow(title:"HOTEL",cellType: .FlightDealsTVCell))
         tablerow.append(TableRow(title:"Dear Members,",
                                  subTitle: "As of 20 September 2022, Miles & Smiles award ticket issuance and profile updates will be made with verification code to be sent your phone",
                                  cellType: .DearMemberTVCell))
@@ -111,8 +111,8 @@ class DashboardVC: BaseTableVC {
                                  subTitle: "You can Access the Announcement regarding our flights to Ukraine, Belarus and Russia and the rights granted to our passengers for our flights to these countries",
                                  cellType: .DearMemberTVCell))
         
-        tablerow.append(TableRow(title:"HOTEL",cellType: .FlightDealsTVCell))
-        
+       
+        tablerow.append(TableRow(title:"FLIGHT",cellType: .FlightDealsTVCell))
         tablerow.append(TableRow(height:80,bgColor: .WhiteColor,cellType: .EmptyTVCell))
         commonTVData = tablerow
         commonTableView.reloadData()
@@ -169,10 +169,10 @@ class DashboardVC: BaseTableVC {
     
     //MARK: -
     override func didTapOnMenuBtnAction(cell: MenuBtnWithLogoTVCell) {
-//        NotificationCenter.default.post(name: NSNotification.Name("tabbarhide"), object: true)
-//        NotificationCenter.default.post(name: NSNotification.Name("callprofileapi"), object: true)
-//
-//        self.sideMenuState(expanded: self.isExpanded ? false : true)
+        NotificationCenter.default.post(name: NSNotification.Name("tabbarhide"), object: true)
+        NotificationCenter.default.post(name: NSNotification.Name("callprofile"), object: true)
+        
+        self.sideMenuState(expanded: self.isExpanded ? false : true)
     }
     
     
@@ -269,8 +269,8 @@ extension DashboardVC: UIGestureRecognizerDelegate {
     func sideMenuState(expanded: Bool) {
         if expanded {
             NotificationCenter.default.post(name: NSNotification.Name("tabbarhide"), object: true)
-            NotificationCenter.default.post(name: NSNotification.Name("callprofileapi"), object: true)
-
+            NotificationCenter.default.post(name: NSNotification.Name("callprofile"), object: true)
+            
             self.animateSideMenu(targetPosition: self.revealSideMenuOnTop ? 0 : self.sideMenuRevealWidth) { _ in
                 self.isExpanded = true
             }
@@ -280,8 +280,8 @@ extension DashboardVC: UIGestureRecognizerDelegate {
         }
         else {
             NotificationCenter.default.post(name: NSNotification.Name("tabbarhide"), object: false)
-            NotificationCenter.default.post(name: NSNotification.Name("callprofileapi"), object: true)
-
+//            NotificationCenter.default.post(name: NSNotification.Name("callprofile"), object: true)
+            
             self.animateSideMenu(targetPosition: self.revealSideMenuOnTop ? (-self.sideMenuRevealWidth - self.paddingForRotation) : 0) { _ in
                 self.isExpanded = false
             }
@@ -306,12 +306,6 @@ extension DashboardVC: UIGestureRecognizerDelegate {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
-    
-    
-    
-    
-    
     
     
     @objc func TapGestureRecognizer(sender: UITapGestureRecognizer) {

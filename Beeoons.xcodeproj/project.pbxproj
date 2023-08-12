@@ -165,6 +165,10 @@
 		65E5382F2A86365C007EE11A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E5382E2A86365C007EE11A /* LoginViewModel.swift */; };
 		65E538312A86424A007EE11A /* LogoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E538302A86424A007EE11A /* LogoutModel.swift */; };
 		65E538332A86428C007EE11A /* LogoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E538322A86428C007EE11A /* LogoutViewModel.swift */; };
+		65F5464D2A871C1800F4C66C /* ProfileUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5464C2A871C1800F4C66C /* ProfileUpdateModel.swift */; };
+		65F5464F2A871C4400F4C66C /* ProfileUpdateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5464E2A871C4400F4C66C /* ProfileUpdateViewModel.swift */; };
+		65F546532A8746AE00F4C66C /* UserNameTextFieldTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F546512A8746AE00F4C66C /* UserNameTextFieldTVCell.swift */; };
+		65F546542A8746AE00F4C66C /* UserNameTextFieldTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65F546522A8746AE00F4C66C /* UserNameTextFieldTVCell.xib */; };
 		993BFFB2433EB5D865CAE1FD /* Pods_BeeoonsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF5E6E7E0303C05C903D6C7 /* Pods_BeeoonsTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -347,6 +351,10 @@
 		65E5382E2A86365C007EE11A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		65E538302A86424A007EE11A /* LogoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutModel.swift; sourceTree = "<group>"; };
 		65E538322A86428C007EE11A /* LogoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewModel.swift; sourceTree = "<group>"; };
+		65F5464C2A871C1800F4C66C /* ProfileUpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpdateModel.swift; sourceTree = "<group>"; };
+		65F5464E2A871C4400F4C66C /* ProfileUpdateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpdateViewModel.swift; sourceTree = "<group>"; };
+		65F546512A8746AE00F4C66C /* UserNameTextFieldTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameTextFieldTVCell.swift; sourceTree = "<group>"; };
+		65F546522A8746AE00F4C66C /* UserNameTextFieldTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserNameTextFieldTVCell.xib; sourceTree = "<group>"; };
 		832681B78E9E0AFDA4DFEA1D /* Pods-BeeoonsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeoonsTests.debug.xcconfig"; path = "Target Support Files/Pods-BeeoonsTests/Pods-BeeoonsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8DF5E6E7E0303C05C903D6C7 /* Pods_BeeoonsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeeoonsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A814F9175552C31342223BE7 /* Pods_Beeoons.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Beeoons.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -986,6 +994,7 @@
 			isa = PBXGroup;
 			children = (
 				65E538272A8628A0007EE11A /* GetCountryListViewModel.swift */,
+				65F5464E2A871C4400F4C66C /* ProfileUpdateViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -993,6 +1002,7 @@
 		65D481F72A82231700E7423E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				65F5464B2A871C0F00F4C66C /* ProfileUpdateModel */,
 				65E538222A8627DF007EE11A /* CountryListModel */,
 			);
 			path = Models;
@@ -1021,6 +1031,7 @@
 		65D4820E2A825AB500E7423E /* TVCells */ = {
 			isa = PBXGroup;
 			children = (
+				65F546502A87468C00F4C66C /* MyAccount */,
 				65E538092A85FF60007EE11A /* Menu */,
 				65D4822F2A82702000E7423E /* FlightDealsTVCell */,
 				65D4822A2A826D5C00E7423E /* DearMemberTVCell */,
@@ -1223,6 +1234,23 @@
 			path = LoginModel;
 			sourceTree = "<group>";
 		};
+		65F5464B2A871C0F00F4C66C /* ProfileUpdateModel */ = {
+			isa = PBXGroup;
+			children = (
+				65F5464C2A871C1800F4C66C /* ProfileUpdateModel.swift */,
+			);
+			path = ProfileUpdateModel;
+			sourceTree = "<group>";
+		};
+		65F546502A87468C00F4C66C /* MyAccount */ = {
+			isa = PBXGroup;
+			children = (
+				65F546512A8746AE00F4C66C /* UserNameTextFieldTVCell.swift */,
+				65F546522A8746AE00F4C66C /* UserNameTextFieldTVCell.xib */,
+			);
+			path = MyAccount;
+			sourceTree = "<group>";
+		};
 		68ECED6CA8B81970D4936E3A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1377,6 +1405,7 @@
 				65E538132A860220007EE11A /* MenuOptionTVCell.xib in Resources */,
 				65D482052A8239C000E7423E /* Myriad Pro Bold.ttf in Resources */,
 				650344DA2A835A0D00B13434 /* BookFlightTVCell.xib in Resources */,
+				65F546542A8746AE00F4C66C /* UserNameTextFieldTVCell.xib in Resources */,
 				65D481F02A8222C100E7423E /* Flight.storyboard in Resources */,
 				65E538042A85F0AB007EE11A /* AddItineraryTVCell.xib in Resources */,
 				65D481522A8220A700E7423E /* SigvarBold.ttf in Resources */,
@@ -1575,6 +1604,7 @@
 				65E537FE2A85EBF0007EE11A /* ItineraryTVCell.swift in Sources */,
 				65D481B82A82212300E7423E /* UITapGestureRecognizer.swift in Sources */,
 				65E538062A85F7C5007EE11A /* NoInternetConnectionVC.swift in Sources */,
+				65F5464F2A871C4400F4C66C /* ProfileUpdateViewModel.swift in Sources */,
 				650345362A84D19700B13434 /* ModifySearchVC.swift in Sources */,
 				65D481B62A82212300E7423E /* TextFieldExtension.swift in Sources */,
 				65D481A62A82212300E7423E /* BaseVC.swift in Sources */,
@@ -1609,6 +1639,7 @@
 				65E538312A86424A007EE11A /* LogoutModel.swift in Sources */,
 				65E538262A862807007EE11A /* Country_list.swift in Sources */,
 				65D481B12A82212300E7423E /* UIViewControllerExtension.swift in Sources */,
+				65F5464D2A871C1800F4C66C /* ProfileUpdateModel.swift in Sources */,
 				65D481D02A82212300E7423E /* DeviceName.swift in Sources */,
 				65E5382F2A86365C007EE11A /* LoginViewModel.swift in Sources */,
 				65D481D32A82212300E7423E /* Loader.swift in Sources */,
@@ -1622,6 +1653,7 @@
 				650344E82A8380AF00B13434 /* FromCityTVCell.swift in Sources */,
 				65D4822D2A826D7A00E7423E /* DearMemberTVCell.swift in Sources */,
 				650345262A84ABDF00B13434 /* Origin.swift in Sources */,
+				65F546532A8746AE00F4C66C /* UserNameTextFieldTVCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

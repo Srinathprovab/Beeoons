@@ -12,7 +12,8 @@ class SideMenuVC: BaseTableVC {
     
     var tablerow = [TableRow]()
     var vm:LogoutViewModel?
-    
+    var vm1:ProfileUpdateViewModel?
+    var payload = [String:Any]()
     
     //MARK: - viewDidLoad
     
@@ -22,7 +23,11 @@ class SideMenuVC: BaseTableVC {
     
     
     @objc func reload() {
-        setupTV()
+        
+        if let userstatusObject = defaults.object(forKey: UserDefaultsKeys.loggedInStatus) as? Bool, userstatusObject == true {
+            callApi()
+        }
+
     }
     
     override func viewDidLoad() {
@@ -31,6 +36,7 @@ class SideMenuVC: BaseTableVC {
         // Do any additional setup after loading the view.
         setupUI()
         vm = LogoutViewModel(self)
+        vm1 = ProfileUpdateViewModel(self)
     }
     
     
@@ -144,4 +150,22 @@ extension SideMenuVC:LogoutViewModelDelegate {
     
     
     
+}
+
+
+extension SideMenuVC:ProfileUpdateViewModelDelegate {
+    func callApi() {
+        payload.removeAll()
+        payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid)
+        vm1?.CALL_SHOW_PROFILE_API(dictParam: payload)
+    }
+    
+    
+    func profileDetails(response: ProfileUpdateModel) {
+        profildata = response.data
+        
+        DispatchQueue.main.async {[self] in
+            setupTV()
+        }
+    }
 }

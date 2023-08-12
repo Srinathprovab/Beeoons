@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVCellDelegate, FlightDealsTVCellDelegate, BookFlightTVCellDelegate, TravellerEconomyTVCellDelegate, ButtonTVCellDelegate, FlightResultTVCellDelegate, CheckBoxTVCellDelegate, checkOptionsTVCellDelegate, SliderTVCellDelegate, SortByPriceTVCellDelegate, MenuOptionTVCellDelegate, MenuBGTVCellDelegate, RegisterUserTVCellDelegate {
+class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVCellDelegate, FlightDealsTVCellDelegate, BookFlightTVCellDelegate, TravellerEconomyTVCellDelegate, ButtonTVCellDelegate, FlightResultTVCellDelegate, CheckBoxTVCellDelegate, checkOptionsTVCellDelegate, SliderTVCellDelegate, SortByPriceTVCellDelegate, MenuOptionTVCellDelegate, MenuBGTVCellDelegate, RegisterUserTVCellDelegate, UserNameTextFieldTVCellDelegate {
     
     
     
@@ -111,7 +111,7 @@ class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVC
     func didTapOnSearchFlightBtnAction(cell:BookFlightTVCell) {}
     func didTapOnFlightDetails(cell:FlightResultTVCell){}
     func didTapOnAirLineDropDownBtn(cell:BookFlightTVCell){}
-
+    
     func didTapOnCheckBoxDropDownBtn(cell: CheckBoxTVCell) {}
     func didTapOnShowMoreBtn(cell: CheckBoxTVCell) {}
     func didTapOnCheckBox(cell: checkOptionsTVCell) {}
@@ -127,6 +127,11 @@ class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVC
     func didTapOnRegisterBtnAction(cell: RegisterUserTVCell) {}
     func didTapOnLoginBtnAction(cell: RegisterUserTVCell) {}
     func didTapOnCountryCodeBtnAction(cell: RegisterUserTVCell) {}
+    
+    func editingTextField(tf: UITextField) {}
+    func didTapOnCountryCodeBtnAction(cell: UserNameTextFieldTVCell) {}
+    func donedatePicker(cell:UserNameTextFieldTVCell){}
+    func cancelDatePicker(cell:UserNameTextFieldTVCell){}
     
     
     
@@ -304,6 +309,15 @@ extension BaseTableVC: UITableViewDataSource {
                 let cell:  RegisterUserTVCell = commonTV.dequeTVCell(indexPath: indexPath)
                 cell.delegate = self
                 commonCell = cell
+                
+                
+                
+            case .UserNameTextFieldTVCell:
+                let cell:  UserNameTextFieldTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
                 
                 
                 

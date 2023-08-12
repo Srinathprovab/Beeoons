@@ -77,7 +77,7 @@ extension FlightDetailsVC:FlightDetailsViewModelDelegate {
     
     func flightDetails(response: FlightDetailsModel) {
         print(response.priceDetails)
-        
+        fd = response.flightDetails ?? [[]]
         DispatchQueue.main.async {
             self.setupItineraryTVCells()
         }
@@ -90,7 +90,6 @@ extension FlightDetailsVC:FlightDetailsViewModelDelegate {
         fd.forEach { i in
             tablerow.append(TableRow(moreData:i,cellType:.AddItineraryTVCell))
         }
-        
         
         commonTVData = tablerow
         commonTableView.reloadData()

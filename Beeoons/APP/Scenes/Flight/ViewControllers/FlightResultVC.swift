@@ -106,7 +106,7 @@ class FlightResultVC: BaseTableVC {
     
     //MARK: - didTapOnEditFlightSearchBtnAction
     @IBAction func didTapOnEditFlightSearchBtnAction(_ sender: Any) {
-       // gotoModifySearchVC()
+        gotoModifySearchVC()
     }
     
     
@@ -116,7 +116,7 @@ class FlightResultVC: BaseTableVC {
         vc.modalPresentationStyle = .overCurrentContext
         vc.delegate = self
         vc.filterTapKey = "sort"
-       // self.present(vc, animated: false)
+        self.present(vc, animated: false)
     }
     
     
@@ -189,14 +189,14 @@ extension FlightResultVC:OnewayViewModelDelegate {
         
         jfl.forEach { i in
             i.forEach { j in
-               
+                
                 tablerow.append(TableRow(title:j.access_key,
                                          kwdprice:"\(j.price?.api_currency ?? ""):\(j.price?.api_total_display_fare ?? 0.0)",
                                          refundable:j.fareType,
                                          moreData: j.flight_details?.summary,
                                          cellType:.FlightResultTVCell))
                 
-              
+                
             }
             
         }
@@ -403,17 +403,11 @@ extension FlightResultVC:AppliedFilters{
             }
             
             
-//            if journyType == "oneway" {
-//                setupTVCells(jfl: sortedArray)
-//            }else {
-//                setupRoundTripTVCells(jfl: sortedArray)
-//            }
-            
             setupTVCells(jfl: sortedArray)
             
         }
         
-       
+        
         
     }
     

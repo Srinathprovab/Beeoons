@@ -40,10 +40,10 @@ class MenuBGTVCell: TableViewCell {
         if let userstatusObject = defaults.object(forKey: UserDefaultsKeys.loggedInStatus) as? Bool, userstatusObject == true {
             loginBtnView.isHidden = true
             userNameView.isHidden = false
-            titlelbl.text = "\(defaults.string(forKey: UserDefaultsKeys.username) ?? "")"
+            titlelbl.text = "\(profildata?.first_name ?? "") \(profildata?.last_name ?? "")"
             
-            if let userstatusObject = defaults.object(forKey: UserDefaultsKeys.userimg) as? String, !userstatusObject.isEmpty {
-                self.profileimg.sd_setImage(with: URL(string: userstatusObject), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+            if let userstatusObject = profildata?.image as? String, !userstatusObject.isEmpty {
+                self.profileimg.sd_setImage(with: URL(string: profildata?.image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
                 profileimg.alpha = 1
             }else {
                 profileimg.image = UIImage(named: "profile")?.withRenderingMode(.alwaysOriginal)
@@ -52,6 +52,8 @@ class MenuBGTVCell: TableViewCell {
         }else {
             userNameView.isHidden = true
             loginBtnView.isHidden = false
+            profileimg.image = UIImage(named: "profile")?.withRenderingMode(.alwaysOriginal)
+            profileimg.alpha = 0.5
         }
     }
     

@@ -38,6 +38,7 @@ enum TVCellType {
     case MenuBGTVCell
     case MenuOptionTVCell
     case RegisterUserTVCell
+    case UserNameTextFieldTVCell
     
 }
 

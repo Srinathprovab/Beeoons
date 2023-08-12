@@ -45,6 +45,8 @@ var selectedResult = ""
 var fd = [[FlightDetails]]()
 
 
+var profildata:ProfileUpdateData?
+
 
 //MARK: - FILTERS
 var prices = [String]()
@@ -71,7 +73,7 @@ struct ApiEndpoints {
     static let countrylist = "flight/country_list"
     static let authmobile_login = "auth/mobile_login"
     static let authajax_logout = "auth/ajax_logout"
-
+    static let updatemobileprofile = "user/mobile_profile"
     
     
     

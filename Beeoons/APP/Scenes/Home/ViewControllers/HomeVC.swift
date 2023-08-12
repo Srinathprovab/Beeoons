@@ -110,6 +110,7 @@ class HomeVC: UIViewController {
     }
     
     @IBAction func didTapOnMyAccountBtnAction(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name("checkUserLogin"), object: nil)
         setupMyAccountUI()
     }
     

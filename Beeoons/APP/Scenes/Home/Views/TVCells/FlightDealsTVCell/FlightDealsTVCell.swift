@@ -24,6 +24,7 @@ class FlightDealsTVCell: TableViewCell, DealsCVCellDelegate, HotelDealsCVCellDel
     var flightcount = 10
     var hotelcount = 5
     var itemCount = Int()
+    var itemCount1 = Int()
     var autoScrollTimer: Timer?
     var nextButtonAction: (() -> Void)?
     var previousButtonAction: (() -> Void)?
@@ -50,7 +51,7 @@ class FlightDealsTVCell: TableViewCell, DealsCVCellDelegate, HotelDealsCVCellDel
         }else {
             cvheight.constant = 235
             setupHotelCV()
-            itemCount = hotelcount
+         //   itemCount1 = hotelcount
           //  startAutoScroll()
         }
         
@@ -227,24 +228,41 @@ extension FlightDealsTVCell:UICollectionViewDelegate,UICollectionViewDataSource 
     
     @objc func scrollToNextItem() {
         
-        
-        guard itemCount > 0 else {
-            return // No items in the collection view
-        }
-        
         let currentIndexPaths = dealsCV.indexPathsForVisibleItems.sorted()
         let lastIndexPath = currentIndexPaths.last ?? IndexPath(item: 0, section: 0)
-        
         var nextIndexPath: IndexPath
         
-        if lastIndexPath.item == itemCount - 1 {
-            nextIndexPath = IndexPath(item: 0, section: lastIndexPath.section)
-        } else {
-            nextIndexPath = IndexPath(item: lastIndexPath.item + 1, section: lastIndexPath.section)
-        }
-        
-        if nextIndexPath.item >= itemCount {
-            nextIndexPath = IndexPath(item: 0, section: nextIndexPath.section) // Adjust the index path if it exceeds the bounds
+        if titlelbl.text == "FLIGHT" {
+            
+            
+            guard itemCount > 0 else {
+                return // No items in the collection view
+            }
+           
+            if lastIndexPath.item == itemCount - 1 {
+                nextIndexPath = IndexPath(item: 0, section: lastIndexPath.section)
+            } else {
+                nextIndexPath = IndexPath(item: lastIndexPath.item + 1, section: lastIndexPath.section)
+            }
+            
+            if nextIndexPath.item >= itemCount {
+                nextIndexPath = IndexPath(item: 0, section: nextIndexPath.section) // Adjust the index path if it exceeds the bounds
+            }
+        }else {
+            
+            guard itemCount > 0 else {
+                return // No items in the collection view
+            }
+            
+            if lastIndexPath.item == itemCount1 - 1 {
+                nextIndexPath = IndexPath(item: 0, section: lastIndexPath.section)
+            } else {
+                nextIndexPath = IndexPath(item: lastIndexPath.item + 1, section: lastIndexPath.section)
+            }
+            
+            if nextIndexPath.item >= itemCount1 {
+                nextIndexPath = IndexPath(item: 0, section: nextIndexPath.section) // Adjust the index path if it exceeds the bounds
+            }
         }
         
         dealsCV.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
