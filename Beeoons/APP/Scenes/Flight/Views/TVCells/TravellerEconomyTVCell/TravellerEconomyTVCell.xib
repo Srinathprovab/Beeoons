@@ -50,7 +50,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UbS-Kl-iCy">
                                         <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add" translatesAutoresizingMaskIntoConstraints="NO" id="nQl-74-2lH">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="decr" translatesAutoresizingMaskIntoConstraints="NO" id="nQl-74-2lH">
                                                 <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zG9-FP-1Kd">
@@ -164,6 +164,7 @@
     </objects>
     <resources>
         <image name="add" width="44" height="44"/>
+        <image name="decr" width="44" height="44"/>
         <namedColor name="SubtitleColor">
             <color red="0.46299999952316284" green="0.46299999952316284" blue="0.46299999952316284" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

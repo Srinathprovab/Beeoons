@@ -34,18 +34,34 @@ var mobilenoMaxLengthBool = false
 
 var BASE_URL = "https://beeoons.com/pro/web_service/index.php/"
 var BASE_URL1 = "https://beeoons.com/pro/web_service/index.php/"
-
 var countrylist = [Country_list]()
+var profildata:ProfileUpdateData?
 
 //Flight Result
 var selectedAccesskey = ""
 var searchid = ""
 var bookingsource = ""
 var selectedResult = ""
+
+//FlightDetails
 var fd = [[FlightDetails]]()
-
-
-var profildata:ProfileUpdateData?
+var farepricedetails:PriceDetails?
+var fareRulesData = [FareRulehtml]()
+var Adults_Base_Price = String()
+var Adults_Tax_Price = String()
+var Childs_Base_Price = String()
+var Childs_Tax_Price = String()
+var Infants_Base_Price = String()
+var Infants_Tax_Price = String()
+var TotalPrice_API = String()
+var grandTotal = String()
+var subtotal = String()
+var AdultsTotalPrice = String()
+var ChildTotalPrice = String()
+var InfantTotalPrice = String()
+var sub_total_adult : String?
+var sub_total_child : String?
+var sub_total_infant : String?
 
 
 //MARK: - FILTERS

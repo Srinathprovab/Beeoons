@@ -16,6 +16,8 @@ class FlightDealsTVCell: TableViewCell, DealsCVCellDelegate, HotelDealsCVCellDel
     @IBOutlet weak var titlelbl: UILabel!
     @IBOutlet weak var dealsCV: UICollectionView!
     @IBOutlet weak var cvheight: NSLayoutConstraint!
+    @IBOutlet weak var backimg: UIImageView!
+    
     
     var delegate:FlightDealsTVCellDelegate?
     var currentIndex = 0
@@ -44,15 +46,17 @@ class FlightDealsTVCell: TableViewCell, DealsCVCellDelegate, HotelDealsCVCellDel
         titlelbl.text = cellInfo?.title
         
         if titlelbl.text == "FLIGHT" {
+            backimg.image = UIImage(named: "flightback")?.withRenderingMode(.alwaysOriginal)
             cvheight.constant = 181
             setupFlightCV()
             itemCount = flightcount
-           // startAutoScroll()
+            // startAutoScroll()
         }else {
+            backimg.image = UIImage(named: "hotelback")?.withRenderingMode(.alwaysOriginal)
             cvheight.constant = 235
             setupHotelCV()
-         //   itemCount1 = hotelcount
-          //  startAutoScroll()
+            itemCount1 = hotelcount
+            //  startAutoScroll()
         }
         
         dealsCV.reloadData()
@@ -238,7 +242,7 @@ extension FlightDealsTVCell:UICollectionViewDelegate,UICollectionViewDataSource 
             guard itemCount > 0 else {
                 return // No items in the collection view
             }
-           
+            
             if lastIndexPath.item == itemCount - 1 {
                 nextIndexPath = IndexPath(item: 0, section: lastIndexPath.section)
             } else {

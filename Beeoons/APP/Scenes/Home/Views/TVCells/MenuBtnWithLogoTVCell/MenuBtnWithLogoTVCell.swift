@@ -43,6 +43,6 @@ class MenuBtnWithLogoTVCell: TableViewCell {
     }
     
     @IBAction func didTapOnLangBtnAction(_ sender: Any) {
-        delegate?.didTapOnMenuBtnAction(cell: self)
+       // delegate?.didTapOnMenuBtnAction(cell: self)
     }
 }

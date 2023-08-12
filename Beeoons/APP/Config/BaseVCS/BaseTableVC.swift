@@ -319,6 +319,23 @@ extension BaseTableVC: UITableViewDataSource {
                 
                 
                 
+            case .LabelTVCell:
+                let cell:  LabelTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
+                
+                
+                
+            case .FarBreakdownTVCell:
+                let cell:  FarBreakdownTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
+                
+                
+                
+            case .BaggageInfoTVCell:
+                let cell:  BaggageInfoTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
+                
+                
                 
                 
                 

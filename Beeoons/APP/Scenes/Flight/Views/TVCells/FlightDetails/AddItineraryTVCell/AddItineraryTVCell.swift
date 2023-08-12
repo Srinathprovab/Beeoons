@@ -79,7 +79,7 @@ extension AddItineraryTVCell:UITableViewDelegate,UITableViewDataSource {
             cell.hourslbl.text = data.duration
             cell.stopslbl.text = "\(data.no_of_stops ?? 0) stop"
             
-     //       cell.layoverCitylbl.text = "Layover duration \(data.destination?.city ?? "")(\(data.destination?.loc ?? "")) TIME \(data.layOverDuration ?? "")"
+            cell.layoverCitylbl.text = "Layover duration \(data.destination?.city ?? "")(\(data.destination?.loc ?? "")) TIME data.layover)"
             
             cell.operatorImg.sd_setImage(with: URL(string: data.operator_image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
             

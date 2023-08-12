@@ -169,6 +169,14 @@
 		65F5464F2A871C4400F4C66C /* ProfileUpdateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5464E2A871C4400F4C66C /* ProfileUpdateViewModel.swift */; };
 		65F546532A8746AE00F4C66C /* UserNameTextFieldTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F546512A8746AE00F4C66C /* UserNameTextFieldTVCell.swift */; };
 		65F546542A8746AE00F4C66C /* UserNameTextFieldTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65F546522A8746AE00F4C66C /* UserNameTextFieldTVCell.xib */; };
+		65F546582A87842F00F4C66C /* LabelTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F546562A87842F00F4C66C /* LabelTVCell.swift */; };
+		65F546592A87842F00F4C66C /* LabelTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65F546572A87842F00F4C66C /* LabelTVCell.xib */; };
+		65F5465D2A8788FF00F4C66C /* FarBreakdownTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5465B2A8788FF00F4C66C /* FarBreakdownTVCell.swift */; };
+		65F5465E2A8788FF00F4C66C /* FarBreakdownTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65F5465C2A8788FF00F4C66C /* FarBreakdownTVCell.xib */; };
+		65F546622A87AEFB00F4C66C /* BaggageInfoTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F546602A87AEFB00F4C66C /* BaggageInfoTVCell.swift */; };
+		65F546632A87AEFB00F4C66C /* BaggageInfoTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65F546612A87AEFB00F4C66C /* BaggageInfoTVCell.xib */; };
+		65F546702A87B29500F4C66C /* AddCheckinBaggageCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5466E2A87B29500F4C66C /* AddCheckinBaggageCVCell.swift */; };
+		65F546712A87B29500F4C66C /* AddCheckinBaggageCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65F5466F2A87B29500F4C66C /* AddCheckinBaggageCVCell.xib */; };
 		993BFFB2433EB5D865CAE1FD /* Pods_BeeoonsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF5E6E7E0303C05C903D6C7 /* Pods_BeeoonsTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -355,6 +363,14 @@
 		65F5464E2A871C4400F4C66C /* ProfileUpdateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpdateViewModel.swift; sourceTree = "<group>"; };
 		65F546512A8746AE00F4C66C /* UserNameTextFieldTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameTextFieldTVCell.swift; sourceTree = "<group>"; };
 		65F546522A8746AE00F4C66C /* UserNameTextFieldTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserNameTextFieldTVCell.xib; sourceTree = "<group>"; };
+		65F546562A87842F00F4C66C /* LabelTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTVCell.swift; sourceTree = "<group>"; };
+		65F546572A87842F00F4C66C /* LabelTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelTVCell.xib; sourceTree = "<group>"; };
+		65F5465B2A8788FF00F4C66C /* FarBreakdownTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarBreakdownTVCell.swift; sourceTree = "<group>"; };
+		65F5465C2A8788FF00F4C66C /* FarBreakdownTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FarBreakdownTVCell.xib; sourceTree = "<group>"; };
+		65F546602A87AEFB00F4C66C /* BaggageInfoTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaggageInfoTVCell.swift; sourceTree = "<group>"; };
+		65F546612A87AEFB00F4C66C /* BaggageInfoTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaggageInfoTVCell.xib; sourceTree = "<group>"; };
+		65F5466E2A87B29500F4C66C /* AddCheckinBaggageCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCheckinBaggageCVCell.swift; sourceTree = "<group>"; };
+		65F5466F2A87B29500F4C66C /* AddCheckinBaggageCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCheckinBaggageCVCell.xib; sourceTree = "<group>"; };
 		832681B78E9E0AFDA4DFEA1D /* Pods-BeeoonsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeoonsTests.debug.xcconfig"; path = "Target Support Files/Pods-BeeoonsTests/Pods-BeeoonsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8DF5E6E7E0303C05C903D6C7 /* Pods_BeeoonsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeeoonsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A814F9175552C31342223BE7 /* Pods_Beeoons.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Beeoons.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -837,6 +853,7 @@
 		65D481DF2A8221EC00E7423E /* CVCells */ = {
 			isa = PBXGroup;
 			children = (
+				65F546692A87B26E00F4C66C /* AddCheckinBaggageCVCell */,
 				650345512A85056E00B13434 /* StarRatingCVCell */,
 				650344F92A838A3000B13434 /* CalendarCVCell */,
 			);
@@ -1138,6 +1155,9 @@
 		65E537F92A85EB8C007EE11A /* FlightDetails */ = {
 			isa = PBXGroup;
 			children = (
+				65F5465F2A87AEE400F4C66C /* BaggageInfoTVCell */,
+				65F5465A2A8788E800F4C66C /* FarBreakdownTVCell */,
+				65F546552A87841600F4C66C /* LabelTVCell */,
 				65E538002A85F09F007EE11A /* AddItineraryTVCell */,
 				65E537FB2A85EBD7007EE11A /* ItineraryTVCell */,
 			);
@@ -1249,6 +1269,42 @@
 				65F546522A8746AE00F4C66C /* UserNameTextFieldTVCell.xib */,
 			);
 			path = MyAccount;
+			sourceTree = "<group>";
+		};
+		65F546552A87841600F4C66C /* LabelTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65F546562A87842F00F4C66C /* LabelTVCell.swift */,
+				65F546572A87842F00F4C66C /* LabelTVCell.xib */,
+			);
+			path = LabelTVCell;
+			sourceTree = "<group>";
+		};
+		65F5465A2A8788E800F4C66C /* FarBreakdownTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65F5465B2A8788FF00F4C66C /* FarBreakdownTVCell.swift */,
+				65F5465C2A8788FF00F4C66C /* FarBreakdownTVCell.xib */,
+			);
+			path = FarBreakdownTVCell;
+			sourceTree = "<group>";
+		};
+		65F5465F2A87AEE400F4C66C /* BaggageInfoTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65F546602A87AEFB00F4C66C /* BaggageInfoTVCell.swift */,
+				65F546612A87AEFB00F4C66C /* BaggageInfoTVCell.xib */,
+			);
+			path = BaggageInfoTVCell;
+			sourceTree = "<group>";
+		};
+		65F546692A87B26E00F4C66C /* AddCheckinBaggageCVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65F5466E2A87B29500F4C66C /* AddCheckinBaggageCVCell.swift */,
+				65F5466F2A87B29500F4C66C /* AddCheckinBaggageCVCell.xib */,
+			);
+			path = AddCheckinBaggageCVCell;
 			sourceTree = "<group>";
 		};
 		68ECED6CA8B81970D4936E3A /* Frameworks */ = {
@@ -1375,6 +1431,7 @@
 				65D4814F2A8220A700E7423E /* SigvarRegular.ttf in Resources */,
 				65D4821E2A8260F000E7423E /* MenuBtnWithLogoTVCell.xib in Resources */,
 				65D482042A8239C000E7423E /* Myriad Pro Black.otf in Resources */,
+				65F546592A87842F00F4C66C /* LabelTVCell.xib in Resources */,
 				65D481EE2A8222AD00E7423E /* Hotel.storyboard in Resources */,
 				65D481022A82203F00E7423E /* LaunchScreen.storyboard in Resources */,
 				65D481622A8220B700E7423E /* Oswald-Medium.ttf in Resources */,
@@ -1411,11 +1468,14 @@
 				65D481522A8220A700E7423E /* SigvarBold.ttf in Resources */,
 				65D482332A82703A00E7423E /* FlightDealsTVCell.xib in Resources */,
 				65D481632A8220B700E7423E /* Oswald-Regular.ttf in Resources */,
+				65F546632A87AEFB00F4C66C /* BaggageInfoTVCell.xib in Resources */,
 				65D481532A8220A700E7423E /* sigvar italic.ttf in Resources */,
 				650345062A839E7B00B13434 /* TravellerEconomyTVCell.xib in Resources */,
 				65D4823D2A827E4F00E7423E /* HotelDealsCVCell.xib in Resources */,
 				65D482132A825B5300E7423E /* EmptyTVCell.xib in Resources */,
 				65D481542A8220A700E7423E /* sharefonts.net.txt in Resources */,
+				65F5465E2A8788FF00F4C66C /* FarBreakdownTVCell.xib in Resources */,
+				65F546712A87B29500F4C66C /* AddCheckinBaggageCVCell.xib in Resources */,
 				65D481AD2A82212300E7423E /* NavBar.xib in Resources */,
 				650345552A85057D00B13434 /* StarRatingCVCell.xib in Resources */,
 				65D481612A8220B700E7423E /* Oswald-SemiBold.ttf in Resources */,
@@ -1579,6 +1639,7 @@
 				65D4820D2A82558B00E7423E /* HomeVC.swift in Sources */,
 				65E5381F2A862522007EE11A /* RegisterData.swift in Sources */,
 				65E5382B2A86358D007EE11A /* LoginModel.swift in Sources */,
+				65F546702A87B29500F4C66C /* AddCheckinBaggageCVCell.swift in Sources */,
 				65D481D12A82212300E7423E /* NSObject+Helper.swift in Sources */,
 				650345122A84A78B00B13434 /* OnewayModel.swift in Sources */,
 				6503452C2A84ADDE00B13434 /* FlightResultTVCell.swift in Sources */,
@@ -1607,6 +1668,7 @@
 				65F5464F2A871C4400F4C66C /* ProfileUpdateViewModel.swift in Sources */,
 				650345362A84D19700B13434 /* ModifySearchVC.swift in Sources */,
 				65D481B62A82212300E7423E /* TextFieldExtension.swift in Sources */,
+				65F546622A87AEFB00F4C66C /* BaggageInfoTVCell.swift in Sources */,
 				65D481A62A82212300E7423E /* BaseVC.swift in Sources */,
 				650345162A84A7EB00B13434 /* Search_params.swift in Sources */,
 				65E538082A85F99D007EE11A /* SideMenuVC.swift in Sources */,
@@ -1627,10 +1689,12 @@
 				65D481B52A82212300E7423E /* StringExtension.swift in Sources */,
 				65E5381D2A8624FE007EE11A /* RegisterUserModel.swift in Sources */,
 				65D482282A82694F00E7423E /* SelectTabCVCell.swift in Sources */,
+				65F546582A87842F00F4C66C /* LabelTVCell.swift in Sources */,
 				650345332A84C2DB00B13434 /* AddFlightInfoTVCell.swift in Sources */,
 				65E538332A86428C007EE11A /* LogoutViewModel.swift in Sources */,
 				65D482372A82750A00E7423E /* DealsCVCell.swift in Sources */,
 				65D481B22A82212300E7423E /* ButtonExtension.swift in Sources */,
+				65F5465D2A8788FF00F4C66C /* FarBreakdownTVCell.swift in Sources */,
 				650344E12A83737800B13434 /* SelectCityModel.swift in Sources */,
 				65E538282A8628A0007EE11A /* GetCountryListViewModel.swift in Sources */,
 				65E538212A862569007EE11A /* RegisterUserViewModel.swift in Sources */,

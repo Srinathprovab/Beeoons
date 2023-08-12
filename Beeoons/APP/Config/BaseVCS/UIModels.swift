@@ -39,6 +39,9 @@ enum TVCellType {
     case MenuOptionTVCell
     case RegisterUserTVCell
     case UserNameTextFieldTVCell
+    case LabelTVCell
+    case FarBreakdownTVCell
+    case BaggageInfoTVCell
     
 }
 
@@ -137,6 +140,16 @@ class TableRow {
     var travelTime:String?
     
     
+    var passengerType: String?
+    var basefare: String?
+    var tax: String?
+    var subtotal: String?
+    var noofpassengers: String?
+    var totalBreakdown: String?
+    var tripCost: String?
+    
+    
+    
     init() {}
     
     init(title: String? = nil, subTitle: String? = nil,fromTime: String? = nil ,
@@ -153,6 +166,15 @@ class TableRow {
          refundable: String? = nil ,
          price: String? = nil ,
          travelTime: String? = nil ,
+         
+         passengerType: String? = nil ,
+         basefare: String? = nil ,
+         tax: String? = nil,
+         subtotal: String? = nil ,
+         noofpassengers: String? = nil ,
+         totalBreakdown: String? = nil ,
+         tripCost: String? = nil ,
+         
          
          
          key: String? = nil, text: String? = nil, headerText: String? = nil, buttonTitle: String? = nil, keyboardType: UIKeyboardType = .default, data: Any? = nil, errormsg: String? = nil, key1: String? = nil, signInType: socialSignUpType? = nil , itemType: CVCellType? = nil, isSecure: Bool = false, isSelected: Bool = false,  needsBorder: Bool? = nil, needDoneButton: Bool? = nil, canGotoNextPage: Bool? = nil, image: String? = nil, imageSize: String? = nil, height: CGFloat? = nil, isOptional: Bool = true, moreData: Any? = nil, noInput: Bool = false, tempText: String? = nil, characterLimit: Int? = nil,characterLimit2: Int? = nil, hasHyperLink: Bool? = nil, disabled: Bool? = nil, disableLeftPortion: Bool? = nil, isEditable: Bool? = nil, lineSpace: CGFloat? = nil, shouldDoDualFieldValidations: Bool? = nil, cellUIUpdateCallback: ((_ cell: Any) -> Void)? = nil, cellActions: ((_ cell: Any, _ actionType: String, _ moreData: Any) -> Void)? = nil, autoCapitalization: UITextAutocapitalizationType? = nil, fontSize: CGFloat? = nil, borderSeq: BorderSeq? = nil, keyboardDistance: CGFloat? = nil, itemSize: CGSize? = nil,
@@ -177,6 +199,14 @@ class TableRow {
         self.refundable = refundable
         self.price = price
         self.travelTime = travelTime
+        
+        self.passengerType = passengerType
+        self.basefare = basefare
+        self.tax = tax
+        self.subtotal = subtotal
+        self.noofpassengers = noofpassengers
+        self.totalBreakdown = totalBreakdown
+        self.tripCost = tripCost
         
         
         self.key = key

@@ -129,6 +129,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="backimg" destination="xXM-T8-Iah" id="Lqv-Qh-GU8"/>
                 <outlet property="cvheight" destination="pSw-Bk-OrW" id="eZD-ps-UTq"/>
                 <outlet property="dealsCV" destination="Pye-gO-Qra" id="OEs-Rg-eux"/>
                 <outlet property="titlelbl" destination="vOT-GK-0Kw" id="YL7-QI-8vO"/>
