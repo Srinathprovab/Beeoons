@@ -139,10 +139,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Pc-Cg-InY">
-                                <rect key="frame" x="15" y="144" width="471" height="25"/>
+                                <rect key="frame" x="15" y="143" width="471" height="26"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3B-cb-gGX">
-                                        <rect key="frame" x="220" y="0.66666666666665719" width="31" height="24"/>
+                                        <rect key="frame" x="220" y="1" width="31" height="24"/>
                                         <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -150,10 +150,15 @@
                                 </subviews>
                                 <color key="backgroundColor" name="PriceBoxColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="5k9-fe-p5x"/>
+                                    <constraint firstAttribute="height" constant="26" id="5k9-fe-p5x"/>
                                     <constraint firstItem="Y3B-cb-gGX" firstAttribute="centerY" secondItem="4Pc-Cg-InY" secondAttribute="centerY" id="JtB-6J-EQs"/>
                                     <constraint firstItem="Y3B-cb-gGX" firstAttribute="centerX" secondItem="4Pc-Cg-InY" secondAttribute="centerX" id="z7n-9i-dnp"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="13"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

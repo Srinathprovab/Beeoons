@@ -43,6 +43,10 @@ enum TVCellType {
     case FarBreakdownTVCell
     case BaggageInfoTVCell
     case FareRulesTVCell
+    case ViewFlightDetailsTVCell
+    case PurchaseSummaryTVCell
+    case PromocodeTVCell
+    case TravellerDetailsTVCell
     
 }
 

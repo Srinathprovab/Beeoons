@@ -43,6 +43,7 @@ var searchid = ""
 var bookingsource = ""
 var selectedResult = ""
 
+
 //FlightDetails
 var fd = [[FlightDetails]]()
 var farepricedetails:PriceDetails?
@@ -90,7 +91,8 @@ struct ApiEndpoints {
     static let authmobile_login = "auth/mobile_login"
     static let authajax_logout = "auth/ajax_logout"
     static let updatemobileprofile = "user/mobile_profile"
-    
+    static let flight_mobile_pre_process_booking = "flight/mobile_pre_process_booking"
+
     
     
     
