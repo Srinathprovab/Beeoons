@@ -7,7 +7,8 @@
 
 import UIKit
 
-class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVCellDelegate, FlightDealsTVCellDelegate, BookFlightTVCellDelegate, TravellerEconomyTVCellDelegate, ButtonTVCellDelegate, FlightResultTVCellDelegate, CheckBoxTVCellDelegate, checkOptionsTVCellDelegate, SliderTVCellDelegate, SortByPriceTVCellDelegate, MenuOptionTVCellDelegate, MenuBGTVCellDelegate, RegisterUserTVCellDelegate, UserNameTextFieldTVCellDelegate {
+class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVCellDelegate, FlightDealsTVCellDelegate, BookFlightTVCellDelegate, TravellerEconomyTVCellDelegate, ButtonTVCellDelegate, FlightResultTVCellDelegate, CheckBoxTVCellDelegate, checkOptionsTVCellDelegate, SliderTVCellDelegate, SortByPriceTVCellDelegate, MenuOptionTVCellDelegate, MenuBGTVCellDelegate, RegisterUserTVCellDelegate, UserNameTextFieldTVCellDelegate, FareRulesTVCellDelegate {
+    
     
     
     
@@ -132,6 +133,7 @@ class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVC
     func didTapOnCountryCodeBtnAction(cell: UserNameTextFieldTVCell) {}
     func donedatePicker(cell:UserNameTextFieldTVCell){}
     func cancelDatePicker(cell:UserNameTextFieldTVCell){}
+    func showContentBtnAction(cell: FareRulesTVCell) {}
     
     
     
@@ -338,7 +340,10 @@ extension BaseTableVC: UITableViewDataSource {
                 
                 
                 
-                
+            case .FareRulesTVCell:
+                let cell:  FareRulesTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
                 
                 
                 

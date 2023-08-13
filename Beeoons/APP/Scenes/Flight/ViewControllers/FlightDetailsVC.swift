@@ -83,7 +83,8 @@ class FlightDetailsVC: BaseTableVC {
                                          "EmptyTVCell",
                                          "LabelTVCell",
                                          "FarBreakdownTVCell",
-                                         "BaggageInfoTVCell"])
+                                         "BaggageInfoTVCell",
+                                         "FareRulesTVCell"])
         
     }
     
@@ -97,6 +98,11 @@ class FlightDetailsVC: BaseTableVC {
     
     
     @IBAction func didTapOnBookNowBtnAction(_ sender: Any) {
+        guard let vc = PayNowVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        callapibool = true
+        vc.grandTotal = self.totalPricelbl.text ?? ""
+        self.present(vc, animated: false)
     }
     
 }
@@ -105,17 +111,16 @@ class FlightDetailsVC: BaseTableVC {
 
 extension FlightDetailsVC:FlightDetailsViewModelDelegate {
     func callAPI(){
-        self.view.backgroundColor = .black.withAlphaComponent(0.6)
         payload["search_id"] = searchid
         payload["booking_source"] = bookingsource
         payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
         payload["access_key"] = selectedAccesskey
         
-        
         vm?.CALL_GET_FLIGHT_DETAILS_API(dictParam: payload)
     }
     
     func flightDetails(response: FlightDetailsModel) {
+        self.view.backgroundColor = .black.withAlphaComponent(0.6)
         holderView.isHidden = false
         fd = response.flightDetails ?? [[]]
         fareRulesData = response.fareRulehtml ?? []
@@ -222,6 +227,12 @@ extension FlightDetailsVC:FlightDetailsViewModelDelegate {
             
         }
         
+        tablerow.append(TableRow(title:"Fare Rules",cellType:.LabelTVCell))
+        if fareRulesData.count != 0 {
+            fareRulesData.forEach { i in
+                tablerow.append(TableRow(title:i.rule_heading,subTitle: i.rule_content?.htmlToString,cellType:.FareRulesTVCell))
+            }
+        }
         tablerow.append(TableRow(height:20,bgColor: .WhiteColor,cellType:.EmptyTVCell))
         tablerow.append(TableRow(title:"Baggage Info",cellType:.LabelTVCell))
         tablerow.append(TableRow(cellType:.BaggageInfoTVCell))
@@ -234,5 +245,24 @@ extension FlightDetailsVC:FlightDetailsViewModelDelegate {
     }
     
     
+    
+}
+
+
+extension FlightDetailsVC {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? FareRulesTVCell {
+            if cell.showBool == true {
+                cell.show()
+                cell.showBool = false
+            }else {
+                cell.hide()
+                cell.showBool = true
+            }
+        }
+        
+        commonTableView.beginUpdates()
+        commonTableView.endUpdates()
+    }
     
 }

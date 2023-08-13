@@ -58,6 +58,7 @@
 		6503455E2A85063400B13434 /* SortByPriceTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6503455C2A85063400B13434 /* SortByPriceTVCell.xib */; };
 		650345602A8517AD00B13434 /* FlightDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6503455F2A8517AD00B13434 /* FlightDetailsVC.swift */; };
 		650345622A851DE400B13434 /* FlightDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650345612A851DE400B13434 /* FlightDetailsViewModel.swift */; };
+		65942CB32A87CC6A0091756B /* PayNowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65942CB22A87CC6A0091756B /* PayNowVC.swift */; };
 		65D480F62A82203E00E7423E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D480F52A82203E00E7423E /* AppDelegate.swift */; };
 		65D480F82A82203E00E7423E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D480F72A82203E00E7423E /* SceneDelegate.swift */; };
 		65D480FA2A82203E00E7423E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D480F92A82203E00E7423E /* ViewController.swift */; };
@@ -137,6 +138,8 @@
 		65D482382A82750A00E7423E /* DealsCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D482362A82750A00E7423E /* DealsCVCell.xib */; };
 		65D4823C2A827E4F00E7423E /* HotelDealsCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D4823A2A827E4F00E7423E /* HotelDealsCVCell.swift */; };
 		65D4823D2A827E4F00E7423E /* HotelDealsCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D4823B2A827E4F00E7423E /* HotelDealsCVCell.xib */; };
+		65DCEBBF2A87C5D0008393E3 /* FareRulesTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DCEBBD2A87C5D0008393E3 /* FareRulesTVCell.swift */; };
+		65DCEBC02A87C5D0008393E3 /* FareRulesTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65DCEBBE2A87C5D0008393E3 /* FareRulesTVCell.xib */; };
 		65E537F02A85CB96007EE11A /* FlightDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E537EF2A85CB96007EE11A /* FlightDetailsModel.swift */; };
 		65E537F22A85CBCC007EE11A /* FlightDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E537F12A85CBCC007EE11A /* FlightDetails.swift */; };
 		65E537F62A85CBE3007EE11A /* PriceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E537F52A85CBE3007EE11A /* PriceDetails.swift */; };
@@ -248,6 +251,7 @@
 		6503455C2A85063400B13434 /* SortByPriceTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SortByPriceTVCell.xib; sourceTree = "<group>"; };
 		6503455F2A8517AD00B13434 /* FlightDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailsVC.swift; sourceTree = "<group>"; };
 		650345612A851DE400B13434 /* FlightDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailsViewModel.swift; sourceTree = "<group>"; };
+		65942CB22A87CC6A0091756B /* PayNowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayNowVC.swift; sourceTree = "<group>"; };
 		65D480F22A82203E00E7423E /* Beeoons.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beeoons.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65D480F52A82203E00E7423E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65D480F72A82203E00E7423E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -331,6 +335,8 @@
 		65D482362A82750A00E7423E /* DealsCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DealsCVCell.xib; sourceTree = "<group>"; };
 		65D4823A2A827E4F00E7423E /* HotelDealsCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelDealsCVCell.swift; sourceTree = "<group>"; };
 		65D4823B2A827E4F00E7423E /* HotelDealsCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HotelDealsCVCell.xib; sourceTree = "<group>"; };
+		65DCEBBD2A87C5D0008393E3 /* FareRulesTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareRulesTVCell.swift; sourceTree = "<group>"; };
+		65DCEBBE2A87C5D0008393E3 /* FareRulesTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FareRulesTVCell.xib; sourceTree = "<group>"; };
 		65E537EF2A85CB96007EE11A /* FlightDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailsModel.swift; sourceTree = "<group>"; };
 		65E537F12A85CBCC007EE11A /* FlightDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightDetails.swift; sourceTree = "<group>"; };
 		65E537F52A85CBE3007EE11A /* PriceDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceDetails.swift; sourceTree = "<group>"; };
@@ -817,6 +823,7 @@
 				6503450C2A849ED900B13434 /* FlightResultVC.swift */,
 				650345372A84FBDF00B13434 /* FilterSearchVC.swift */,
 				6503455F2A8517AD00B13434 /* FlightDetailsVC.swift */,
+				65942CB22A87CC6A0091756B /* PayNowVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1141,6 +1148,15 @@
 			path = HotelDealsCVCell;
 			sourceTree = "<group>";
 		};
+		65DCEBBC2A87C5BF008393E3 /* FareRulesTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65DCEBBD2A87C5D0008393E3 /* FareRulesTVCell.swift */,
+				65DCEBBE2A87C5D0008393E3 /* FareRulesTVCell.xib */,
+			);
+			path = FareRulesTVCell;
+			sourceTree = "<group>";
+		};
 		65E537EE2A85CB83007EE11A /* FlightDetailsModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1155,6 +1171,7 @@
 		65E537F92A85EB8C007EE11A /* FlightDetails */ = {
 			isa = PBXGroup;
 			children = (
+				65DCEBBC2A87C5BF008393E3 /* FareRulesTVCell */,
 				65F5465F2A87AEE400F4C66C /* BaggageInfoTVCell */,
 				65F5465A2A8788E800F4C66C /* FarBreakdownTVCell */,
 				65F546552A87841600F4C66C /* LabelTVCell */,
@@ -1437,6 +1454,7 @@
 				65D481622A8220B700E7423E /* Oswald-Medium.ttf in Resources */,
 				6503454B2A8500A500B13434 /* CheckBoxTVCell.xib in Resources */,
 				65D482382A82750A00E7423E /* DealsCVCell.xib in Resources */,
+				65DCEBC02A87C5D0008393E3 /* FareRulesTVCell.xib in Resources */,
 				65D482292A82694F00E7423E /* SelectTabCVCell.xib in Resources */,
 				65D481642A8220B700E7423E /* Oswald-ExtraLight.ttf in Resources */,
 				65D481F22A8222DA00E7423E /* Login.storyboard in Resources */,
@@ -1640,6 +1658,7 @@
 				65E5381F2A862522007EE11A /* RegisterData.swift in Sources */,
 				65E5382B2A86358D007EE11A /* LoginModel.swift in Sources */,
 				65F546702A87B29500F4C66C /* AddCheckinBaggageCVCell.swift in Sources */,
+				65DCEBBF2A87C5D0008393E3 /* FareRulesTVCell.swift in Sources */,
 				65D481D12A82212300E7423E /* NSObject+Helper.swift in Sources */,
 				650345122A84A78B00B13434 /* OnewayModel.swift in Sources */,
 				6503452C2A84ADDE00B13434 /* FlightResultTVCell.swift in Sources */,
@@ -1712,6 +1731,7 @@
 				65E538152A861284007EE11A /* RegisterUserVC.swift in Sources */,
 				65D481AF2A82212300E7423E /* ServiceManager.swift in Sources */,
 				650345202A84A8F100B13434 /* Session_expiry_details.swift in Sources */,
+				65942CB32A87CC6A0091756B /* PayNowVC.swift in Sources */,
 				65D482172A825C8400E7423E /* MyAccountVC.swift in Sources */,
 				6503450D2A849ED900B13434 /* FlightResultVC.swift in Sources */,
 				650344E82A8380AF00B13434 /* FromCityTVCell.swift in Sources */,
@@ -1894,15 +1914,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 5TLY5PME9K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Beeoons/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationLandscapeLeft;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1924,15 +1944,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 5TLY5PME9K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Beeoons/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationLandscapeLeft;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
