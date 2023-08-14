@@ -37,6 +37,10 @@ var BASE_URL1 = "https://beeoons.com/pro/web_service/index.php/"
 var countrylist = [Country_list]()
 var profildata:ProfileUpdateData?
 
+//index page
+var topflightDest = [Flight_top_destinations1]()
+var indeximagepath = String()
+
 //Flight Result
 var selectedAccesskey = ""
 var searchid = ""
@@ -92,7 +96,7 @@ struct ApiEndpoints {
     static let authajax_logout = "auth/ajax_logout"
     static let updatemobileprofile = "user/mobile_profile"
     static let flight_mobile_pre_process_booking = "flight/mobile_pre_process_booking"
-
+    static let indexpageapi = "general/index"
     
     
     

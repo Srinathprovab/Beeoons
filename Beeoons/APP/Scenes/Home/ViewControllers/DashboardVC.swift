@@ -11,6 +11,7 @@ class DashboardVC: BaseTableVC {
     
     
     var tablerow = [TableRow]()
+    var vm:IndexPageViewModel?
     //MARK: - side menu initial setup
     private var sideMenuViewController: SideMenuVC!
     private var sideMenuShadowView: UIView!
@@ -24,7 +25,7 @@ class DashboardVC: BaseTableVC {
     private var sideMenuTrailingConstraint: NSLayoutConstraint!
     private var revealSideMenuOnTop: Bool = true
     var gestureEnabled: Bool = true
-    
+    var payload = [String:Any]()
     
     //MARK: - viewDidLoad
     
@@ -71,6 +72,10 @@ class DashboardVC: BaseTableVC {
             
             UserDefaults.standard.set(true, forKey: "ExecuteOnce")
         }
+        
+        if callapibool == true {
+            callIndexPageAPI()
+        }
     }
     
     
@@ -81,6 +86,7 @@ class DashboardVC: BaseTableVC {
         // Do any additional setup after loading the view.
         self.view.backgroundColor = .WhiteColor
         setupUI()
+        vm = IndexPageViewModel(self)
     }
     
     //MARK: -
@@ -92,7 +98,7 @@ class DashboardVC: BaseTableVC {
                                          "SelectTabTVCell",
                                          "DearMemberTVCell",
                                          "FlightDealsTVCell"])
-        setupTVCell()
+        
     }
     
     
@@ -111,7 +117,7 @@ class DashboardVC: BaseTableVC {
                                  subTitle: "You can Access the Announcement regarding our flights to Ukraine, Belarus and Russia and the rights granted to our passengers for our flights to these countries",
                                  cellType: .DearMemberTVCell))
         
-       
+        
         tablerow.append(TableRow(title:"FLIGHT",cellType: .FlightDealsTVCell))
         tablerow.append(TableRow(height:80,bgColor: .WhiteColor,cellType: .EmptyTVCell))
         commonTVData = tablerow
@@ -184,7 +190,37 @@ class DashboardVC: BaseTableVC {
     
     //MARK: -
     override func didTapOnBookFlightBtn(cell: DealsCVCell) {
-        print(cell.bookBtn.tag)
+        payload["trip_type"] = cell.trip_type
+        payload["adult"] = "1"
+        payload["child"] = "0"
+        payload["infant"] = "0"
+        payload["sector_type"] = "international"
+        payload["from"] = cell.fromcity
+        payload["from_loc_id"] = cell.from_loc_id
+        payload["to"] = cell.tocity
+        payload["to_loc_id"] = cell.to_loc_id
+        payload["depature"] = cell.depratureDatelbl.text ?? ""
+        payload["return"] = cell.returnDatelbl.text ?? ""
+        payload["carrier"] = ""
+        payload["psscarrier"] = ""
+        payload["v_class"] = cell.v_class
+        payload["search_flight"] = "Search"
+        payload["search_source"] = "search"
+        payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
+        payload["currency"] = cell.currency
+    
+        gotoFlightResultVC()
+       
+    }
+    
+    
+    func gotoFlightResultVC() {
+        guard let vc = FlightResultVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        loderBool = true
+        callapibool = true
+        vc.payload = payload
+        self.present(vc, animated: true)
     }
     
     
@@ -280,7 +316,7 @@ extension DashboardVC: UIGestureRecognizerDelegate {
         }
         else {
             NotificationCenter.default.post(name: NSNotification.Name("tabbarhide"), object: false)
-//            NotificationCenter.default.post(name: NSNotification.Name("callprofile"), object: true)
+            //            NotificationCenter.default.post(name: NSNotification.Name("callprofile"), object: true)
             
             self.animateSideMenu(targetPosition: self.revealSideMenuOnTop ? (-self.sideMenuRevealWidth - self.paddingForRotation) : 0) { _ in
                 self.isExpanded = false
@@ -416,4 +452,23 @@ extension DashboardVC: UIGestureRecognizerDelegate {
             break
         }
     }
+}
+
+
+
+extension DashboardVC:IndexPageViewModelDelegate {
+    
+    func callIndexPageAPI() {
+        vm?.CALL_INDEXPAGE_API(dictParam: [:])
+    }
+    
+    func indexPageDetails(response: IndexPageModel) {
+        topflightDest = response.flight_top_destinations1 ?? []
+        indeximagepath = response.base_url ?? ""
+        
+        DispatchQueue.main.async {[self] in
+            setupTVCell()
+        }
+    }
+    
 }

@@ -49,7 +49,7 @@ class FlightDealsTVCell: TableViewCell, DealsCVCellDelegate, HotelDealsCVCellDel
             backimg.image = UIImage(named: "flightback")?.withRenderingMode(.alwaysOriginal)
             cvheight.constant = 181
             setupFlightCV()
-            itemCount = flightcount
+            itemCount = topflightDest.count
             // startAutoScroll()
         }else {
             backimg.image = UIImage(named: "hotelback")?.withRenderingMode(.alwaysOriginal)
@@ -133,7 +133,7 @@ extension FlightDealsTVCell:UICollectionViewDelegate,UICollectionViewDataSource 
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if titlelbl.text == "FLIGHT" {
-            return flightcount
+            return topflightDest.count
         }else {
             return hotelcount
         }
@@ -154,7 +154,27 @@ extension FlightDealsTVCell:UICollectionViewDelegate,UICollectionViewDataSource 
         if titlelbl.text == "FLIGHT" {
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? DealsCVCell {
                 cell.delegate = self
+                
+                let data = topflightDest[indexPath.row]
                 cell.bookBtn.tag = indexPath.row
+                cell.bgimg.sd_setImage(with: URL(string: "\(indeximagepath)\(data.image ?? "")"), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+                cell.operatorImg.sd_setImage(with: URL(string: "\(data.operator_image ?? "")"), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+                
+                cell.citylbl.text = data.from_city_name ?? ""
+                cell.depratureDatelbl.text = data.travel_date ?? ""
+                cell.returnDatelbl.text = data.return_date ?? ""
+                cell.flytolbl.text = data.to_city_name ?? ""
+                cell.kwdpricelbl.text = "\(data.currency ?? ""):\(data.price ?? "")"
+                cell.titlelbl.text = data.flight_text ?? ""
+                
+                cell.trip_type = data.trip_type ?? ""
+                cell.fromcity = "\(data.from_airport_name ?? "") (\(data.from_city_loc ?? ""))"
+                cell.from_loc_id = data.from_city ?? ""
+                cell.tocity = "\(data.to_airport_name ?? "") (\(data.to_city_loc ?? ""))"
+                cell.to_loc_id = data.to_city ?? ""
+                cell.v_class = data.airline_class ?? ""
+                cell.currency = data.currency ?? ""
+                
                 commonCell = cell
             }
         }else {

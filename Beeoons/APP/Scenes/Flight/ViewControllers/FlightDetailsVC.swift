@@ -143,7 +143,7 @@ extension FlightDetailsVC:FlightDetailsViewModelDelegate {
         }
         
         
-        tablerow.append(TableRow(title:"Far Breakdown",cellType:.LabelTVCell))
+        tablerow.append(TableRow(title:"Fare Breakdown",cellType:.LabelTVCell))
         if adultsCount > 0 && childCount == 0 && infantsCount == 0 {
             tablerow.append(TableRow(passengerType:"Adult",
                                      basefare: farepricedetails?.adultsBasePrice,

@@ -39,6 +39,7 @@ class ViewController: UIViewController {
     func gotodashBoardScreen() {
         guard let vc = HomeVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
+        callapibool = true
         present(vc, animated: true)
     }
     

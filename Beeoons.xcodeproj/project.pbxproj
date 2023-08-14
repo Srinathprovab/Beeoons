@@ -58,6 +58,12 @@
 		6503455E2A85063400B13434 /* SortByPriceTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6503455C2A85063400B13434 /* SortByPriceTVCell.xib */; };
 		650345602A8517AD00B13434 /* FlightDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6503455F2A8517AD00B13434 /* FlightDetailsVC.swift */; };
 		650345622A851DE400B13434 /* FlightDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650345612A851DE400B13434 /* FlightDetailsViewModel.swift */; };
+		6507B4C72A8A3871007FD2DD /* IndexPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507B4C62A8A3871007FD2DD /* IndexPageModel.swift */; };
+		6507B4C92A8A38C0007FD2DD /* Flight_top_destinations1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507B4C82A8A38C0007FD2DD /* Flight_top_destinations1.swift */; };
+		6507B4CB2A8A38CC007FD2DD /* Flight_hotel_top_destinations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507B4CA2A8A38CC007FD2DD /* Flight_hotel_top_destinations.swift */; };
+		6507B4CD2A8A38D9007FD2DD /* Top_dest_hotel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507B4CC2A8A38D9007FD2DD /* Top_dest_hotel.swift */; };
+		6507B4CF2A8A38E1007FD2DD /* Perfect_holidays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507B4CE2A8A38E1007FD2DD /* Perfect_holidays.swift */; };
+		6507B4D12A8A39E3007FD2DD /* IndexPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507B4D02A8A39E3007FD2DD /* IndexPageViewModel.swift */; };
 		650C31312A886A94002DF7D4 /* ViewFlightDetailsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650C312F2A886A94002DF7D4 /* ViewFlightDetailsTVCell.swift */; };
 		650C31322A886A94002DF7D4 /* ViewFlightDetailsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 650C31302A886A94002DF7D4 /* ViewFlightDetailsTVCell.xib */; };
 		650C31342A886DE0002DF7D4 /* ViewFlightDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650C31332A886DE0002DF7D4 /* ViewFlightDetailsVC.swift */; };
@@ -266,6 +272,12 @@
 		6503455C2A85063400B13434 /* SortByPriceTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SortByPriceTVCell.xib; sourceTree = "<group>"; };
 		6503455F2A8517AD00B13434 /* FlightDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailsVC.swift; sourceTree = "<group>"; };
 		650345612A851DE400B13434 /* FlightDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailsViewModel.swift; sourceTree = "<group>"; };
+		6507B4C62A8A3871007FD2DD /* IndexPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexPageModel.swift; sourceTree = "<group>"; };
+		6507B4C82A8A38C0007FD2DD /* Flight_top_destinations1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flight_top_destinations1.swift; sourceTree = "<group>"; };
+		6507B4CA2A8A38CC007FD2DD /* Flight_hotel_top_destinations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flight_hotel_top_destinations.swift; sourceTree = "<group>"; };
+		6507B4CC2A8A38D9007FD2DD /* Top_dest_hotel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Top_dest_hotel.swift; sourceTree = "<group>"; };
+		6507B4CE2A8A38E1007FD2DD /* Perfect_holidays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Perfect_holidays.swift; sourceTree = "<group>"; };
+		6507B4D02A8A39E3007FD2DD /* IndexPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexPageViewModel.swift; sourceTree = "<group>"; };
 		650C312F2A886A94002DF7D4 /* ViewFlightDetailsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFlightDetailsTVCell.swift; sourceTree = "<group>"; };
 		650C31302A886A94002DF7D4 /* ViewFlightDetailsTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewFlightDetailsTVCell.xib; sourceTree = "<group>"; };
 		650C31332A886DE0002DF7D4 /* ViewFlightDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFlightDetailsVC.swift; sourceTree = "<group>"; };
@@ -593,6 +605,18 @@
 				6503455C2A85063400B13434 /* SortByPriceTVCell.xib */,
 			);
 			path = SortByPriceTVCell;
+			sourceTree = "<group>";
+		};
+		6507B4C52A8A3851007FD2DD /* IndexPageModel */ = {
+			isa = PBXGroup;
+			children = (
+				6507B4C62A8A3871007FD2DD /* IndexPageModel.swift */,
+				6507B4C82A8A38C0007FD2DD /* Flight_top_destinations1.swift */,
+				6507B4CA2A8A38CC007FD2DD /* Flight_hotel_top_destinations.swift */,
+				6507B4CC2A8A38D9007FD2DD /* Top_dest_hotel.swift */,
+				6507B4CE2A8A38E1007FD2DD /* Perfect_holidays.swift */,
+			);
+			path = IndexPageModel;
 			sourceTree = "<group>";
 		};
 		650C312E2A886A37002DF7D4 /* PayNow */ = {
@@ -1128,6 +1152,7 @@
 			children = (
 				65E538272A8628A0007EE11A /* GetCountryListViewModel.swift */,
 				65F5464E2A871C4400F4C66C /* ProfileUpdateViewModel.swift */,
+				6507B4D02A8A39E3007FD2DD /* IndexPageViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1135,6 +1160,7 @@
 		65D481F72A82231700E7423E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6507B4C52A8A3851007FD2DD /* IndexPageModel */,
 				65F5464B2A871C0F00F4C66C /* ProfileUpdateModel */,
 				65E538222A8627DF007EE11A /* CountryListModel */,
 			);
@@ -1749,6 +1775,7 @@
 				650344DE2A83704500B13434 /* SelectCityVC.swift in Sources */,
 				65D481B72A82212300E7423E /* DateExtension.swift in Sources */,
 				650C313E2A887493002DF7D4 /* PreProcessBookingViewModel.swift in Sources */,
+				6507B4D12A8A39E3007FD2DD /* IndexPageViewModel.swift in Sources */,
 				650345622A851DE400B13434 /* FlightDetailsViewModel.swift in Sources */,
 				650344D92A835A0D00B13434 /* BookFlightTVCell.swift in Sources */,
 				65E538192A86150D007EE11A /* RegisterUserTVCell.swift in Sources */,
@@ -1774,6 +1801,7 @@
 				650C313A2A88742B002DF7D4 /* Flight_data.swift in Sources */,
 				65D4820D2A82558B00E7423E /* HomeVC.swift in Sources */,
 				650C31382A8873FB002DF7D4 /* PreProcessBookingModel.swift in Sources */,
+				6507B4C72A8A3871007FD2DD /* IndexPageModel.swift in Sources */,
 				65E5381F2A862522007EE11A /* RegisterData.swift in Sources */,
 				65E5382B2A86358D007EE11A /* LoginModel.swift in Sources */,
 				65F546702A87B29500F4C66C /* AddCheckinBaggageCVCell.swift in Sources */,
@@ -1788,6 +1816,7 @@
 				65D481A92A82212300E7423E /* UIModels.swift in Sources */,
 				65D482122A825B5300E7423E /* EmptyTVCell.swift in Sources */,
 				65E5380D2A85FF79007EE11A /* MenuBGTVCell.swift in Sources */,
+				6507B4CF2A8A38E1007FD2DD /* Perfect_holidays.swift in Sources */,
 				6503451E2A84A88500B13434 /* Price.swift in Sources */,
 				650345542A85057D00B13434 /* StarRatingCVCell.swift in Sources */,
 				65D481D62A82212300E7423E /* StoryboardExtension.swift in Sources */,
@@ -1833,6 +1862,7 @@
 				65D482282A82694F00E7423E /* SelectTabCVCell.swift in Sources */,
 				65F546582A87842F00F4C66C /* LabelTVCell.swift in Sources */,
 				650345332A84C2DB00B13434 /* AddFlightInfoTVCell.swift in Sources */,
+				6507B4CB2A8A38CC007FD2DD /* Flight_hotel_top_destinations.swift in Sources */,
 				65E538332A86428C007EE11A /* LogoutViewModel.swift in Sources */,
 				65D482372A82750A00E7423E /* DealsCVCell.swift in Sources */,
 				65D481B22A82212300E7423E /* ButtonExtension.swift in Sources */,
@@ -1841,9 +1871,11 @@
 				650C314D2A88A22B002DF7D4 /* TravellerDetailsTVCell.swift in Sources */,
 				65E538282A8628A0007EE11A /* GetCountryListViewModel.swift in Sources */,
 				65E538212A862569007EE11A /* RegisterUserViewModel.swift in Sources */,
+				6507B4CD2A8A38D9007FD2DD /* Top_dest_hotel.swift in Sources */,
 				65D4823C2A827E4F00E7423E /* HotelDealsCVCell.swift in Sources */,
 				65E538242A8627F0007EE11A /* CountryListModel.swift in Sources */,
 				65E538312A86424A007EE11A /* LogoutModel.swift in Sources */,
+				6507B4C92A8A38C0007FD2DD /* Flight_top_destinations1.swift in Sources */,
 				65E538262A862807007EE11A /* Country_list.swift in Sources */,
 				65D481B12A82212300E7423E /* UIViewControllerExtension.swift in Sources */,
 				65F5464D2A871C1800F4C66C /* ProfileUpdateModel.swift in Sources */,
@@ -2042,12 +2074,18 @@
 				DEVELOPMENT_TEAM = 5TLY5PME9K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Beeoons/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app will use the camera to take photos and videos for uploading profile pictures.";
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "App wants to access your documents folder";
+				INFOPLIST_KEY_NSDownloadsFolderUsageDescription = "App wants to access your downloads folder";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app needs access to your photo library to let you select photos for creating posts and sharing with friends.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationLandscapeLeft;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2072,12 +2110,18 @@
 				DEVELOPMENT_TEAM = 5TLY5PME9K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Beeoons/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app will use the camera to take photos and videos for uploading profile pictures.";
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "App wants to access your documents folder";
+				INFOPLIST_KEY_NSDownloadsFolderUsageDescription = "App wants to access your downloads folder";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app needs access to your photo library to let you select photos for creating posts and sharing with friends.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationLandscapeLeft;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
