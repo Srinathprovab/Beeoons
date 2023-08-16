@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -75,7 +74,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KWT-1w-YT1">
                                 <rect key="frame" x="90" y="324" width="213" height="40"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="jRT-nZ-gKv">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pass" translatesAutoresizingMaskIntoConstraints="NO" id="jRT-nZ-gKv">
                                         <rect key="frame" x="4" y="8.6666666666666856" width="23" height="23"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="23" id="CX2-p3-AgN"/>
@@ -418,6 +417,7 @@
         <image name="chevron.backward" catalog="system" width="97" height="128"/>
         <image name="hidepass" width="512" height="512"/>
         <image name="loginlogo" width="197.66667175292969" height="118"/>
+        <image name="pass" width="23" height="10"/>
         <image name="user" width="23" height="23"/>
         <namedColor name="PriceBoxColor">
             <color red="0.17299999296665192" green="0.41600000858306885" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

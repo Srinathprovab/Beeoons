@@ -20,6 +20,9 @@ class BookFlightVC: BaseTableVC {
     
     var selectedAirlineName = String()
     var payload = [String:Any]()
+    var payload1 = [String:Any]()
+    var payload2 = [String:Any]()
+    var fromdataArray = [[String:Any]]()
     var tablerow = [TableRow]()
     static var newInstance: BookFlightVC? {
         let storyboard = UIStoryboard(name: Storyboard.Flight.name,
@@ -46,16 +49,19 @@ class BookFlightVC: BaseTableVC {
     //MARK: -
     func setupUI() {
         
-        // multicityView.isHidden = true
-       
+        multicityView.isHidden = true
+        
         let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
         if journyType == "oneway" {
             setupOnewayUI()
-        }else{
+        }else if journyType == "circle" {
             setupRoundtripUI()
+        }else{
+            setupMulticityUI()
         }
         commonTableView.registerTVCells(["BookFlightTVCell",
-                                         "FlightDealsTVCell"])
+                                         "FlightDealsTVCell",
+                                         "BookFlightMCTVCell"])
         
     }
     
@@ -103,7 +109,7 @@ class BookFlightVC: BaseTableVC {
         roundtriplbl.textColor = .Journytabunselectedcolor
         multicitylbl.textColor = .WhiteColor
         defaults.set("multicity", forKey: UserDefaultsKeys.journeyType)
-        setupTVCell()
+        setupMulticityTVCell()
     }
     
     //MARK: - setupTVCell
@@ -321,6 +327,141 @@ class BookFlightVC: BaseTableVC {
         callapibool = true
         vc.payload = input
         self.present(vc, animated: true)
+    }
+    
+    
+    
+    //MARK: - setupMulticityTVCell
+    func setupMulticityTVCell() {
+        tablerow.removeAll()
+        
+        tablerow.append(TableRow(cellType: .BookFlightMCTVCell))
+        //        tablerow.append(TableRow(title:"FLIGHT",cellType: .FlightDealsTVCell))
+        
+        
+        commonTVData = tablerow
+        commonTableView.reloadData()
+    }
+    
+    
+    override func didTapOnFromCityBtn(cell: BookFlightMCTVCell) {
+        gotoSelectCityVC(str: "From Destination", tokey: "")
+    }
+    
+    override func didTapOnToCityBtn(cell: BookFlightMCTVCell) {
+        gotoSelectCityVC(str: "To Destination", tokey: "")
+    }
+    
+    override func didTapOnDateBtn(cell: BookFlightMCTVCell) {
+        gotoCalenderVC()
+    }
+    
+    override func didTapOnSelectTravellersBtnAction(cell: BookFlightMCTVCell) {
+        gotoAddTravelerVC()
+    }
+    
+    override func didTapOnSelectClassBtnAction(cell: BookFlightMCTVCell) {
+        
+    }
+    
+    override func didTapOnSearchFlightBtnAction(cell: BookFlightMCTVCell) {
+        loderBool = true
+        payload.removeAll()
+        payload1.removeAll()
+        payload2.removeAll()
+        fromdataArray.removeAll()
+        
+        for (index,_) in fromCityShortNameArray.enumerated() {
+            
+            payload2["from"] = fromCityNameArray[index]
+            payload2["from_loc_id"] = fromlocidArray[index]
+            payload2["to"] = toCityNameArray[index]
+            payload2["to_loc_id"] = tolocidArray[index]
+            payload2["depature"] = depatureDatesArray[index]
+            
+            fromdataArray.append(payload2)
+        }
+        
+
+        
+        
+        payload["sector_type"] = "international"
+        payload["trip_type"] = defaults.string(forKey: UserDefaultsKeys.journeyType)
+        payload["adult"] = defaults.string(forKey: UserDefaultsKeys.madultCount)
+        payload["child"] = defaults.string(forKey: UserDefaultsKeys.mchildCount)
+        payload["infant"] = defaults.string(forKey: UserDefaultsKeys.minfantsCount)
+        payload["carrier"] = ""
+        payload["psscarrier"] = ""
+        payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass) ?? "Economy"
+        payload["search_flight"] = "Search"
+        payload["search_source"] = "search"
+        payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
+        payload["currency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? "KWD"
+        payload["placeDetails"] = fromdataArray
+        
+        
+        
+        
+        var showToastMessage: String? = nil
+        
+        for cityName in fromCityNameArray {
+            if cityName == "" {
+                showToastMessage = "Please Select Origin"
+                break
+            }
+        }
+        
+        if showToastMessage == nil {
+            for cityName in toCityNameArray {
+                if cityName == "" {
+                    showToastMessage = "Please Select Destination"
+                    break
+                }
+            }
+        }
+        
+        if showToastMessage == nil {
+            for date in depatureDatesArray {
+                if date == "Date" {
+                    showToastMessage = "Please Select Date"
+                    break
+                }
+            }
+        }
+        
+        
+        
+        if showToastMessage == nil {
+            if depatureDatesArray != depatureDatesArray.sorted() {
+                showToastMessage = "Please Select Dates in Ascending Order"
+            } else if depatureDatesArray.count == 2 && depatureDatesArray[0] == depatureDatesArray[1] {
+                showToastMessage = "Please Select Different Dates"
+            }
+        }
+   
+        
+        if let message = showToastMessage {
+            showToast(message: message)
+        } else {
+            do {
+                let arrJson = try JSONSerialization.data(withJSONObject: payload, options: JSONSerialization.WritingOptions.prettyPrinted)
+                let theJSONText = NSString(data: arrJson, encoding: String.Encoding.utf8.rawValue)
+                print(theJSONText ?? "")
+                
+                payload1["search_params"] = theJSONText
+                payload1["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
+                
+                gotoSearchFlightResultVC(input: payload1)
+                
+            }catch let error as NSError{
+                print(error.description)
+            }
+            
+            
+        }
+        
+        
+        
     }
     
     

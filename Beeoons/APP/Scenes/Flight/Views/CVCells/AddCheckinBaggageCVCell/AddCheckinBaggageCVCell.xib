@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -17,37 +16,54 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="AddCheckinBaggageCVCell" customModule="Beeoons" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="150" height="60"/>
+            <rect key="frame" x="0.0" y="0.0" width="150" height="115"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="150" height="60"/>
+                <rect key="frame" x="0.0" y="0.0" width="150" height="115"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SC7-Ob-m5h">
-                        <rect key="frame" x="0.0" y="0.0" width="150" height="60"/>
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="115"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Dubai to Kuwait" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1a-ct-82b">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dubai to Kuwait" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1a-ct-82b">
                                 <rect key="frame" x="5" y="8" width="140" height="21"/>
                                 <fontDescription key="fontDescription" name="Oswald-Light" family="Oswald" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Adult 20 kilograms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="psH-9h-dDk">
-                                <rect key="frame" x="5" y="34" width="140" height="21"/>
-                                <fontDescription key="fontDescription" name="Oswald-Light" family="Oswald" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="x2d-i9-JJy">
+                                <rect key="frame" x="5" y="34" width="140" height="73"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adult 20 kilograms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="psH-9h-dDk">
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="21"/>
+                                        <fontDescription key="fontDescription" name="Oswald-Light" family="Oswald" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adult 20 kilograms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUK-oq-PCc">
+                                        <rect key="frame" x="0.0" y="26" width="140" height="21"/>
+                                        <fontDescription key="fontDescription" name="Oswald-Light" family="Oswald" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adult 20 kilograms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kfd-BH-f0m">
+                                        <rect key="frame" x="0.0" y="52" width="140" height="21"/>
+                                        <fontDescription key="fontDescription" name="Oswald-Light" family="Oswald" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="psH-9h-dDk" firstAttribute="leading" secondItem="SC7-Ob-m5h" secondAttribute="leading" constant="5" id="EbE-SZ-eLQ"/>
-                            <constraint firstAttribute="bottom" secondItem="psH-9h-dDk" secondAttribute="bottom" constant="7" id="JVA-nh-pmF"/>
                             <constraint firstAttribute="trailing" secondItem="C1a-ct-82b" secondAttribute="trailing" constant="5" id="Jkb-gG-4XG"/>
                             <constraint firstItem="C1a-ct-82b" firstAttribute="top" secondItem="SC7-Ob-m5h" secondAttribute="top" constant="8" id="Jx5-6R-tD2"/>
-                            <constraint firstItem="psH-9h-dDk" firstAttribute="top" secondItem="C1a-ct-82b" secondAttribute="bottom" constant="5" id="pXO-cc-ow4"/>
+                            <constraint firstItem="x2d-i9-JJy" firstAttribute="top" secondItem="C1a-ct-82b" secondAttribute="bottom" constant="5" id="O0K-yc-4Bh"/>
+                            <constraint firstItem="x2d-i9-JJy" firstAttribute="leading" secondItem="SC7-Ob-m5h" secondAttribute="leading" constant="5" id="OOd-yc-7of"/>
+                            <constraint firstAttribute="trailing" secondItem="x2d-i9-JJy" secondAttribute="trailing" constant="5" id="SZm-b9-97M"/>
+                            <constraint firstAttribute="bottom" secondItem="x2d-i9-JJy" secondAttribute="bottom" constant="8" id="nc7-hJ-CLH"/>
                             <constraint firstItem="C1a-ct-82b" firstAttribute="leading" secondItem="SC7-Ob-m5h" secondAttribute="leading" constant="5" id="rXT-FQ-WuC"/>
-                            <constraint firstAttribute="trailing" secondItem="psH-9h-dDk" secondAttribute="trailing" constant="5" id="rYc-bm-x40"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -59,8 +75,14 @@
                 <constraint firstAttribute="bottom" secondItem="SC7-Ob-m5h" secondAttribute="bottom" id="bfK-iC-8mK"/>
                 <constraint firstAttribute="trailing" secondItem="SC7-Ob-m5h" secondAttribute="trailing" id="h4d-l6-avg"/>
             </constraints>
-            <size key="customSize" width="151" height="62"/>
-            <point key="canvasLocation" x="174.80916030534351" y="40.140845070422536"/>
+            <size key="customSize" width="151" height="117"/>
+            <connections>
+                <outlet property="adultlbl" destination="psH-9h-dDk" id="ckR-B8-s1o"/>
+                <outlet property="childlbl" destination="CUK-oq-PCc" id="EAO-jc-GRm"/>
+                <outlet property="infantlbl" destination="kfd-BH-f0m" id="o0I-QL-OgA"/>
+                <outlet property="sectorlbl" destination="C1a-ct-82b" id="ouu-y1-Dtq"/>
+            </connections>
+            <point key="canvasLocation" x="174.04580152671755" y="70.070422535211264"/>
         </collectionViewCell>
     </objects>
     <resources>

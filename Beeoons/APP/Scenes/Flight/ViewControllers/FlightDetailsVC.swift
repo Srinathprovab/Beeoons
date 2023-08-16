@@ -125,7 +125,7 @@ extension FlightDetailsVC:FlightDetailsViewModelDelegate {
         fd = response.flightDetails ?? [[]]
         fareRulesData = response.fareRulehtml ?? []
         farepricedetails = response.priceDetails
-        //   baggageAllowance1 = response.baggageAllowance ?? []
+        bggAllowance = response.baggageAllowance ?? []
         
         totalPricelbl.text = response.priceDetails?.grand_total ?? "0"
         DispatchQueue.main.async {
@@ -133,6 +133,7 @@ extension FlightDetailsVC:FlightDetailsViewModelDelegate {
         }
     }
     
+  
     
     func setupItineraryTVCells() {
         tablerow.removeAll()
@@ -172,7 +173,8 @@ extension FlightDetailsVC:FlightDetailsViewModelDelegate {
                                      subtotal: farepricedetails?.sub_total_child,
                                      noofpassengers: "\(childCount)",
                                      totalBreakdown:farepricedetails?.childTotalPrice,
-                                     tripCost:farepricedetails?.grand_total))
+                                     tripCost:farepricedetails?.grand_total,
+                                     cellType: .FarBreakdownTVCell))
             
         }else if adultsCount > 0 && childCount == 0 && infantsCount > 0 {
             

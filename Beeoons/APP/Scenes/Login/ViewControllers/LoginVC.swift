@@ -43,6 +43,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         if isvcFrom == "menu" {
             skipbtn.isHidden = true
+        }else if isvcFrom == "vc" {
+            backBtn.isHidden = true
         }else {
             backBtn.isHidden = false
         }
@@ -84,6 +86,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     func gotodashBoardScreen() {
         guard let vc = HomeVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
+        callapibool = true
         present(vc, animated: true)
     }
     
@@ -122,6 +125,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     //MARK: - didTapOnSkipBtnAction
     @IBAction func didTapOnSkipBtnAction(_ sender: Any) {
         defaults.set(false, forKey: UserDefaultsKeys.loggedInStatus)
+        defaults.set("0", forKey: UserDefaultsKeys.userid)
         gotodashBoardScreen()
     }
     

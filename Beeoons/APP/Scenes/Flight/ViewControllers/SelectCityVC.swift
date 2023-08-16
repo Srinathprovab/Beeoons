@@ -241,7 +241,7 @@ extension SelectCityVC {
             cell.subtitlelbl.text = dict.value ?? ""
             cell.label = dict.value ?? ""
             cell.id = dict.id ?? ""
-            cell.citycode = dict.code ?? ""
+            cell.citycode = dict.airport_code ?? ""
             cell.cityname = "\(dict.city ?? "")"
            
         }else{
@@ -250,7 +250,7 @@ extension SelectCityVC {
             cell.subtitlelbl.text = dict.value ?? ""
             cell.label = dict.value ?? ""
             cell.id = dict.id ?? ""
-            cell.citycode = dict.code ?? ""
+            cell.citycode = dict.airport_code ?? ""
             cell.cityname = "\(dict.city ?? "")"
         }
         
@@ -291,7 +291,15 @@ extension SelectCityVC {
                                 defaults.set(cell.cityname , forKey: UserDefaultsKeys.rtocityname)
                             }
                         }else {
-                            
+                            if titleStr == "From Destination" {
+                                fromCityShortNameArray[self.celltag] = cell.citycode
+                                fromCityNameArray[self.celltag] = cell.label
+                                fromlocidArray[self.celltag] = cell.id
+                            }else {
+                                toCityShortNameArray[self.celltag] = cell.citycode
+                                toCityNameArray[self.celltag] = cell.label
+                                tolocidArray[self.celltag] = cell.id
+                            }
                         }
                     }
                     

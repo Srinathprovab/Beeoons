@@ -33,7 +33,6 @@ class DashboardVC: BaseTableVC {
         
         if !UserDefaults.standard.bool(forKey: "ExecuteOnce") {
             
-            
             defaults.set("FLIGHTS", forKey: UserDefaultsKeys.tabselect)
             defaults.set("oneway", forKey: UserDefaultsKeys.journeyType)
             defaults.set("KWD", forKey: UserDefaultsKeys.selectedCurrency)
@@ -64,6 +63,11 @@ class DashboardVC: BaseTableVC {
             defaults.set(totaltraverlers1, forKey: UserDefaultsKeys.rtravellerDetails)
             
             
+            
+            defaults.set("Economy", forKey: UserDefaultsKeys.mselectClass)
+            defaults.set("1", forKey: UserDefaultsKeys.madultCount)
+            defaults.set("0", forKey: UserDefaultsKeys.mchildCount)
+            defaults.set("0", forKey: UserDefaultsKeys.minfantsCount)
             let totaltraverlers2 = "\(defaults.string(forKey: UserDefaultsKeys.totalTravellerCount) ?? "1") Traveller"
             defaults.set(totaltraverlers2, forKey: UserDefaultsKeys.mtravellerDetails)
             

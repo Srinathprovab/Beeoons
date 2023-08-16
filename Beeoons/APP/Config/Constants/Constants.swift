@@ -41,6 +41,19 @@ var profildata:ProfileUpdateData?
 var topflightDest = [Flight_top_destinations1]()
 var indeximagepath = String()
 
+//Multicity
+var fromCityNameArray = ["From","From"]
+var fromCityShortNameArray = ["From","From"]
+var toCityNameArray = ["To","To"]
+var toCityShortNameArray = ["To","To"]
+var calDate = ["Date","Date"]
+var calDateYearArray = ["Date","Date"]
+var depatureDatesArray = ["",""]
+var fromlocidArray = ["",""]
+var tolocidArray = ["",""]
+var fromCityArray = ["",""]
+var toCityArray = ["",""]
+
 //Flight Result
 var selectedAccesskey = ""
 var searchid = ""
@@ -50,6 +63,7 @@ var selectedResult = ""
 
 //FlightDetails
 var fd = [[FlightDetails]]()
+var bggAllowance = [BaggageAllowance]()
 var farepricedetails:PriceDetails?
 var fareRulesData = [FareRulehtml]()
 var Adults_Base_Price = String()

@@ -168,10 +168,6 @@ class CalenderVC: UIViewController {
             calendDate = calendarView.selectedDates.last?.customDateStringFormat("dd-MM-YYYY") ?? ""
             
         }
-        
-        
-        
-        
     }
     
     
@@ -185,8 +181,6 @@ class CalenderVC: UIViewController {
     
     func handleCellSelected(cell: CalendarCVCell, cellState: CellState) {
         cell.selectedView.isHidden = !cellState.isSelected
-        
-        
         
         switch cellState.selectedPosition() {
         case .left:
@@ -269,7 +263,9 @@ class CalenderVC: UIViewController {
                             showToast(message: "Please Select Dates")
                         }else{
                             defaults.set(calstartDate, forKey: UserDefaultsKeys.mcalDepDate)
-                            //   depatureDatesArray[self.celltag] = calstartDate
+                            calDate[self.celltag] = convertDateFormat(inputDate: calstartDate, f1: "dd-MM-yyyy", f2: "dd MMM")
+                            depatureDatesArray[self.celltag] = calstartDate
+                            
                             
                             NotificationCenter.default.post(name: Notification.Name("reload"), object: nil)
                             dismiss(animated: false)

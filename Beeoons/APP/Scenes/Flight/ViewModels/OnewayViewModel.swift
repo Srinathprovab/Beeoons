@@ -11,6 +11,8 @@ import Foundation
 
 protocol OnewayViewModelDelegate : BaseViewModelProtocol {
     func flightList(response : OnewayModel)
+    func multicityFlightList(response : MulticityModel)
+    
 }
 
 class OnewayViewModel {
@@ -41,5 +43,26 @@ class OnewayViewModel {
         }
     }
     
+    
+    
+    func CALL_GET_MULTICITY_FLIGHT_LIST_API(dictParam: [String: Any]){
+        let parms = NSDictionary(dictionary:dictParam)
+        print("Parameters = \(parms)")
+        
+        self.view?.showLoader()
+        
+        ServiceManager.postOrPutApiCall(endPoint: ApiEndpoints.mobilepreflightsearch,urlParams: parms as? Dictionary<String, String> , parameters: parms, resultType: MulticityModel.self, p:dictParam) { sucess, result, errorMessage in
+            
+            DispatchQueue.main.async {
+                self.view?.hideLoader()
+                if sucess {
+                    guard let response = result else {return}
+                    self.view.multicityFlightList(response: response)
+                } else {
+                    self.view.showToast(message: errorMessage ?? "")
+                }
+            }
+        }
+    }
     
 }

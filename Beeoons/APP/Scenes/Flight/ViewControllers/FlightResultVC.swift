@@ -23,7 +23,7 @@ class FlightResultVC: BaseTableVC {
     @IBOutlet weak var moreStopBtn: UIButton!
     
     
-    
+    let refreshControl = UIRefreshControl()
     var tablerow = [TableRow]()
     var vm:OnewayViewModel?
     var payload = [String:Any]()
@@ -61,8 +61,6 @@ class FlightResultVC: BaseTableVC {
     
     //MARK: - setupUI
     func setupUI() {
-        //        bottomView.layer.borderWidth = 1
-        //        bottomView.layer.borderColor = UIColor.AppBorderColor.cgColor
         bottomView.addCornerRadiusWithShadow(color: .AppBorderColor, borderColor: .clear, cornerRadius: 4)
         nonStopView.addCornerRadiusWithShadow(color: .clear, borderColor: HexColor("#E0DDDD"), cornerRadius: 4)
         oneStopView.addCornerRadiusWithShadow(color: .clear, borderColor: HexColor("#E0DDDD"), cornerRadius: 4)
@@ -70,15 +68,37 @@ class FlightResultVC: BaseTableVC {
         nonStopBtn.addTarget(self, action: #selector(didTapOnStopsFilter(_:)), for: .touchUpInside)
         oneStopBtn.addTarget(self, action: #selector(didTapOnStopsFilter(_:)), for: .touchUpInside)
         moreStopBtn.addTarget(self, action: #selector(didTapOnStopsFilter(_:)), for: .touchUpInside)
-        
+        setupRefreshControl()
         commonTableView.registerTVCells(["FlightResultTVCell"])
     }
+    
+    
+    //MARK: - setupRefreshControl
+    func setupRefreshControl(){
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        commonTableView.addSubview(refreshControl) // not required when using UITableViewController
+    }
+    
+    
+    @objc func refresh(_ sender: AnyObject) {
+        // Code to refresh table view
+        setupTVCells(jfl: oneWayFlights)
+        
+        let seconds = 2.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+            // Put your code which should be executed with a delay here
+            self.refreshControl.endRefreshing()
+        }
+    }
+    
     
     
     
     //MARK: - didTapOnFlightDetails
     override func didTapOnFlightDetails(cell:FlightResultTVCell){
         selectedAccesskey = cell.accesskey
+        //print(selectedAccesskey)
         goToFlightInfoVC()
     }
     
@@ -124,9 +144,17 @@ class FlightResultVC: BaseTableVC {
 
 extension FlightResultVC:OnewayViewModelDelegate {
     
+    
     //MARK: - CALL_GET_FLIGHT_LIST_API
     func callAPI() {
-        vm?.CALL_GET_FLIGHT_LIST_API(dictParam: payload)
+        
+        let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
+        if journyType == "multicity" {
+            
+            vm?.CALL_GET_MULTICITY_FLIGHT_LIST_API(dictParam: payload)
+        }else {
+            vm?.CALL_GET_FLIGHT_LIST_API(dictParam: payload)
+        }
     }
     
     func flightList(response: OnewayModel) {
@@ -150,7 +178,17 @@ extension FlightResultVC:OnewayViewModelDelegate {
         
         
         
-        oneWayFlights.forEach { i in
+        appendPriceValuesIntoArray(jfl: oneWayFlights)
+        
+        DispatchQueue.main.async {
+            self.setupTVCells(jfl: self.oneWayFlights)
+        }
+    }
+    
+    
+    
+    func appendPriceValuesIntoArray(jfl:[[J_flight_list]]) {
+        jfl.forEach { i in
             i.forEach { j in
                 
                 prices.append("\(j.price?.api_total_display_fare ?? 0.0)")
@@ -175,21 +213,16 @@ extension FlightResultVC:OnewayViewModelDelegate {
         airlinesA = Array(Set(airlinesA.compactMap { $0 }))
         connectingFlightsA = Array(Set(connectingFlightsA))
         connectingAirportA = Array(Set(connectingAirportA))
-        
-        
-        
-        DispatchQueue.main.async {
-            self.setupTVCells(jfl: self.oneWayFlights)
-        }
     }
     
     
     func setupTVCells(jfl:[[J_flight_list]]) {
         tablerow.removeAll()
-        
+        TableViewHelper.EmptyMessage(message: "", tableview: commonTableView, vc: self)
+
         jfl.forEach { i in
             i.forEach { j in
-                
+                print(j.access_key)
                 tablerow.append(TableRow(title:j.access_key,
                                          kwdprice:"\(j.price?.api_currency ?? ""):\(j.price?.api_total_display_fare ?? 0.0)",
                                          refundable:j.fareType,
@@ -205,24 +238,77 @@ extension FlightResultVC:OnewayViewModelDelegate {
         commonTableView.reloadData()
     }
     
+    
+    
+    
+    //MARK: - MULTICITY RESPONSE
+    func multicityFlightList(response: MulticityModel) {
+        
+        holderView.isHidden = false
+        loderBool = false
+        searchid = "\(response.data?.search_id ?? 0)"
+        bookingsource = "\(response.data?.booking_source_key ?? "")"
+        oneWayFlights = response.data?.j_flight_list ?? [[]]
+        
+        appendPriceValuesIntoArray(jfl: oneWayFlights)
+        
+        DispatchQueue.main.async {
+            self.setupTVCells(jfl: self.oneWayFlights)
+        }
+    }
+    
+    
 }
 
 
 extension FlightResultVC:AppliedFilters{
     
-    //MARK: - Filters
+    //MARK: - Filters didTapOnStopsFilter
     @objc func didTapOnStopsFilter(_ sender:UIButton){
+        
+        var filterStr = String()
+        var count = 0
         if sender.tag == 1 {
-            print("Non Stop")
-            
+            filterStr = "0"
         }else if sender.tag == 2 {
-            print("1 Stop")
+            filterStr = "1"
         }else {
-            print("1+ Stop")
+            filterStr = "2"
         }
+        
+        let filteredArray = oneWayFlights.map { $0.filter { flight in
+            if let segmentSummary = flight.flight_details?.summary {
+                return segmentSummary.contains { "\($0.no_of_stops ?? 0)".lowercased().contains(filterStr.lowercased()) }
+            } else {
+                return false
+            }
+        }}
+        
+        
+        filteredArray.forEach { i in
+            count = i.count
+        }
+        
+        if count == 0 {
+            showTableViewHelperMessage()
+        }else {
+            setupTVCells(jfl: filteredArray)
+        }
+        
+       
+        
     }
     
-    //MARK: - filtersSortByApplied
+    
+    func showTableViewHelperMessage() {
+        tablerow.removeAll()
+        TableViewHelper.EmptyMessage(message: "No Data Avaliable", tableview: commonTableView, vc: self)
+        commonTVData = tablerow
+        commonTableView.reloadData()
+    }
+    
+    
+    //MARK: - Filters filtersSortByApplied
     func filtersSortByApplied(sortBy: SortParameter) {
         
         
@@ -230,8 +316,8 @@ extension FlightResultVC:AppliedFilters{
         case .PriceLow:
             
             let sortedFlights = oneWayFlights.sorted { (flights1, flights2) -> Bool in
-                let totalPrice1 = flights1.reduce(0.0) { $0 + (Double($1.totalPrice ?? "0") ?? 0.0) }
-                let totalPrice2 = flights2.reduce(0.0) { $0 + (Double($1.totalPrice ?? "0") ?? 0.0) }
+                let totalPrice1 = flights1.reduce(0.0) { $0 + (Double($1.price?.api_total_display_fare ?? 0.0) ) }
+                let totalPrice2 = flights2.reduce(0.0) { $0 + (Double($1.price?.api_total_display_fare ?? 0.0) ) }
                 return totalPrice1 < totalPrice2
             }
             
@@ -241,8 +327,8 @@ extension FlightResultVC:AppliedFilters{
             
         case .PriceHigh:
             let sortedFlights = oneWayFlights.sorted { (flights1, flights2) -> Bool in
-                let totalPrice1 = flights1.reduce(0.0) { $0 + (Double($1.totalPrice ?? "0") ?? 0.0) }
-                let totalPrice2 = flights2.reduce(0.0) { $0 + (Double($1.totalPrice ?? "0") ?? 0.0) }
+                let totalPrice1 = flights1.reduce(0.0) { $0 + (Double($1.price?.api_total_display_fare ?? 0.0) ) }
+                let totalPrice2 = flights2.reduce(0.0) { $0 + (Double($1.price?.api_total_display_fare ?? 0.0) ) }
                 return totalPrice1 > totalPrice2
             }
             setupTVCells(jfl: sortedFlights)
@@ -356,7 +442,7 @@ extension FlightResultVC:AppliedFilters{
     }
     
     
-    //MARK: - filterByApplied
+    //MARK: - Filters filterByApplied
     func filterByApplied(minpricerange: Double, maxpricerange: Double, noofstopsFA: [String], departureTimeFilter: [String], arrivalTimeFilter: [String], airlinesFA: [String], cancellationTypeFA: [String], connectingFlightsFA: [String], connectingAirportsFA: [String]) {
         
         
@@ -378,7 +464,7 @@ extension FlightResultVC:AppliedFilters{
                 
                 // Calculate the total price for each flight in the flight list
                 let totalPrice = flightList.reduce(0.0) { result, flight in
-                    result + (Double(flight.totalPrice ?? "") ?? 0.0)
+                    result + (Double(flight.price?.api_total_display_fare ?? 0.0) )
                 }
                 
                 // Check if the flight list has at least one flight with the specified number of stops

@@ -7,8 +7,7 @@
 
 import UIKit
 
-class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVCellDelegate, FlightDealsTVCellDelegate, BookFlightTVCellDelegate, TravellerEconomyTVCellDelegate, ButtonTVCellDelegate, FlightResultTVCellDelegate, CheckBoxTVCellDelegate, checkOptionsTVCellDelegate, SliderTVCellDelegate, SortByPriceTVCellDelegate, MenuOptionTVCellDelegate, MenuBGTVCellDelegate, RegisterUserTVCellDelegate, UserNameTextFieldTVCellDelegate, FareRulesTVCellDelegate, ViewFlightDetailsTVCellDelegate {
-    
+class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVCellDelegate, FlightDealsTVCellDelegate, BookFlightTVCellDelegate, TravellerEconomyTVCellDelegate, ButtonTVCellDelegate, FlightResultTVCellDelegate, CheckBoxTVCellDelegate, checkOptionsTVCellDelegate, SliderTVCellDelegate, SortByPriceTVCellDelegate, MenuOptionTVCellDelegate, MenuBGTVCellDelegate, RegisterUserTVCellDelegate, UserNameTextFieldTVCellDelegate, FareRulesTVCellDelegate, ViewFlightDetailsTVCellDelegate, BookFlightMCTVCellDelegate {
     
     
     @IBOutlet weak var commonScrollView: UITableView!
@@ -111,6 +110,13 @@ class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVC
     func didTapOnSearchFlightBtnAction(cell:BookFlightTVCell) {}
     func didTapOnFlightDetails(cell:FlightResultTVCell){}
     func didTapOnAirLineDropDownBtn(cell:BookFlightTVCell){}
+    
+    func didTapOnSelectTravellersBtnAction(cell: BookFlightMCTVCell) {}
+    func didTapOnSelectClassBtnAction(cell: BookFlightMCTVCell) {}
+    func didTapOnSearchFlightBtnAction(cell: BookFlightMCTVCell) {}
+    func didTapOnFromCityBtn(cell: BookFlightMCTVCell) {}
+    func didTapOnToCityBtn(cell: BookFlightMCTVCell) {}
+    func didTapOnDateBtn(cell: BookFlightMCTVCell) {}
     
     func didTapOnCheckBoxDropDownBtn(cell: CheckBoxTVCell) {}
     func didTapOnShowMoreBtn(cell: CheckBoxTVCell) {}
@@ -375,7 +381,10 @@ extension BaseTableVC: UITableViewDataSource {
                 
                 
                 
-                
+            case .BookFlightMCTVCell:
+                let cell:  BookFlightMCTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
                 
                 
                 

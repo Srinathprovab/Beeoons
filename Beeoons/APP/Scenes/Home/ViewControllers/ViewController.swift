@@ -46,6 +46,7 @@ class ViewController: UIViewController {
     func gotoLoginVC() {
         guard let vc = LoginVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
+        vc.isvcFrom = "vc"
         present(vc, animated: true)
     }
     
