@@ -18,6 +18,8 @@ protocol BookFlightTVCellDelegate {
     func didTapOnAddAirlineButtonAction(cell:BookFlightTVCell)
     func didTapOnSearchFlightBtnAction(cell:BookFlightTVCell)
     func didTapOnAirLineDropDownBtn(cell:BookFlightTVCell)
+    
+    func editingTextField(tf:UITextField)
 }
 
 class BookFlightTVCell: TableViewCell {
@@ -39,14 +41,16 @@ class BookFlightTVCell: TableViewCell {
     @IBOutlet weak var depView: UIView!
     @IBOutlet weak var retView: UIView!
     @IBOutlet weak var airlinelbl: UILabel!
+    @IBOutlet weak var airlineTF: UITextField!
+    
+    
     
     var cname = String()
     var countryCode = String()
     var countryNames = [String]()
-    var countrycodesArray = [String]()
-    var originArray = [String]()
-    var isocountrycodeArray = [String]()
-    var filterdcountrylist = [Country_list]()
+    var isSearchBool = Bool()
+    var searchText = String()
+    var filterdcountrylist = [Airline_list]()
     let dropDown = DropDown()
     let airlinedropDown = DropDown()
     var tapairlinebool = true
@@ -65,7 +69,7 @@ class BookFlightTVCell: TableViewCell {
     
     
     override func updateUI() {
-        filterdcountrylist = countrylist
+        filterdcountrylist = airlinelist1
         loadCountryNamesAndCode()
         
         let jt = defaults.string(forKey: UserDefaultsKeys.journeyType)
@@ -142,15 +146,9 @@ class BookFlightTVCell: TableViewCell {
     
     func loadCountryNamesAndCode(){
         countryNames.removeAll()
-        countrycodesArray.removeAll()
-        isocountrycodeArray.removeAll()
-        originArray.removeAll()
         
         filterdcountrylist.forEach { i in
             countryNames.append(i.name ?? "")
-            countrycodesArray.append(i.country_code ?? "")
-            isocountrycodeArray.append(i.iso_country_code ?? "")
-            originArray.append(i.origin ?? "")
         }
         
         DispatchQueue.main.async {[self] in
@@ -164,9 +162,18 @@ class BookFlightTVCell: TableViewCell {
         holderView.layer.borderColor = UIColor.WhiteColor.cgColor
         airlineViewHeight.constant = 40
         addairlineView.isHidden = true
-        setupDropDown()
         setupAirlineDropDown()
+        setupDropDown()
+        
+        setuptf(tf: airlineTF, tag1: 333, leftpadding: 0, font: .OswaldRegular(size: 16), placeholder: "Kuwait")
+        airlineTF.addTarget(self, action: #selector(searchTextChanged(textField:)), for: .editingChanged)
+        airlineTF.addTarget(self, action: #selector(searchTextBegin(textField:)), for: .editingDidBegin)
+       
     }
+    
+    
+    
+   
     
     
     
@@ -197,12 +204,15 @@ class BookFlightTVCell: TableViewCell {
     func setupAirlineDropDown() {
         
         airlinedropDown.direction = .bottom
+       
         airlinedropDown.backgroundColor = .WhiteColor
         airlinedropDown.anchorView = self.addairlineView
         airlinedropDown.bottomOffset = CGPoint(x: 0, y: self.addairlineView.frame.size.height + 10)
         airlinedropDown.selectionAction = { [weak self] (index: Int, item: String) in
             
             self?.airlinelbl.text = self?.countryNames[index] ?? ""
+            self?.airlineTF.text = ""
+            self?.airlineTF.resignFirstResponder()
             self?.delegate?.didTapOnAirLineDropDownBtn(cell: self!)
             
         }
@@ -243,11 +253,13 @@ class BookFlightTVCell: TableViewCell {
             addairlineView.isHidden = false
             addairlinelbl.text = "- Add Airline"
             tapairlinebool = false
+            airlineTF.becomeFirstResponder()
         }else {
             airlineViewHeight.constant = 40
             addairlineView.isHidden = true
             addairlinelbl.text = "+ Add Airline"
             tapairlinebool = true
+            airlineTF.resignFirstResponder()
         }
         delegate?.didTapOnAddAirlineButtonAction(cell: self)
     }
@@ -262,6 +274,77 @@ class BookFlightTVCell: TableViewCell {
     
     @IBAction func didTapOnAirLineDropDownBtn(_ sender: Any) {
         airlinedropDown.show()
+    }
+    
+    
+    
+    
+    func setuptf(tf:UITextField,tag1:Int,leftpadding:Int,font:UIFont,placeholder:String){
+        tf.backgroundColor = .clear
+        tf.placeholder = ""
+        tf.setLeftPaddingPoints(CGFloat(leftpadding))
+        tf.font = font
+        tf.tag = tag1
+        tf.delegate = self
+        tf.addTarget(self, action: #selector(editingText(textField:)), for: .editingChanged)
+    }
+    
+    @objc func editingText(textField:UITextField) {
+        self.airlinelbl.text = ""
+        delegate?.editingTextField(tf: textField)
+    }
+    
+    
+    
+    @objc func searchTextBegin(textField: UITextField) {
+        textField.text = ""
+        filterdcountrylist.removeAll()
+        filterdcountrylist = airlinelist1
+        loadCountryNamesAndCode()
+        airlinedropDown.show()
+    }
+    
+    
+    @objc func searchTextChanged(textField: UITextField) {
+        searchText = textField.text ?? ""
+        if searchText == "" {
+            isSearchBool = false
+            filterContentForSearchText(searchText)
+        }else {
+            isSearchBool = true
+            filterContentForSearchText(searchText)
+        }
+        
+        
+    }
+    
+    func filterContentForSearchText(_ searchText: String) {
+        print("Filterin with:", searchText)
+        
+        filterdcountrylist.removeAll()
+        filterdcountrylist = airlinelist1.filter { thing in
+            return "\(thing.name?.lowercased() ?? "")".contains(searchText.lowercased())
+        }
+        
+        loadCountryNamesAndCode()
+        airlinedropDown.show()
+        
+    }
+    
+    
+}
+
+
+extension BookFlightTVCell {
+    
+    //MARK - UITextField Delegates
+    override func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        var maxLength = 50
+        let currentString: NSString = textField.text! as NSString
+        let newString: NSString =  currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
+        
     }
     
     

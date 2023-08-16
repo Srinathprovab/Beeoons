@@ -14,6 +14,7 @@ struct IndexPageModel : Codable {
     let flight_hotel_top_destinations : [Flight_hotel_top_destinations]?
     let top_dest_hotel : [Top_dest_hotel]?
     let perfect_holidays : [Perfect_holidays]?
+    let currency_list : [Currency_list]?
    
 
     enum CodingKeys: String, CodingKey {
@@ -23,6 +24,7 @@ struct IndexPageModel : Codable {
         case flight_hotel_top_destinations = "flight_hotel_top_destinations"
         case top_dest_hotel = "top_dest_hotel"
         case perfect_holidays = "perfect_holidays"
+        case currency_list = "currency_list"
     }
 
     init(from decoder: Decoder) throws {
@@ -32,7 +34,8 @@ struct IndexPageModel : Codable {
         flight_hotel_top_destinations = try values.decodeIfPresent([Flight_hotel_top_destinations].self, forKey: .flight_hotel_top_destinations)
         top_dest_hotel = try values.decodeIfPresent([Top_dest_hotel].self, forKey: .top_dest_hotel)
         perfect_holidays = try values.decodeIfPresent([Perfect_holidays].self, forKey: .perfect_holidays)
-       
+        currency_list = try values.decodeIfPresent([Currency_list].self, forKey: .currency_list)
+
     }
 
 }

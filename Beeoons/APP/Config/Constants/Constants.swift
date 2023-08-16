@@ -40,6 +40,8 @@ var profildata:ProfileUpdateData?
 //index page
 var topflightDest = [Flight_top_destinations1]()
 var indeximagepath = String()
+var currencylist = [Currency_list]()
+var airlinelist1 = [Airline_list]()
 
 //Multicity
 var fromCityNameArray = ["From","From"]
@@ -59,7 +61,7 @@ var selectedAccesskey = ""
 var searchid = ""
 var bookingsource = ""
 var selectedResult = ""
-
+var cityCodes = ""
 
 //FlightDetails
 var fd = [[FlightDetails]]()
@@ -106,6 +108,7 @@ struct ApiEndpoints {
     static let getFlightDetails = "flight/getFlightDetails"
     static let mobile_register_on_light_box = "auth/mobile_register_on_light_box"
     static let countrylist = "flight/country_list"
+    static let getAirlineList = "general/getAirlineList"
     static let authmobile_login = "auth/mobile_login"
     static let authajax_logout = "auth/ajax_logout"
     static let updatemobileprofile = "user/mobile_profile"

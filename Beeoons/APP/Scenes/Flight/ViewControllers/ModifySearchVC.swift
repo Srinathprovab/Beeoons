@@ -18,6 +18,8 @@ class ModifySearchVC: BaseTableVC {
     @IBOutlet weak var multicityView: UIView!
     @IBOutlet weak var multicitylbl: UILabel!
     
+    
+    var selectedAirlineName = String()
     var payload = [String:Any]()
     var payload1 = [String:Any]()
     var payload2 = [String:Any]()
@@ -206,7 +208,7 @@ class ModifySearchVC: BaseTableVC {
     
     //MARK: - didTapOnAddAirlineButtonAction
     override func didTapOnAddAirlineButtonAction(cell:BookFlightTVCell){
-        commonTableView.reloadData()
+        selectedAirlineName = cell.airlinelbl.text ?? ""
     }
     
     

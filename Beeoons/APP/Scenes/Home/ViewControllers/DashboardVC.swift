@@ -29,7 +29,12 @@ class DashboardVC: BaseTableVC {
     
     //MARK: - viewDidLoad
     
+    
+    
+    
     override func viewWillAppear(_ animated: Bool) {
+        
+        addObserver()
         
         if !UserDefaults.standard.bool(forKey: "ExecuteOnce") {
             
@@ -113,7 +118,9 @@ class DashboardVC: BaseTableVC {
         tablerow.append(TableRow(height:50,bgColor: .WhiteColor,cellType: .EmptyTVCell))
         tablerow.append(TableRow(cellType: .MenuBtnWithLogoTVCell))
         tablerow.append(TableRow(cellType: .SelectTabTVCell))
-        tablerow.append(TableRow(title:"HOTEL",cellType: .FlightDealsTVCell))
+        tablerow.append(TableRow(title:"HOTEL",
+                                 subTitle: "Deals from your favorite booking sites, All in one place.",
+                                 cellType: .FlightDealsTVCell))
         tablerow.append(TableRow(title:"Dear Members,",
                                  subTitle: "As of 20 September 2022, Miles & Smiles award ticket issuance and profile updates will be made with verification code to be sent your phone",
                                  cellType: .DearMemberTVCell))
@@ -122,7 +129,10 @@ class DashboardVC: BaseTableVC {
                                  cellType: .DearMemberTVCell))
         
         
-        tablerow.append(TableRow(title:"FLIGHT",cellType: .FlightDealsTVCell))
+        tablerow.append(TableRow(title:"FLIGHT",
+                                 subTitle:"Popular international flights for kuwait",
+                                 cellType: .FlightDealsTVCell))
+        
         tablerow.append(TableRow(height:80,bgColor: .WhiteColor,cellType: .EmptyTVCell))
         commonTVData = tablerow
         commonTableView.reloadData()
@@ -188,7 +198,7 @@ class DashboardVC: BaseTableVC {
     
     //MARK: -
     override func didTapOnLangBtnAction(cell: MenuBtnWithLogoTVCell) {
-        print("didTapOnLangBtnAction")
+        
     }
     
     
@@ -212,9 +222,9 @@ class DashboardVC: BaseTableVC {
         payload["search_source"] = "search"
         payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
         payload["currency"] = cell.currency
-    
+        
         gotoFlightResultVC()
-       
+        
     }
     
     
@@ -469,10 +479,35 @@ extension DashboardVC:IndexPageViewModelDelegate {
     func indexPageDetails(response: IndexPageModel) {
         topflightDest = response.flight_top_destinations1 ?? []
         indeximagepath = response.base_url ?? ""
+        currencylist = response.currency_list ?? []
         
         DispatchQueue.main.async {[self] in
             setupTVCell()
         }
     }
     
+}
+
+
+
+extension DashboardVC {
+    func addObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(nointernet), name: Notification.Name("offline"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name("reloadTV"), object: nil)
+    }
+    
+    @objc func nointernet(){
+        gotoNoInternetConnectionVC()
+    }
+    
+    @objc func reload(){
+        callIndexPageAPI()
+    }
+    
+    func gotoNoInternetConnectionVC() {
+        guard let vc = NoInternetConnectionVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.key = "nointernet"
+        self.present(vc, animated: false)
+    }
 }

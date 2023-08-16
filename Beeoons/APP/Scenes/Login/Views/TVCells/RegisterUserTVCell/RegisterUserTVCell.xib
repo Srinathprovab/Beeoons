@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -236,7 +235,7 @@
                                 </constraints>
                             </view>
                             <textField opaque="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gk9-J3-db9">
-                                <rect key="frame" x="47" y="0.0" width="166" height="39"/>
+                                <rect key="frame" x="46.999999999999986" y="0.0" width="126.00000000000001" height="39"/>
                                 <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" textContentType="password"/>
                             </textField>
@@ -274,18 +273,18 @@
                         </subviews>
                         <color key="backgroundColor" name="WhiteColor"/>
                         <constraints>
+                            <constraint firstItem="EAa-yJ-NYB" firstAttribute="leading" secondItem="Gk9-J3-db9" secondAttribute="trailing" id="0ld-3f-HKh"/>
                             <constraint firstItem="dhc-3K-GPN" firstAttribute="leading" secondItem="WyU-UM-6Ay" secondAttribute="leading" constant="4" id="A7F-N9-MVM"/>
-                            <constraint firstItem="yqE-N5-eWi" firstAttribute="top" secondItem="Gk9-J3-db9" secondAttribute="bottom" id="BHr-JY-kyf"/>
+                            <constraint firstItem="Gk9-J3-db9" firstAttribute="top" secondItem="WyU-UM-6Ay" secondAttribute="top" id="B1I-Dd-mOC"/>
+                            <constraint firstItem="yqE-N5-eWi" firstAttribute="top" secondItem="Gk9-J3-db9" secondAttribute="bottom" id="LpI-P6-mHQ"/>
                             <constraint firstAttribute="bottom" secondItem="yqE-N5-eWi" secondAttribute="bottom" id="PVn-qf-OiQ"/>
                             <constraint firstItem="dhc-3K-GPN" firstAttribute="centerY" secondItem="WyU-UM-6Ay" secondAttribute="centerY" id="S7B-sd-cbS"/>
                             <constraint firstItem="yqE-N5-eWi" firstAttribute="leading" secondItem="WyU-UM-6Ay" secondAttribute="leading" id="SIN-U4-hJU"/>
-                            <constraint firstItem="Gk9-J3-db9" firstAttribute="leading" secondItem="dhc-3K-GPN" secondAttribute="trailing" constant="20" id="WvH-YQ-d41"/>
-                            <constraint firstAttribute="trailing" secondItem="Gk9-J3-db9" secondAttribute="trailing" id="azR-CX-LcH"/>
                             <constraint firstAttribute="trailing" secondItem="yqE-N5-eWi" secondAttribute="trailing" id="bZY-tw-5Hu"/>
-                            <constraint firstItem="Gk9-J3-db9" firstAttribute="top" secondItem="WyU-UM-6Ay" secondAttribute="top" id="c34-IW-aB2"/>
                             <constraint firstItem="EAa-yJ-NYB" firstAttribute="centerY" secondItem="WyU-UM-6Ay" secondAttribute="centerY" id="g9n-p6-Nhm"/>
                             <constraint firstAttribute="height" constant="40" id="kfw-ES-dw3"/>
                             <constraint firstAttribute="width" constant="213" id="sfP-wS-eIa"/>
+                            <constraint firstItem="Gk9-J3-db9" firstAttribute="leading" secondItem="dhc-3K-GPN" secondAttribute="trailing" constant="20" id="wdh-c6-miU"/>
                             <constraint firstAttribute="trailing" secondItem="EAa-yJ-NYB" secondAttribute="trailing" constant="10" id="wib-A2-Dtv"/>
                         </constraints>
                     </view>

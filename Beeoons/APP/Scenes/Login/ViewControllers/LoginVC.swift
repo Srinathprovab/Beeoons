@@ -155,7 +155,6 @@ class LoginVC: UIViewController, UITextFieldDelegate {
 //MARK: - callCourencyListApi
 extension LoginVC:GetCountryListViewModelDelegate {
     
-    
     func callCourencyListApi() {
         vm?.CALL_GET_COUNTRY_LIST_API(dictParam: [:])
     }
@@ -164,7 +163,9 @@ extension LoginVC:GetCountryListViewModelDelegate {
         countrylist = response.country_list ?? []
     }
     
-    
+    func airlineList(response: AirlineListModel) {
+        
+    }
 }
 
 

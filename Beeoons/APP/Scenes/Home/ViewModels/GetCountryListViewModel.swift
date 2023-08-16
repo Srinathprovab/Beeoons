@@ -9,6 +9,7 @@ import Foundation
 
 protocol GetCountryListViewModelDelegate : BaseViewModelProtocol {
     func countryList(response : CountryListModel)
+    func airlineList(response : AirlineListModel)
 }
 
 class GetCountryListViewModel {
@@ -32,6 +33,30 @@ class GetCountryListViewModel {
                 if sucess {
                     guard let response = result else {return}
                     self.view.countryList(response: response)
+                } else {
+                    // Show alert
+                    self.view.showToast(message: errorMessage ?? "")
+                }
+            }
+        }
+    }
+    
+    
+    
+    
+    func CALL_GET_AIRLINE_LIST_API(dictParam: [String: Any]){
+        let parms = NSDictionary(dictionary:dictParam)
+        print("Parameters = \(parms)")
+        
+        //  self.view?.showLoader()
+        
+        ServiceManager.postOrPutApiCall(endPoint: ApiEndpoints.getAirlineList, parameters: parms, resultType: AirlineListModel.self, p:dictParam) { sucess, result, errorMessage in
+            
+            DispatchQueue.main.async {
+                //   self.view?.hideLoader()
+                if sucess {
+                    guard let response = result else {return}
+                    self.view.airlineList(response: response)
                 } else {
                     // Show alert
                     self.view.showToast(message: errorMessage ?? "")

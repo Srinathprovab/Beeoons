@@ -21,7 +21,7 @@ class DealsCVCell: UICollectionViewCell {
     @IBOutlet weak var depratureDatelbl: UILabel!
     @IBOutlet weak var returnDatelbl: UILabel!
     @IBOutlet weak var operatorImg: UIImageView!
-    @IBOutlet weak var onwwayimg: UIImageView!
+    @IBOutlet weak var journytypeImg: UIImageView!
     @IBOutlet weak var flytolbl: UILabel!
     @IBOutlet weak var kwdpricelbl: UILabel!
     

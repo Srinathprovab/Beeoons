@@ -113,7 +113,9 @@ class FlightResultVC: BaseTableVC {
     
     //MARK: -didTapOnBackBtnAction
     @IBAction func didTapOnBackBtnAction(_ sender: Any) {
-        dismiss(animated: true)
+        guard let vc = BookFlightVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: false)
     }
     
     
@@ -158,31 +160,48 @@ extension FlightResultVC:OnewayViewModelDelegate {
     }
     
     func flightList(response: OnewayModel) {
-        holderView.isHidden = false
-        loderBool = false
         
-        searchid = "\(response.data?.search_id ?? 0)"
-        bookingsource = "\(response.data?.booking_source_key ?? "")"
-        oneWayFlights = response.data?.j_flight_list ?? [[]]
-        
-        let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
-        if journyType == "oneway" {
-            cityslbl.text = "\(defaults.string(forKey: UserDefaultsKeys.fromcityname) ?? "")(\(response.data?.search_params?.from_loc ?? "")) - \(defaults.string(forKey: UserDefaultsKeys.tocityname) ?? "")(\(response.data?.search_params?.to_loc ?? ""))"
-            datelbl.text = "\(response.data?.search_params?.depature ?? ""),\(response.data?.search_params?.trip_type_label ?? ""),\(response.data?.search_params?.v_class ?? ""),\(defaults.string(forKey: UserDefaultsKeys.travellerDetails) ?? "")"
+        if response.status == 1 {
+            holderView.isHidden = false
+            loderBool = false
+            
+            searchid = "\(response.data?.search_id ?? 0)"
+            bookingsource = "\(response.data?.booking_source_key ?? "")"
+            oneWayFlights = response.data?.j_flight_list ?? [[]]
+            cityCodes = "\(response.data?.search_params?.from_loc ?? "")"
+            
+            
+            let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
+            if journyType == "oneway" {
+                cityslbl.text = "\(defaults.string(forKey: UserDefaultsKeys.fromcityname) ?? "")(\(response.data?.search_params?.from_loc ?? "")) - \(defaults.string(forKey: UserDefaultsKeys.tocityname) ?? "")(\(response.data?.search_params?.to_loc ?? ""))"
+                datelbl.text = "\(response.data?.search_params?.depature ?? ""),\(response.data?.search_params?.trip_type_label ?? ""),\(response.data?.search_params?.v_class ?? ""),\(defaults.string(forKey: UserDefaultsKeys.travellerDetails) ?? "")"
+                
+            }else {
+                cityslbl.text = "\(defaults.string(forKey: UserDefaultsKeys.rfromcityname) ?? "")(\(response.data?.search_params?.from_loc ?? "")) - \(defaults.string(forKey: UserDefaultsKeys.rtocityname) ?? "")(\(response.data?.search_params?.to_loc ?? ""))"
+                datelbl.text = "\(response.data?.search_params?.depature ?? "") - \(response.data?.search_params?.depature ?? ""),\(response.data?.search_params?.trip_type_label ?? ""),\(response.data?.search_params?.v_class ?? ""),\(defaults.string(forKey: UserDefaultsKeys.rtravellerDetails) ?? "")"
+                
+            }
+            
+            
+            
+            appendPriceValuesIntoArray(jfl: oneWayFlights)
+            
+            DispatchQueue.main.async {
+                self.setupTVCells(jfl: self.oneWayFlights)
+            }
             
         }else {
-            cityslbl.text = "\(defaults.string(forKey: UserDefaultsKeys.rfromcityname) ?? "")(\(response.data?.search_params?.from_loc ?? "")) - \(defaults.string(forKey: UserDefaultsKeys.rtocityname) ?? "")(\(response.data?.search_params?.to_loc ?? ""))"
-            datelbl.text = "\(response.data?.search_params?.depature ?? "") - \(response.data?.search_params?.depature ?? ""),\(response.data?.search_params?.trip_type_label ?? ""),\(response.data?.search_params?.v_class ?? ""),\(defaults.string(forKey: UserDefaultsKeys.rtravellerDetails) ?? "")"
-            
+            gotoNoInternetConnectionVC()
         }
-        
-        
-        
-        appendPriceValuesIntoArray(jfl: oneWayFlights)
-        
-        DispatchQueue.main.async {
-            self.setupTVCells(jfl: self.oneWayFlights)
-        }
+    }
+    
+    
+    func gotoNoInternetConnectionVC() {
+        guard let vc = NoInternetConnectionVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.key = "noresult"
+        vc.titleStr = "NO AVAILABILITY FOR THIS REQUEST"
+        self.present(vc, animated: false)
     }
     
     
@@ -244,18 +263,25 @@ extension FlightResultVC:OnewayViewModelDelegate {
     //MARK: - MULTICITY RESPONSE
     func multicityFlightList(response: MulticityModel) {
         
-        holderView.isHidden = false
-        loderBool = false
-        searchid = "\(response.data?.search_id ?? 0)"
-        bookingsource = "\(response.data?.booking_source_key ?? "")"
-        oneWayFlights = response.data?.j_flight_list ?? [[]]
-        
-        appendPriceValuesIntoArray(jfl: oneWayFlights)
-        
-        DispatchQueue.main.async {
-            self.setupTVCells(jfl: self.oneWayFlights)
+        if response.status == 1 {
+            
+            holderView.isHidden = false
+            loderBool = false
+            searchid = "\(response.data?.search_id ?? 0)"
+            bookingsource = "\(response.data?.booking_source_key ?? "")"
+            oneWayFlights = response.data?.j_flight_list ?? [[]]
+            
+            appendPriceValuesIntoArray(jfl: oneWayFlights)
+            
+            DispatchQueue.main.async {
+                self.setupTVCells(jfl: self.oneWayFlights)
+            }
+        }else {
+            gotoNoInternetConnectionVC()
         }
+        
     }
+    
     
     
 }

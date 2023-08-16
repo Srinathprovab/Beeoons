@@ -87,6 +87,9 @@
 		653D04762A8CAE86009A534C /* MulticityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653D04752A8CAE86009A534C /* MulticityModel.swift */; };
 		653D04782A8CAED1009A534C /* MulticityData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653D04772A8CAED1009A534C /* MulticityData.swift */; };
 		653D047A2A8CAF0F009A534C /* MSearch_params.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653D04792A8CAF0F009A534C /* MSearch_params.swift */; };
+		653D04812A8CECC5009A534C /* Currency_list.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653D04802A8CECC5009A534C /* Currency_list.swift */; };
+		653D04842A8CFEE3009A534C /* AirlineListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653D04832A8CFEE3009A534C /* AirlineListModel.swift */; };
+		653D04862A8CFEFD009A534C /* Airline_list.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653D04852A8CFEFD009A534C /* Airline_list.swift */; };
 		65942CB32A87CC6A0091756B /* PayNowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65942CB22A87CC6A0091756B /* PayNowVC.swift */; };
 		65D480F62A82203E00E7423E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D480F52A82203E00E7423E /* AppDelegate.swift */; };
 		65D480F82A82203E00E7423E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D480F72A82203E00E7423E /* SceneDelegate.swift */; };
@@ -309,6 +312,9 @@
 		653D04752A8CAE86009A534C /* MulticityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MulticityModel.swift; sourceTree = "<group>"; };
 		653D04772A8CAED1009A534C /* MulticityData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MulticityData.swift; sourceTree = "<group>"; };
 		653D04792A8CAF0F009A534C /* MSearch_params.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSearch_params.swift; sourceTree = "<group>"; };
+		653D04802A8CECC5009A534C /* Currency_list.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency_list.swift; sourceTree = "<group>"; };
+		653D04832A8CFEE3009A534C /* AirlineListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlineListModel.swift; sourceTree = "<group>"; };
+		653D04852A8CFEFD009A534C /* Airline_list.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airline_list.swift; sourceTree = "<group>"; };
 		65942CB22A87CC6A0091756B /* PayNowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayNowVC.swift; sourceTree = "<group>"; };
 		65D480F22A82203E00E7423E /* Beeoons.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beeoons.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65D480F52A82203E00E7423E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -631,6 +637,7 @@
 				6507B4CA2A8A38CC007FD2DD /* Flight_hotel_top_destinations.swift */,
 				6507B4CC2A8A38D9007FD2DD /* Top_dest_hotel.swift */,
 				6507B4CE2A8A38E1007FD2DD /* Perfect_holidays.swift */,
+				653D04802A8CECC5009A534C /* Currency_list.swift */,
 			);
 			path = IndexPageModel;
 			sourceTree = "<group>";
@@ -745,6 +752,15 @@
 				653D04792A8CAF0F009A534C /* MSearch_params.swift */,
 			);
 			path = MulticityModel;
+			sourceTree = "<group>";
+		};
+		653D04822A8CFED0009A534C /* AirlineListModel */ = {
+			isa = PBXGroup;
+			children = (
+				653D04832A8CFEE3009A534C /* AirlineListModel.swift */,
+				653D04852A8CFEFD009A534C /* Airline_list.swift */,
+			);
+			path = AirlineListModel;
 			sourceTree = "<group>";
 		};
 		65D480E92A82203E00E7423E = {
@@ -1215,6 +1231,7 @@
 		65D481F72A82231700E7423E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				653D04822A8CFED0009A534C /* AirlineListModel */,
 				6507B4C52A8A3851007FD2DD /* IndexPageModel */,
 				65F5464B2A871C0F00F4C66C /* ProfileUpdateModel */,
 				65E538222A8627DF007EE11A /* CountryListModel */,
@@ -1880,6 +1897,7 @@
 				6503451E2A84A88500B13434 /* Price.swift in Sources */,
 				650345542A85057D00B13434 /* StarRatingCVCell.swift in Sources */,
 				65D481D62A82212300E7423E /* StoryboardExtension.swift in Sources */,
+				653D04842A8CFEE3009A534C /* AirlineListModel.swift in Sources */,
 				65D480F82A82203E00E7423E /* SceneDelegate.swift in Sources */,
 				653D047A2A8CAF0F009A534C /* MSearch_params.swift in Sources */,
 				650C31522A88BE2C002DF7D4 /* AddViewFlightDataTVCell.swift in Sources */,
@@ -1900,6 +1918,7 @@
 				65F5464F2A871C4400F4C66C /* ProfileUpdateViewModel.swift in Sources */,
 				650345362A84D19700B13434 /* ModifySearchVC.swift in Sources */,
 				65D481B62A82212300E7423E /* TextFieldExtension.swift in Sources */,
+				653D04862A8CFEFD009A534C /* Airline_list.swift in Sources */,
 				65F546622A87AEFB00F4C66C /* BaggageInfoTVCell.swift in Sources */,
 				65D481A62A82212300E7423E /* BaseVC.swift in Sources */,
 				650345162A84A7EB00B13434 /* Search_params.swift in Sources */,
@@ -1917,6 +1936,7 @@
 				653D04782A8CAED1009A534C /* MulticityData.swift in Sources */,
 				65D481FB2A82258F00E7423E /* UIColorManager.swift in Sources */,
 				65E537F02A85CB96007EE11A /* FlightDetailsModel.swift in Sources */,
+				653D04812A8CECC5009A534C /* Currency_list.swift in Sources */,
 				653D04732A8C8E03009A534C /* BaggageAllowance.swift in Sources */,
 				650344D52A83514700B13434 /* BookFlightVC.swift in Sources */,
 				65D481AA2A82212300E7423E /* Constants.swift in Sources */,

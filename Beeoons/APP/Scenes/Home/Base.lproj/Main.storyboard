@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -313,7 +312,7 @@
                                                 <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system"/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MyAccount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFL-9A-r70">
-                                                <rect key="frame" x="151.66666666666666" y="70" width="90" height="30"/>
+                                                <rect key="frame" x="151.66666666666666" y="70.333333333333329" width="90" height="29.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="Oswald-Bold" family="Oswald" pointSize="20"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -552,7 +551,13 @@
                                                     <constraint firstItem="Ozx-d3-FW3" firstAttribute="leading" secondItem="yBB-5P-806" secondAttribute="leading" id="gVz-IA-fbp"/>
                                                     <constraint firstItem="NPa-yt-JJM" firstAttribute="centerX" secondItem="yBB-5P-806" secondAttribute="centerX" id="iuH-ie-4vX"/>
                                                     <constraint firstAttribute="trailing" secondItem="Ozx-d3-FW3" secondAttribute="trailing" id="llZ-Cg-Do0"/>
+                                                    <constraint firstAttribute="width" constant="154" id="nIj-rL-zI3"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
                                     </stackView>
@@ -573,6 +578,14 @@
                             <constraint firstItem="ZPA-Qn-cMC" firstAttribute="trailing" secondItem="E2Z-pR-y1W" secondAttribute="trailing" id="Yxa-NV-sRV"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnView" destination="yBB-5P-806" id="TmR-Jz-N2f"/>
+                        <outlet property="btnlbl" destination="NPa-yt-JJM" id="xdg-Sz-JyH"/>
+                        <outlet property="subTitlelbl" destination="cRm-Hq-8lD" id="kli-8e-EF9"/>
+                        <outlet property="titlelbl" destination="Fj9-3e-6g8" id="LJQ-Fy-mCO"/>
+                        <outlet property="tryAgainBtn" destination="Ozx-d3-FW3" id="FcM-Ig-yU7"/>
+                        <outlet property="wifiImg" destination="BtL-Ac-pmj" id="5Vk-Vs-aJ9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zto-J1-J6n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -603,7 +616,7 @@
                                                 <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system"/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MyBookings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sau-ha-DyH">
-                                                <rect key="frame" x="147" y="70" width="99" height="30"/>
+                                                <rect key="frame" x="147" y="70.333333333333329" width="99" height="29.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="Oswald-Bold" family="Oswald" pointSize="20"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>

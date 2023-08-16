@@ -67,13 +67,7 @@ class BookFlightVC: BaseTableVC {
     
     
     
-    func addObserverCall() {
-        NotificationCenter.default.addObserver(self, selector: #selector(reload(notification:)), name: NSNotification.Name("reload"), object: nil)
-    }
-    
-    @objc func reload(notification: NSNotification){
-        commonTableView.reloadData()
-    }
+   
     
     
     
@@ -127,7 +121,16 @@ class BookFlightVC: BaseTableVC {
     
     
     @IBAction func didTapOnBackBtnAction(_ sender: Any) {
-        dismiss(animated: true)
+       // dismiss(animated: true)
+        gotoHomeVC()
+    }
+    
+    func gotoHomeVC() {
+        loderBool = false
+        guard let vc = HomeVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        callapibool = true
+        self.present(vc, animated: true)
     }
     
     
@@ -217,6 +220,12 @@ class BookFlightVC: BaseTableVC {
         selectedAirlineName = cell.airlinelbl.text ?? ""
     }
     
+   
+    override func editingTextField(tf: UITextField) {
+        //commonTableView.scrollToRow(at: IndexPath(item: 1, section: 0), at: .none, animated: true)
+    }
+
+    
     //MARK: - didTapOnAddAirlineButtonAction
     override func didTapOnSearchFlightBtnAction(cell:BookFlightTVCell) {
         
@@ -242,7 +251,7 @@ class BookFlightVC: BaseTableVC {
                 payload["depature"] = defaults.string(forKey: UserDefaultsKeys.calDepDate)
                 payload["return"] = ""
                 payload["carrier"] = ""
-                payload["psscarrier"] = ""
+                payload["psscarrier"] = selectedAirlineName
                 payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass) ?? "Economy"
                 payload["search_flight"] = "Search"
                 payload["search_source"] = "search"
@@ -284,7 +293,7 @@ class BookFlightVC: BaseTableVC {
                 payload["depature"] = defaults.string(forKey: UserDefaultsKeys.rcalDepDate)
                 payload["return"] = defaults.string(forKey: UserDefaultsKeys.rcalRetDate)
                 payload["carrier"] = ""
-                payload["psscarrier"] = ""
+                payload["psscarrier"] = selectedAirlineName
                 payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass) ?? "Economy"
                 payload["search_flight"] = "Search"
                 payload["search_source"] = "search"
@@ -382,8 +391,6 @@ class BookFlightVC: BaseTableVC {
             fromdataArray.append(payload2)
         }
         
-
-        
         
         payload["sector_type"] = "international"
         payload["trip_type"] = defaults.string(forKey: UserDefaultsKeys.journeyType)
@@ -464,5 +471,18 @@ class BookFlightVC: BaseTableVC {
         
     }
     
+    
+}
+
+
+extension BookFlightVC {
+    
+    func addObserverCall() {
+        NotificationCenter.default.addObserver(self, selector: #selector(reload(notification:)), name: NSNotification.Name("reload"), object: nil)
+    }
+    
+    @objc func reload(notification: NSNotification){
+        commonTableView.reloadData()
+    }
     
 }

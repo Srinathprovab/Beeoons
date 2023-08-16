@@ -88,9 +88,15 @@ class RegisterUserVC: BaseTableVC {
             if fname.isEmpty == true {
                 showToast(message: "Enter First Name")
                 cell.fnameerrorlbl.text = "Enter First Name"
+            }else if fname.count < 3 {
+                showToast(message: "Enter minimum 3 Chars")
+                cell.fnameerrorlbl.text = "Enter minimum 3 Chars"
             }else if lname.isEmpty == true {
                 cell.lnameerrorlbl.text = "Enter Last Name"
                 showToast(message: "Enter Last Name")
+            }else if lname.count < 3 {
+                cell.lnameerrorlbl.text = "Enter minimum 3 Chars"
+                showToast(message: "Enter minimum 3 Chars")
             }else if email.isEmpty == true {
                 cell.emailerrorlbl.text = "Enter Email Id"
                 showToast(message: "Enter Email Id")

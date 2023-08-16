@@ -220,7 +220,7 @@ extension RegisterUserTVCell {
             return allowedCharacters.isSuperset(of: characterSet) && newString.length <= maxLength
             
         }else {
-            maxLength = 25
+            maxLength = 50
             let currentString: NSString = textField.text! as NSString
             let newString: NSString =  currentString.replacingCharacters(in: range, with: string) as NSString
             return newString.length <= maxLength

@@ -124,14 +124,23 @@ class HomeVC: UIViewController {
 
 extension HomeVC:GetCountryListViewModelDelegate {
     
-    
     func callCourencyListApi() {
         vm?.CALL_GET_COUNTRY_LIST_API(dictParam: [:])
     }
     
     func countryList(response: CountryListModel) {
         countrylist = response.country_list ?? []
+        
+        vm?.CALL_GET_AIRLINE_LIST_API(dictParam: [:])
     }
+    
+    
+    func airlineList(response: AirlineListModel) {
+        airlinelist1 = response.airline_list ?? []
+    }
+    
+    
+    
     
     
 }

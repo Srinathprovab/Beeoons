@@ -17,6 +17,7 @@ class FlightDealsTVCell: TableViewCell, DealsCVCellDelegate, HotelDealsCVCellDel
     @IBOutlet weak var dealsCV: UICollectionView!
     @IBOutlet weak var cvheight: NSLayoutConstraint!
     @IBOutlet weak var backimg: UIImageView!
+    @IBOutlet weak var subtitlelbl: UILabel!
     
     
     var delegate:FlightDealsTVCellDelegate?
@@ -44,6 +45,7 @@ class FlightDealsTVCell: TableViewCell, DealsCVCellDelegate, HotelDealsCVCellDel
     
     override func updateUI() {
         titlelbl.text = cellInfo?.title
+        subtitlelbl.text = cellInfo?.subTitle 
         
         if titlelbl.text == "FLIGHT" {
             backimg.image = UIImage(named: "flightback")?.withRenderingMode(.alwaysOriginal)
@@ -174,6 +176,13 @@ extension FlightDealsTVCell:UICollectionViewDelegate,UICollectionViewDataSource 
                 cell.to_loc_id = data.to_city ?? ""
                 cell.v_class = data.airline_class ?? ""
                 cell.currency = data.currency ?? ""
+                
+                if data.trip_type == "oneway" {
+                    cell.journytypeImg.image = UIImage(named: "oneway")?.withRenderingMode(.alwaysOriginal)
+                }else {
+                    cell.journytypeImg.image = UIImage(named: "circle")?.withRenderingMode(.alwaysOriginal)
+                }
+                
                 
                 commonCell = cell
             }

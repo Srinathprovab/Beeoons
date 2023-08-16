@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -132,6 +131,7 @@
                 <outlet property="backimg" destination="xXM-T8-Iah" id="Lqv-Qh-GU8"/>
                 <outlet property="cvheight" destination="pSw-Bk-OrW" id="eZD-ps-UTq"/>
                 <outlet property="dealsCV" destination="Pye-gO-Qra" id="OEs-Rg-eux"/>
+                <outlet property="subtitlelbl" destination="jlL-KO-1Pu" id="SFq-3d-F2P"/>
                 <outlet property="titlelbl" destination="vOT-GK-0Kw" id="YL7-QI-8vO"/>
             </connections>
             <point key="canvasLocation" x="225.19083969465649" y="112.67605633802818"/>
@@ -140,7 +140,7 @@
     <resources>
         <image name="chevron.backward" catalog="system" width="97" height="128"/>
         <image name="chevron.right" catalog="system" width="97" height="128"/>
-        <image name="flightback" width="149" height="50.333332061767578"/>
+        <image name="flightback" width="179.33332824707031" height="50.333332061767578"/>
         <namedColor name="ButtonColor">
             <color red="0.75700002908706665" green="0.63099998235702515" blue="0.49000000953674316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
