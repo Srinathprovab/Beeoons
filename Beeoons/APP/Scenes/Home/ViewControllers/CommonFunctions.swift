@@ -107,3 +107,57 @@ func checkDepartureAndReturnDates(_ parameters: [String: Any],p1:String,p2:Strin
     }
 }
 
+
+
+protocol TimerManagerDelegate: AnyObject {
+    func timerDidFinish()
+    func updateTimer()
+}
+
+class TimerManager {
+    static let shared = TimerManager() // Singleton instance
+    weak var delegate: TimerManagerDelegate?
+    
+    var timer: Timer?
+    var totalTime = 1
+    private var backgroundTask: UIBackgroundTaskIdentifier = .invalid
+    
+    private init() {}
+    
+    func startTimer() {
+        
+        
+        endBackgroundTask() // End any existing background task (if any)
+        backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
+            self?.endBackgroundTask()
+        }
+        
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        
+        
+    }
+    
+    @objc func updateTimer() {
+        if totalTime != 0 {
+            totalTime -= 1
+            delegate?.updateTimer()
+        } else {
+            sessionStop()
+            delegate?.timerDidFinish()
+            endBackgroundTask()
+        }
+    }
+    
+    @objc func sessionStop() {
+        if let timer = timer {
+            timer.invalidate()
+            self.timer = nil
+        }
+    }
+    
+    private func endBackgroundTask() {
+        guard backgroundTask != .invalid else { return }
+        UIApplication.shared.endBackgroundTask(backgroundTask)
+        backgroundTask = .invalid
+    }
+}

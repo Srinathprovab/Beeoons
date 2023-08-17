@@ -79,6 +79,8 @@
 		650C314E2A88A22B002DF7D4 /* TravellerDetailsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 650C314C2A88A22B002DF7D4 /* TravellerDetailsTVCell.xib */; };
 		650C31522A88BE2C002DF7D4 /* AddViewFlightDataTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650C31502A88BE2C002DF7D4 /* AddViewFlightDataTVCell.swift */; };
 		650C31532A88BE2C002DF7D4 /* AddViewFlightDataTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 650C31512A88BE2C002DF7D4 /* AddViewFlightDataTVCell.xib */; };
+		652D5B8F2A8DF4B100AA8A5F /* Beeoons.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 652D5B8D2A8DF4B100AA8A5F /* Beeoons.xcdatamodeld */; };
+		652D5B912A8DF99E00AA8A5F /* PopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652D5B902A8DF99E00AA8A5F /* PopupVC.swift */; };
 		653D046A2A8B897F009A534C /* BookFlightMCTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653D04682A8B897F009A534C /* BookFlightMCTVCell.swift */; };
 		653D046B2A8B897F009A534C /* BookFlightMCTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 653D04692A8B897F009A534C /* BookFlightMCTVCell.xib */; };
 		653D04702A8B9322009A534C /* AddcityTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653D046E2A8B9322009A534C /* AddcityTVCell.swift */; };
@@ -304,6 +306,8 @@
 		650C314C2A88A22B002DF7D4 /* TravellerDetailsTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TravellerDetailsTVCell.xib; sourceTree = "<group>"; };
 		650C31502A88BE2C002DF7D4 /* AddViewFlightDataTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewFlightDataTVCell.swift; sourceTree = "<group>"; };
 		650C31512A88BE2C002DF7D4 /* AddViewFlightDataTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddViewFlightDataTVCell.xib; sourceTree = "<group>"; };
+		652D5B8E2A8DF4B100AA8A5F /* Beeoons.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Beeoons.xcdatamodel; sourceTree = "<group>"; };
+		652D5B902A8DF99E00AA8A5F /* PopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupVC.swift; sourceTree = "<group>"; };
 		653D04682A8B897F009A534C /* BookFlightMCTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookFlightMCTVCell.swift; sourceTree = "<group>"; };
 		653D04692A8B897F009A534C /* BookFlightMCTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookFlightMCTVCell.xib; sourceTree = "<group>"; };
 		653D046E2A8B9322009A534C /* AddcityTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddcityTVCell.swift; sourceTree = "<group>"; };
@@ -794,6 +798,7 @@
 				65D480FE2A82203F00E7423E /* Assets.xcassets */,
 				65D481002A82203F00E7423E /* LaunchScreen.storyboard */,
 				65D481032A82203F00E7423E /* Info.plist */,
+				652D5B8D2A8DF4B100AA8A5F /* Beeoons.xcdatamodeld */,
 			);
 			path = Beeoons;
 			sourceTree = "<group>";
@@ -1023,6 +1028,7 @@
 				6503455F2A8517AD00B13434 /* FlightDetailsVC.swift */,
 				65942CB22A87CC6A0091756B /* PayNowVC.swift */,
 				650C31332A886DE0002DF7D4 /* ViewFlightDetailsVC.swift */,
+				652D5B902A8DF99E00AA8A5F /* PopupVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1923,6 +1929,7 @@
 				65D481A62A82212300E7423E /* BaseVC.swift in Sources */,
 				650345162A84A7EB00B13434 /* Search_params.swift in Sources */,
 				65E538082A85F99D007EE11A /* SideMenuVC.swift in Sources */,
+				652D5B912A8DF99E00AA8A5F /* PopupVC.swift in Sources */,
 				650345382A84FBDF00B13434 /* FilterSearchVC.swift in Sources */,
 				650345182A84A80900B13434 /* Attr.swift in Sources */,
 				65D4821D2A8260F000E7423E /* MenuBtnWithLogoTVCell.swift in Sources */,
@@ -1947,6 +1954,7 @@
 				650345332A84C2DB00B13434 /* AddFlightInfoTVCell.swift in Sources */,
 				6507B4CB2A8A38CC007FD2DD /* Flight_hotel_top_destinations.swift in Sources */,
 				65E538332A86428C007EE11A /* LogoutViewModel.swift in Sources */,
+				652D5B8F2A8DF4B100AA8A5F /* Beeoons.xcdatamodeld in Sources */,
 				65D482372A82750A00E7423E /* DealsCVCell.swift in Sources */,
 				65D481B22A82212300E7423E /* ButtonExtension.swift in Sources */,
 				65F5465D2A8788FF00F4C66C /* FarBreakdownTVCell.swift in Sources */,
@@ -2339,6 +2347,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		652D5B8D2A8DF4B100AA8A5F /* Beeoons.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				652D5B8E2A8DF4B100AA8A5F /* Beeoons.xcdatamodel */,
+			);
+			currentVersion = 652D5B8E2A8DF4B100AA8A5F /* Beeoons.xcdatamodel */;
+			path = Beeoons.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 65D480EA2A82203E00E7423E /* Project object */;
 }

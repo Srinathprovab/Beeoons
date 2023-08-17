@@ -2,13 +2,19 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Oswald-Bold.ttf">
+            <string>Oswald-Bold</string>
+        </array>
+        <array key="Oswald-Light.ttf">
+            <string>Oswald-Light</string>
+        </array>
         <array key="Oswald-Medium.ttf">
             <string>Oswald-Medium</string>
         </array>
@@ -32,12 +38,83 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kfS-1i-Ftc">
+                                <rect key="frame" x="20" y="54" width="315" height="45"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="onU-60-GcJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="45"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="onU-60-GcJ" firstAttribute="leading" secondItem="kfS-1i-Ftc" secondAttribute="leading" id="9aJ-bV-zb8"/>
+                                    <constraint firstAttribute="bottom" secondItem="onU-60-GcJ" secondAttribute="bottom" id="KlT-qr-lHq"/>
+                                    <constraint firstItem="onU-60-GcJ" firstAttribute="top" secondItem="kfS-1i-Ftc" secondAttribute="top" id="SNN-hP-7Fs"/>
+                                    <constraint firstAttribute="trailing" secondItem="onU-60-GcJ" secondAttribute="trailing" id="SbS-WB-OKf"/>
+                                    <constraint firstAttribute="height" constant="45" id="pT0-6j-Nhe"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have an e- coupon or promo code?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9m-yP-tf0">
+                                <rect key="frame" x="34" y="116" width="165" height="21"/>
+                                <fontDescription key="fontDescription" name="Oswald-Light" family="Oswald" pointSize="14"/>
+                                <color key="textColor" name="ButtonColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TH3-a5-VEH">
+                                <rect key="frame" x="228" y="115" width="100" height="45"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apply" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cr3-eZ-wJt">
+                                        <rect key="frame" x="29.333333333333318" y="9" width="41.333333333333343" height="27"/>
+                                        <fontDescription key="fontDescription" name="Oswald-Bold" family="Oswald" pointSize="18"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eve-Vm-nKg">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="45"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="didTapOnApplyPromocodeBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Nnf-Fz-IHa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="ButtonColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="1zN-TZ-oUg"/>
+                                    <constraint firstItem="eve-Vm-nKg" firstAttribute="leading" secondItem="TH3-a5-VEH" secondAttribute="leading" id="6Ig-NJ-PzE"/>
+                                    <constraint firstItem="eve-Vm-nKg" firstAttribute="top" secondItem="TH3-a5-VEH" secondAttribute="top" id="C7c-3t-xtN"/>
+                                    <constraint firstAttribute="bottom" secondItem="eve-Vm-nKg" secondAttribute="bottom" id="OxA-M0-GU7"/>
+                                    <constraint firstItem="Cr3-eZ-wJt" firstAttribute="centerX" secondItem="TH3-a5-VEH" secondAttribute="centerX" id="Vhd-ud-vpj"/>
+                                    <constraint firstAttribute="trailing" secondItem="eve-Vm-nKg" secondAttribute="trailing" id="d0x-pP-fqQ"/>
+                                    <constraint firstAttribute="height" constant="45" id="dSZ-Oh-QT6"/>
+                                    <constraint firstItem="Cr3-eZ-wJt" firstAttribute="centerY" secondItem="TH3-a5-VEH" secondAttribute="centerY" id="eOx-eN-dbN"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="kfS-1i-Ftc" firstAttribute="top" secondItem="wDj-0U-f8h" secondAttribute="bottom" constant="18" id="Hej-br-0Bm"/>
                             <constraint firstAttribute="height" constant="166" id="MrV-ru-aTd"/>
+                            <constraint firstItem="TH3-a5-VEH" firstAttribute="top" secondItem="kfS-1i-Ftc" secondAttribute="bottom" constant="16" id="ObH-Hb-Qx3"/>
                             <constraint firstItem="wDj-0U-f8h" firstAttribute="top" secondItem="wd0-d1-Nxu" secondAttribute="top" constant="12" id="PQ4-PY-PPp"/>
                             <constraint firstItem="wDj-0U-f8h" firstAttribute="leading" secondItem="wd0-d1-Nxu" secondAttribute="leading" constant="22" id="UfV-HI-rIx"/>
+                            <constraint firstItem="kfS-1i-Ftc" firstAttribute="leading" secondItem="wd0-d1-Nxu" secondAttribute="leading" constant="20" id="XLg-y2-5Kx"/>
+                            <constraint firstItem="s9m-yP-tf0" firstAttribute="top" secondItem="kfS-1i-Ftc" secondAttribute="bottom" constant="17" id="Zei-bl-y0t"/>
+                            <constraint firstAttribute="trailing" secondItem="kfS-1i-Ftc" secondAttribute="trailing" constant="20" id="eyI-hB-ggH"/>
+                            <constraint firstAttribute="trailing" secondItem="TH3-a5-VEH" secondAttribute="trailing" constant="27" id="lLb-WW-7RL"/>
+                            <constraint firstItem="s9m-yP-tf0" firstAttribute="leading" secondItem="wd0-d1-Nxu" secondAttribute="leading" constant="34" id="mIX-3n-BWE"/>
                             <constraint firstAttribute="trailing" secondItem="wDj-0U-f8h" secondAttribute="trailing" constant="22" id="sOV-Iy-Ibx"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -57,11 +134,16 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="holderView" destination="wd0-d1-Nxu" id="cmC-mk-scd"/>
+                <outlet property="promocodeTF" destination="onU-60-GcJ" id="V7n-7O-Yp5"/>
+                <outlet property="promocodeTFHolderView" destination="kfS-1i-Ftc" id="Td7-b4-85J"/>
             </connections>
-            <point key="canvasLocation" x="177.86259541984731" y="68.661971830985919"/>
+            <point key="canvasLocation" x="176.33587786259542" y="68.661971830985919"/>
         </tableViewCell>
     </objects>
     <resources>
+        <namedColor name="ButtonColor">
+            <color red="0.75700002908706665" green="0.63099998235702515" blue="0.49000000953674316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

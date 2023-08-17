@@ -8,7 +8,14 @@
 import UIKit
 
 class PurchaseSummaryTVCell: TableViewCell {
+    
     @IBOutlet weak var holderView: UIView!
+    @IBOutlet weak var cityslbl: UILabel!
+    @IBOutlet weak var datelbl: UILabel!
+    @IBOutlet weak var journytypelbl: UILabel!
+    @IBOutlet weak var tripcostlbl: UILabel!
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,6 +27,14 @@ class PurchaseSummaryTVCell: TableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    
+    override func updateUI() {
+        cityslbl.text = cellInfo?.title ?? ""
+        datelbl.text = cellInfo?.subTitle ?? ""
+        tripcostlbl.text = "\(farepricedetails?.api_currency ?? ""):\(farepricedetails?.grand_total ?? "")"
+        journytypelbl.text = "\(defaults.string(forKey: UserDefaultsKeys.journeyType) ?? ""), \(farepricedetails?.cabin_class ?? ""), \(farepricedetails?.fareType ?? "")"
     }
     
     func setupUI() {

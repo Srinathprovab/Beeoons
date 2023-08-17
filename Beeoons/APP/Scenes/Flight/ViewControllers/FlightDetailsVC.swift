@@ -39,6 +39,7 @@ class FlightDetailsVC: BaseTableVC {
     //MARK: - LOADING FUNCTIONS
     
     override func viewWillAppear(_ animated: Bool) {
+        addObserver()
         
         if let journeyType = defaults.string(forKey: UserDefaultsKeys.journeyType) {
             if journeyType == "oneway" {
@@ -133,7 +134,7 @@ extension FlightDetailsVC:FlightDetailsViewModelDelegate {
         }
     }
     
-  
+    
     
     func setupItineraryTVCells() {
         tablerow.removeAll()
@@ -266,5 +267,40 @@ extension FlightDetailsVC {
         commonTableView.beginUpdates()
         commonTableView.endUpdates()
     }
+    
+}
+
+
+
+extension FlightDetailsVC {
+    
+    func addObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(nointernet), name: Notification.Name("offline"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name("reloadTV"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)
+        
+    }
+    
+    @objc func nointernet(){
+        gotoNoInternetConnectionVC(key: "nointernet", titleStr: "")
+    }
+    
+    @objc func resultnil(){
+        gotoNoInternetConnectionVC(key: "noresult", titleStr: "NO AVAILABILITY FOR THIS REQUEST")
+    }
+    
+    @objc func reload(){
+        callAPI()
+    }
+    
+    
+    func gotoNoInternetConnectionVC(key:String,titleStr:String) {
+        guard let vc = NoInternetConnectionVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.key = key
+        vc.titleStr = titleStr
+        self.present(vc, animated: false)
+    }
+    
     
 }

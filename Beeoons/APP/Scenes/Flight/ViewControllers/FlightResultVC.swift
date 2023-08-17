@@ -40,6 +40,7 @@ class FlightResultVC: BaseTableVC {
     //MARK: - Loading Functions
     
     override func viewWillAppear(_ animated: Bool) {
+        addObserver()
         if callapibool == true {
             loderBool = true
             holderView.isHidden = true
@@ -191,18 +192,12 @@ extension FlightResultVC:OnewayViewModelDelegate {
             }
             
         }else {
-            gotoNoInternetConnectionVC()
+            gotoNoInternetConnectionVC(key: "noresult", titleStr: "NO AVAILABILITY FOR THIS REQUEST")
         }
     }
     
     
-    func gotoNoInternetConnectionVC() {
-        guard let vc = NoInternetConnectionVC.newInstance.self else {return}
-        vc.modalPresentationStyle = .overCurrentContext
-        vc.key = "noresult"
-        vc.titleStr = "NO AVAILABILITY FOR THIS REQUEST"
-        self.present(vc, animated: false)
-    }
+    
     
     
     
@@ -238,7 +233,7 @@ extension FlightResultVC:OnewayViewModelDelegate {
     func setupTVCells(jfl:[[J_flight_list]]) {
         tablerow.removeAll()
         TableViewHelper.EmptyMessage(message: "", tableview: commonTableView, vc: self)
-
+        
         jfl.forEach { i in
             i.forEach { j in
                 print(j.access_key)
@@ -277,7 +272,7 @@ extension FlightResultVC:OnewayViewModelDelegate {
                 self.setupTVCells(jfl: self.oneWayFlights)
             }
         }else {
-            gotoNoInternetConnectionVC()
+            gotoNoInternetConnectionVC(key: "noresult", titleStr: "NO AVAILABILITY FOR THIS REQUEST")
         }
         
     }
@@ -321,7 +316,7 @@ extension FlightResultVC:AppliedFilters{
             setupTVCells(jfl: filteredArray)
         }
         
-       
+        
         
     }
     
@@ -528,5 +523,40 @@ extension FlightResultVC:AppliedFilters{
     func hotelFilterByApplied(minpricerange: Double, maxpricerange: Double, starRating: String) {
         
     }
+    
+}
+
+
+
+extension FlightResultVC {
+    
+    func addObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(nointernet), name: Notification.Name("offline"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name("reloadTV"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)
+        
+    }
+    
+    @objc func nointernet(){
+        gotoNoInternetConnectionVC(key: "nointernet", titleStr: "")
+    }
+    
+    @objc func resultnil(){
+        gotoNoInternetConnectionVC(key: "noresult", titleStr: "NO AVAILABILITY FOR THIS REQUEST")
+    }
+    
+    @objc func reload(){
+        callAPI()
+    }
+    
+    
+    func gotoNoInternetConnectionVC(key:String,titleStr:String) {
+        guard let vc = NoInternetConnectionVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.key = key
+        vc.titleStr = titleStr
+        self.present(vc, animated: false)
+    }
+    
     
 }

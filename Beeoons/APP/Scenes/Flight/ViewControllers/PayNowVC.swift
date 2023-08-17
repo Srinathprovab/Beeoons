@@ -7,13 +7,17 @@
 
 import UIKit
 
-class PayNowVC: BaseTableVC {
+class PayNowVC: BaseTableVC, TimerManagerDelegate {
     
     
     @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var totalPricelbl: UILabel!
+    @IBOutlet weak var sessionlbl: UILabel!
     
+    
+   var dates = String()
+    var citys = String()
     var tablerow = [TableRow]()
     var grandTotal = String()
     var payload = [String:Any]()
@@ -32,6 +36,9 @@ class PayNowVC: BaseTableVC {
     //MARK: -Loading Functions
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        TimerManager.shared.delegate = self
+        addObserver()
         if callapibool == true {
             holderView.isHidden = true
             callmobile_pre_process_booking()
@@ -68,10 +75,13 @@ class PayNowVC: BaseTableVC {
         
         tablerow.removeAll()
         
-        tablerow.append(TableRow(moreData:flightsummary,cellType:.ViewFlightDetailsTVCell))
+        tablerow.append(TableRow(moreData:flightsummary,
+                                 cellType:.ViewFlightDetailsTVCell))
         tablerow.append(TableRow(cellType:.TravellerDetailsTVCell))
         tablerow.append(TableRow(cellType:.PromocodeTVCell))
-        tablerow.append(TableRow(cellType:.PurchaseSummaryTVCell))
+        tablerow.append(TableRow(title:citys,
+                                 subTitle: dates,
+                                 cellType:.PurchaseSummaryTVCell))
         
         commonTVData = tablerow
         commonTableView.reloadData()
@@ -88,6 +98,16 @@ class PayNowVC: BaseTableVC {
     }
     
     
+    
+    //MARK: - didTapOnApplyPromocodeBtnAction
+    override func didTapOnApplyPromocodeBtnAction(cell: PromocodeTVCell) {
+        print("didTapOnApplyPromocodeBtnAction")
+    }
+    
+    
+    override func editingTextField(tf: UITextField) {
+        print(tf.text)
+    }
     
     //MARK: - didTapOnBackBtnAction
     @IBAction func didTapOnBackBtnAction(_ sender: Any) {
@@ -118,11 +138,20 @@ extension PayNowVC: PreProcessBookingViewModelDelegate {
     func mobilePreprocessBookingDetails(response: PreProcessBookingModel) {
         holderView.isHidden = false
         flightsummary = response.flight_data?.summary ?? []
+        flightsummary.forEach { i in
+            citys = "\(i.origin?.city ?? "")(\(i.origin?.loc ?? "")) to \(i.destination?.city ?? "")(\(i.destination?.loc ?? ""))"
+            dates = "\(i.origin?.date ?? "")"
+        }
+       
+        TimerManager.shared.sessionStop()
+        TimerManager.shared.totalTime = 900
+        TimerManager.shared.startTimer()
+        
         
         DispatchQueue.main.async {[self] in
             setupTV()
         }
-
+        
     }
     
     
@@ -136,4 +165,59 @@ extension PayNowVC {
     func paynowBtnTap() {
         print("didTapOnPayNowBtnAction")
     }
+}
+
+
+
+
+extension PayNowVC {
+    
+    //MARK: - addObserver
+    func addObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(nointernet), name: Notification.Name("offline"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name("reloadTV"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)
+        
+    }
+    
+    @objc func nointernet(){
+        gotoNoInternetConnectionVC(key: "nointernet", titleStr: "")
+    }
+    
+    @objc func resultnil(){
+        gotoNoInternetConnectionVC(key: "noresult", titleStr: "NO AVAILABILITY FOR THIS REQUEST")
+    }
+    
+    @objc func reload(){
+        callmobile_pre_process_booking()
+    }
+    
+    
+    func gotoNoInternetConnectionVC(key:String,titleStr:String) {
+        guard let vc = NoInternetConnectionVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.key = key
+        vc.titleStr = titleStr
+        self.present(vc, animated: false)
+    }
+    
+    
+    //MARK: - timerDidFinish
+    
+    func timerDidFinish() {
+        guard let vc = PopupVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: false)
+    }
+    
+    func updateTimer() {
+        var totalTime = TimerManager.shared.totalTime
+        let minutes =  totalTime / 60
+        let seconds = totalTime % 60
+        let formattedTime = String(format: "%02d:%02d", minutes, seconds)
+        sessionlbl.text = "Your Session Expires In: \(formattedTime)"
+    }
+    
+    
+    
 }
