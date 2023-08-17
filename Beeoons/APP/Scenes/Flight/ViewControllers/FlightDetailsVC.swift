@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FlightDetailsVC: BaseTableVC {
+class FlightDetailsVC: BaseTableVC, TimerManagerDelegate {
     
     
     @IBOutlet weak var holderView: UIView!
@@ -97,15 +97,15 @@ class FlightDetailsVC: BaseTableVC {
     
     
     
-    
     @IBAction func didTapOnBookNowBtnAction(_ sender: Any) {
-        guard let vc = PayNowVC.newInstance.self else {return}
-        vc.modalPresentationStyle = .overCurrentContext
+        guard let vc = ContactInfoVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
         callapibool = true
-        vc.grandTotal = self.totalPricelbl.text ?? ""
         self.present(vc, animated: false)
     }
     
+    
+    var citysArray = [String]()
 }
 
 
@@ -126,9 +126,19 @@ extension FlightDetailsVC:FlightDetailsViewModelDelegate {
         fd = response.flightDetails ?? [[]]
         fareRulesData = response.fareRulehtml ?? []
         farepricedetails = response.priceDetails
+        grandTotal = response.priceDetails?.grand_total ?? ""
         bggAllowance = response.baggageAllowance ?? []
+        totalPricelbl.text = grandTotal
         
-        totalPricelbl.text = response.priceDetails?.grand_total ?? "0"
+        
+        fd.forEach { i in
+            i.forEach { j in
+                citysArray.append("\(j.origin?.loc ?? "") - \(j.destination?.loc ?? "")")
+            }
+        }
+        
+        cityslbl.text = citysArray.joined(separator: "-")
+        
         DispatchQueue.main.async {
             self.setupItineraryTVCells()
         }
@@ -275,6 +285,7 @@ extension FlightDetailsVC {
 extension FlightDetailsVC {
     
     func addObserver() {
+        TimerManager.shared.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(nointernet), name: Notification.Name("offline"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name("reloadTV"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)
@@ -300,6 +311,18 @@ extension FlightDetailsVC {
         vc.key = key
         vc.titleStr = titleStr
         self.present(vc, animated: false)
+    }
+    
+    //MARK: - timerDidFinish
+    
+    func timerDidFinish() {
+        guard let vc = PopupVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: false)
+    }
+    
+    func updateTimer() {
+        
     }
     
     

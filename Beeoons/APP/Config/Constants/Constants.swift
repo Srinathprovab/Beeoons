@@ -84,6 +84,12 @@ var sub_total_adult : String?
 var sub_total_child : String?
 var sub_total_infant : String?
 
+//Contact Info
+var countryCode = String()
+var billingCountryCode = String()
+var billingCountryName = String()
+var email = String()
+var mobile = String()
 
 //MARK: - FILTERS
 var prices = [String]()

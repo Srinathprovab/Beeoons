@@ -165,6 +165,8 @@ class BookFlightTVCell: TableViewCell {
         setupAirlineDropDown()
         setupDropDown()
         
+        
+        airlineTF.isHidden = true
         setuptf(tf: airlineTF, tag1: 333, leftpadding: 0, font: .OswaldRegular(size: 16), placeholder: "Kuwait")
         airlineTF.addTarget(self, action: #selector(searchTextChanged(textField:)), for: .editingChanged)
         airlineTF.addTarget(self, action: #selector(searchTextBegin(textField:)), for: .editingDidBegin)

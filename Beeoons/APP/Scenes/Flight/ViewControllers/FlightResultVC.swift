@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FlightResultVC: BaseTableVC {
+class FlightResultVC: BaseTableVC, TimerManagerDelegate {
     
     
     
@@ -40,6 +40,7 @@ class FlightResultVC: BaseTableVC {
     //MARK: - Loading Functions
     
     override func viewWillAppear(_ animated: Bool) {
+        
         addObserver()
         if callapibool == true {
             loderBool = true
@@ -114,8 +115,9 @@ class FlightResultVC: BaseTableVC {
     
     //MARK: -didTapOnBackBtnAction
     @IBAction func didTapOnBackBtnAction(_ sender: Any) {
+        TimerManager.shared.sessionStop()
         guard let vc = BookFlightVC.newInstance.self else {return}
-        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: false)
     }
     
@@ -171,6 +173,9 @@ extension FlightResultVC:OnewayViewModelDelegate {
             oneWayFlights = response.data?.j_flight_list ?? [[]]
             cityCodes = "\(response.data?.search_params?.from_loc ?? "")"
             
+           
+            TimerManager.shared.totalTime = 900
+            TimerManager.shared.startTimer()
             
             let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
             if journyType == "oneway" {
@@ -531,6 +536,7 @@ extension FlightResultVC:AppliedFilters{
 extension FlightResultVC {
     
     func addObserver() {
+        TimerManager.shared.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(nointernet), name: Notification.Name("offline"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name("reloadTV"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)
@@ -557,6 +563,20 @@ extension FlightResultVC {
         vc.titleStr = titleStr
         self.present(vc, animated: false)
     }
+    
+    //MARK: - timerDidFinish
+    
+    func timerDidFinish() {
+        guard let vc = PopupVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: false)
+    }
+    
+    func updateTimer() {
+        
+    }
+    
+    
     
     
 }

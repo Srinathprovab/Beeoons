@@ -7,8 +7,7 @@
 
 import UIKit
 
-class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVCellDelegate, FlightDealsTVCellDelegate, BookFlightTVCellDelegate, TravellerEconomyTVCellDelegate, ButtonTVCellDelegate, FlightResultTVCellDelegate, CheckBoxTVCellDelegate, checkOptionsTVCellDelegate, SliderTVCellDelegate, SortByPriceTVCellDelegate, MenuOptionTVCellDelegate, MenuBGTVCellDelegate, RegisterUserTVCellDelegate, UserNameTextFieldTVCellDelegate, FareRulesTVCellDelegate, ViewFlightDetailsTVCellDelegate, BookFlightMCTVCellDelegate, PromocodeTVCellDelegate {
-    
+class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVCellDelegate, FlightDealsTVCellDelegate, BookFlightTVCellDelegate, TravellerEconomyTVCellDelegate, ButtonTVCellDelegate, FlightResultTVCellDelegate, CheckBoxTVCellDelegate, checkOptionsTVCellDelegate, SliderTVCellDelegate, SortByPriceTVCellDelegate, MenuOptionTVCellDelegate, MenuBGTVCellDelegate, RegisterUserTVCellDelegate, UserNameTextFieldTVCellDelegate, FareRulesTVCellDelegate, ViewFlightDetailsTVCellDelegate, BookFlightMCTVCellDelegate, PromocodeTVCellDelegate, PrimaryContactInfoTVCellDelegate, TDetailsLoginTVCellDelegate {
     
     
     @IBOutlet weak var commonScrollView: UITableView!
@@ -142,6 +141,13 @@ class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVC
     func showContentBtnAction(cell: FareRulesTVCell) {}
     func didTapOnViewFlightDetails(cell: ViewFlightDetailsTVCell) {}
     func didTapOnApplyPromocodeBtnAction(cell: PromocodeTVCell) {}
+    
+    func didTapOnCountryCodeBtn(cell: PrimaryContactInfoTVCell) {}
+    func didTapOnDropDownBtn(cell: PrimaryContactInfoTVCell) {}
+    func didTapOnLoginBtn(cell: TDetailsLoginTVCell) {}
+    
+    
+    
     
     
     
@@ -386,6 +392,21 @@ extension BaseTableVC: UITableViewDataSource {
                 
             case .BookFlightMCTVCell:
                 let cell:  BookFlightMCTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+                
+            case .PrimaryContactInfoTVCell:
+                let cell:  PrimaryContactInfoTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+                
+                
+            case .TDetailsLoginTVCell:
+                let cell:  TDetailsLoginTVCell = commonTV.dequeTVCell(indexPath: indexPath)
                 cell.delegate = self
                 commonCell = cell
                 

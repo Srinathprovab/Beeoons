@@ -16,10 +16,9 @@ class PayNowVC: BaseTableVC, TimerManagerDelegate {
     @IBOutlet weak var sessionlbl: UILabel!
     
     
-   var dates = String()
+    var dates = String()
     var citys = String()
     var tablerow = [TableRow]()
-    var grandTotal = String()
     var payload = [String:Any]()
     var flightsummary = [Summary]()
     var vm:PreProcessBookingViewModel?
@@ -62,7 +61,8 @@ class PayNowVC: BaseTableVC, TimerManagerDelegate {
         bottomView.layer.borderWidth = 1
         totalPricelbl.text = grandTotal
         
-        commonTableView.registerTVCells(["PurchaseSummaryTVCell",
+        commonTableView.registerTVCells(["TDetailsLoginTVCell",
+                                         "PurchaseSummaryTVCell",
                                          "PromocodeTVCell",
                                          "TravellerDetailsTVCell",
                                          "ViewFlightDetailsTVCell"])
@@ -75,6 +75,7 @@ class PayNowVC: BaseTableVC, TimerManagerDelegate {
         
         tablerow.removeAll()
         
+        tablerow.append(TableRow(cellType:.TDetailsLoginTVCell))
         tablerow.append(TableRow(moreData:flightsummary,
                                  cellType:.ViewFlightDetailsTVCell))
         tablerow.append(TableRow(cellType:.TravellerDetailsTVCell))
@@ -109,6 +110,19 @@ class PayNowVC: BaseTableVC, TimerManagerDelegate {
         print(tf.text)
     }
     
+    
+    
+    
+    //MARK: - didTapOnLoginBtn
+    override func didTapOnLoginBtn(cell: TDetailsLoginTVCell) {
+        guard let vc = LoginVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        callapibool = true
+        vc.isvcFrom = "menu"
+        self.present(vc, animated: false)
+    }
+    
+    
     //MARK: - didTapOnBackBtnAction
     @IBAction func didTapOnBackBtnAction(_ sender: Any) {
         dismiss(animated: true)
@@ -142,11 +156,6 @@ extension PayNowVC: PreProcessBookingViewModelDelegate {
             citys = "\(i.origin?.city ?? "")(\(i.origin?.loc ?? "")) to \(i.destination?.city ?? "")(\(i.destination?.loc ?? ""))"
             dates = "\(i.origin?.date ?? "")"
         }
-       
-        TimerManager.shared.sessionStop()
-        TimerManager.shared.totalTime = 900
-        TimerManager.shared.startTimer()
-        
         
         DispatchQueue.main.async {[self] in
             setupTV()
@@ -211,7 +220,7 @@ extension PayNowVC {
     }
     
     func updateTimer() {
-        var totalTime = TimerManager.shared.totalTime
+        let totalTime = TimerManager.shared.totalTime
         let minutes =  totalTime / 60
         let seconds = totalTime % 60
         let formattedTime = String(format: "%02d:%02d", minutes, seconds)

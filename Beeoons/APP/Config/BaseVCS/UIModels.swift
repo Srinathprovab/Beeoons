@@ -48,6 +48,8 @@ enum TVCellType {
     case PromocodeTVCell
     case TravellerDetailsTVCell
     case BookFlightMCTVCell
+    case PrimaryContactInfoTVCell
+    case TDetailsLoginTVCell
     
 }
 
