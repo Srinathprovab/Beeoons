@@ -105,6 +105,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="didTapOnCountryCodeBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="11Z-wC-d1M"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

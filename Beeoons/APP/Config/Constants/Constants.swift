@@ -60,6 +60,7 @@ var toCityArray = ["",""]
 var selectedAccesskey = ""
 var searchid = ""
 var bookingsource = ""
+var bookingsourcekey = String()
 var selectedResult = ""
 var cityCodes = ""
 
@@ -91,6 +92,14 @@ var billingCountryName = String()
 var email = String()
 var mobile = String()
 
+
+//paynow
+var travelerArray: [Traveler] = []
+var ageCategory: AgeCategory = .adult
+var checkTermsAndCondationStatus = false
+
+
+
 //MARK: - FILTERS
 var prices = [String]()
 var noofStopsA = [String]()
@@ -109,6 +118,7 @@ var arrivalTimeA = [String]()
 struct ApiEndpoints {
     
     static let indexpage = "general/index"
+    static let indexpageapi = "general/index"
     static let get_airport_code_list = "ajax/get_airport_code_list"
     static let mobilepreflightsearch = "general/mobile_pre_flight_search"
     static let getFlightDetails = "flight/getFlightDetails"
@@ -119,7 +129,12 @@ struct ApiEndpoints {
     static let authajax_logout = "auth/ajax_logout"
     static let updatemobileprofile = "user/mobile_profile"
     static let flight_mobile_pre_process_booking = "flight/mobile_pre_process_booking"
-    static let indexpageapi = "general/index"
+    static let processpassengerdetail = "flight/mobile_process_passenger_detail"
+    static let prebooking = "flight/mobile_pre_booking"
+    static let prepaymentconfirmation = "flight/pre_payment_confirmation/"
+    static let sendtopayment = "flight/send_to_payment/"
+    static let securebooking = "flight/secure_booking/"
+    
     
     
     

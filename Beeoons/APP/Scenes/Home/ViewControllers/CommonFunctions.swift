@@ -133,7 +133,8 @@ class TimerManager {
         }
         
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
-        
+        RunLoop.current.add(timer!, forMode: RunLoop.Mode.common)
+
         
     }
     

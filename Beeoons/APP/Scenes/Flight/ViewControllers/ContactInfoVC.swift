@@ -47,6 +47,7 @@ class ContactInfoVC: BaseTableVC {
         
         tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
         tablerow.append(TableRow(cellType:.PrimaryContactInfoTVCell))
+        tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
         
         commonTVData = tablerow
         commonTableView.reloadData()

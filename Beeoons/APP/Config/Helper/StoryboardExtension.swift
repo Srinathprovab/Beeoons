@@ -15,6 +15,7 @@ enum Storyboard: String {
     case Hotel
     case Calender
     case Flight
+    case BookingCnf
    
     
     var name: String {

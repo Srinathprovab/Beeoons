@@ -50,6 +50,8 @@ enum TVCellType {
     case BookFlightMCTVCell
     case PrimaryContactInfoTVCell
     case TDetailsLoginTVCell
+    case AddDeatilsOfTravellerTVCell
+    case AcceptTermsAndConditionTVCell
     
 }
 

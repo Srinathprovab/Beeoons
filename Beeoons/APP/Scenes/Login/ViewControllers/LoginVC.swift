@@ -195,6 +195,7 @@ extension LoginVC:LoginViewModelDelegate {
                     gotodashBoardScreen()
                 }else {
                     
+                    NotificationCenter.default.post(name: NSNotification.Name("reloadTV"), object: true)
                     NotificationCenter.default.post(name: NSNotification.Name("callprofile"), object: true)
                     dismiss(animated: true)
                 }

@@ -130,7 +130,7 @@ class BookFlightVC: BaseTableVC {
         guard let vc = HomeVC.newInstance.self else {return}
         vc.modalPresentationStyle = .overCurrentContext
         callapibool = true
-        self.present(vc, animated: true)
+        self.present(vc, animated: false)
     }
     
     
@@ -504,6 +504,7 @@ class BookFlightVC: BaseTableVC {
 extension BookFlightVC {
     
     func addObserverCall() {
+        TimerManager.shared.sessionStop()
         NotificationCenter.default.addObserver(self, selector: #selector(reload(notification:)), name: NSNotification.Name("reload"), object: nil)
     }
     

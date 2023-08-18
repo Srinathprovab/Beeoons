@@ -7,7 +7,9 @@
 
 import UIKit
 
-class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVCellDelegate, FlightDealsTVCellDelegate, BookFlightTVCellDelegate, TravellerEconomyTVCellDelegate, ButtonTVCellDelegate, FlightResultTVCellDelegate, CheckBoxTVCellDelegate, checkOptionsTVCellDelegate, SliderTVCellDelegate, SortByPriceTVCellDelegate, MenuOptionTVCellDelegate, MenuBGTVCellDelegate, RegisterUserTVCellDelegate, UserNameTextFieldTVCellDelegate, FareRulesTVCellDelegate, ViewFlightDetailsTVCellDelegate, BookFlightMCTVCellDelegate, PromocodeTVCellDelegate, PrimaryContactInfoTVCellDelegate, TDetailsLoginTVCellDelegate {
+class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVCellDelegate, FlightDealsTVCellDelegate, BookFlightTVCellDelegate, TravellerEconomyTVCellDelegate, ButtonTVCellDelegate, FlightResultTVCellDelegate, CheckBoxTVCellDelegate, checkOptionsTVCellDelegate, SliderTVCellDelegate, SortByPriceTVCellDelegate, MenuOptionTVCellDelegate, MenuBGTVCellDelegate, RegisterUserTVCellDelegate, UserNameTextFieldTVCellDelegate, FareRulesTVCellDelegate, ViewFlightDetailsTVCellDelegate, BookFlightMCTVCellDelegate, PromocodeTVCellDelegate, PrimaryContactInfoTVCellDelegate, TDetailsLoginTVCellDelegate, AddDeatilsOfTravellerTVCellDelegate, AcceptTermsAndConditionTVCellDelegate {
+   
+    
     
     
     @IBOutlet weak var commonScrollView: UITableView!
@@ -145,11 +147,17 @@ class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVC
     func didTapOnCountryCodeBtn(cell: PrimaryContactInfoTVCell) {}
     func didTapOnDropDownBtn(cell: PrimaryContactInfoTVCell) {}
     func didTapOnLoginBtn(cell: TDetailsLoginTVCell) {}
-    
-    
-    
-    
-    
+  
+    func didTapOnExpandAdultViewbtnAction(cell: AddDeatilsOfTravellerTVCell) {}
+    func tfeditingChanged(tf: UITextField) {}
+    func didTapOnTitleBtnAction(cell: AddDeatilsOfTravellerTVCell) {}
+    func donedatePicker(cell: AddDeatilsOfTravellerTVCell) {}
+    func cancelDatePicker(cell: AddDeatilsOfTravellerTVCell) {}
+    func didTapOnSelectIssuingCountryBtn(cell: AddDeatilsOfTravellerTVCell) {}
+    func didTapOnMealPreferenceBtn(cell: AddDeatilsOfTravellerTVCell) {}
+    func didTapOnSpecialAssicintenceBtn(cell: AddDeatilsOfTravellerTVCell) {}
+    func didTapOnTAndCAction(cell: AcceptTermsAndConditionTVCell) {}
+    func didTapOnPrivacyPolicyAction(cell: AcceptTermsAndConditionTVCell) {}
     
     
     
@@ -407,6 +415,20 @@ extension BaseTableVC: UITableViewDataSource {
                 
             case .TDetailsLoginTVCell:
                 let cell:  TDetailsLoginTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+                
+            case .AddDeatilsOfTravellerTVCell:
+                let cell:  AddDeatilsOfTravellerTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+                
+            case .AcceptTermsAndConditionTVCell:
+                let cell:  AcceptTermsAndConditionTVCell = commonTV.dequeTVCell(indexPath: indexPath)
                 cell.delegate = self
                 commonCell = cell
                 

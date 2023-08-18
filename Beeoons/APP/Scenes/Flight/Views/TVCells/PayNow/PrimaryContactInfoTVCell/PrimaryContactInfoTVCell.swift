@@ -121,7 +121,7 @@ class PrimaryContactInfoTVCell: TableViewCell {
         countrycodeTF.text = defaults.string(forKey: UserDefaultsKeys.mobilecountrycode)
         
         setupDropDown()
-        countryCodeBtn.isHidden = true
+      //  countryCodeBtn.isHidden = true
         countrycodeTF.addTarget(self, action: #selector(searchTextChanged(textField:)), for: .editingChanged)
         countrycodeTF.addTarget(self, action: #selector(searchTextBegin(textField:)), for: .editingDidBegin)
         

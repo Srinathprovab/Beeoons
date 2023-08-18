@@ -21,7 +21,8 @@ class FlightResultVC: BaseTableVC, TimerManagerDelegate {
     @IBOutlet weak var nonStopBtn: UIButton!
     @IBOutlet weak var oneStopBtn: UIButton!
     @IBOutlet weak var moreStopBtn: UIButton!
-    
+    @IBOutlet weak var sessionlbl: UILabel!
+    @IBOutlet weak var flightscountlbl: UILabel!
     
     let refreshControl = UIRefreshControl()
     var tablerow = [TableRow]()
@@ -40,7 +41,7 @@ class FlightResultVC: BaseTableVC, TimerManagerDelegate {
     //MARK: - Loading Functions
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        TimerManager.shared.delegate = self
         addObserver()
         if callapibool == true {
             loderBool = true
@@ -60,6 +61,21 @@ class FlightResultVC: BaseTableVC, TimerManagerDelegate {
         setupUI()
     }
     
+    //MARK: - timerDidFinish
+    
+    func timerDidFinish() {
+        guard let vc = PopupVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: false)
+    }
+    
+    func updateTimer() {
+        let totalTime = TimerManager.shared.totalTime
+        let minutes =  totalTime / 60
+        let seconds = totalTime % 60
+        let formattedTime = String(format: "%02d:%02d", minutes, seconds)
+        sessionlbl.text = "Your Session Expires In: \(formattedTime)"
+    }
     
     //MARK: - setupUI
     func setupUI() {
@@ -172,8 +188,8 @@ extension FlightResultVC:OnewayViewModelDelegate {
             bookingsource = "\(response.data?.booking_source_key ?? "")"
             oneWayFlights = response.data?.j_flight_list ?? [[]]
             cityCodes = "\(response.data?.search_params?.from_loc ?? "")"
+            flightscountlbl.text = "\(response.data?.j_flight_list?.count ?? 0) Flights Found"
             
-           
             TimerManager.shared.totalTime = 900
             TimerManager.shared.startTimer()
             
@@ -270,6 +286,7 @@ extension FlightResultVC:OnewayViewModelDelegate {
             searchid = "\(response.data?.search_id ?? 0)"
             bookingsource = "\(response.data?.booking_source_key ?? "")"
             oneWayFlights = response.data?.j_flight_list ?? [[]]
+            flightscountlbl.text = "\(response.data?.j_flight_list?.count ?? 0) Flights Found"
             
             appendPriceValuesIntoArray(jfl: oneWayFlights)
             
@@ -536,7 +553,7 @@ extension FlightResultVC:AppliedFilters{
 extension FlightResultVC {
     
     func addObserver() {
-        TimerManager.shared.delegate = self
+        
         NotificationCenter.default.addObserver(self, selector: #selector(nointernet), name: Notification.Name("offline"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name("reloadTV"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)
@@ -564,17 +581,7 @@ extension FlightResultVC {
         self.present(vc, animated: false)
     }
     
-    //MARK: - timerDidFinish
-    
-    func timerDidFinish() {
-        guard let vc = PopupVC.newInstance.self else {return}
-        vc.modalPresentationStyle = .overCurrentContext
-        self.present(vc, animated: false)
-    }
-    
-    func updateTimer() {
-        
-    }
+   
     
     
     

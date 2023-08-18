@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Oswald-Medium.ttf">
+            <string>Oswald-Medium</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Load Web ViewVC-->
+        <scene sceneID="tie-Mf-g0k">
+            <objects>
+                <viewController storyboardIdentifier="LoadWebViewVC" id="XOe-yX-Aah" customClass="LoadWebViewVC" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EGg-I0-JRE">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3B8-K1-veQ">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <subviews>
+                                    <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pz0-jZ-wyk">
+                                        <rect key="frame" x="0.0" y="130" width="393" height="722"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <wkWebViewConfiguration key="configuration">
+                                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                            <wkPreferences key="preferences"/>
+                                        </wkWebViewConfiguration>
+                                    </wkWebView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6B4-Hy-cyf">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="130"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AWU-df-hLu">
+                                                <rect key="frame" x="163" y="70.333333333333329" width="67.333333333333314" height="29.666666666666671"/>
+                                                <fontDescription key="fontDescription" name="Oswald-Medium" family="Oswald" pointSize="20"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVo-q9-SIq">
+                                                <rect key="frame" x="10" y="70" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="90b-x6-s3K"/>
+                                                    <constraint firstAttribute="height" constant="30" id="MwO-YX-QRP"/>
+                                                </constraints>
+                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system"/>
+                                                <connections>
+                                                    <action selector="didTapOnBackBtnAction:" destination="XOe-yX-Aah" eventType="touchUpInside" id="tf5-8q-fyC"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" name="PriceBoxColor"/>
+                                        <constraints>
+                                            <constraint firstItem="AWU-df-hLu" firstAttribute="centerX" secondItem="6B4-Hy-cyf" secondAttribute="centerX" id="7mO-yE-840"/>
+                                            <constraint firstAttribute="height" constant="130" id="8hq-gd-uiC"/>
+                                            <constraint firstItem="AWU-df-hLu" firstAttribute="centerY" secondItem="hVo-q9-SIq" secondAttribute="centerY" id="ZP5-W2-WqW"/>
+                                            <constraint firstAttribute="bottom" secondItem="hVo-q9-SIq" secondAttribute="bottom" constant="30" id="hrr-np-ieH"/>
+                                            <constraint firstItem="hVo-q9-SIq" firstAttribute="leading" secondItem="6B4-Hy-cyf" secondAttribute="leading" constant="10" id="r4G-jb-7KC"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="pz0-jZ-wyk" firstAttribute="top" secondItem="6B4-Hy-cyf" secondAttribute="bottom" id="7Ff-cU-5jz"/>
+                                    <constraint firstItem="6B4-Hy-cyf" firstAttribute="top" secondItem="3B8-K1-veQ" secondAttribute="top" id="GMA-oQ-rK3"/>
+                                    <constraint firstItem="pz0-jZ-wyk" firstAttribute="leading" secondItem="3B8-K1-veQ" secondAttribute="leading" id="LiX-s7-0qK"/>
+                                    <constraint firstAttribute="trailing" secondItem="pz0-jZ-wyk" secondAttribute="trailing" id="Ul5-qd-qXR"/>
+                                    <constraint firstAttribute="trailing" secondItem="6B4-Hy-cyf" secondAttribute="trailing" id="WOa-5G-nf9"/>
+                                    <constraint firstAttribute="bottom" secondItem="pz0-jZ-wyk" secondAttribute="bottom" id="dx5-9K-AoG"/>
+                                    <constraint firstItem="6B4-Hy-cyf" firstAttribute="leading" secondItem="3B8-K1-veQ" secondAttribute="leading" id="vzP-bV-0E2"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wDX-Pd-ZIb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3B8-K1-veQ" firstAttribute="leading" secondItem="wDX-Pd-ZIb" secondAttribute="leading" id="2iH-qr-0Gr"/>
+                            <constraint firstAttribute="bottom" secondItem="3B8-K1-veQ" secondAttribute="bottom" id="VXq-Uj-YzD"/>
+                            <constraint firstItem="3B8-K1-veQ" firstAttribute="top" secondItem="EGg-I0-JRE" secondAttribute="top" id="nb2-SP-PMm"/>
+                            <constraint firstItem="wDX-Pd-ZIb" firstAttribute="trailing" secondItem="3B8-K1-veQ" secondAttribute="trailing" id="pIS-BH-aTE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webview" destination="pz0-jZ-wyk" id="lBy-pB-rcg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cpi-8z-tTI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1271" y="3536"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chevron.backward" catalog="system" width="97" height="128"/>
+        <namedColor name="PriceBoxColor">
+            <color red="0.17299999296665192" green="0.41600000858306885" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
