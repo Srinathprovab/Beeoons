@@ -17,7 +17,7 @@
         <!--Load Web ViewVC-->
         <scene sceneID="tie-Mf-g0k">
             <objects>
-                <viewController storyboardIdentifier="LoadWebViewVC" id="XOe-yX-Aah" customClass="LoadWebViewVC" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoadWebViewVC" id="XOe-yX-Aah" customClass="LoadWebViewVC" customModule="Beeoons" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EGg-I0-JRE">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,6 +94,72 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cpi-8z-tTI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1271" y="3536"/>
+        </scene>
+        <!--Booking ConformVC-->
+        <scene sceneID="GIE-7E-cBm">
+            <objects>
+                <viewController storyboardIdentifier="BookingConformVC" id="sRQ-qO-zIW" customClass="BookingConformVC" customModule="Beeoons" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nxM-Oo-err">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ayx-k9-EWq">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zxZ-bN-r16">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="130"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Booking Conformed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEx-fj-GW0">
+                                                <rect key="frame" x="120.33333333333333" y="70.333333333333329" width="152.33333333333337" height="29.666666666666671"/>
+                                                <fontDescription key="fontDescription" name="Oswald-Medium" family="Oswald" pointSize="20"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vx8-J7-APs">
+                                                <rect key="frame" x="10" y="70" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="YU8-06-tOE"/>
+                                                    <constraint firstAttribute="width" constant="30" id="tTv-z9-7hh"/>
+                                                </constraints>
+                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system"/>
+                                                <connections>
+                                                    <action selector="didTapOnBackBtnAction:" destination="sRQ-qO-zIW" eventType="touchUpInside" id="M2R-k2-8M8"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" name="PriceBoxColor"/>
+                                        <constraints>
+                                            <constraint firstItem="TEx-fj-GW0" firstAttribute="centerX" secondItem="zxZ-bN-r16" secondAttribute="centerX" id="Fxc-bO-ZD8"/>
+                                            <constraint firstItem="Vx8-J7-APs" firstAttribute="leading" secondItem="zxZ-bN-r16" secondAttribute="leading" constant="10" id="oH5-CH-Smc"/>
+                                            <constraint firstAttribute="bottom" secondItem="Vx8-J7-APs" secondAttribute="bottom" constant="30" id="rcI-rT-Pgb"/>
+                                            <constraint firstItem="TEx-fj-GW0" firstAttribute="centerY" secondItem="Vx8-J7-APs" secondAttribute="centerY" id="twQ-5Q-2Sd"/>
+                                            <constraint firstAttribute="height" constant="130" id="ysD-7S-Tmt"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="zxZ-bN-r16" firstAttribute="top" secondItem="Ayx-k9-EWq" secondAttribute="top" id="V5h-gx-nKe"/>
+                                    <constraint firstAttribute="trailing" secondItem="zxZ-bN-r16" secondAttribute="trailing" id="XT6-Cq-8IJ"/>
+                                    <constraint firstItem="zxZ-bN-r16" firstAttribute="leading" secondItem="Ayx-k9-EWq" secondAttribute="leading" id="vRe-sQ-ncH"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UOU-Xf-CEW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ayx-k9-EWq" firstAttribute="leading" secondItem="UOU-Xf-CEW" secondAttribute="leading" id="GxJ-Zq-1eR"/>
+                            <constraint firstItem="Ayx-k9-EWq" firstAttribute="top" secondItem="nxM-Oo-err" secondAttribute="top" id="LQn-oX-lLD"/>
+                            <constraint firstAttribute="bottom" secondItem="Ayx-k9-EWq" secondAttribute="bottom" id="iK1-2E-DIV"/>
+                            <constraint firstItem="UOU-Xf-CEW" firstAttribute="trailing" secondItem="Ayx-k9-EWq" secondAttribute="trailing" id="sai-tG-dxY"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KMN-96-LCX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2018" y="3536"/>
         </scene>
     </scenes>
     <resources>

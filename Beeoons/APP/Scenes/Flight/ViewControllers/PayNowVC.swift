@@ -109,7 +109,7 @@ class PayNowVC: BaseTableVC, TimerManagerDelegate {
                                          "EmptyTVCell",
                                          "AcceptTermsAndConditionTVCell",
                                          "AddDeatilsOfTravellerTVCell",
-                                         "TravellerDetailsTVCell",
+                                         "BillingAddressTVCell",
                                          "ViewFlightDetailsTVCell"])
         // setupTV()
     }
@@ -157,7 +157,7 @@ class PayNowVC: BaseTableVC, TimerManagerDelegate {
         
         
         
-    //    tablerow.append(TableRow(cellType:.TravellerDetailsTVCell))
+        tablerow.append(TableRow(cellType:.BillingAddressTVCell))
         tablerow.append(TableRow(cellType:.PromocodeTVCell))
         tablerow.append(TableRow(title:citys,
                                  subTitle: dates,

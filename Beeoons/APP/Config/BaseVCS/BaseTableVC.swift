@@ -392,8 +392,8 @@ extension BaseTableVC: UITableViewDataSource {
                 
                 
                 
-            case .TravellerDetailsTVCell:
-                let cell:  TravellerDetailsTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+            case .BillingAddressTVCell:
+                let cell:  BillingAddressTVCell = commonTV.dequeTVCell(indexPath: indexPath)
                 commonCell = cell
                 
                 

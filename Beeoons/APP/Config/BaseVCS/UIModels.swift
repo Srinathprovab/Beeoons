@@ -46,7 +46,7 @@ enum TVCellType {
     case ViewFlightDetailsTVCell
     case PurchaseSummaryTVCell
     case PromocodeTVCell
-    case TravellerDetailsTVCell
+    case BillingAddressTVCell
     case BookFlightMCTVCell
     case PrimaryContactInfoTVCell
     case TDetailsLoginTVCell

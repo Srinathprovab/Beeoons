@@ -134,14 +134,12 @@ class LoadWebViewVC: UIViewController , TimerManagerDelegate {
     
     func gotoBookingConfirmedVC(url:String) {
         TimerManager.shared.sessionStop()
-        //        guard let vc = BookingConfirmedVC.newInstance.self else {return}
-        //        vc.modalPresentationStyle = .fullScreen
-        //        vc.vocherurl = url
-        //        callapibool = true
-        //        present(vc, animated: true)
+        guard let vc = BookingConformVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        vc.voucherURL = url
+        callapibool = true
+        present(vc, animated: true)
         
-        
-        print(url)
     }
     
     
