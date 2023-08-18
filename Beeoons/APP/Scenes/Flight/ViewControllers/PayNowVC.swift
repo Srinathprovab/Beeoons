@@ -116,7 +116,7 @@ class PayNowVC: BaseTableVC, TimerManagerDelegate {
     //MARK: - didTapOnLoginBtn
     override func didTapOnLoginBtn(cell: TDetailsLoginTVCell) {
         guard let vc = LoginVC.newInstance.self else {return}
-        vc.modalPresentationStyle = .fullScreen
+        vc.modalPresentationStyle = .overCurrentContext
         callapibool = true
         vc.isvcFrom = "menu"
         self.present(vc, animated: false)
@@ -150,6 +150,8 @@ extension PayNowVC: PreProcessBookingViewModelDelegate {
     
     
     func mobilePreprocessBookingDetails(response: PreProcessBookingModel) {
+        
+    
         holderView.isHidden = false
         flightsummary = response.flight_data?.summary ?? []
         flightsummary.forEach { i in

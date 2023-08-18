@@ -131,12 +131,16 @@ extension FlightDetailsVC:FlightDetailsViewModelDelegate {
         totalPricelbl.text = grandTotal
         
         
-        fd.forEach { i in
-            i.forEach { j in
-                citysArray.append("\(j.origin?.loc ?? "") - \(j.destination?.loc ?? "")")
-            }
+        bggAllowance.forEach { i in
+            citysArray.append("\(i.journeySummary ?? "")")
         }
         
+        fd.forEach { i in
+            i.forEach { j in
+                hourlbl.text = j.duration ?? ""
+            }
+        }
+       
         cityslbl.text = citysArray.joined(separator: "-")
         
         DispatchQueue.main.async {

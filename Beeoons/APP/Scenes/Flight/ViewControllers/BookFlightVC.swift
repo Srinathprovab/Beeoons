@@ -67,7 +67,7 @@ class BookFlightVC: BaseTableVC {
     
     
     
-   
+    
     
     
     
@@ -121,7 +121,7 @@ class BookFlightVC: BaseTableVC {
     
     
     @IBAction func didTapOnBackBtnAction(_ sender: Any) {
-       // dismiss(animated: true)
+        // dismiss(animated: true)
         gotoHomeVC()
     }
     
@@ -220,11 +220,11 @@ class BookFlightVC: BaseTableVC {
         selectedAirlineName = cell.airlinelbl.text ?? ""
     }
     
-   
+    
     override func editingTextField(tf: UITextField) {
         //commonTableView.scrollToRow(at: IndexPath(item: 1, section: 0), at: .none, animated: true)
     }
-
+    
     
     //MARK: - didTapOnAddAirlineButtonAction
     override func didTapOnSearchFlightBtnAction(cell:BookFlightTVCell) {
@@ -445,7 +445,7 @@ class BookFlightVC: BaseTableVC {
                 showToastMessage = "Please Select Different Dates"
             }
         }
-   
+        
         
         if let message = showToastMessage {
             showToast(message: message)
@@ -468,6 +468,32 @@ class BookFlightVC: BaseTableVC {
         }
         
         
+        
+    }
+    
+    
+    //MARK: - didTapOnBookFlightBtn
+    override func didTapOnBookFlightBtn(cell: DealsCVCell) {
+        payload["trip_type"] = cell.trip_type
+        payload["adult"] = "1"
+        payload["child"] = "0"
+        payload["infant"] = "0"
+        payload["sector_type"] = "international"
+        payload["from"] = cell.fromcity
+        payload["from_loc_id"] = cell.from_loc_id
+        payload["to"] = cell.tocity
+        payload["to_loc_id"] = cell.to_loc_id
+        payload["depature"] = cell.depratureDatelbl.text ?? ""
+        payload["return"] = cell.returnDatelbl.text ?? ""
+        payload["carrier"] = ""
+        payload["psscarrier"] = ""
+        payload["v_class"] = cell.v_class
+        payload["search_flight"] = "Search"
+        payload["search_source"] = "search"
+        payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
+        payload["currency"] = cell.currency
+        
+        gotoSearchFlightResultVC(input: payload)
         
     }
     

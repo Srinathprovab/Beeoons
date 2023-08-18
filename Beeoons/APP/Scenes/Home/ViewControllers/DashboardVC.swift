@@ -202,7 +202,7 @@ class DashboardVC: BaseTableVC {
     }
     
     
-    //MARK: -
+    //MARK: - didTapOnBookFlightBtn
     override func didTapOnBookFlightBtn(cell: DealsCVCell) {
         payload["trip_type"] = cell.trip_type
         payload["adult"] = "1"
