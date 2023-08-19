@@ -28,9 +28,9 @@ class ViewController: UIViewController {
         
         if ExecuteOnceBool == true {
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
-                // self.gotodashBoardScreen()
+                 self.gotodashBoardScreen()
                 
-                self.gotoBookingConfirmedVC(url: "https://beeoons.com/pro/web_service/index.php/voucher/flight/BNS-F-TP-0811-9631/PTBSID0000000016/BOOKING_CONFIRMED/show_voucher/")
+               // self.gotoBookingConfirmedVC(url: "https://beeoons.com/pro/web_service/index.php/voucher/flight/BNS-F-TP-0811-9631/PTBSID0000000016/BOOKING_CONFIRMED/show_voucher/")
             })
         }
         

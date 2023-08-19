@@ -110,7 +110,9 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     
     //MARK: - forgetPasswordBtnAction
     @IBAction func forgetPasswordBtnAction(_ sender: Any) {
-        showToast(message: "forgetPasswordBtnAction")
+        guard let vc = ResetPasswordVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
     
     

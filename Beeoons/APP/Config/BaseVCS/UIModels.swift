@@ -52,6 +52,7 @@ enum TVCellType {
     case TDetailsLoginTVCell
     case AddDeatilsOfTravellerTVCell
     case AcceptTermsAndConditionTVCell
+    case ResetPasswordTVCell
     
 }
 

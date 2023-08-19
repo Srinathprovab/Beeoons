@@ -77,6 +77,11 @@
 		650C31492A88A120002DF7D4 /* PromocodeTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 650C31472A88A120002DF7D4 /* PromocodeTVCell.xib */; };
 		650C31522A88BE2C002DF7D4 /* AddViewFlightDataTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650C31502A88BE2C002DF7D4 /* AddViewFlightDataTVCell.swift */; };
 		650C31532A88BE2C002DF7D4 /* AddViewFlightDataTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 650C31512A88BE2C002DF7D4 /* AddViewFlightDataTVCell.xib */; };
+		650F67092A9061870005B42D /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650F67082A9061870005B42D /* ResetPasswordVC.swift */; };
+		650F670D2A907CCE0005B42D /* ResetPasswordTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650F670B2A907CCE0005B42D /* ResetPasswordTVCell.swift */; };
+		650F670E2A907CCE0005B42D /* ResetPasswordTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 650F670C2A907CCE0005B42D /* ResetPasswordTVCell.xib */; };
+		650F67102A9082690005B42D /* ResetPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650F670F2A9082690005B42D /* ResetPasswordModel.swift */; };
+		650F67122A9082CE0005B42D /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650F67112A9082CE0005B42D /* ResetPasswordViewModel.swift */; };
 		652D5B8F2A8DF4B100AA8A5F /* Beeoons.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 652D5B8D2A8DF4B100AA8A5F /* Beeoons.xcdatamodeld */; };
 		652D5B912A8DF99E00AA8A5F /* PopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652D5B902A8DF99E00AA8A5F /* PopupVC.swift */; };
 		652D5B972A8E159F00AA8A5F /* ContactInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652D5B962A8E159F00AA8A5F /* ContactInfoVC.swift */; };
@@ -327,6 +332,11 @@
 		650C31472A88A120002DF7D4 /* PromocodeTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromocodeTVCell.xib; sourceTree = "<group>"; };
 		650C31502A88BE2C002DF7D4 /* AddViewFlightDataTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewFlightDataTVCell.swift; sourceTree = "<group>"; };
 		650C31512A88BE2C002DF7D4 /* AddViewFlightDataTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddViewFlightDataTVCell.xib; sourceTree = "<group>"; };
+		650F67082A9061870005B42D /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
+		650F670B2A907CCE0005B42D /* ResetPasswordTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordTVCell.swift; sourceTree = "<group>"; };
+		650F670C2A907CCE0005B42D /* ResetPasswordTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetPasswordTVCell.xib; sourceTree = "<group>"; };
+		650F670F2A9082690005B42D /* ResetPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordModel.swift; sourceTree = "<group>"; };
+		650F67112A9082CE0005B42D /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
 		652D5B8E2A8DF4B100AA8A5F /* Beeoons.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Beeoons.xcdatamodel; sourceTree = "<group>"; };
 		652D5B902A8DF99E00AA8A5F /* PopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupVC.swift; sourceTree = "<group>"; };
 		652D5B962A8E159F00AA8A5F /* ContactInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoVC.swift; sourceTree = "<group>"; };
@@ -772,6 +782,15 @@
 				650C31512A88BE2C002DF7D4 /* AddViewFlightDataTVCell.xib */,
 			);
 			path = AddViewFlightDataTVCell;
+			sourceTree = "<group>";
+		};
+		650F670A2A907CB90005B42D /* ResetPasswordTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				650F670B2A907CCE0005B42D /* ResetPasswordTVCell.swift */,
+				650F670C2A907CCE0005B42D /* ResetPasswordTVCell.xib */,
+			);
+			path = ResetPasswordTVCell;
 			sourceTree = "<group>";
 		};
 		652D5B982A8E176000AA8A5F /* PrimaryContactInfoTVCell */ = {
@@ -1262,6 +1281,7 @@
 			children = (
 				65D481FD2A82352E00E7423E /* LoginVC.swift */,
 				65E538142A861284007EE11A /* RegisterUserVC.swift */,
+				650F67082A9061870005B42D /* ResetPasswordVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1285,6 +1305,7 @@
 		65D481E42A82225500E7423E /* TVCells */ = {
 			isa = PBXGroup;
 			children = (
+				650F670A2A907CB90005B42D /* ResetPasswordTVCell */,
 				65E538162A8614F3007EE11A /* RegisterUserTVCell */,
 			);
 			path = TVCells;
@@ -1296,6 +1317,7 @@
 				65E538202A862569007EE11A /* RegisterUserViewModel.swift */,
 				65E5382E2A86365C007EE11A /* LoginViewModel.swift */,
 				65E538322A86428C007EE11A /* LogoutViewModel.swift */,
+				650F67112A9082CE0005B42D /* ResetPasswordViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1627,6 +1649,7 @@
 			children = (
 				65E5381C2A8624FE007EE11A /* RegisterUserModel.swift */,
 				65E5381E2A862522007EE11A /* RegisterData.swift */,
+				650F670F2A9082690005B42D /* ResetPasswordModel.swift */,
 			);
 			path = RegisterUserModel;
 			sourceTree = "<group>";
@@ -1846,6 +1869,7 @@
 				650344FD2A838A4200B13434 /* CalendarCVCell.xib in Resources */,
 				65E5380E2A85FF79007EE11A /* MenuBGTVCell.xib in Resources */,
 				65D481512A8220A700E7423E /* SigvarBoldItalic.ttf in Resources */,
+				650F670E2A907CCE0005B42D /* ResetPasswordTVCell.xib in Resources */,
 				6503452F2A84BD2C00B13434 /* loderimg.gif in Resources */,
 				6503452D2A84ADDE00B13434 /* FlightResultTVCell.xib in Resources */,
 				65D481652A8220B700E7423E /* Oswald-Light.ttf in Resources */,
@@ -2043,6 +2067,7 @@
 				650C31432A888783002DF7D4 /* PurchaseSummaryTVCell.swift in Sources */,
 				650345282A84ABE900B13434 /* Destination.swift in Sources */,
 				650C31312A886A94002DF7D4 /* ViewFlightDetailsTVCell.swift in Sources */,
+				650F67122A9082CE0005B42D /* ResetPasswordViewModel.swift in Sources */,
 				65D481B32A82212300E7423E /* UIKitHelper.swift in Sources */,
 				652D5B9B2A8E177D00AA8A5F /* PrimaryContactInfoTVCell.swift in Sources */,
 				653D046A2A8B897F009A534C /* BookFlightMCTVCell.swift in Sources */,
@@ -2064,6 +2089,7 @@
 				65F546702A87B29500F4C66C /* AddCheckinBaggageCVCell.swift in Sources */,
 				65DCEBBF2A87C5D0008393E3 /* FareRulesTVCell.swift in Sources */,
 				65D481D12A82212300E7423E /* NSObject+Helper.swift in Sources */,
+				650F67102A9082690005B42D /* ResetPasswordModel.swift in Sources */,
 				650345122A84A78B00B13434 /* OnewayModel.swift in Sources */,
 				6503452C2A84ADDE00B13434 /* FlightResultTVCell.swift in Sources */,
 				650344F62A8389A400B13434 /* CalenderVC.swift in Sources */,
@@ -2147,6 +2173,7 @@
 				655CBD702A8FB02000946F47 /* Booking_itinerary_details.swift in Sources */,
 				650344E12A83737800B13434 /* SelectCityModel.swift in Sources */,
 				65E538282A8628A0007EE11A /* GetCountryListViewModel.swift in Sources */,
+				650F67092A9061870005B42D /* ResetPasswordVC.swift in Sources */,
 				65E538212A862569007EE11A /* RegisterUserViewModel.swift in Sources */,
 				655CBD6A2A8FAFAD00946F47 /* ShowVoucherModel.swift in Sources */,
 				6507B4CD2A8A38D9007FD2DD /* Top_dest_hotel.swift in Sources */,
@@ -2173,6 +2200,7 @@
 				650344E82A8380AF00B13434 /* FromCityTVCell.swift in Sources */,
 				65D4822D2A826D7A00E7423E /* DearMemberTVCell.swift in Sources */,
 				650345262A84ABDF00B13434 /* Origin.swift in Sources */,
+				650F670D2A907CCE0005B42D /* ResetPasswordTVCell.swift in Sources */,
 				65F546532A8746AE00F4C66C /* UserNameTextFieldTVCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
