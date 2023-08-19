@@ -36,7 +36,7 @@ class NoInternetConnectionVC: UIViewController {
     
     func noresultSetup(){
         wifiImg.image = UIImage(named: "oops")?.withRenderingMode(.alwaysOriginal)
-        titlelbl.text = titleStr ?? "No Results Found"
+        titlelbl.text = titleStr
         subTitlelbl.text = "Please Search Again"
         btnlbl.text = "Search Again"
     }

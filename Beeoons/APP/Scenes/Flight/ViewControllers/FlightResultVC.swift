@@ -41,7 +41,9 @@ class FlightResultVC: BaseTableVC, TimerManagerDelegate {
     //MARK: - Loading Functions
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         TimerManager.shared.delegate = self
+        
         addObserver()
         if callapibool == true {
             loderBool = true
@@ -49,7 +51,6 @@ class FlightResultVC: BaseTableVC, TimerManagerDelegate {
             callAPI()
         }
     }
-    
     
     
     
@@ -61,21 +62,7 @@ class FlightResultVC: BaseTableVC, TimerManagerDelegate {
         setupUI()
     }
     
-    //MARK: - timerDidFinish
     
-    func timerDidFinish() {
-        guard let vc = PopupVC.newInstance.self else {return}
-        vc.modalPresentationStyle = .overCurrentContext
-        self.present(vc, animated: false)
-    }
-    
-    func updateTimer() {
-        let totalTime = TimerManager.shared.totalTime
-        let minutes =  totalTime / 60
-        let seconds = totalTime % 60
-        let formattedTime = String(format: "%02d:%02d", minutes, seconds)
-        sessionlbl.text = "Your Session Expires In: \(formattedTime)"
-    }
     
     //MARK: - setupUI
     func setupUI() {
@@ -557,6 +544,7 @@ extension FlightResultVC {
         NotificationCenter.default.addObserver(self, selector: #selector(nointernet), name: Notification.Name("offline"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name("reloadTV"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTimer), name: NSNotification.Name("reloadTimer"), object: nil)
         
     }
     
@@ -569,7 +557,17 @@ extension FlightResultVC {
     }
     
     @objc func reload(){
-        callAPI()
+        DispatchQueue.main.async {
+            self.callAPI()
+        }
+    }
+    
+    
+    
+    @objc func reloadTimer(){
+        DispatchQueue.main.async {
+            TimerManager.shared.delegate = self
+        }
     }
     
     
@@ -581,9 +579,26 @@ extension FlightResultVC {
         self.present(vc, animated: false)
     }
     
-   
     
     
+    func  refreshTimerDisplay(){
+        // TimerManager.shared.startTimer()
+    }
     
+    //MARK: - timerDidFinish
+    
+    func timerDidFinish() {
+        guard let vc = PopupVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: false)
+    }
+    
+    func updateTimer() {
+        let totalTime = TimerManager.shared.totalTime
+        let minutes =  totalTime / 60
+        let seconds = totalTime % 60
+        let formattedTime = String(format: "%02d:%02d", minutes, seconds)
+        sessionlbl.text = "Your Session Expires In: \(formattedTime)"
+    }
     
 }

@@ -92,6 +92,7 @@ class FlightDetailsVC: BaseTableVC, TimerManagerDelegate {
     
     
     @IBAction func didTapOnCloseBtnAction(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name("reloadTimer"), object: nil)
         dismiss(animated: true)
     }
     
@@ -293,7 +294,16 @@ extension FlightDetailsVC {
         NotificationCenter.default.addObserver(self, selector: #selector(nointernet), name: Notification.Name("offline"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name("reloadTV"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTimer), name: NSNotification.Name("reloadTimer"), object: nil)
+
+    }
+    
+
+    
+    @objc func reloadTimer(){
+        DispatchQueue.main.async {
+            TimerManager.shared.delegate = self
+        }
     }
     
     @objc func nointernet(){
@@ -305,7 +315,9 @@ extension FlightDetailsVC {
     }
     
     @objc func reload(){
-        callAPI()
+        DispatchQueue.main.async {
+            self.callAPI()
+        }
     }
     
     

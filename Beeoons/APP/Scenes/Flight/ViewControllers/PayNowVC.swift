@@ -251,6 +251,7 @@ class PayNowVC: BaseTableVC, TimerManagerDelegate {
     
     //MARK: - didTapOnBackBtnAction
     @IBAction func didTapOnBackBtnAction(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name("reloadTimer"), object: nil)
         dismiss(animated: true)
     }
     
@@ -298,59 +299,6 @@ extension PayNowVC {
     
 }
 
-extension PayNowVC {
-    
-    //MARK: - addObserver
-    func addObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(nointernet), name: Notification.Name("offline"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name("reloadTV"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)
-        
-    }
-    
-    @objc func nointernet(){
-        gotoNoInternetConnectionVC(key: "nointernet", titleStr: "")
-    }
-    
-    @objc func resultnil(){
-        gotoNoInternetConnectionVC(key: "noresult", titleStr: "NO AVAILABILITY FOR THIS REQUEST")
-    }
-    
-    @objc func reload(){
-        DispatchQueue.main.async {[self] in
-            setupTV()
-        }
-    }
-    
-    
-    func gotoNoInternetConnectionVC(key:String,titleStr:String) {
-        guard let vc = NoInternetConnectionVC.newInstance.self else {return}
-        vc.modalPresentationStyle = .overCurrentContext
-        vc.key = key
-        vc.titleStr = titleStr
-        self.present(vc, animated: false)
-    }
-    
-    
-    //MARK: - timerDidFinish
-    
-    func timerDidFinish() {
-        guard let vc = PopupVC.newInstance.self else {return}
-        vc.modalPresentationStyle = .overCurrentContext
-        self.present(vc, animated: false)
-    }
-    
-    func updateTimer() {
-        let totalTime = TimerManager.shared.totalTime
-        let minutes =  totalTime / 60
-        let seconds = totalTime % 60
-        let formattedTime = String(format: "%02d:%02d", minutes, seconds)
-        sessionlbl.text = "Your Session Expires In: \(formattedTime)"
-    }
-    
-    
-    
-}
 
 
 
@@ -618,4 +566,63 @@ extension PayNowVC: PreProcessBookingViewModelDelegate{
         vc.urlString = url
         present(vc, animated: true)
     }
+}
+
+
+
+extension PayNowVC {
+    
+    //MARK: - addObserver
+    func addObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(nointernet), name: Notification.Name("offline"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name("reloadTV"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)
+        
+
+    }
+    
+
+    
+    @objc func nointernet(){
+        gotoNoInternetConnectionVC(key: "nointernet", titleStr: "")
+    }
+    
+    @objc func resultnil(){
+        gotoNoInternetConnectionVC(key: "noresult", titleStr: "NO AVAILABILITY FOR THIS REQUEST")
+    }
+    
+    @objc func reload(){
+        DispatchQueue.main.async {
+            self.callmobile_pre_process_booking()
+        }
+    }
+    
+    
+    func gotoNoInternetConnectionVC(key:String,titleStr:String) {
+        guard let vc = NoInternetConnectionVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.key = key
+        vc.titleStr = titleStr
+        self.present(vc, animated: false)
+    }
+    
+    
+    //MARK: - timerDidFinish
+    
+    func timerDidFinish() {
+        guard let vc = PopupVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: false)
+    }
+    
+    func updateTimer() {
+        let totalTime = TimerManager.shared.totalTime
+        let minutes =  totalTime / 60
+        let seconds = totalTime % 60
+        let formattedTime = String(format: "%02d:%02d", minutes, seconds)
+        sessionlbl.text = "Your Session Expires In: \(formattedTime)"
+    }
+    
+    
+    
 }

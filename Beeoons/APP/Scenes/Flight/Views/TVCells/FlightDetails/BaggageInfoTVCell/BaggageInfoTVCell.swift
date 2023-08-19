@@ -121,15 +121,15 @@ extension BaggageInfoTVCell:UICollectionViewDelegate,UICollectionViewDataSource 
             
             let data = bggAllowance[indexPath.row]
             cell.sectorlbl.text = data.journeySummary ?? ""
-            cell.adultlbl.text = "Adult \(data.aDT ?? "")"
+            cell.adultlbl.text = "Adult \(convertUnitString(data.aDT ?? ""))"
          
             if childCount != 0 {
-                cell.childlbl.text = "Child \(data.cNN ?? "")"
+                cell.childlbl.text = "Child \(convertUnitString(data.cNN ?? ""))"
                 cell.childlbl.isHidden = false
             }
             
             if infantsCount != 0 {
-                cell.infantlbl.text = "Infant \(data.iNF ?? "")"
+                cell.infantlbl.text = "Infant \(convertUnitString(data.iNF ?? ""))"
                 cell.infantlbl.isHidden = false
             }
            

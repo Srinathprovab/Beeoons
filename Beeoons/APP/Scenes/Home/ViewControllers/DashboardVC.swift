@@ -494,6 +494,7 @@ extension DashboardVC {
     func addObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(nointernet), name: Notification.Name("offline"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name("reloadTV"), object: nil)
+
     }
     
     @objc func nointernet(){
