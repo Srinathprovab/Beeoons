@@ -108,6 +108,7 @@ class PayNowVC: BaseTableVC, TimerManagerDelegate {
                                          "PromocodeTVCell",
                                          "EmptyTVCell",
                                          "AcceptTermsAndConditionTVCell",
+                                         "TotalTravellerCountTVCell",
                                          "AddDeatilsOfTravellerTVCell",
                                          "BillingAddressTVCell",
                                          "ViewFlightDetailsTVCell"])
@@ -127,9 +128,14 @@ class PayNowVC: BaseTableVC, TimerManagerDelegate {
         
         tablerow.append(TableRow(moreData:flightsummary,cellType:.ViewFlightDetailsTVCell))
         
-        
-        
         tablerow.append(TableRow(height:20,cellType:.EmptyTVCell))
+        tablerow.append(TableRow(title:"\(adultsCount)",
+                                 subTitle: "\(childCount)",
+                                 buttonTitle: "\(infantsCount)",
+                                 cellType:.TotalTravellerCountTVCell))
+        
+        
+        tablerow.append(TableRow(height:2,cellType:.EmptyTVCell))
         for i in 1...adultsCount {
             positionsCount += 1
             let travellerCell = TableRow(title: "Adult \(i)", key: "adult", characterLimit: positionsCount, cellType: .AddDeatilsOfTravellerTVCell)
@@ -156,7 +162,7 @@ class PayNowVC: BaseTableVC, TimerManagerDelegate {
         }
         
         
-        
+        tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
         tablerow.append(TableRow(cellType:.BillingAddressTVCell))
         tablerow.append(TableRow(cellType:.PromocodeTVCell))
         tablerow.append(TableRow(title:citys,
@@ -206,7 +212,7 @@ class PayNowVC: BaseTableVC, TimerManagerDelegate {
     }
     
     
-    //MARK: - AddDeatilsOfTravellerTVCell
+    //MARK: - didTapOnExpandAdultViewbtnAction AddDeatilsOfTravellerTVCell
     override func didTapOnExpandAdultViewbtnAction(cell: AddDeatilsOfTravellerTVCell) {
         if cell.expandViewBool == true {
             
@@ -239,7 +245,24 @@ class PayNowVC: BaseTableVC, TimerManagerDelegate {
     
     
     
-    //MARK: - AcceptTermsAndConditionTVCell
+    
+    //MARK: - BillingAddressTVCell didTapOnBillingAddressDropDownBtnAction
+    override func didTapOnBillingAddressDropDownBtnAction(cell: BillingAddressTVCell) {
+        if cell.expandViewBool == true {
+            
+            cell.expandView()
+            cell.expandViewBool = false
+        }else {
+            
+            cell.collapsView()
+            cell.expandViewBool = true
+        }
+        
+        commonTableView.beginUpdates()
+        commonTableView.endUpdates()
+    }
+    
+    //MARK: - didTapOnTAndCAction AcceptTermsAndConditionTVCell
     override func didTapOnTAndCAction(cell: AcceptTermsAndConditionTVCell) {
         //gotoAboutUsVC(keystr: "terms")
     }
@@ -578,10 +601,10 @@ extension PayNowVC {
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name("reloadTV"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)
         
-
+        
     }
     
-
+    
     
     @objc func nointernet(){
         gotoNoInternetConnectionVC(key: "nointernet", titleStr: "")

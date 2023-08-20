@@ -18,8 +18,6 @@ class FlightDetailsVC: BaseTableVC, TimerManagerDelegate {
     @IBOutlet weak var totalPricelbl: UILabel!
     
     
-    
-    
     var tablerow = [TableRow]()
     var vm : FlightDetailsViewModel?
     var payload = [String:Any]()

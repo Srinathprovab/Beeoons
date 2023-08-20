@@ -25,7 +25,7 @@
                                 <rect key="frame" x="6" y="0.0" width="404" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLE-64-jkI">
-                                        <rect key="frame" x="10" y="5" width="41.333333333333336" height="20.333333333333332"/>
+                                        <rect key="frame" x="20.000000000000004" y="5" width="41.333333333333343" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -48,7 +48,7 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="cLE-64-jkI" firstAttribute="leading" secondItem="5pv-Qy-Kne" secondAttribute="leading" constant="10" id="20t-o4-uLc"/>
+                                    <constraint firstItem="cLE-64-jkI" firstAttribute="leading" secondItem="5pv-Qy-Kne" secondAttribute="leading" constant="20" id="20t-o4-uLc"/>
                                     <constraint firstItem="zUH-Uz-VlX" firstAttribute="top" secondItem="5pv-Qy-Kne" secondAttribute="top" id="5CD-Uk-8CP"/>
                                     <constraint firstAttribute="trailing" secondItem="khs-6E-CkP" secondAttribute="trailing" constant="15" id="85b-CM-dNW"/>
                                     <constraint firstAttribute="bottom" secondItem="zUH-Uz-VlX" secondAttribute="bottom" id="Er5-L3-EoJ"/>

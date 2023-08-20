@@ -120,6 +120,8 @@
 		655CBD762A8FB0E300946F47 /* BookingConformVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655CBD752A8FB0E300946F47 /* BookingConformVC.swift */; };
 		655CBD782A8FB18F00946F47 /* ShowVoucherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655CBD772A8FB18F00946F47 /* ShowVoucherViewModel.swift */; };
 		655CBD7A2A8FB35500946F47 /* Booking_customer_details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655CBD792A8FB35500946F47 /* Booking_customer_details.swift */; };
+		658094762A91EC9E007C2EA5 /* TotalTravellerCountTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658094742A91EC9E007C2EA5 /* TotalTravellerCountTVCell.swift */; };
+		658094772A91EC9E007C2EA5 /* TotalTravellerCountTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 658094752A91EC9E007C2EA5 /* TotalTravellerCountTVCell.xib */; };
 		65942CB32A87CC6A0091756B /* PayNowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65942CB22A87CC6A0091756B /* PayNowVC.swift */; };
 		65D480F62A82203E00E7423E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D480F52A82203E00E7423E /* AppDelegate.swift */; };
 		65D480F82A82203E00E7423E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D480F72A82203E00E7423E /* SceneDelegate.swift */; };
@@ -375,6 +377,8 @@
 		655CBD752A8FB0E300946F47 /* BookingConformVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingConformVC.swift; sourceTree = "<group>"; };
 		655CBD772A8FB18F00946F47 /* ShowVoucherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowVoucherViewModel.swift; sourceTree = "<group>"; };
 		655CBD792A8FB35500946F47 /* Booking_customer_details.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Booking_customer_details.swift; sourceTree = "<group>"; };
+		658094742A91EC9E007C2EA5 /* TotalTravellerCountTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalTravellerCountTVCell.swift; sourceTree = "<group>"; };
+		658094752A91EC9E007C2EA5 /* TotalTravellerCountTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TotalTravellerCountTVCell.xib; sourceTree = "<group>"; };
 		65942CB22A87CC6A0091756B /* PayNowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayNowVC.swift; sourceTree = "<group>"; };
 		65D480F22A82203E00E7423E /* Beeoons.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beeoons.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65D480F52A82203E00E7423E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -705,6 +709,7 @@
 		650C312E2A886A37002DF7D4 /* PayNow */ = {
 			isa = PBXGroup;
 			children = (
+				658094732A91EC81007C2EA5 /* TotalTravellerCountTVCell */,
 				655CBD4E2A8F45D300946F47 /* AcceptTermsAndConditionTVCell */,
 				655CBD472A8F36E600946F47 /* AddDeatilsOfTravellerTVCell */,
 				652D5B9D2A8E354900AA8A5F /* TDetailsLoginTVCell */,
@@ -947,6 +952,15 @@
 				655CBD792A8FB35500946F47 /* Booking_customer_details.swift */,
 			);
 			path = ShowVoucherModel;
+			sourceTree = "<group>";
+		};
+		658094732A91EC81007C2EA5 /* TotalTravellerCountTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				658094742A91EC9E007C2EA5 /* TotalTravellerCountTVCell.swift */,
+				658094752A91EC9E007C2EA5 /* TotalTravellerCountTVCell.xib */,
+			);
+			path = TotalTravellerCountTVCell;
 			sourceTree = "<group>";
 		};
 		65D480E92A82203E00E7423E = {
@@ -1909,6 +1923,7 @@
 				65F5465E2A8788FF00F4C66C /* FarBreakdownTVCell.xib in Resources */,
 				65F546712A87B29500F4C66C /* AddCheckinBaggageCVCell.xib in Resources */,
 				65D481AD2A82212300E7423E /* NavBar.xib in Resources */,
+				658094772A91EC9E007C2EA5 /* TotalTravellerCountTVCell.xib in Resources */,
 				650345552A85057D00B13434 /* StarRatingCVCell.xib in Resources */,
 				65D481612A8220B700E7423E /* Oswald-SemiBold.ttf in Resources */,
 				65D482062A8239C000E7423E /* Myriad Pro Light.otf in Resources */,
@@ -2198,6 +2213,7 @@
 				65D482172A825C8400E7423E /* MyAccountVC.swift in Sources */,
 				6503450D2A849ED900B13434 /* FlightResultVC.swift in Sources */,
 				650344E82A8380AF00B13434 /* FromCityTVCell.swift in Sources */,
+				658094762A91EC9E007C2EA5 /* TotalTravellerCountTVCell.swift in Sources */,
 				65D4822D2A826D7A00E7423E /* DearMemberTVCell.swift in Sources */,
 				650345262A84ABDF00B13434 /* Origin.swift in Sources */,
 				650F670D2A907CCE0005B42D /* ResetPasswordTVCell.swift in Sources */,
@@ -2378,7 +2394,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 5TLY5PME9K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Beeoons/Info.plist;
@@ -2415,7 +2431,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 5TLY5PME9K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Beeoons/Info.plist;

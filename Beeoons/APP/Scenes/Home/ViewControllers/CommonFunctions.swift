@@ -237,7 +237,7 @@ func convertUnitString(_ input: String) -> String {
     case "Kilograms", "kilogram":
         convertedValue = value
         convertedUnit = "KG"
-    case "Pieces", "piece":
+    case "Piece", "piece":
         convertedValue = value
         convertedUnit = "PC"
     default:

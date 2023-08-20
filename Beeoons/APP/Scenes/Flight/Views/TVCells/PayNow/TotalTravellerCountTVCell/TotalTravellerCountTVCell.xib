@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Oswald-ExtraLight.ttf">
+            <string>Oswald-ExtraLight</string>
+        </array>
+        <array key="Oswald-Medium.ttf">
+            <string>Oswald-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="42" id="KGk-i7-Jjw" customClass="TotalTravellerCountTVCell" customModule="Beeoons" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="419" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="419" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Fe-S7-Yf6">
+                        <rect key="frame" x="16" y="0.0" width="387" height="44"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Traveller (s) Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gtS-GY-LEV">
+                                <rect key="frame" x="21.999999999999993" y="10" width="121.33333333333331" height="24"/>
+                                <fontDescription key="fontDescription" name="Oswald-Medium" family="Oswald" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="mvy-rP-IHS">
+                                <rect key="frame" x="320.33333333333331" y="10" width="44.666666666666686" height="24"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Infant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rs3-aa-H1d">
+                                        <rect key="frame" x="0.0" y="0.0" width="37" height="24"/>
+                                        <fontDescription key="fontDescription" name="Oswald-Medium" family="Oswald" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cob-X4-kh4">
+                                        <rect key="frame" x="39" y="0.0" width="5.6666666666666643" height="24"/>
+                                        <fontDescription key="fontDescription" name="Oswald-ExtraLight" family="Oswald" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Dui-I1-2lS">
+                                <rect key="frame" x="275.66666666666669" y="10" width="39.666666666666686" height="24"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Child" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vht-f3-kGd">
+                                        <rect key="frame" x="0.0" y="0.0" width="32" height="24"/>
+                                        <fontDescription key="fontDescription" name="Oswald-Medium" family="Oswald" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iol-nK-eNh">
+                                        <rect key="frame" x="34" y="0.0" width="5.6666666666666643" height="24"/>
+                                        <fontDescription key="fontDescription" name="Oswald-ExtraLight" family="Oswald" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="8ug-rx-xCO">
+                                <rect key="frame" x="230" y="10" width="40.666666666666686" height="24"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adult" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3r-oP-IYU">
+                                        <rect key="frame" x="0.0" y="0.0" width="33" height="24"/>
+                                        <fontDescription key="fontDescription" name="Oswald-Medium" family="Oswald" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BF7-xv-5cu">
+                                        <rect key="frame" x="35" y="0.0" width="5.6666666666666643" height="24"/>
+                                        <fontDescription key="fontDescription" name="Oswald-ExtraLight" family="Oswald" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Dui-I1-2lS" firstAttribute="centerY" secondItem="gtS-GY-LEV" secondAttribute="centerY" id="7Jz-3U-ScR"/>
+                            <constraint firstItem="gtS-GY-LEV" firstAttribute="leading" secondItem="1Fe-S7-Yf6" secondAttribute="leading" constant="22" id="84m-uh-c8U"/>
+                            <constraint firstAttribute="bottom" secondItem="gtS-GY-LEV" secondAttribute="bottom" constant="10" id="MLU-pO-e0h"/>
+                            <constraint firstItem="mvy-rP-IHS" firstAttribute="centerY" secondItem="gtS-GY-LEV" secondAttribute="centerY" id="Npd-qE-58z"/>
+                            <constraint firstAttribute="height" constant="44" id="Sg6-8W-RDf"/>
+                            <constraint firstItem="8ug-rx-xCO" firstAttribute="centerY" secondItem="gtS-GY-LEV" secondAttribute="centerY" id="Yfe-py-Z9H"/>
+                            <constraint firstItem="gtS-GY-LEV" firstAttribute="top" secondItem="1Fe-S7-Yf6" secondAttribute="top" constant="10" id="cLi-46-hD0"/>
+                            <constraint firstAttribute="trailing" secondItem="mvy-rP-IHS" secondAttribute="trailing" constant="22" id="lwr-H3-erh"/>
+                            <constraint firstItem="Dui-I1-2lS" firstAttribute="leading" secondItem="8ug-rx-xCO" secondAttribute="trailing" constant="5" id="o3T-FZ-kru"/>
+                            <constraint firstItem="mvy-rP-IHS" firstAttribute="leading" secondItem="Dui-I1-2lS" secondAttribute="trailing" constant="5" id="xSS-N3-ltP"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="1Fe-S7-Yf6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="8sI-p2-rYX"/>
+                    <constraint firstAttribute="bottom" secondItem="1Fe-S7-Yf6" secondAttribute="bottom" id="DQU-xi-4J5"/>
+                    <constraint firstAttribute="trailing" secondItem="1Fe-S7-Yf6" secondAttribute="trailing" constant="16" id="H9G-k0-f9b"/>
+                    <constraint firstItem="1Fe-S7-Yf6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="UHD-LV-8JF"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="adultvaluelbl" destination="BF7-xv-5cu" id="Gjj-Ad-tZZ"/>
+                <outlet property="childvaluelbl" destination="iol-nK-eNh" id="qoU-A6-cTD"/>
+                <outlet property="holderView" destination="1Fe-S7-Yf6" id="9JK-3G-MhG"/>
+                <outlet property="infantvaluelbl" destination="cob-X4-kh4" id="bzx-Op-lWs"/>
+            </connections>
+            <point key="canvasLocation" x="214.50381679389312" y="54.225352112676056"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
