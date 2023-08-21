@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		2A9A84C677D063079BB0B1C6 /* Pods_Beeoons.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A814F9175552C31342223BE7 /* Pods_Beeoons.framework */; };
 		4E1962D23420DC0F864AD657 /* Pods_Beeoons_BeeoonsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0BCD8BA01B57CFE6AF280F5 /* Pods_Beeoons_BeeoonsUITests.framework */; };
+		650168F42A93361D00754ADE /* GetCountryListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650168F32A93361D00754ADE /* GetCountryListModel.swift */; };
+		650168F62A93364400754ADE /* GetStatesListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650168F52A93364400754ADE /* GetStatesListModel.swift */; };
+		650168F82A9336AA00754ADE /* StatesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650168F72A9336AA00754ADE /* StatesList.swift */; };
+		650168FA2A93372100754ADE /* GetCityListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650168F92A93372100754ADE /* GetCityListModel.swift */; };
+		650168FE2A93382200754ADE /* GetCountrySelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650168FD2A93382200754ADE /* GetCountrySelectViewModel.swift */; };
 		650344D52A83514700B13434 /* BookFlightVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650344D42A83514700B13434 /* BookFlightVC.swift */; };
 		650344D92A835A0D00B13434 /* BookFlightTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650344D72A835A0D00B13434 /* BookFlightTVCell.swift */; };
 		650344DA2A835A0D00B13434 /* BookFlightTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 650344D82A835A0D00B13434 /* BookFlightTVCell.xib */; };
@@ -266,6 +271,11 @@
 
 /* Begin PBXFileReference section */
 		24A4B44BDAA84037170CCC1A /* Pods-Beeoons-BeeoonsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beeoons-BeeoonsUITests.debug.xcconfig"; path = "Target Support Files/Pods-Beeoons-BeeoonsUITests/Pods-Beeoons-BeeoonsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		650168F32A93361D00754ADE /* GetCountryListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCountryListModel.swift; sourceTree = "<group>"; };
+		650168F52A93364400754ADE /* GetStatesListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStatesListModel.swift; sourceTree = "<group>"; };
+		650168F72A9336AA00754ADE /* StatesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatesList.swift; sourceTree = "<group>"; };
+		650168F92A93372100754ADE /* GetCityListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCityListModel.swift; sourceTree = "<group>"; };
+		650168FD2A93382200754ADE /* GetCountrySelectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCountrySelectViewModel.swift; sourceTree = "<group>"; };
 		650344D42A83514700B13434 /* BookFlightVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookFlightVC.swift; sourceTree = "<group>"; };
 		650344D72A835A0D00B13434 /* BookFlightTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookFlightTVCell.swift; sourceTree = "<group>"; };
 		650344D82A835A0D00B13434 /* BookFlightTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookFlightTVCell.xib; sourceTree = "<group>"; };
@@ -556,6 +566,17 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		650168F02A9335F300754ADE /* GetCountryListModel */ = {
+			isa = PBXGroup;
+			children = (
+				650168F32A93361D00754ADE /* GetCountryListModel.swift */,
+				650168F52A93364400754ADE /* GetStatesListModel.swift */,
+				650168F72A9336AA00754ADE /* StatesList.swift */,
+				650168F92A93372100754ADE /* GetCityListModel.swift */,
+			);
+			path = GetCountryListModel;
+			sourceTree = "<group>";
+		};
 		650344D62A8359F100B13434 /* BookFlightTVCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -726,6 +747,7 @@
 		650C31352A8873CE002DF7D4 /* PayNow */ = {
 			isa = PBXGroup;
 			children = (
+				650168F02A9335F300754ADE /* GetCountryListModel */,
 				650C31362A8873D5002DF7D4 /* PreProcessModel */,
 			);
 			path = PayNow;
@@ -1238,6 +1260,7 @@
 				650345232A84A99C00B13434 /* OnewayViewModel.swift */,
 				650345612A851DE400B13434 /* FlightDetailsViewModel.swift */,
 				650C313D2A887493002DF7D4 /* PreProcessBookingViewModel.swift */,
+				650168FD2A93382200754ADE /* GetCountrySelectViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -2130,9 +2153,11 @@
 				650345602A8517AD00B13434 /* FlightDetailsVC.swift in Sources */,
 				655CBD582A8F515600946F47 /* PrePaymentConfModel.swift in Sources */,
 				6503450A2A83A5C700B13434 /* ButtonTVCell.swift in Sources */,
+				650168F62A93364400754ADE /* GetStatesListModel.swift in Sources */,
 				650345452A84FF9000B13434 /* checkOptionsTVCell.swift in Sources */,
 				65D482222A8266F400E7423E /* SelectTabTVCell.swift in Sources */,
 				65D4813E2A82208F00E7423E /* UIFontHelper.swift in Sources */,
+				650168FE2A93382200754ADE /* GetCountrySelectViewModel.swift in Sources */,
 				65D481AE2A82212300E7423E /* NavBar.swift in Sources */,
 				65E537F22A85CBCC007EE11A /* FlightDetails.swift in Sources */,
 				655CBD662A8FADC600946F47 /* BillingAddressTVCell.swift in Sources */,
@@ -2159,6 +2184,7 @@
 				650345242A84A99C00B13434 /* OnewayViewModel.swift in Sources */,
 				65E5382D2A8635B8007EE11A /* LoginData.swift in Sources */,
 				65D481AC2A82212300E7423E /* SessionManager.swift in Sources */,
+				650168F82A9336AA00754ADE /* StatesList.swift in Sources */,
 				650344FC2A838A4200B13434 /* CalendarCVCell.swift in Sources */,
 				6503454A2A8500A500B13434 /* CheckBoxTVCell.swift in Sources */,
 				65D481FC2A82258F00E7423E /* ColorManager.swift in Sources */,
@@ -2191,6 +2217,7 @@
 				650F67092A9061870005B42D /* ResetPasswordVC.swift in Sources */,
 				65E538212A862569007EE11A /* RegisterUserViewModel.swift in Sources */,
 				655CBD6A2A8FAFAD00946F47 /* ShowVoucherModel.swift in Sources */,
+				650168FA2A93372100754ADE /* GetCityListModel.swift in Sources */,
 				6507B4CD2A8A38D9007FD2DD /* Top_dest_hotel.swift in Sources */,
 				65D4823C2A827E4F00E7423E /* HotelDealsCVCell.swift in Sources */,
 				65E538242A8627F0007EE11A /* CountryListModel.swift in Sources */,
@@ -2218,6 +2245,7 @@
 				650345262A84ABDF00B13434 /* Origin.swift in Sources */,
 				650F670D2A907CCE0005B42D /* ResetPasswordTVCell.swift in Sources */,
 				65F546532A8746AE00F4C66C /* UserNameTextFieldTVCell.swift in Sources */,
+				650168F42A93361D00754ADE /* GetCountryListModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2394,7 +2422,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 5TLY5PME9K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Beeoons/Info.plist;
@@ -2431,7 +2459,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 5TLY5PME9K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Beeoons/Info.plist;

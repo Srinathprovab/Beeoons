@@ -7,6 +7,9 @@
 
 import UIKit
 
+
+
+
 class PayNowVC: BaseTableVC, TimerManagerDelegate {
     
     
@@ -24,9 +27,17 @@ class PayNowVC: BaseTableVC, TimerManagerDelegate {
     var tmpFlightPreBookingId = String()
     var tokenkey1 = String()
     var callpaymentbool = true
+    var billingaddressBool = true
     var payload = [String:Any]()
     var payload1 = [String:Any]()
     var secureapidonebool = false
+    var street = String()
+    var aprtment = String()
+    var countrySelected = String()
+    var stateSelected = String()
+    var citySelected = String()
+    var postalCode = String()
+    
     
     var dates = String()
     var citys = String()
@@ -163,7 +174,10 @@ class PayNowVC: BaseTableVC, TimerManagerDelegate {
         
         
         tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
-        tablerow.append(TableRow(cellType:.BillingAddressTVCell))
+        tablerow.append(TableRow(title:email,
+                                 subTitle: mobile,
+                                 buttonTitle: countryCode,
+                                 cellType:.BillingAddressTVCell))
         tablerow.append(TableRow(cellType:.PromocodeTVCell))
         tablerow.append(TableRow(title:citys,
                                  subTitle: dates,
@@ -262,6 +276,21 @@ class PayNowVC: BaseTableVC, TimerManagerDelegate {
         commonTableView.endUpdates()
     }
     
+    
+    
+    
+    override func didTapOnSelectCountryBtnAction(cell: BillingAddressTVCell) {
+        print(cell.countryTF.text)
+    }
+    
+    override func didTapOnSelectStateBtnAction(cell: BillingAddressTVCell) {
+        print(cell.stateTF.text)
+    }
+    
+    override func didTapOnSelectCityBtnAction(cell: BillingAddressTVCell) {
+        print(cell.cityTF.text)
+    }
+    
     //MARK: - didTapOnTAndCAction AcceptTermsAndConditionTVCell
     override func didTapOnTAndCAction(cell: AcceptTermsAndConditionTVCell) {
         //gotoAboutUsVC(keystr: "terms")
@@ -270,7 +299,6 @@ class PayNowVC: BaseTableVC, TimerManagerDelegate {
     override func didTapOnPrivacyPolicyAction(cell: AcceptTermsAndConditionTVCell) {
         //gotoAboutUsVC(keystr: "aboutus")
     }
-    
     
     //MARK: - didTapOnBackBtnAction
     @IBAction func didTapOnBackBtnAction(_ sender: Any) {
@@ -428,6 +456,111 @@ extension PayNowVC: PreProcessBookingViewModelDelegate{
                 
                 
             }
+            
+            
+            
+            if let cell = commonTableView.cellForRow(at: IndexPath(row: position, section: 0)) as? BillingAddressTVCell {
+                
+                if cell.streetTF.text?.isEmpty == true {
+                    // Textfield is empty
+                    cell.streetView.layer.borderColor = UIColor.red.cgColor
+                    billingaddressBool = false
+                    
+                } else {
+                    // Textfield is not empty
+                    billingaddressBool = true
+                    street = cell.streetTF.text ?? ""
+                }
+                
+                if cell.countryTF.text?.isEmpty == true {
+                    // Textfield is empty
+                    cell.countryView.layer.borderColor = UIColor.red.cgColor
+                    billingaddressBool = false
+                    
+                } else {
+                    // Textfield is not empty
+                    billingaddressBool = true
+                    countrySelected = cell.countryTF.text ?? ""
+                }
+                
+                
+                
+                if cell.stateTF.text?.isEmpty == true {
+                    // Textfield is empty
+                    cell.stateView.layer.borderColor = UIColor.red.cgColor
+                    billingaddressBool = false
+                    
+                } else {
+                    // Textfield is not empty
+                    billingaddressBool = true
+                    stateSelected = cell.stateTF.text ?? ""
+                }
+                
+                
+                if cell.cityTF.text?.isEmpty == true {
+                    // Textfield is empty
+                    cell.cityView.layer.borderColor = UIColor.red.cgColor
+                    billingaddressBool = false
+                    
+                } else {
+                    // Textfield is not empty
+                    billingaddressBool = true
+                    citySelected = cell.cityTF.text ?? ""
+                }
+                
+                if cell.postalcodeTF.text?.isEmpty == true {
+                    // Textfield is empty
+                    cell.postalcodeView.layer.borderColor = UIColor.red.cgColor
+                    billingaddressBool = false
+                    
+                } else {
+                    // Textfield is not empty
+                    billingaddressBool = true
+                    postalCode = cell.postalcodeTF.text ?? ""
+                }
+                
+                
+                if cell.emailTF.text?.isEmpty == true {
+                    // Textfield is empty
+                    cell.emailView.layer.borderColor = UIColor.red.cgColor
+                    billingaddressBool = false
+                    
+                } else {
+                    // Textfield is not empty
+                    billingaddressBool = true
+                    email = cell.emailTF.text ?? ""
+                }
+                
+                
+                if cell.countrycodeTF.text?.isEmpty == true {
+                    // Textfield is empty
+                    cell.mobileView.layer.borderColor = UIColor.red.cgColor
+                    billingaddressBool = false
+                    
+                } else {
+                    // Textfield is not empty
+                    billingaddressBool = true
+                    countryCode = cell.countryTF.text ?? ""
+                }
+                
+                
+                if cell.mobileTF.text?.isEmpty == true {
+                    // Textfield is empty
+                    cell.mobileView.layer.borderColor = UIColor.red.cgColor
+                    billingaddressBool = false
+                    
+                } else {
+                    // Textfield is not empty
+                    billingaddressBool = true
+                    mobile = cell.mobileTF.text ?? ""
+                }
+                
+                
+                
+            }
+            
+            
+            
         }
         
         
@@ -444,11 +577,10 @@ extension PayNowVC: PreProcessBookingViewModelDelegate{
         //        let frequentFlyrNoArray = travelerArray.compactMap({$0.frequentFlyrNo})
         //        let mealNameArray = travelerArray.compactMap({$0.meal})
         //        let specialAssicintenceArray = travelerArray.compactMap({$0.specialAssicintence})
-        //        let genderArray = travelerArray.compactMap({$0.gender})
+            let genderArray = travelerArray.compactMap({$0.gender})
         //        let nationalityArray = travelerArray.compactMap({$0.nationality})
         
         
-        //    passenger_request:{"search_id":"3277","tmp_flight_pre_booking_id":"BNS-F-TP-0809-3867","token_key":"7c6a32408f7c16f5006b9355cd7ab854","access_key_tp":"e6275b7b2fcb3c06571642105077bdc8*_*1*_*iZn7MG7hRvqVylME","access_key":"e6275b7b2fcb3c06571642105077bdc8*_*1*_*iZn7MG7hRvqVylME","insurance_policy_type":"0","insurance_policy_option":"0","insurance_policy_cover_type":"0","insurance_policy_duration":"0","isInsurance":"0","redeem_points_post":"1","booking_source":"YToxOntpOjA7czoxNjoiUFRCU0lEMDAwMDAwMDAxNiI7fQ==","promocode_val":"","promocode_code":"","mealsAmount":"0","baggageAmount":"0","passenger_type":["Adult"],"lead_passenger":["1"],"gender":["2"],"passenger_nationality":["92"],"name_title":["1"],"first_name":["Aman"],"middle_name":[""],"last_name":["jain"],"date_of_birth":["13-04-1996"],"passenger_passport_number":["POIL7675"],"passenger_passport_issuing_country":["92"],"passenger_passport_expiry":["04-12-2028"],"Frequent":[["Select"]],"ff_no":[[""]],"address2":"ECITY","billing_address_1":"hjfggh","billing_state":"Karnataka","billing_city":"Bangalore","billing_zipcode":"560100","billing_email":"ghfgh@ghhj.hjhj","passenger_contact":"8965231470","billing_country":"IN","country_mobile_code":"+91","insurance":"1","tc":"on","booking_step":"book","payment_method":"PNHB1","selectedCurrency":"AED","user_id":"0"}
         
         payload["search_id"] = searchid
         payload["tmp_flight_pre_booking_id"] = tmpFlightPreBookingId
@@ -469,8 +601,8 @@ extension PayNowVC: PreProcessBookingViewModelDelegate{
         
         payload["passenger_type"] = passengertypeArray
         payload["lead_passenger"] = laedpassengerArray
-        payload["gender"] = ["2"]
-        payload["passenger_nationality"] = ["92"]
+        payload["gender"] = genderArray
+//        payload["passenger_nationality"] = ["92"]
         payload["name_title"] =  mrtitleArray
         payload["first_name"] =  firstnameArray
         payload["middle_name"] =  middlenameArray
@@ -483,23 +615,22 @@ extension PayNowVC: PreProcessBookingViewModelDelegate{
         payload["ff_no"] = [[""]]
         payload["payment_method"] =  "PNHB1"
         
-        payload["address2"] = ""
-        payload["billing_address_1"] = ""
-        payload["billing_state"] = ""
-        payload["billing_city"] = ""
-        payload["billing_zipcode"] = ""
+        payload["address2"] = street
+        payload["billing_address_1"] = aprtment
+        payload["billing_state"] = stateSelected
+        payload["billing_city"] = citySelected
+        payload["billing_zipcode"] = postalCode
         payload["billing_email"] = email
         payload["passenger_contact"] = mobile
-        payload["billing_country"] = billingCountryName
-        payload["country_mobile_code"] = billingCountryCode
+        payload["billing_country"] = countrySelected
+        payload["country_mobile_code"] = countryCode
         payload["insurance"] = "1"
         payload["tc"] = "on"
         payload["booking_step"] = "book"
         payload["selectedCurrency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? "KWD"
         payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
         
-        
-        
+    
         do{
             
             let jsonData = try JSONSerialization.data(withJSONObject: payload, options: JSONSerialization.WritingOptions.prettyPrinted)
@@ -508,8 +639,9 @@ extension PayNowVC: PreProcessBookingViewModelDelegate{
             if textfilldshouldmorethan3lettersBool == false {
                 showToast(message: "Enter More Than 3 Chars")
             }else if callpaymentbool == false {
-                showToast(message: "Add Details")
-                
+                showToast(message: "Add Traveller Details")
+            }else if billingaddressBool == false {
+                showToast(message: "Add Billing Address Details")
             }else if checkTermsAndCondationStatus == false {
                 showToast(message: "Please Accept T&C and Privacy Policy")
             }else {

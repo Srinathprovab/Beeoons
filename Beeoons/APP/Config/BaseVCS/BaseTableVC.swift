@@ -8,6 +8,7 @@
 import UIKit
 
 class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVCellDelegate, FlightDealsTVCellDelegate, BookFlightTVCellDelegate, TravellerEconomyTVCellDelegate, ButtonTVCellDelegate, FlightResultTVCellDelegate, CheckBoxTVCellDelegate, checkOptionsTVCellDelegate, SliderTVCellDelegate, SortByPriceTVCellDelegate, MenuOptionTVCellDelegate, MenuBGTVCellDelegate, RegisterUserTVCellDelegate, UserNameTextFieldTVCellDelegate, FareRulesTVCellDelegate, ViewFlightDetailsTVCellDelegate, BookFlightMCTVCellDelegate, PromocodeTVCellDelegate, PrimaryContactInfoTVCellDelegate, TDetailsLoginTVCellDelegate, AddDeatilsOfTravellerTVCellDelegate, AcceptTermsAndConditionTVCellDelegate, ResetPasswordTVCellDelegate, BillingAddressTVCellDelegate {
+    
    
     
     
@@ -148,7 +149,13 @@ class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVC
     func didTapOnLoginBtn(cell: TDetailsLoginTVCell) {}
     func didTapOnResetPassswordBtnAction(cell: ResetPasswordTVCell) {}
     func didTapOnCountryCodeBtnAction(cell: ResetPasswordTVCell) {}
+    
     func didTapOnBillingAddressDropDownBtnAction(cell: BillingAddressTVCell) {}
+    func didTapOnSelectCountryBtnAction(cell: BillingAddressTVCell) {}
+    func didTapOnSelectStateBtnAction(cell: BillingAddressTVCell) {}
+    func didTapOnSelectCityBtnAction(cell: BillingAddressTVCell) {}
+    func didTapOnMobileCountryCodeBtnAction(cell: BillingAddressTVCell) {}
+
     
     func didTapOnExpandAdultViewbtnAction(cell: AddDeatilsOfTravellerTVCell) {}
     func tfeditingChanged(tf: UITextField) {}

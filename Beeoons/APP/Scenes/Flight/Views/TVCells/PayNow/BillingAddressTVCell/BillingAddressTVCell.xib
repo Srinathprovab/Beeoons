@@ -333,20 +333,20 @@
                                         <rect key="frame" x="10" y="210" width="410" height="40"/>
                                         <subviews>
                                             <textField opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TS2-Di-Mm2">
-                                                <rect key="frame" x="80" y="0.0" width="330" height="40"/>
+                                                <rect key="frame" x="50" y="0.0" width="360" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="avy-aP-es5">
-                                                <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="40"/>
                                                 <subviews>
                                                     <textField opaque="NO" tag="8" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XQ9-Lc-pT5">
-                                                        <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="40"/>
                                                         <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jBX-ma-fsg">
-                                                        <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="40"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain"/>
                                                         <connections>
@@ -364,7 +364,7 @@
                                                     <constraint firstItem="XQ9-Lc-pT5" firstAttribute="leading" secondItem="avy-aP-es5" secondAttribute="leading" id="dX3-gC-gEX"/>
                                                     <constraint firstAttribute="bottom" secondItem="XQ9-Lc-pT5" secondAttribute="bottom" id="ijn-zB-N6K"/>
                                                     <constraint firstAttribute="bottom" secondItem="jBX-ma-fsg" secondAttribute="bottom" id="vT9-AT-rCy"/>
-                                                    <constraint firstAttribute="width" constant="80" id="ygy-pz-euW"/>
+                                                    <constraint firstAttribute="width" constant="50" id="ygy-pz-euW"/>
                                                 </constraints>
                                             </view>
                                         </subviews>

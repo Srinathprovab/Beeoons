@@ -548,6 +548,14 @@ extension FlightResultVC {
         
     }
     
+    
+    @objc func reloadTimer(){
+        DispatchQueue.main.async {
+            TimerManager.shared.delegate = self
+        }
+    }
+    
+    
     @objc func nointernet(){
         gotoNoInternetConnectionVC(key: "nointernet", titleStr: "")
     }
@@ -564,12 +572,7 @@ extension FlightResultVC {
     
     
     
-    @objc func reloadTimer(){
-        DispatchQueue.main.async {
-            TimerManager.shared.delegate = self
-        }
-    }
-    
+   
     
     func gotoNoInternetConnectionVC(key:String,titleStr:String) {
         guard let vc = NoInternetConnectionVC.newInstance.self else {return}

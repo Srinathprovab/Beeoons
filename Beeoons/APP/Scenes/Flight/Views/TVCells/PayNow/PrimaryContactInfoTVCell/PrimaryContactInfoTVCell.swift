@@ -196,7 +196,7 @@ class PrimaryContactInfoTVCell: TableViewCell {
             self?.billingCountryName = self?.countryNames[index] ?? ""
             self?.nationalityCode = self?.originArray[index] ?? ""
             self?.countryCodeLbl.textColor = .TitleColor
-            
+            countryCode = self?.originArray[index] ?? ""
             
             
             self?.countrycodeTF.text = self?.countrycodesArray[index] ?? ""

@@ -135,6 +135,10 @@ struct ApiEndpoints {
     static let prepaymentconfirmation = "flight/pre_payment_confirmation/"
     static let sendtopayment = "flight/send_to_payment/"
     static let securebooking = "flight/secure_booking/"
+    static let flight_get_country = "flight/get_country"
+    static let get_state_list_by_country_iso = "general/get_state_list_by_country_iso"
+    static let get_city_list_by_state_name = "general/get_city_list_by_state_name"
+
     
     
     

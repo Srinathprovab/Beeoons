@@ -354,22 +354,27 @@ class AddDeatilsOfTravellerTVCell: TableViewCell {
             switch item {
             case "Mr":
                 travelerArray[self?.indexposition ?? 0].mrtitle = "1"
+                travelerArray[self?.indexposition ?? 0].gender = "1"
                 break
                 
             case "Master":
                 travelerArray[self?.indexposition ?? 0].mrtitle = "4"
+                travelerArray[self?.indexposition ?? 0].gender = "1"
                 break
                 
             case "Ms":
                 travelerArray[self?.indexposition ?? 0].mrtitle = "2"
+                travelerArray[self?.indexposition ?? 0].gender = "2"
                 break
                 
             case "Miss":
                 travelerArray[self?.indexposition ?? 0].mrtitle = "3"
+                travelerArray[self?.indexposition ?? 0].gender = "2"
                 break
                 
             case "Mrs":
                 travelerArray[self?.indexposition ?? 0].mrtitle = "5"
+                travelerArray[self?.indexposition ?? 0].gender = "2"
                 break
                 
             default:

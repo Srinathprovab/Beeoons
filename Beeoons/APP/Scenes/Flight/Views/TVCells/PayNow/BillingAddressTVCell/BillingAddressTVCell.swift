@@ -6,19 +6,26 @@
 //
 
 import UIKit
+import DropDown
 
 
 protocol BillingAddressTVCellDelegate {
     func didTapOnBillingAddressDropDownBtnAction(cell:BillingAddressTVCell)
+    func didTapOnSelectCountryBtnAction(cell:BillingAddressTVCell)
+    func didTapOnSelectStateBtnAction(cell:BillingAddressTVCell)
+    func didTapOnSelectCityBtnAction(cell:BillingAddressTVCell)
+    func didTapOnMobileCountryCodeBtnAction(cell:BillingAddressTVCell)
+    func editingTextField(tf:UITextField)
 }
 
 class BillingAddressTVCell: TableViewCell {
+    
+    
     
     @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var tfholderView: UIView!
     @IBOutlet weak var viewHeight: NSLayoutConstraint!
     @IBOutlet weak var dropdownimg: UIImageView!
-    
     @IBOutlet weak var streetView: UIView!
     @IBOutlet weak var streetTF: UITextField!
     @IBOutlet weak var apartmentView: UIView!
@@ -38,13 +45,27 @@ class BillingAddressTVCell: TableViewCell {
     @IBOutlet weak var postalcodeTF: UITextField!
     
     
+    var countrycodesArray = [String]()
+    var originArray = [String]()
+    var isocountrycodeArray = [String]()
+    var countryNames = [String]()
+    var countryCodes = [String]()
+    var stateNames = [String]()
+    var citynames = [String]()
     var countryname = String()
     var expandViewBool = true
+    var payload = [String:Any]()
+    var countryDropdown = DropDown()
+    var statesDropdown = DropDown()
+    var citysDropdown = DropDown()
+    var mobileCountryCodeDropDown = DropDown()
+    var vm:GetCountrySelectViewModel?
     var delegate:BillingAddressTVCellDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         setupUI()
+        vm = GetCountrySelectViewModel(self)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -56,6 +77,23 @@ class BillingAddressTVCell: TableViewCell {
     
     override func prepareForReuse() {
         collapsView()
+    }
+    
+    override func updateUI() {
+        
+      
+        DispatchQueue.main.async {
+            self.callCountryListAPI()
+        }
+        
+        DispatchQueue.main.async {
+            self.loadCountryNamesAndCode()
+        }
+        
+        emailTF.text = cellInfo?.title ?? ""
+        mobileTF.text = cellInfo?.subTitle ?? ""
+        countrycodeTF.text = cellInfo?.buttonTitle ?? ""
+        
     }
     
     func setupUI() {
@@ -80,9 +118,14 @@ class BillingAddressTVCell: TableViewCell {
         setupTextField(txtField: mobileTF)
         setupTextField(txtField: postalcodeTF)
         setupTextField(txtField: emailTF)
-
+        
         
         collapsView()
+        
+        setupCountryDropdown()
+        setupStatesDropdown()
+        setupCitysDropdown()
+        setupMobileCodeDropdown()
     }
     
     
@@ -105,29 +148,69 @@ class BillingAddressTVCell: TableViewCell {
         txtField.delegate = self
         txtField.backgroundColor = .clear
         txtField.font = UIFont.OswaldRegular(size: 14)
-        txtField.addTarget(self, action: #selector(editingTextField1(textField:)), for: .editingChanged)
+        txtField.addTarget(self, action: #selector(editingTextField(textField:)), for: .editingChanged)
         txtField.textColor = .SubtitleColor
     }
     
     func setupView(v:UIView) {
         v.layer.borderWidth = 1
-        v.layer.borderColor = UIColor.AppBorderColor.cgColor
+        v.layer.borderColor = UIColor.UnselectedBtnColor.cgColor
     }
     
     
     
-    @objc func editingTextField1(textField: UITextField) {
-        switch textField.tag {
-        case 1:
-            print(textField.text)
+    @objc func editingTextField(textField: UITextField) {
+        switch textField {
+        case streetTF:
+            streetView.layer.borderColor = UIColor.UnselectedBtnColor.cgColor
             break
             
-        case 6:
-            print(textField.text)
+        case streetTF:
+            streetView.layer.borderColor = UIColor.UnselectedBtnColor.cgColor
             break
+            
+        case apartmentTF:
+            apartmentView.layer.borderColor = UIColor.UnselectedBtnColor.cgColor
+            break
+            
+        case countryTF:
+            countryView.layer.borderColor = UIColor.UnselectedBtnColor.cgColor
+            break
+            
+        case stateTF:
+            stateView.layer.borderColor = UIColor.UnselectedBtnColor.cgColor
+            break
+            
+        case cityTF:
+            cityView.layer.borderColor = UIColor.UnselectedBtnColor.cgColor
+            break
+            
+        case postalcodeTF:
+            postalcodeView.layer.borderColor = UIColor.UnselectedBtnColor.cgColor
+            break
+            
+            
+        case emailTF:
+            emailView.layer.borderColor = UIColor.UnselectedBtnColor.cgColor
+            break
+            
+            
+        case mobileTF:
+            mobileView.layer.borderColor = UIColor.UnselectedBtnColor.cgColor
+            break
+            
+            
+        case countryTF:
+            mobileView.layer.borderColor = UIColor.UnselectedBtnColor.cgColor
+            break
+            
+            
         default:
             break
         }
+        
+        
+        delegate?.editingTextField(tf: textField)
     }
     
     
@@ -136,26 +219,171 @@ class BillingAddressTVCell: TableViewCell {
     }
     
     @IBAction func didTapOnCountryBtnAction(_ sender: Any) {
-        print("didTapOnCountryBtnAction")
+        countryDropdown.show()
     }
     
     
     @IBAction func didTapOnStateBtnAction(_ sender: Any) {
-        print("didTapOnStateBtnAction")
-        
+        statesDropdown.show()
     }
     
     @IBAction func didTapOnCityBtnAction(_ sender: Any) {
-        print("didTapOnCityBtnAction")
+        citysDropdown.show()
     }
     
     
     @IBAction func didTapOnCountryCodeBtn(_ sender: Any) {
-        print("didTapOnCountryCodeBtn")
+        mobileCountryCodeDropDown.show()
     }
     
 }
 
+
+
+
+
+extension BillingAddressTVCell : GetCountryListViewModelProtocal{
+    
+    
+    //MARK: - loadCountryNamesAndCode
+    
+    func loadCountryNamesAndCode(){
+        countryNames.removeAll()
+        countrycodesArray.removeAll()
+        isocountrycodeArray.removeAll()
+        originArray.removeAll()
+        
+        countrylist.forEach { i in
+            countryNames.append(i.name ?? "")
+            countrycodesArray.append(i.country_code ?? "")
+            isocountrycodeArray.append(i.iso_country_code ?? "")
+            originArray.append(i.origin ?? "")
+            
+        }
+        
+        DispatchQueue.main.async {[self] in
+            mobileCountryCodeDropDown.dataSource = countryNames
+        }
+    }
+    
+    
+    
+    func setupMobileCodeDropdown() {
+        mobileCountryCodeDropDown.direction = .bottom
+        mobileCountryCodeDropDown.backgroundColor = .WhiteColor
+        mobileCountryCodeDropDown.anchorView = self.countrycodeTF
+        mobileCountryCodeDropDown.bottomOffset = CGPoint(x: 0, y: countrycodeTF.frame.size.height + 10)
+        mobileCountryCodeDropDown.selectionAction = { [weak self] (index: Int, item: String) in
+            self?.countrycodeTF.text = self?.countrycodesArray[index]
+            self?.delegate?.didTapOnMobileCountryCodeBtnAction(cell: self!)
+            
+        }
+        
+    }
+    
+    //MARK: - callCountryListAPI countryList setupCountryDropdown
+    func callCountryListAPI() {
+        vm?.CALL_GET_COUNTRY_SELECT_API(dictParam: [:])
+    }
+    
+    func countryList(response: [GetCountrySelectModel]) {
+        countryCodes.removeAll()
+        countryNames.removeAll()
+        response.forEach { i in
+            countryCodes.append(i.country_ISO ?? "")
+            countryNames.append(i.country_Name_EN ?? "")
+        }
+        countryDropdown.dataSource = countryNames
+    }
+    
+    
+    func setupCountryDropdown() {
+        countryDropdown.direction = .bottom
+        countryDropdown.backgroundColor = .WhiteColor
+        countryDropdown.anchorView = self.countryView
+        countryDropdown.bottomOffset = CGPoint(x: 0, y: countryView.frame.size.height + 10)
+        countryDropdown.selectionAction = { [weak self] (index: Int, item: String) in
+            self?.countryTF.text = self?.countryNames[index]
+           
+            
+            DispatchQueue.main.async {
+                self?.callSatesListAPI(inputStr: (self?.countryCodes[index])!)
+            }
+            
+            self?.delegate?.didTapOnSelectCountryBtnAction(cell: self!)
+        }
+        
+    }
+    
+    
+    //MARK: - callSatesListAPI stateList setupStatesDropdown
+    
+    
+    func callSatesListAPI(inputStr:String) {
+        payload.removeAll()
+        payload["country_ISO"] = inputStr
+        vm?.CALL_GET_STATE_SELECT_API(dictParam: payload)
+    }
+    
+    func stateList(response: GetStatesListModel) {
+        response.data?.forEach({ i in
+            stateNames.append(i.name ?? "")
+        })
+        
+        statesDropdown.dataSource = stateNames
+    }
+    
+    
+    func setupStatesDropdown() {
+        statesDropdown.direction = .bottom
+        statesDropdown.backgroundColor = .WhiteColor
+        statesDropdown.anchorView = self.stateView
+        statesDropdown.bottomOffset = CGPoint(x: 0, y: stateView.frame.size.height + 10)
+        statesDropdown.selectionAction = { [weak self] (index: Int, item: String) in
+            self?.stateTF.text = self?.stateNames[index]
+            self?.delegate?.didTapOnSelectStateBtnAction(cell: self!)
+            
+            DispatchQueue.main.async {
+                self?.callCityListAPI(inputStr: (self?.stateNames[index])!)
+            }
+        }
+        
+    }
+    
+    
+    
+    
+    //MARK: - callCityListAPI cityList setupCitysDropdown
+    
+    func callCityListAPI(inputStr:String) {
+        payload.removeAll()
+        payload["state_name"] = inputStr
+        vm?.CALL_GET_CITY_SELECT_API(dictParam: payload)
+    }
+    
+    
+    func cityList(response: [GetCityListModel]) {
+        response.forEach { i in
+            citynames.append(i.city_Name_EN ?? "")
+        }
+        citysDropdown.dataSource = citynames
+    }
+    
+    func setupCitysDropdown() {
+        citysDropdown.direction = .bottom
+        citysDropdown.backgroundColor = .WhiteColor
+        citysDropdown.anchorView = self.cityView
+        citysDropdown.bottomOffset = CGPoint(x: 0, y: cityView.frame.size.height + 10)
+        citysDropdown.selectionAction = { [weak self] (index: Int, item: String) in
+            self?.cityTF.text = self?.citynames[index]
+            self?.delegate?.didTapOnSelectCityBtnAction(cell: self!)
+        }
+        
+    }
+    
+    
+    
+}
 
 
 extension BillingAddressTVCell {
