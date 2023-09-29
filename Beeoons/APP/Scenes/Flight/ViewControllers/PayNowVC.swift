@@ -27,6 +27,8 @@ class PayNowVC: BaseTableVC, TimerManagerDelegate {
     var tmpFlightPreBookingId = String()
     var tokenkey1 = String()
     var callpaymentbool = true
+    var fnameCharBool = true
+    var lnameCharBool = true
     var billingaddressBool = true
     var payload = [String:Any]()
     var payload1 = [String:Any]()
@@ -364,6 +366,51 @@ extension PayNowVC: PreProcessBookingViewModelDelegate{
         payload1.removeAll()
         
         var textfilldshouldmorethan3lettersBool = true
+        
+        
+        
+        
+        for traveler in travelerArray {
+            
+            if traveler.firstName == nil  || traveler.firstName?.isEmpty == true{
+                callpaymentbool = false
+                
+            }
+            
+            if (traveler.firstName?.count ?? 0) <= 3 {
+                fnameCharBool = false
+            }
+            
+            if traveler.lastName == nil || traveler.firstName?.isEmpty == true{
+                callpaymentbool = false
+            }
+            
+            if (traveler.lastName?.count ?? 0) <= 3 {
+                lnameCharBool = false
+            }
+            
+            if traveler.dob == nil || traveler.dob?.isEmpty == true{
+                callpaymentbool = false
+            }
+            
+            if traveler.passportno == nil || traveler.passportno?.isEmpty == true{
+                callpaymentbool = false
+            }
+            
+            if traveler.passportIssuingCountry == nil || traveler.passportIssuingCountry?.isEmpty == true{
+                callpaymentbool = false
+            }
+            
+            if traveler.passportExpireDate == nil || traveler.passportExpireDate?.isEmpty == true{
+                callpaymentbool = false
+            }
+            
+            
+            // Continue checking other fields
+        }
+        
+        
+        
         // Assuming you have a positionsCount variable that holds the number of cells in the table view
         let positionsCount = commonTableView.numberOfRows(inSection: 0)
         
@@ -564,22 +611,50 @@ extension PayNowVC: PreProcessBookingViewModelDelegate{
         }
         
         
-        let mrtitleArray = travelerArray.compactMap({$0.mrtitle})
+        //        let mrtitleArray = travelerArray.compactMap({$0.mrtitle})
+        //        let laedpassengerArray = travelerArray.compactMap({$0.laedpassenger})
+        //        let middlenameArray = travelerArray.compactMap({$0.middlename})
+        //        let passengertypeArray = travelerArray.compactMap({$0.passengertype})
+        //        let firstnameArray = travelerArray.compactMap({$0.firstName})
+        //        let lastNameArray = travelerArray.compactMap({$0.lastName})
+        //        let dobArray = travelerArray.compactMap({$0.dob})
+        //        let passportnoArray = travelerArray.compactMap({$0.passportno})
+        //        let passportIssuingCountryArray = travelerArray.compactMap({$0.passportIssuingCountry})
+        //        let passportExpireDateArray = travelerArray.compactMap({$0.passportExpireDate})
+        //        //        let frequentFlyrNoArray = travelerArray.compactMap({$0.frequentFlyrNo})
+        //        //        let mealNameArray = travelerArray.compactMap({$0.meal})
+        //        //        let specialAssicintenceArray = travelerArray.compactMap({$0.specialAssicintence})
+        //            let genderArray = travelerArray.compactMap({$0.gender})
+        //        //        let nationalityArray = travelerArray.compactMap({$0.nationality})
+        
+        
+        
         let laedpassengerArray = travelerArray.compactMap({$0.laedpassenger})
-        let middlenameArray = travelerArray.compactMap({$0.middlename})
-        let passengertypeArray = travelerArray.compactMap({$0.passengertype})
+        let mrtitleArray = travelerArray.compactMap({$0.mrtitle})
+        let genderArray = travelerArray.compactMap({$0.gender})
         let firstnameArray = travelerArray.compactMap({$0.firstName})
         let lastNameArray = travelerArray.compactMap({$0.lastName})
+        let middlenameArray = travelerArray.compactMap({$0.middlename})
         let dobArray = travelerArray.compactMap({$0.dob})
         let passportnoArray = travelerArray.compactMap({$0.passportno})
+        //   let nationalityArray = travelerArray.compactMap({$0.nationality})
         let passportIssuingCountryArray = travelerArray.compactMap({$0.passportIssuingCountry})
         let passportExpireDateArray = travelerArray.compactMap({$0.passportExpireDate})
-        //        let frequentFlyrNoArray = travelerArray.compactMap({$0.frequentFlyrNo})
-        //        let mealNameArray = travelerArray.compactMap({$0.meal})
-        //        let specialAssicintenceArray = travelerArray.compactMap({$0.specialAssicintence})
-            let genderArray = travelerArray.compactMap({$0.gender})
-        //        let nationalityArray = travelerArray.compactMap({$0.nationality})
+        let passengertypeArray = travelerArray.compactMap({$0.passengertype})
         
+        
+        // Convert arrays to string representations
+        let laedpassengerString = "[\"" + laedpassengerArray.joined(separator: "\",\"") + "\"]"
+        let genderString = "[\"" + genderArray.joined(separator: "\",\"") + "\"]"
+        let mrtitleString = "[\"" + mrtitleArray.joined(separator: "\",\"") + "\"]"
+        let firstnameString = "[\"" + firstnameArray.joined(separator: "\",\"") + "\"]"
+        let middlenameString = "[\"" + middlenameArray.joined(separator: "\",\"") + "\"]"
+        let lastNameString = "[\"" + lastNameArray.joined(separator: "\",\"") + "\"]"
+        let dobString = "[\"" + dobArray.joined(separator: "\",\"") + "\"]"
+        let passportnoString = "[\"" + passportnoArray.joined(separator: "\",\"") + "\"]"
+        let passportIssuingCountryString = "[\"" + passportIssuingCountryArray.joined(separator: "\",\"") + "\"]"
+        let passportExpireDateString = "[\"" + passportExpireDateArray.joined(separator: "\",\"") + "\"]"
+        let passengertypeArrayString = "[\"" + passengertypeArray.joined(separator: "\",\"") + "\"]"
         
         
         payload["search_id"] = searchid
@@ -599,18 +674,18 @@ extension PayNowVC: PreProcessBookingViewModelDelegate{
         payload["mealsAmount"] = "0"
         payload["baggageAmount"] = "0"
         
-        payload["passenger_type"] = passengertypeArray
-        payload["lead_passenger"] = laedpassengerArray
-        payload["gender"] = genderArray
-//        payload["passenger_nationality"] = ["92"]
-        payload["name_title"] =  mrtitleArray
-        payload["first_name"] =  firstnameArray
-        payload["middle_name"] =  middlenameArray
-        payload["last_name"] =  lastNameArray
-        payload["date_of_birth"] =  dobArray
-        payload["passenger_passport_number"] =  passportnoArray
-        payload["passenger_passport_issuing_country"] =  passportIssuingCountryArray
-        payload["passenger_passport_expiry"] =  passportExpireDateArray
+        payload["passenger_type"] = passengertypeArrayString
+        payload["lead_passenger"] = laedpassengerString
+        payload["gender"] = genderString
+        //        payload["passenger_nationality"] = ["92"]
+        payload["name_title"] =  mrtitleString
+        payload["first_name"] =  firstnameString
+        payload["middle_name"] =  middlenameString
+        payload["last_name"] =  lastNameString
+        payload["date_of_birth"] =  dobString
+        payload["passenger_passport_number"] =  passportnoString
+        payload["passenger_passport_issuing_country"] =  passportIssuingCountryString
+        payload["passenger_passport_expiry"] =  passportExpireDateString
         payload["Frequent"] = [["Select"]]
         payload["ff_no"] = [[""]]
         payload["payment_method"] =  "PNHB1"
@@ -630,30 +705,26 @@ extension PayNowVC: PreProcessBookingViewModelDelegate{
         payload["selectedCurrency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? "KWD"
         payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
         
-    
-        do{
-            
-            let jsonData = try JSONSerialization.data(withJSONObject: payload, options: JSONSerialization.WritingOptions.prettyPrinted)
-            let jsonStringData =  NSString(data: jsonData as Data, encoding: NSUTF8StringEncoding)! as String
-            
-            if textfilldshouldmorethan3lettersBool == false {
-                showToast(message: "Enter More Than 3 Chars")
-            }else if callpaymentbool == false {
-                showToast(message: "Add Traveller Details")
-            }else if billingaddressBool == false {
-                showToast(message: "Add Billing Address Details")
-            }else if checkTermsAndCondationStatus == false {
-                showToast(message: "Please Accept T&C and Privacy Policy")
-            }else {
-                print(jsonStringData)
-                //  payload1["passenger_request"] = jsonStringData
-                vm?.CALL_PROCESS_PASSENGER_DETAIL_API(dictParam: payload)
-                
-            }
-            
-        }catch{
-            print(error.localizedDescription)
+        
+        
+        
+        if callpaymentbool == false {
+            showToast(message: "Add Details")
+        }else if fnameCharBool == false {
+            showToast(message: "First Name Should More Than 3 Chars")
+        }else if lnameCharBool == false {
+            showToast(message: "Last Name Should More Than 3 Chars")
+        }else if callpaymentbool == false {
+            showToast(message: "Add Details")
+        }else if checkTermsAndCondationStatus == false {
+            showToast(message: "Please Accept T&C and Privacy Policy")
+        }else {
+            vm?.CALL_PROCESS_PASSENGER_DETAIL_API(dictParam: payload)
         }
+        
+        
+        
+        
         
     }
     

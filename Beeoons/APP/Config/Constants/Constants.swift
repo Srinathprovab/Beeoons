@@ -32,8 +32,8 @@ var callapibool = false
 var menubool = false
 var mobilenoMaxLengthBool = false
 
-var BASE_URL = "https://beeoons.com/pro/web_service/index.php/"
-var BASE_URL1 = "https://beeoons.com/pro/web_service/index.php/"
+var BASE_URL = "https://beeoons.com/web_service/index.php/"
+var BASE_URL1 = "https://beeoons.com/web_service/index.php/"
 var countrylist = [Country_list]()
 var profildata:ProfileUpdateData?
 
@@ -113,10 +113,20 @@ var arrivalTimeA = [String]()
 
 
 
+//MARK: - Hotel
+var adtArray = [String]()
+var chArray = [String]()
+var hotelDetailsTapBool = true
+var totalRooms = 0
+var totalAdults = 0
+var totalChildren = 0
+var oldjournyType = ""
+
 
 /* URL endpoints */
 struct ApiEndpoints {
     
+    //FLIGHT
     static let indexpage = "general/index"
     static let indexpageapi = "general/index"
     static let get_airport_code_list = "ajax/get_airport_code_list"
@@ -141,7 +151,8 @@ struct ApiEndpoints {
 
     
     
-    
+    //HOTEL
+    static let general_mobile_pre_hotel_search = "general/mobile_pre_hotel_search"
     
 }
 

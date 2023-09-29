@@ -16,6 +16,7 @@ class MyAccountVC: BaseTableVC {
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var changeProfileView: UIView!
     
+    var key = "noedit"
     var tablerow = [TableRow]()
     var pickerbool = false
     var first_name = String()
@@ -36,9 +37,20 @@ class MyAccountVC: BaseTableVC {
     
     
     override func viewWillAppear(_ animated: Bool) {
+        
+       
+        
         NotificationCenter.default.addObserver(self, selector: #selector(offline), name: NSNotification.Name("offline"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(loginDone), name: NSNotification.Name("checkUserLogin"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(edit), name: NSNotification.Name("edit"), object: nil)
+
+        checkUserLogin()
         
+    }
+    
+    
+    @objc func edit(){
+        key = "edit"
         checkUserLogin()
     }
     
@@ -376,6 +388,7 @@ extension MyAccountVC:ProfileUpdateViewModelDelegate {
     
     func profileDetails(response: ProfileUpdateModel) {
         profildata = response.data
+        self.changeProfileView.isHidden = true
         
         first_name = profildata?.first_name ?? ""
         last_name = profildata?.last_name ?? ""
@@ -400,10 +413,16 @@ extension MyAccountVC:ProfileUpdateViewModelDelegate {
             
         }
         
-        
-        DispatchQueue.main.async {[self] in
-            appendMyaccountTvcells()
+        if key == "noedit" {
+            DispatchQueue.main.async {[self] in
+                appendMyaccountTvcells()
+            }
+        }else {
+            DispatchQueue.main.async {[self] in
+                appendEditProfileTvcells()
+            }
         }
+        
     }
 }
 

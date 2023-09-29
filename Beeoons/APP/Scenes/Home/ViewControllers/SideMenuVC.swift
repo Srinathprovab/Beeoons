@@ -119,6 +119,14 @@ class SideMenuVC: BaseTableVC {
         }
     }
     
+    //MARK: - didTapOnEditProfileBtnAction MenuBGTVCell
+    override func didTapOnEditProfileBtnAction(cell:MenuBGTVCell){
+        NotificationCenter.default.post(name: NSNotification.Name("edit"), object: nil)
+        guard let vc = HomeVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        vc.isvcfrom = "menubg"
+        present(vc, animated: true)
+    }
     
 }
 

@@ -7,9 +7,9 @@
 
 import UIKit
 
-class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVCellDelegate, FlightDealsTVCellDelegate, BookFlightTVCellDelegate, TravellerEconomyTVCellDelegate, ButtonTVCellDelegate, FlightResultTVCellDelegate, CheckBoxTVCellDelegate, checkOptionsTVCellDelegate, SliderTVCellDelegate, SortByPriceTVCellDelegate, MenuOptionTVCellDelegate, MenuBGTVCellDelegate, RegisterUserTVCellDelegate, UserNameTextFieldTVCellDelegate, FareRulesTVCellDelegate, ViewFlightDetailsTVCellDelegate, BookFlightMCTVCellDelegate, PromocodeTVCellDelegate, PrimaryContactInfoTVCellDelegate, TDetailsLoginTVCellDelegate, AddDeatilsOfTravellerTVCellDelegate, AcceptTermsAndConditionTVCellDelegate, ResetPasswordTVCellDelegate, BillingAddressTVCellDelegate {
+class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVCellDelegate, FlightDealsTVCellDelegate, BookFlightTVCellDelegate, TravellerEconomyTVCellDelegate, ButtonTVCellDelegate, FlightResultTVCellDelegate, CheckBoxTVCellDelegate, checkOptionsTVCellDelegate, SliderTVCellDelegate, SortByPriceTVCellDelegate, MenuOptionTVCellDelegate, MenuBGTVCellDelegate, RegisterUserTVCellDelegate, UserNameTextFieldTVCellDelegate, FareRulesTVCellDelegate, ViewFlightDetailsTVCellDelegate, BookFlightMCTVCellDelegate, PromocodeTVCellDelegate, PrimaryContactInfoTVCellDelegate, TDetailsLoginTVCellDelegate, AddDeatilsOfTravellerTVCellDelegate, AcceptTermsAndConditionTVCellDelegate, ResetPasswordTVCellDelegate, BillingAddressTVCellDelegate, BookHotelTVCellDelegate {
     
-   
+    
     
     
     @IBOutlet weak var commonScrollView: UITableView!
@@ -131,6 +131,7 @@ class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVC
     
     func didTapOnMenuOtptionBtnAction(cell: MenuOptionTVCell) {}
     func didTapOnLoginBtnAction(cell:MenuBGTVCell){}
+    func didTapOnEditProfileBtnAction(cell:MenuBGTVCell){}
     func editingText(tf: UITextField) {}
     func didTapOnRegisterBtnAction(cell: RegisterUserTVCell) {}
     func didTapOnLoginBtnAction(cell: RegisterUserTVCell) {}
@@ -155,7 +156,7 @@ class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVC
     func didTapOnSelectStateBtnAction(cell: BillingAddressTVCell) {}
     func didTapOnSelectCityBtnAction(cell: BillingAddressTVCell) {}
     func didTapOnMobileCountryCodeBtnAction(cell: BillingAddressTVCell) {}
-
+    
     
     func didTapOnExpandAdultViewbtnAction(cell: AddDeatilsOfTravellerTVCell) {}
     func tfeditingChanged(tf: UITextField) {}
@@ -168,6 +169,11 @@ class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVC
     func didTapOnTAndCAction(cell: AcceptTermsAndConditionTVCell) {}
     func didTapOnPrivacyPolicyAction(cell: AcceptTermsAndConditionTVCell) {}
     
+    func didTapOnSelectHotelCityBtnAction(cell: BookHotelTVCell) {}
+    func didTapOnCheckInBtnAction(cell: BookHotelTVCell) {}
+    func didTapOnCheckOutBtnAction(cell: BookHotelTVCell) {}
+    func didTapOnAddRoomBtnAction(cell: BookHotelTVCell) {}
+    func didTapOnSearchHotelBtnAction(cell: BookHotelTVCell) {}
     
     
     
@@ -455,6 +461,19 @@ extension BaseTableVC: UITableViewDataSource {
             case .TotalTravellerCountTVCell:
                 let cell:  TotalTravellerCountTVCell = commonTV.dequeTVCell(indexPath: indexPath)
                 commonCell = cell
+                
+                
+                
+                
+                //HOTEL
+            case .BookHotelTVCell:
+                let cell:  BookHotelTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+                
+                
                 
                 
                 

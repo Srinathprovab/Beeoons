@@ -19,6 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         
+        IQKeyboardManager.shared().isEnabled = true
+        IQKeyboardManager.shared().keyboardDistanceFromTextField = 100 // Adjust this value as needed
+
+        
        
         return true
     }

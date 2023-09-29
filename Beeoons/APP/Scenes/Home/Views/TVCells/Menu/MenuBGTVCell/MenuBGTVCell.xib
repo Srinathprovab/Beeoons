@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -11,9 +10,6 @@
     <customFonts key="customFonts">
         <array key="Oswald-Bold.ttf">
             <string>Oswald-Bold</string>
-        </array>
-        <array key="Oswald-Light.ttf">
-            <string>Oswald-Light</string>
         </array>
         <array key="Oswald-Medium.ttf">
             <string>Oswald-Medium</string>
@@ -44,23 +40,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="QGW-Dw-Qx5">
-                                <rect key="frame" x="116" y="67.333333333333329" width="295" height="55.666666666666671"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvR-Z1-t8r">
-                                        <rect key="frame" x="0.0" y="0.0" width="295" height="29.666666666666668"/>
-                                        <fontDescription key="fontDescription" name="Oswald-Medium" family="Oswald" pointSize="20"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7D-rf-xFh">
-                                        <rect key="frame" x="0.0" y="34.666666666666671" width="295" height="21"/>
-                                        <fontDescription key="fontDescription" name="Oswald-Light" family="Oswald" pointSize="14"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tUl-Yr-o0D">
                                 <rect key="frame" x="116" y="72.666666666666671" width="100" height="45"/>
                                 <subviews>
@@ -96,16 +75,67 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="QGW-Dw-Qx5">
+                                <rect key="frame" x="116" y="54.999999999999993" width="295" height="29.666666666666664"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvR-Z1-t8r">
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="29.666666666666668"/>
+                                        <fontDescription key="fontDescription" name="Oswald-Medium" family="Oswald" pointSize="20"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qsB-uy-dnl">
+                                <rect key="frame" x="116" y="86.666666666666671" width="120" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1a-gs-Yf0">
+                                        <rect key="frame" x="19" y="6.6666666666666572" width="82.333333333333329" height="27"/>
+                                        <fontDescription key="fontDescription" name="Oswald-Bold" family="Oswald" pointSize="18"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3BF-bK-GYq">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="40"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didTapOnEditProfileBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="7Rj-oq-SsK"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="ButtonColor"/>
+                                <constraints>
+                                    <constraint firstItem="3BF-bK-GYq" firstAttribute="top" secondItem="qsB-uy-dnl" secondAttribute="top" id="7tM-bD-RXi"/>
+                                    <constraint firstAttribute="height" constant="40" id="7x8-0T-e73"/>
+                                    <constraint firstAttribute="width" constant="120" id="JEk-Wn-srk"/>
+                                    <constraint firstAttribute="bottom" secondItem="3BF-bK-GYq" secondAttribute="bottom" id="Qep-th-6N5"/>
+                                    <constraint firstItem="i1a-gs-Yf0" firstAttribute="centerX" secondItem="qsB-uy-dnl" secondAttribute="centerX" id="ZEk-SC-h3L"/>
+                                    <constraint firstItem="3BF-bK-GYq" firstAttribute="leading" secondItem="qsB-uy-dnl" secondAttribute="leading" id="h8F-qu-pM3"/>
+                                    <constraint firstItem="i1a-gs-Yf0" firstAttribute="centerY" secondItem="qsB-uy-dnl" secondAttribute="centerY" id="ieR-6g-qgS"/>
+                                    <constraint firstAttribute="trailing" secondItem="3BF-bK-GYq" secondAttribute="trailing" id="irE-uG-wTO"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" name="NavBackColor"/>
                         <constraints>
+                            <constraint firstItem="qsB-uy-dnl" firstAttribute="leading" secondItem="QGW-Dw-Qx5" secondAttribute="leading" id="EUp-Mm-qUI"/>
                             <constraint firstAttribute="height" constant="170" id="M04-fk-9Ib"/>
                             <constraint firstItem="tUl-Yr-o0D" firstAttribute="leading" secondItem="HtP-ug-JmX" secondAttribute="trailing" constant="20" id="Ptv-Aa-3Am"/>
                             <constraint firstItem="HtP-ug-JmX" firstAttribute="leading" secondItem="29h-Ve-Opk" secondAttribute="leading" constant="16" id="QNH-PL-jDs"/>
                             <constraint firstAttribute="bottom" secondItem="HtP-ug-JmX" secondAttribute="bottom" constant="35" id="UyL-aV-4Lb"/>
                             <constraint firstAttribute="trailing" secondItem="QGW-Dw-Qx5" secondAttribute="trailing" constant="10" id="alV-ZN-Xa4"/>
-                            <constraint firstItem="QGW-Dw-Qx5" firstAttribute="centerY" secondItem="HtP-ug-JmX" secondAttribute="centerY" id="hn4-y2-Cmv"/>
+                            <constraint firstItem="qsB-uy-dnl" firstAttribute="top" secondItem="QGW-Dw-Qx5" secondAttribute="bottom" constant="2" id="exv-nD-KzV"/>
                             <constraint firstItem="QGW-Dw-Qx5" firstAttribute="leading" secondItem="HtP-ug-JmX" secondAttribute="trailing" constant="20" id="miW-sF-cXT"/>
+                            <constraint firstItem="QGW-Dw-Qx5" firstAttribute="top" secondItem="HtP-ug-JmX" secondAttribute="top" id="pJU-do-gHc"/>
                             <constraint firstItem="tUl-Yr-o0D" firstAttribute="centerY" secondItem="HtP-ug-JmX" secondAttribute="centerY" id="qVl-tF-gFw"/>
                         </constraints>
                     </view>
@@ -119,9 +149,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="editView" destination="qsB-uy-dnl" id="4BQ-WW-SqM"/>
                 <outlet property="loginBtnView" destination="tUl-Yr-o0D" id="OpF-fj-L3T"/>
                 <outlet property="profileimg" destination="HtP-ug-JmX" id="RQw-Hm-cNc"/>
-                <outlet property="subtitlelbl" destination="h7D-rf-xFh" id="RFJ-6e-pPA"/>
                 <outlet property="titlelbl" destination="hvR-Z1-t8r" id="cVW-tX-GMx"/>
                 <outlet property="userNameView" destination="QGW-Dw-Qx5" id="9bo-qL-qtR"/>
             </connections>

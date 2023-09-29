@@ -416,61 +416,7 @@ class AddDeatilsOfTravellerTVCell: TableViewCell {
         
     }
     
-    
-    //    func setupDropdownforMeallist() {
-    //        var mealnameArray = [String]()
-    //        meallist.forEach { i in
-    //            mealnameArray.append(i.description ?? "")
-    //        }
-    //        mealsDropdown.dataSource = mealnameArray
-    //        mealsDropdown.direction = .bottom
-    //        mealsDropdown.backgroundColor = .WhiteColor
-    //        mealsDropdown.anchorView = self.mealPreferenceTF
-    //        mealsDropdown.bottomOffset = CGPoint(x: 0, y: mealPreferenceTF.frame.size.height + 20)
-    //        mealsDropdown.selectionAction = { [self] (index: Int, item: String) in
-    //            self.mealPreferenceTF.text = item
-    //
-    //
-    //            if travelerArray.count <= indexposition {
-    //                travelerArray += Array(repeating: Traveler(), count: indexposition - travelerArray.count + 1)
-    //            }
-    //
-    //            // Update the gender property of the Traveler object at the specified index
-    //            travelerArray[indexposition].meal = item
-    //            self.mealsView.layer.borderColor = UIColor.AppBorderColor.cgColor
-    //            self.delegate?.didTapOnMealPreferenceBtn(cell: self)
-    //        }
-    //
-    //    }
-    
-    
-    //    func setupDropdownforSpecialAssicintence() {
-    //        var specialAssicintenceNameArray = [String]()
-    //        specialAssistancelist1.forEach { i in
-    //            specialAssicintenceNameArray.append(i.description ?? "")
-    //        }
-    //        specialAssistenceDropDown.dataSource = specialAssicintenceNameArray
-    //        specialAssistenceDropDown.direction = .bottom
-    //        specialAssistenceDropDown.backgroundColor = .WhiteColor
-    //        specialAssistenceDropDown.anchorView = self.specialAssicintenceTF
-    //        specialAssistenceDropDown.bottomOffset = CGPoint(x: 0, y: specialAssicintenceTF.frame.size.height + 20)
-    //        specialAssistenceDropDown.selectionAction = { [self] (index: Int, item: String) in
-    //            self.specialAssicintenceTF.text = item
-    //
-    //
-    //            if travelerArray.count <= indexposition {
-    //                travelerArray += Array(repeating: Traveler(), count: indexposition - travelerArray.count + 1)
-    //            }
-    //
-    //            // Update the gender property of the Traveler object at the specified index
-    //            travelerArray[indexposition].specialAssicintence = item
-    //            self.specialView.layer.borderColor = UIColor.AppBorderColor.cgColor
-    //            self.delegate?.didTapOnSpecialAssicintenceBtn(cell: self)
-    //        }
-    //
-    //    }
-    
-    
+  
     func showdobDatePicker() {
         // Formate Date
         dobDatePicker.datePickerMode = .date
@@ -485,13 +431,14 @@ class AddDeatilsOfTravellerTVCell: TableViewCell {
         switch ageCategory {
         case .adult:
             
-            components.year = -100
-            dobDatePicker.minimumDate = calendar.date(byAdding: components, to: Date())
+            components.year = -12 // Allow selecting a date at least 12 years in the past
+            dobDatePicker.maximumDate = calendar.date(byAdding: components, to: Date())
+            
+            //            components.year = -100
+            //            dobDatePicker.minimumDate = calendar.date(byAdding: components, to: Date())
         case .child:
             components.year = -12
-            //components.year = -1
             dobDatePicker.minimumDate = calendar.date(byAdding: components, to: Date())
-            //  dobDatePicker.maximumDate = calendar.date(byAdding: components, to: Date())
         case .infant:
             components.year = -2
             dobDatePicker.minimumDate = calendar.date(byAdding: components, to: Date())

@@ -78,6 +78,21 @@ extension UIFont{
     
     
     
+    public static func SigvarBold(size: CGFloat) -> UIFont {
+        return UIFont(name: "SigvarBold", size: size) ?? UIFont.systemFont(ofSize: size)
+    }
+    
+    
+    public static func SigvarRegular(size: CGFloat) -> UIFont {
+        return UIFont(name: "SigvarRegular", size: size) ?? UIFont.systemFont(ofSize: size)
+    }
+    
+    
+    public static func ProximaNovaRegular(size: CGFloat) -> UIFont {
+        return UIFont(name: "Proxima Nova Regular", size: size) ?? UIFont.systemFont(ofSize: size)
+    }
+    
+    
     func Hexacolor(hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         

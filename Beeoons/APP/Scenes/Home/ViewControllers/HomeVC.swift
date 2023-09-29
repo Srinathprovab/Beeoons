@@ -30,6 +30,7 @@ class HomeVC: UIViewController {
         return vc
     }
     var vm:GetCountryListViewModel?
+    var isvcfrom = String()
     
     
     
@@ -62,7 +63,12 @@ class HomeVC: UIViewController {
     
     
     func setupUI() {
-        setupHomeUI()
+        
+        if isvcfrom == "menubg" {
+            setupMyAccountUI()
+        }else {
+            setupHomeUI()
+        }
     }
     
     
@@ -80,6 +86,8 @@ class HomeVC: UIViewController {
     }
     
     func setupMyAccountUI() {
+        NotificationCenter.default.post(name: NSNotification.Name("checkUserLogin"), object: nil)
+
         homeContinerView.isHidden = true
         myAccountContView.isHidden = false
         myBookingContView.isHidden = true
@@ -110,7 +118,6 @@ class HomeVC: UIViewController {
     }
     
     @IBAction func didTapOnMyAccountBtnAction(_ sender: Any) {
-        NotificationCenter.default.post(name: NSNotification.Name("checkUserLogin"), object: nil)
         setupMyAccountUI()
     }
     
@@ -138,9 +145,6 @@ extension HomeVC:GetCountryListViewModelDelegate {
     func airlineList(response: AirlineListModel) {
         airlinelist1 = response.airline_list ?? []
     }
-    
-    
-    
     
     
 }

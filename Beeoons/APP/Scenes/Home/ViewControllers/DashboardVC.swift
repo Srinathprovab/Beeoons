@@ -149,7 +149,7 @@ class DashboardVC: BaseTableVC {
             break
             
         case "HOTEL":
-            print("HOTEL")
+            gotoBookHotelVC()
             break
             
         case "RENT A CAR":
@@ -168,16 +168,18 @@ class DashboardVC: BaseTableVC {
     
     
     
-    //MARK: -
+    //MARK: - gotoBookFlightVC
     func gotoBookFlightVC(){
         guard let vc = BookFlightVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
     
-    //MARK: -
+    //MARK: - gotoBookHotelVC
     func gotoBookHotelVC(){
-        
+        guard let vc = BookHotelVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
     
     //MARK: -
@@ -494,6 +496,7 @@ extension DashboardVC {
     func addObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(nointernet), name: Notification.Name("offline"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name("reloadTV"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)
 
     }
     
@@ -509,6 +512,13 @@ extension DashboardVC {
         guard let vc = NoInternetConnectionVC.newInstance.self else {return}
         vc.modalPresentationStyle = .overCurrentContext
         vc.key = "nointernet"
+        self.present(vc, animated: false)
+    }
+    
+    @objc func resultnil() {
+        guard let vc = NoInternetConnectionVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.key = "noresult"
         self.present(vc, animated: false)
     }
 }

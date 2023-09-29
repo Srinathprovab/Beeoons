@@ -296,16 +296,13 @@ class CalenderVC: UIViewController {
     func gotoSearchFlightsVC() {
         guard let vc = BookFlightVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
-        //        keyStr = "select"
-        //        vc.isfromVc = "cal"
         self.present(vc, animated: false)
     }
     
     
     func gotoSearchHotelsVC() {
-        //        guard let vc = BookHotelVC.newInstance.self else {return}
-        //        vc.modalPresentationStyle = .fullScreen
-        //        self.present(vc, animated: false)
+        NotificationCenter.default.post(name: NSNotification.Name("hotelrooms"), object: nil)
+        dismiss(animated: true)
     }
     
     

@@ -55,6 +55,11 @@ enum TVCellType {
     case ResetPasswordTVCell
     case TotalTravellerCountTVCell
     
+    
+    
+    //HOTEL
+    case BookHotelTVCell
+    
 }
 
 enum CVCellType {

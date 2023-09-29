@@ -24,6 +24,7 @@ class BookFlightVC: BaseTableVC {
     var payload2 = [String:Any]()
     var fromdataArray = [[String:Any]]()
     var tablerow = [TableRow]()
+    
     static var newInstance: BookFlightVC? {
         let storyboard = UIStoryboard(name: Storyboard.Flight.name,
                                       bundle: nil)
@@ -64,11 +65,6 @@ class BookFlightVC: BaseTableVC {
                                          "BookFlightMCTVCell"])
         
     }
-    
-    
-    
-    
-    
     
     
     func setupOnewayUI() {
