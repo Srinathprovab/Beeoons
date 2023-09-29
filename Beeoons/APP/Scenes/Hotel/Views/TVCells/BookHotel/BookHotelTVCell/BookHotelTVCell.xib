@@ -59,7 +59,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
                                                 <connections>
-                                                    <action selector="didTapOnHotelCitySearchBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="g27-7k-Ss5"/>
+                                                    <action selector="didTapOnSelectHotelCityBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="afS-b7-C0G"/>
                                                 </connections>
                                             </button>
                                         </subviews>

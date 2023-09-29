@@ -18,6 +18,7 @@ class BookHotelVC: BaseTableVC {
     }
     var tablerow = [TableRow]()
     var payload = [String:Any]()
+    var payload1 = [String:Any]()
     
     override func viewWillAppear(_ animated: Bool) {
         addObserver()
@@ -77,7 +78,7 @@ class BookHotelVC: BaseTableVC {
     
     //MARK: - BookHotelTVCell
     override func didTapOnSelectHotelCityBtnAction(cell: BookHotelTVCell) {
-        gotoSelectCityVC(str: "", tokey: "")
+        //  gotoSelectCityVC(str: "", tokey: "")
     }
     
     override func didTapOnCheckInBtnAction(cell: BookHotelTVCell) {
@@ -117,17 +118,19 @@ class BookHotelVC: BaseTableVC {
         payload.removeAll()
         
         
+        defaults.set("Kuwait (Kuwait)", forKey: UserDefaultsKeys.locationcity)
+        defaults.set("248", forKey: UserDefaultsKeys.locationid)
         
-        //        payload["city"] = defaults.string(forKey: UserDefaultsKeys.locationcity)
-        //        payload["hotel_destination"] = defaults.string(forKey: UserDefaultsKeys.locationid)
-        payload["city"] = "Kuwait (Kuwait)"
-        payload["hotel_destination"] = "248"
+        payload["city"] = defaults.string(forKey: UserDefaultsKeys.locationcity)
+        payload["hotel_destination"] = defaults.string(forKey: UserDefaultsKeys.locationid)
+        
         payload["hotel_checkin"] = defaults.string(forKey: UserDefaultsKeys.checkin)
         payload["hotel_checkout"] = defaults.string(forKey: UserDefaultsKeys.checkout)
         
         payload["rooms"] = "\(defaults.string(forKey: UserDefaultsKeys.roomcount) ?? "1")"
         payload["adult"] = adtArray
         payload["child"] = chArray
+        
         
         for roomIndex in 0..<totalRooms {
             
@@ -150,9 +153,11 @@ class BookHotelVC: BaseTableVC {
         payload["currency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? "KWD"
         payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
         
-//        if defaults.string(forKey: UserDefaultsKeys.locationcity) == "Add City" || defaults.string(forKey: UserDefaultsKeys.locationcity) == nil{
-//            showToast(message: "Enter Hotel or City ")
-//        }else
+        
+        
+        //        if defaults.string(forKey: UserDefaultsKeys.locationcity) == "Add City" || defaults.string(forKey: UserDefaultsKeys.locationcity) == nil{
+        //            showToast(message: "Enter Hotel or City ")
+        //        }else
         
         if defaults.string(forKey: UserDefaultsKeys.checkin) == "Add Check In Date" || defaults.string(forKey: UserDefaultsKeys.checkin) == nil{
             showToast(message: "Enter Checkin Date")
@@ -173,24 +178,23 @@ class BookHotelVC: BaseTableVC {
                 let jsonStringData =  NSString(data: jsonData as Data, encoding: NSUTF8StringEncoding)! as String
                 
                 print(jsonStringData)
-                
+                payload1["search_params"] = jsonStringData
+                gotoHotelsResultVC()
                 
             }catch{
                 print(error.localizedDescription)
             }
             
-            gotoHotelsResultVC()
             
         }
     }
-    
     
     
     func gotoHotelsResultVC() {
         callapibool = true
         guard let vc = HotelsResultVC.newInstance.self else {return}
         vc.modalPresentationStyle = .overCurrentContext
-        vc.payload = self.payload
+        vc.payload = self.payload1
         self.present(vc, animated: false)
     }
     

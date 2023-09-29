@@ -121,7 +121,9 @@ var totalRooms = 0
 var totalAdults = 0
 var totalChildren = 0
 var oldjournyType = ""
-
+var hotel_id = String()
+var hotelsearchid = String()
+var hotelbookingsource = String()
 
 /* URL endpoints */
 struct ApiEndpoints {

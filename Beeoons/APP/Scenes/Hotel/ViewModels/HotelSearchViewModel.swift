@@ -27,7 +27,7 @@ class HotelSearchViewModel {
         
         self.view?.showLoader()
         
-        ServiceManager.postOrPutApiCall(endPoint: ApiEndpoints.general_mobile_pre_hotel_search , parameters: parms, resultType: HotelSearchModel.self, p:dictParam) { sucess, result, errorMessage in
+        ServiceManager.postOrPutApiCall(endPoint: ApiEndpoints.general_mobile_pre_hotel_search,urlParams: parms as? Dictionary<String, String> , parameters: parms, resultType: HotelSearchModel.self, p:dictParam) { sucess, result, errorMessage in
             
             DispatchQueue.main.async {
                 self.view?.hideLoader()

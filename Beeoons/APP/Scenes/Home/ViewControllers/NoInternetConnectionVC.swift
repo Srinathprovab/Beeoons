@@ -61,9 +61,9 @@ class NoInternetConnectionVC: UIViewController {
                 vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true)
             }else {
-//                guard let vc = BookHotelVC.newInstance.self else {return}
-//                vc.modalPresentationStyle = .fullScreen
-//                self.present(vc, animated: true)
+                guard let vc = BookHotelVC.newInstance.self else {return}
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true)
             }
            
         }else {

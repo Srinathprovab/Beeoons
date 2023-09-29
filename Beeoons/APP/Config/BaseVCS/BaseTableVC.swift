@@ -7,9 +7,7 @@
 
 import UIKit
 
-class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVCellDelegate, FlightDealsTVCellDelegate, BookFlightTVCellDelegate, TravellerEconomyTVCellDelegate, ButtonTVCellDelegate, FlightResultTVCellDelegate, CheckBoxTVCellDelegate, checkOptionsTVCellDelegate, SliderTVCellDelegate, SortByPriceTVCellDelegate, MenuOptionTVCellDelegate, MenuBGTVCellDelegate, RegisterUserTVCellDelegate, UserNameTextFieldTVCellDelegate, FareRulesTVCellDelegate, ViewFlightDetailsTVCellDelegate, BookFlightMCTVCellDelegate, PromocodeTVCellDelegate, PrimaryContactInfoTVCellDelegate, TDetailsLoginTVCellDelegate, AddDeatilsOfTravellerTVCellDelegate, AcceptTermsAndConditionTVCellDelegate, ResetPasswordTVCellDelegate, BillingAddressTVCellDelegate, BookHotelTVCellDelegate {
-    
-    
+class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVCellDelegate, FlightDealsTVCellDelegate, BookFlightTVCellDelegate, TravellerEconomyTVCellDelegate, ButtonTVCellDelegate, FlightResultTVCellDelegate, CheckBoxTVCellDelegate, checkOptionsTVCellDelegate, SliderTVCellDelegate, SortByPriceTVCellDelegate, MenuOptionTVCellDelegate, MenuBGTVCellDelegate, RegisterUserTVCellDelegate, UserNameTextFieldTVCellDelegate, FareRulesTVCellDelegate, ViewFlightDetailsTVCellDelegate, BookFlightMCTVCellDelegate, PromocodeTVCellDelegate, PrimaryContactInfoTVCellDelegate, TDetailsLoginTVCellDelegate, AddDeatilsOfTravellerTVCellDelegate, AcceptTermsAndConditionTVCellDelegate, ResetPasswordTVCellDelegate, BillingAddressTVCellDelegate, BookHotelTVCellDelegate, HotelsResultVCTVCellDelegate {
     
     
     @IBOutlet weak var commonScrollView: UITableView!
@@ -174,6 +172,11 @@ class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVC
     func didTapOnCheckOutBtnAction(cell: BookHotelTVCell) {}
     func didTapOnAddRoomBtnAction(cell: BookHotelTVCell) {}
     func didTapOnSearchHotelBtnAction(cell: BookHotelTVCell) {}
+    func didTapOnHotelDetailsBtnAction(cell: HotelsResultVCTVCell) {}
+    func didTapOnCancellationBtnAction(cell: HotelsResultVCTVCell) {}
+    
+    
+    
     
     
     
@@ -473,10 +476,10 @@ extension BaseTableVC: UITableViewDataSource {
                 
                 
                 
-                
-                
-                
-                
+            case .HotelsResultVCTVCell:
+                let cell:  HotelsResultVCTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
                 
                 
                 

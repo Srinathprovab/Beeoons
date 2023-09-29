@@ -38,7 +38,7 @@ class DashboardVC: BaseTableVC {
         
         if !UserDefaults.standard.bool(forKey: "ExecuteOnce") {
             
-            defaults.set("FLIGHTS", forKey: UserDefaultsKeys.tabselect)
+            defaults.set("FLIGHT", forKey: UserDefaultsKeys.tabselect)
             defaults.set("oneway", forKey: UserDefaultsKeys.journeyType)
             defaults.set("KWD", forKey: UserDefaultsKeys.selectedCurrency)
             

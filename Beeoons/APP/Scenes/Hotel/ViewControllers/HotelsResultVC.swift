@@ -22,6 +22,7 @@ class HotelsResultVC: BaseTableVC, HotelSearchViewModelDelegate {
     var tablerow = [TableRow]()
     var payload = [String:Any]()
     var vm:HotelSearchViewModel?
+    var hotelSearchResult = [HotelSearchResult]()
     
     override func viewWillAppear(_ animated: Bool) {
         addObserver()
@@ -42,21 +43,11 @@ class HotelsResultVC: BaseTableVC, HotelSearchViewModelDelegate {
     
     
     func setupUI() {
-        commonTableView.registerTVCells(["BookHotelTVCell"])
+        commonTableView.registerTVCells(["HotelsResultVCTVCell"])
     }
     
     
-    
-    
-    func setuTVCells() {
-        tablerow.removeAll()
-        
-       
-        
-        commonTVData = tablerow
-        commonTableView.reloadData()
-    }
-    
+ 
     
     @IBAction func didTapOnBackButtonAction(_ sender: Any) {
         dismiss(animated: true)
@@ -70,11 +61,25 @@ class HotelsResultVC: BaseTableVC, HotelSearchViewModelDelegate {
     }
     
     
+    
+    override func didTapOnHotelDetailsBtnAction(cell: HotelsResultVCTVCell) {
+        hotel_id = cell.hotelid
+        print("search id \(hotelsearchid)")
+        print("booking source \(hotelbookingsource)")
+        print("hotel id \(hotel_id)")
+    }
+    
+    override func didTapOnCancellationBtnAction(cell: HotelsResultVCTVCell) {
+        print("didTapOnCancellationBtnAction")
+    }
+    
+
 }
 
 
 
 extension HotelsResultVC {
+    
     func callSearchAPI() {
         loderBool = true
         vm?.CALL_GET_HOTEL_LIST_API(dictParam: payload)
@@ -83,6 +88,12 @@ extension HotelsResultVC {
     func hotelList(response: HotelSearchModel) {
         loderBool = false
         holderView.isHidden = false
+        citylbl.text = defaults.string(forKey: UserDefaultsKeys.locationcity)
+        dateslbl.text = "\(convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.checkin) ?? "", f1: "dd-MM-yyyy", f2: "dd MMM yyyy")) - \(convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.checkin) ?? "", f1: "dd-MM-yyyy", f2: "dd MMM yyyy")), \(defaults.string(forKey: UserDefaultsKeys.hoteladultscount) ?? "") Adults,\(defaults.string(forKey: UserDefaultsKeys.roomcount) ?? "") Room"
+        
+        hotelsearchid = response.search_id ?? ""
+        hotelbookingsource = response.booking_source ?? ""
+        hotelSearchResult = response.data?.hotelSearchResult ?? []
         
         DispatchQueue.main.async {[self] in
             self.setuTVCells()
@@ -90,6 +101,33 @@ extension HotelsResultVC {
     }
     
 
+    
+    
+    func setuTVCells() {
+        tablerow.removeAll()
+        
+        
+        
+        hotelSearchResult.forEach { i in
+            tablerow.append(TableRow(title:i.name,
+                                     subTitle: i.address,
+                                     refundable: i.refund,
+                                     price: i.price,
+                                     buttonTitle: "000",
+                                     image: i.image,
+                                     tempText: i.hotel_code,
+                                     cellType:.HotelsResultVCTVCell))
+            
+        }
+       
+        
+        commonTVData = tablerow
+        commonTableView.reloadData()
+    }
+    
+    
+    
+    
 }
 
 
