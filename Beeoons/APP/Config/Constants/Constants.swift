@@ -155,6 +155,9 @@ struct ApiEndpoints {
     
     //HOTEL
     static let general_mobile_pre_hotel_search = "general/mobile_pre_hotel_search"
+    static let hotel_mobile_details = "hotel/mobile_details"
+    
+    
     
 }
 

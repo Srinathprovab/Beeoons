@@ -35,6 +35,14 @@ class AddItineraryTVCell: TableViewCell {
     }
     
     
+   
+    
+}
+
+extension AddItineraryTVCell:UITableViewDelegate,UITableViewDataSource {
+    
+    
+    
     func setupTV() {
         
         
@@ -50,10 +58,6 @@ class AddItineraryTVCell: TableViewCell {
         addDetailsTv.separatorStyle = .none
         addDetailsTv.isScrollEnabled = false
     }
-    
-}
-
-extension AddItineraryTVCell:UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fd.count

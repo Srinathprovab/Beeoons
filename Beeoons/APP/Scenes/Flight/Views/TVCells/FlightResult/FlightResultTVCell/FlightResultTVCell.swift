@@ -56,14 +56,7 @@ class FlightResultTVCell: TableViewCell {
     }
     
     
-    func setupTV() {
-        flightinfoTV.register(UINib(nibName: "AddFlightInfoTVCell", bundle: nil), forCellReuseIdentifier: "cell")
-        flightinfoTV.delegate = self
-        flightinfoTV.dataSource = self
-        flightinfoTV.tableFooterView = UIView()
-        flightinfoTV.separatorStyle = .none
-        flightinfoTV.isScrollEnabled = false
-    }
+  
     
     
     @IBAction func didTapOnFlightDetails(_ sender: Any) {
@@ -78,6 +71,15 @@ class FlightResultTVCell: TableViewCell {
 
 extension FlightResultTVCell:UITableViewDelegate,UITableViewDataSource {
     
+    
+    func setupTV() {
+        flightinfoTV.register(UINib(nibName: "AddFlightInfoTVCell", bundle: nil), forCellReuseIdentifier: "cell")
+        flightinfoTV.delegate = self
+        flightinfoTV.dataSource = self
+        flightinfoTV.tableFooterView = UIView()
+        flightinfoTV.separatorStyle = .none
+        flightinfoTV.isScrollEnabled = false
+    }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

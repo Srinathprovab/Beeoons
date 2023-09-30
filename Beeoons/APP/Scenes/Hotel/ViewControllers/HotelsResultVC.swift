@@ -6,12 +6,17 @@
 //
 
 import UIKit
+import DropDown
 
 class HotelsResultVC: BaseTableVC, HotelSearchViewModelDelegate {
     
     @IBOutlet weak var citylbl: UILabel!
     @IBOutlet weak var dateslbl: UILabel!
     @IBOutlet weak var holderView: UIView!
+    @IBOutlet weak var priceView: UIView!
+    @IBOutlet weak var starView: UIView!
+    @IBOutlet weak var atozView: UIView!
+    @IBOutlet weak var bottomView: UIView!
     
     static var newInstance: HotelsResultVC? {
         let storyboard = UIStoryboard(name: Storyboard.Hotel.name,
@@ -19,6 +24,11 @@ class HotelsResultVC: BaseTableVC, HotelSearchViewModelDelegate {
         let vc = storyboard.instantiateViewController(withIdentifier: self.className()) as? HotelsResultVC
         return vc
     }
+    
+    
+    var atozdropDown = DropDown()
+    var stardropDown = DropDown()
+    var pricedropDown = DropDown()
     var tablerow = [TableRow]()
     var payload = [String:Any]()
     var vm:HotelSearchViewModel?
@@ -43,11 +53,14 @@ class HotelsResultVC: BaseTableVC, HotelSearchViewModelDelegate {
     
     
     func setupUI() {
+        setupDropDown()
+        setupstarDropDown()
+        setupatozDropDown()
         commonTableView.registerTVCells(["HotelsResultVCTVCell"])
     }
     
     
- 
+    
     
     @IBAction func didTapOnBackButtonAction(_ sender: Any) {
         dismiss(animated: true)
@@ -61,19 +74,39 @@ class HotelsResultVC: BaseTableVC, HotelSearchViewModelDelegate {
     }
     
     
+    @IBAction func didTapOnAtoZFilterBtnAction(_ sender: Any) {
+        atozdropDown.show()
+    }
+    
+    
+    @IBAction func didTapOnstarFilterBtnAction(_ sender: Any) {
+        stardropDown.show()
+    }
+    
+    
+    @IBAction func didTapOnPriceFilterBtnAction(_ sender: Any) {
+        pricedropDown.show()
+    }
+    
+    @IBAction func didTapOnFilterBtnAction(_ sender: Any) {
+        print("didTapOnFilterBtnAction")
+    }
+    
+    
+    
     
     override func didTapOnHotelDetailsBtnAction(cell: HotelsResultVCTVCell) {
         hotel_id = cell.hotelid
-        print("search id \(hotelsearchid)")
-        print("booking source \(hotelbookingsource)")
-        print("hotel id \(hotel_id)")
+        gotoSelectedHotelDetailsVC()
     }
+    
+    
     
     override func didTapOnCancellationBtnAction(cell: HotelsResultVCTVCell) {
         print("didTapOnCancellationBtnAction")
     }
     
-
+    
 }
 
 
@@ -89,7 +122,7 @@ extension HotelsResultVC {
         loderBool = false
         holderView.isHidden = false
         citylbl.text = defaults.string(forKey: UserDefaultsKeys.locationcity)
-        dateslbl.text = "\(convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.checkin) ?? "", f1: "dd-MM-yyyy", f2: "dd MMM yyyy")) - \(convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.checkin) ?? "", f1: "dd-MM-yyyy", f2: "dd MMM yyyy")), \(defaults.string(forKey: UserDefaultsKeys.hoteladultscount) ?? "") Adults,\(defaults.string(forKey: UserDefaultsKeys.roomcount) ?? "") Room"
+        dateslbl.text = "\(convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.checkin) ?? "", f1: "dd-MM-yyyy", f2: "dd MMM yyyy")) - \(convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.checkout) ?? "", f1: "dd-MM-yyyy", f2: "dd MMM yyyy")), \(defaults.string(forKey: UserDefaultsKeys.hoteladultscount) ?? "") Adults,\(defaults.string(forKey: UserDefaultsKeys.roomcount) ?? "") Room"
         
         hotelsearchid = response.search_id ?? ""
         hotelbookingsource = response.booking_source ?? ""
@@ -99,8 +132,6 @@ extension HotelsResultVC {
             self.setuTVCells()
         }
     }
-    
-
     
     
     func setuTVCells() {
@@ -119,7 +150,7 @@ extension HotelsResultVC {
                                      cellType:.HotelsResultVCTVCell))
             
         }
-       
+        
         
         commonTVData = tablerow
         commonTableView.reloadData()
@@ -166,6 +197,64 @@ extension HotelsResultVC {
         vc.key = key
         vc.titleStr = titleStr
         self.present(vc, animated: false)
+    }
+    
+    
+    
+    func gotoSelectedHotelDetailsVC(){
+        guard let vc = SelectedHotelDetailsVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: false)
+    }
+    
+    
+    
+    func setupDropDown() {
+
+        pricedropDown.dataSource = ["Price Low","Price Heigh"]
+        pricedropDown.textFont = .OswaldLight(size: 16)
+        pricedropDown.direction = .top
+        pricedropDown.backgroundColor = .WhiteColor
+        pricedropDown.anchorView = self.priceView
+        pricedropDown.bottomOffset = CGPoint(x: 0, y: priceView.frame.size.height + 100)
+        pricedropDown.selectionAction = { [weak self] (index: Int, item: String) in
+
+            print(item)
+
+        }
+    }
+    
+    
+    
+    func setupstarDropDown() {
+        
+        stardropDown.dataSource = ["1 Star","2 Star","3 Star","4 Star","5 Star"]
+        stardropDown.textFont = .OswaldLight(size: 16)
+        stardropDown.direction = .top
+        stardropDown.backgroundColor = .WhiteColor
+        stardropDown.anchorView = self.starView
+        stardropDown.bottomOffset = CGPoint(x: 0, y: starView.frame.size.height + 100)
+        stardropDown.selectionAction = { [weak self] (index: Int, item: String) in
+            
+            print(item)
+            
+        }
+    }
+    
+    
+    func setupatozDropDown() {
+        
+        atozdropDown.dataSource = ["A to Z","Z to A"]
+        atozdropDown.textFont = .OswaldLight(size: 16)
+        atozdropDown.direction = .top
+        atozdropDown.backgroundColor = .WhiteColor
+        atozdropDown.anchorView = self.atozView
+        atozdropDown.bottomOffset = CGPoint(x: 0, y: atozView.frame.size.height + 100)
+        atozdropDown.selectionAction = { [weak self] (index: Int, item: String) in
+            
+            print(item)
+            
+        }
     }
     
     

@@ -482,6 +482,9 @@ extension BaseTableVC: UITableViewDataSource {
                 commonCell = cell
                 
                 
+            case .HotelImagesTVCell:
+                let cell:  HotelImagesTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
                 
                 
             default:
