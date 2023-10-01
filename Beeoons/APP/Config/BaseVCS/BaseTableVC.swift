@@ -467,7 +467,6 @@ extension BaseTableVC: UITableViewDataSource {
                 
                 
                 
-                
                 //HOTEL
             case .BookHotelTVCell:
                 let cell:  BookHotelTVCell = commonTV.dequeTVCell(indexPath: indexPath)
@@ -485,6 +484,19 @@ extension BaseTableVC: UITableViewDataSource {
             case .HotelImagesTVCell:
                 let cell:  HotelImagesTVCell = commonTV.dequeTVCell(indexPath: indexPath)
                 commonCell = cell
+                
+                
+                
+                
+            case .SelectRoomsTVCell:
+                let cell:  SelectRoomsTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
+                
+                
+                
+                
+                
+                
                 
                 
             default:

@@ -44,7 +44,8 @@ class SelectedHotelDetailsVC: BaseTableVC, HotelDetailsViewModelDelegate {
     
     
     func setupUI() {
-        commonTableView.registerTVCells(["HotelImagesTVCell"])
+        commonTableView.registerTVCells(["HotelImagesTVCell",
+                                        "SelectRoomsTVCell"])
     }
     
     
@@ -95,6 +96,12 @@ extension SelectedHotelDetailsVC {
                                  subTitle: hotel_details?.address,
                                  image: hotel_details?.image,
                                  cellType:.HotelImagesTVCell))
+        
+        
+        tablerow.append(TableRow(moreData: hotel_details?.rooms,
+                                  cellType:.SelectRoomsTVCell))
+        
+        
         
         commonTVData = tablerow
         commonTableView.reloadData()

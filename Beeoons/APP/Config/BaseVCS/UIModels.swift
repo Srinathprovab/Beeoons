@@ -61,6 +61,10 @@ enum TVCellType {
     case BookHotelTVCell
     case HotelsResultVCTVCell
     case HotelImagesTVCell
+    case SelectRoomsTVCell
+    
+    
+    
 }
 
 enum CVCellType {

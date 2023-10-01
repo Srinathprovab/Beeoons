@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Oswald-Regular.ttf">
+            <string>Oswald-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="HotelDetailsTabCVCell" customModule="Beeoons" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="190" height="76"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="190" height="76"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b0K-OK-996" customClass="BorderedView" customModule="Beeoons" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="190" height="76"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hdtab1" translatesAutoresizingMaskIntoConstraints="NO" id="osD-f9-Irh">
+                                <rect key="frame" x="6" y="28" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="0hI-Un-66e"/>
+                                    <constraint firstAttribute="height" constant="20" id="ezc-6o-vyK"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4e1-OG-BTL">
+                                <rect key="frame" x="30" y="10" width="154" height="56"/>
+                                <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald" pointSize="14"/>
+                                <color key="textColor" name="SubtitleColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4e1-OG-BTL" firstAttribute="top" secondItem="b0K-OK-996" secondAttribute="top" constant="10" id="05Q-bL-ubK"/>
+                            <constraint firstAttribute="bottom" secondItem="4e1-OG-BTL" secondAttribute="bottom" constant="10" id="5rO-Gm-oct"/>
+                            <constraint firstAttribute="trailing" secondItem="4e1-OG-BTL" secondAttribute="trailing" constant="6" id="9yr-4I-qwJ"/>
+                            <constraint firstItem="osD-f9-Irh" firstAttribute="centerY" secondItem="b0K-OK-996" secondAttribute="centerY" id="D4B-Zo-DB9"/>
+                            <constraint firstItem="4e1-OG-BTL" firstAttribute="leading" secondItem="osD-f9-Irh" secondAttribute="trailing" constant="4" id="pIn-8b-bpu"/>
+                            <constraint firstItem="osD-f9-Irh" firstAttribute="leading" secondItem="b0K-OK-996" secondAttribute="leading" constant="6" id="rvY-sJ-ofA"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" name="CalenderRangeColor"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="b0K-OK-996" secondAttribute="trailing" id="31A-Tf-Xlu"/>
+                <constraint firstItem="b0K-OK-996" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="5uB-M5-eHG"/>
+                <constraint firstAttribute="bottom" secondItem="b0K-OK-996" secondAttribute="bottom" id="fVL-K6-GeB"/>
+                <constraint firstItem="b0K-OK-996" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="vyU-Ov-5Db"/>
+            </constraints>
+            <size key="customSize" width="190" height="76"/>
+            <connections>
+                <outlet property="holderView" destination="b0K-OK-996" id="2pe-pb-WRP"/>
+                <outlet property="img" destination="osD-f9-Irh" id="i2z-2q-o06"/>
+                <outlet property="imgHeight" destination="ezc-6o-vyK" id="DU6-xy-RCG"/>
+                <outlet property="imgWidth" destination="0hI-Un-66e" id="Xf7-gY-UNy"/>
+                <outlet property="titlelbl" destination="4e1-OG-BTL" id="h2I-Og-nJ9"/>
+            </connections>
+            <point key="canvasLocation" x="123.66412213740458" y="28.87323943661972"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="hdtab1" width="21.666666030883789" height="21.666666030883789"/>
+        <namedColor name="CalenderRangeColor">
+            <color red="0.75700002908706665" green="0.63099998235702515" blue="0.49000000953674316" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SubtitleColor">
+            <color red="0.46299999952316284" green="0.46299999952316284" blue="0.46299999952316284" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
