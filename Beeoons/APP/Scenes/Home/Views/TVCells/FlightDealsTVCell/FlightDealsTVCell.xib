@@ -79,7 +79,7 @@
                                 </constraints>
                                 <color key="tintColor" name="PriceBoxColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system"/>
+                                <buttonConfiguration key="configuration" style="plain" image="left"/>
                                 <connections>
                                     <action selector="previousButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="UjE-QV-1D0"/>
                                 </connections>
@@ -111,7 +111,7 @@
                         </constraints>
                         <color key="tintColor" name="PriceBoxColor"/>
                         <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system"/>
+                        <buttonConfiguration key="configuration" style="plain" image="right1"/>
                         <connections>
                             <action selector="nextButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="9DK-JQ-Qug"/>
                         </connections>
@@ -138,9 +138,9 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="chevron.backward" catalog="system" width="97" height="128"/>
-        <image name="chevron.right" catalog="system" width="97" height="128"/>
         <image name="flightback" width="179.33332824707031" height="50.333332061767578"/>
+        <image name="left" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="right1" width="33.333332061767578" height="33.333332061767578"/>
         <namedColor name="ButtonColor">
             <color red="0.75700002908706665" green="0.63099998235702515" blue="0.49000000953674316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

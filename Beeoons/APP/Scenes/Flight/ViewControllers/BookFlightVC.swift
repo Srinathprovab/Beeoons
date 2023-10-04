@@ -122,7 +122,7 @@ class BookFlightVC: BaseTableVC {
     }
     
     func gotoHomeVC() {
-        loderBool = false
+       
         guard let vc = HomeVC.newInstance.self else {return}
         vc.modalPresentationStyle = .overCurrentContext
         callapibool = true
@@ -328,7 +328,6 @@ class BookFlightVC: BaseTableVC {
     func gotoSearchFlightResultVC(input:[String:Any]) {
         guard let vc = FlightResultVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
-        loderBool = true
         callapibool = true
         vc.payload = input
         self.present(vc, animated: true)
@@ -370,7 +369,6 @@ class BookFlightVC: BaseTableVC {
     }
     
     override func didTapOnSearchFlightBtnAction(cell: BookFlightMCTVCell) {
-        loderBool = true
         payload.removeAll()
         payload1.removeAll()
         payload2.removeAll()
@@ -470,6 +468,31 @@ class BookFlightVC: BaseTableVC {
     
     //MARK: - didTapOnBookFlightBtn
     override func didTapOnBookFlightBtn(cell: DealsCVCell) {
+        payload.removeAll()
+        
+        defaults.set(cell.trip_type, forKey: UserDefaultsKeys.journeyType)
+
+        
+        if cell.trip_type == "oneway" {
+            defaults.set(cell.fromcityname, forKey: UserDefaultsKeys.fromcityname)
+            defaults.set(cell.tocityname, forKey: UserDefaultsKeys.tocityname)
+            defaults.set(cell.fromcity, forKey: UserDefaultsKeys.fromCity)
+            defaults.set(cell.from_loc_id, forKey: UserDefaultsKeys.fromlocid)
+            defaults.set(cell.tocity, forKey: UserDefaultsKeys.toCity)
+            defaults.set(cell.to_loc_id, forKey: UserDefaultsKeys.tolocid)
+            defaults.set(cell.depratureDatelbl.text ?? "", forKey: UserDefaultsKeys.calDepDate)
+            defaults.set(cell.returnDatelbl.text ?? "", forKey: UserDefaultsKeys.calRetDate)
+        }else {
+            defaults.set(cell.fromcityname, forKey: UserDefaultsKeys.rfromcityname)
+            defaults.set(cell.tocityname, forKey: UserDefaultsKeys.rtocityname)
+            defaults.set(cell.fromcity, forKey: UserDefaultsKeys.rfromCity)
+            defaults.set(cell.from_loc_id, forKey: UserDefaultsKeys.rfromlocid)
+            defaults.set(cell.tocity, forKey: UserDefaultsKeys.rtoCity)
+            defaults.set(cell.to_loc_id, forKey: UserDefaultsKeys.rtolocid)
+            defaults.set(cell.depratureDatelbl.text ?? "", forKey: UserDefaultsKeys.rcalDepDate)
+            defaults.set(cell.returnDatelbl.text ?? "", forKey: UserDefaultsKeys.rcalRetDate)
+        }
+        
         payload["trip_type"] = cell.trip_type
         payload["adult"] = "1"
         payload["child"] = "0"

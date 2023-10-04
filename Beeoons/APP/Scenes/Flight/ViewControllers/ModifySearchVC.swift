@@ -318,7 +318,6 @@ class ModifySearchVC: BaseTableVC {
     func gotoSearchFlightResultVC(input:[String:Any]) {
         guard let vc = FlightResultVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
-        loderBool = true
         callapibool = true
         vc.payload = input
         self.present(vc, animated: true)
@@ -359,7 +358,6 @@ class ModifySearchVC: BaseTableVC {
     }
     
     override func didTapOnSearchFlightBtnAction(cell: BookFlightMCTVCell) {
-        loderBool = true
         payload.removeAll()
         payload1.removeAll()
         payload2.removeAll()
@@ -376,9 +374,6 @@ class ModifySearchVC: BaseTableVC {
             fromdataArray.append(payload2)
         }
         
-
-        
-        
         payload["sector_type"] = "international"
         payload["trip_type"] = defaults.string(forKey: UserDefaultsKeys.journeyType)
         payload["adult"] = defaults.string(forKey: UserDefaultsKeys.madultCount)
@@ -392,9 +387,6 @@ class ModifySearchVC: BaseTableVC {
         payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
         payload["currency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? "KWD"
         payload["placeDetails"] = fromdataArray
-        
-        
-        
         
         var showToastMessage: String? = nil
         
@@ -423,8 +415,6 @@ class ModifySearchVC: BaseTableVC {
             }
         }
         
-        
-        
         if showToastMessage == nil {
             if depatureDatesArray != depatureDatesArray.sorted() {
                 showToastMessage = "Please Select Dates in Ascending Order"
@@ -432,7 +422,6 @@ class ModifySearchVC: BaseTableVC {
                 showToastMessage = "Please Select Different Dates"
             }
         }
-   
         
         if let message = showToastMessage {
             showToast(message: message)
@@ -453,10 +442,9 @@ class ModifySearchVC: BaseTableVC {
             
             
         }
-        
-        
-        
     }
+    
+    
     
     
 }

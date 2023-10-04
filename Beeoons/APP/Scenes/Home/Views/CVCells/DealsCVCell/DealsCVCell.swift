@@ -26,6 +26,8 @@ class DealsCVCell: UICollectionViewCell {
     @IBOutlet weak var kwdpricelbl: UILabel!
     
     
+    var fromcityname = String()
+    var tocityname = String()
     var trip_type = String()
     var fromcity = String()
     var from_loc_id = String()

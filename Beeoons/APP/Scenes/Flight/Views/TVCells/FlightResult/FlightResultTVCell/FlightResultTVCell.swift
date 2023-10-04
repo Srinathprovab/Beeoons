@@ -93,7 +93,7 @@ extension FlightResultTVCell:UITableViewDelegate,UITableViewDataSource {
             
             let data = fdetails[indexPath.row]
             
-            cell.flightnamelbl.text = data.operator_name
+           // cell.flightnamelbl.text = data.operator_name
             cell.operatorImg.sd_setImage(with: URL(string: data.operator_image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
             
             cell.fromCityTimelbl.text = data.origin?.time
@@ -103,7 +103,7 @@ extension FlightResultTVCell:UITableViewDelegate,UITableViewDataSource {
             cell.hourslbl.text = data.duration
             cell.noOfStopslbl.text = "\(data.no_of_stops ?? 0) Stops"
             
-            
+            setAttributedTextnew(str1: "\(data.operator_code ?? "")-\(data.flight_number ?? "") ", str2: data.operator_name ?? "", lbl: cell.flightnamelbl, str1font: UIFont.OswaldRegular(size: 16), str2font: UIFont.OswaldLight(size: 12), str1Color: .TitleColor, str2Color: .TitleColor)
             
             commonCell = cell
         }

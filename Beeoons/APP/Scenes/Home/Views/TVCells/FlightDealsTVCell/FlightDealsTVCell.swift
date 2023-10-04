@@ -52,12 +52,14 @@ class FlightDealsTVCell: TableViewCell, DealsCVCellDelegate, HotelDealsCVCellDel
             cvheight.constant = 181
             setupFlightCV()
             itemCount = topflightDest.count
+            flightcount = topflightDest.count
             // startAutoScroll()
         }else {
             backimg.image = UIImage(named: "hotelback")?.withRenderingMode(.alwaysOriginal)
             cvheight.constant = 235
             setupHotelCV()
-            itemCount1 = hotelcount
+            itemCount1 = topdesthotel.count
+            hotelcount = topdesthotel.count
             //  startAutoScroll()
         }
         
@@ -137,7 +139,7 @@ extension FlightDealsTVCell:UICollectionViewDelegate,UICollectionViewDataSource 
         if titlelbl.text == "FLIGHT" {
             return topflightDest.count
         }else {
-            return hotelcount
+            return topdesthotel.count
         }
     }
     
@@ -177,6 +179,10 @@ extension FlightDealsTVCell:UICollectionViewDelegate,UICollectionViewDataSource 
                 cell.v_class = data.airline_class ?? ""
                 cell.currency = data.currency ?? ""
                 
+                
+                cell.fromcityname = data.from_city_name ?? ""
+                cell.tocityname = data.to_city_name ?? ""
+                
                 if data.trip_type == "oneway" {
                     cell.journytypeImg.image = UIImage(named: "oneway")?.withRenderingMode(.alwaysOriginal)
                 }else {
@@ -190,6 +196,19 @@ extension FlightDealsTVCell:UICollectionViewDelegate,UICollectionViewDataSource 
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath) as? HotelDealsCVCell {
                 cell.delegate = self
                 cell.bookBtn.tag = indexPath.row
+                let data = topdesthotel[indexPath.row]
+                cell.bookBtn.tag = indexPath.row
+                
+                cell.hotelImg.sd_setImage(with: URL(string: "\(indeximagepath)\(data.image ?? "")"), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+                cell.hotelNamelbl.text = data.hotel_name ?? ""
+                cell.pricelbl.text = "\(defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? ""):\(data.price ?? "")"
+                cell.checkinValuelbl.text = data.check_in ?? ""
+                cell.checkoutValuelbl.text = data.check_out ?? ""
+                cell.citylbl.text = data.city_name ?? ""
+                cell.hotetextlbl.text = data.hotel_text ?? ""
+                cell.citycode = data.city ?? ""
+                
+                
                 commonCell = cell
             }
         }
@@ -206,7 +225,7 @@ extension FlightDealsTVCell:UICollectionViewDelegate,UICollectionViewDataSource 
         currentIndex += 1
         
         
-        if cellInfo?.key == "FLIGHT" {
+        if titlelbl.text == "FLIGHT" {
             
             if currentIndex >= flightcount {
                 currentIndex = 0
@@ -228,7 +247,7 @@ extension FlightDealsTVCell:UICollectionViewDelegate,UICollectionViewDataSource 
         currentIndex -= 1
         
         
-        if cellInfo?.key == "FLIGHT" {
+        if titlelbl.text == "FLIGHT" {
             
             if currentIndex < 0 {
                 currentIndex = flightcount - 1
@@ -272,13 +291,13 @@ extension FlightDealsTVCell:UICollectionViewDelegate,UICollectionViewDataSource 
                 return // No items in the collection view
             }
             
-            if lastIndexPath.item == itemCount - 1 {
+            if lastIndexPath.item == flightcount - 1 {
                 nextIndexPath = IndexPath(item: 0, section: lastIndexPath.section)
             } else {
                 nextIndexPath = IndexPath(item: lastIndexPath.item + 1, section: lastIndexPath.section)
             }
             
-            if nextIndexPath.item >= itemCount {
+            if nextIndexPath.item >= flightcount {
                 nextIndexPath = IndexPath(item: 0, section: nextIndexPath.section) // Adjust the index path if it exceeds the bounds
             }
         }else {
@@ -287,13 +306,13 @@ extension FlightDealsTVCell:UICollectionViewDelegate,UICollectionViewDataSource 
                 return // No items in the collection view
             }
             
-            if lastIndexPath.item == itemCount1 - 1 {
+            if lastIndexPath.item == hotelcount - 1 {
                 nextIndexPath = IndexPath(item: 0, section: lastIndexPath.section)
             } else {
                 nextIndexPath = IndexPath(item: lastIndexPath.item + 1, section: lastIndexPath.section)
             }
             
-            if nextIndexPath.item >= itemCount1 {
+            if nextIndexPath.item >= hotelcount {
                 nextIndexPath = IndexPath(item: 0, section: nextIndexPath.section) // Adjust the index path if it exceeds the bounds
             }
         }

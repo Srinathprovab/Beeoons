@@ -26,7 +26,7 @@ class DashboardVC: BaseTableVC {
     private var revealSideMenuOnTop: Bool = true
     var gestureEnabled: Bool = true
     var payload = [String:Any]()
-    
+    var payload1 = [String:Any]()
     //MARK: - viewDidLoad
     
     
@@ -206,6 +206,31 @@ class DashboardVC: BaseTableVC {
     
     //MARK: - didTapOnBookFlightBtn
     override func didTapOnBookFlightBtn(cell: DealsCVCell) {
+        payload.removeAll()
+        
+        defaults.set(cell.trip_type, forKey: UserDefaultsKeys.journeyType)
+
+        
+        if cell.trip_type == "oneway" {
+            defaults.set(cell.fromcityname, forKey: UserDefaultsKeys.fromcityname)
+            defaults.set(cell.tocityname, forKey: UserDefaultsKeys.tocityname)
+            defaults.set(cell.fromcity, forKey: UserDefaultsKeys.fromCity)
+            defaults.set(cell.from_loc_id, forKey: UserDefaultsKeys.fromlocid)
+            defaults.set(cell.tocity, forKey: UserDefaultsKeys.toCity)
+            defaults.set(cell.to_loc_id, forKey: UserDefaultsKeys.tolocid)
+            defaults.set(cell.depratureDatelbl.text ?? "", forKey: UserDefaultsKeys.calDepDate)
+            defaults.set(cell.returnDatelbl.text ?? "", forKey: UserDefaultsKeys.calRetDate)
+        }else {
+            defaults.set(cell.fromcityname, forKey: UserDefaultsKeys.rfromcityname)
+            defaults.set(cell.tocityname, forKey: UserDefaultsKeys.rtocityname)
+            defaults.set(cell.fromcity, forKey: UserDefaultsKeys.rfromCity)
+            defaults.set(cell.from_loc_id, forKey: UserDefaultsKeys.rfromlocid)
+            defaults.set(cell.tocity, forKey: UserDefaultsKeys.rtoCity)
+            defaults.set(cell.to_loc_id, forKey: UserDefaultsKeys.rtolocid)
+            defaults.set(cell.depratureDatelbl.text ?? "", forKey: UserDefaultsKeys.rcalDepDate)
+            defaults.set(cell.returnDatelbl.text ?? "", forKey: UserDefaultsKeys.rcalRetDate)
+        }
+        
         payload["trip_type"] = cell.trip_type
         payload["adult"] = "1"
         payload["child"] = "0"
@@ -241,10 +266,50 @@ class DashboardVC: BaseTableVC {
     
     
     
-    //MARK: -
+    //MARK: - didTapOnBookHoteltBtn HotelDealsCVCell
     override func didTapOnBookHoteltBtn(cell:HotelDealsCVCell){
-        print(cell.bookBtn.tag)
+        
+        payload.removeAll()
+        
+        payload["city"] = flight_hotel_top_destinations[cell.bookBtn.tag].to_airport_name ?? ""
+        payload["hotel_destination"] = flight_hotel_top_destinations[cell.bookBtn.tag].to_city ?? ""
+        payload["hotel_checkin"] = flight_hotel_top_destinations[cell.bookBtn.tag].travel_date ?? ""
+        payload["hotel_checkout"] = flight_hotel_top_destinations[cell.bookBtn.tag].return_date ?? ""
+        payload["rooms"] = "1"
+        payload["adult"] = ["2"]
+        payload["child"] = ["0"]
+        payload["childAge_1"] = ["0"]
+        payload["nationality"] = "IN"
+        payload["language"] = "english"
+        payload["search_source"] = "postman"
+        payload["currency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? "KWD"
+        payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
+        
+        
+        
+        do{
+            
+            let jsonData = try JSONSerialization.data(withJSONObject: payload, options: JSONSerialization.WritingOptions.prettyPrinted)
+            let jsonStringData =  NSString(data: jsonData as Data, encoding: NSUTF8StringEncoding)! as String
+            
+            print(jsonStringData)
+            payload1["search_params"] = jsonStringData
+         //   gotoHotelsResultVC()
+            
+        }catch{
+            print(error.localizedDescription)
+        }
+        
     }
+    
+    func gotoHotelsResultVC() {
+        callapibool = true
+        guard let vc = HotelsResultVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.payload = self.payload1
+        self.present(vc, animated: false)
+    }
+    
     
     
 }
@@ -480,6 +545,8 @@ extension DashboardVC:IndexPageViewModelDelegate {
     
     func indexPageDetails(response: IndexPageModel) {
         topflightDest = response.flight_top_destinations1 ?? []
+        topdesthotel = response.top_dest_hotel ?? []
+        flight_hotel_top_destinations = response.flight_hotel_top_destinations ?? []
         indeximagepath = response.base_url ?? ""
         currencylist = response.currency_list ?? []
         
@@ -497,6 +564,7 @@ extension DashboardVC {
         NotificationCenter.default.addObserver(self, selector: #selector(nointernet), name: Notification.Name("offline"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name("reloadTV"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadcommonTableView), name: NSNotification.Name("reloadcommonTableView"), object: nil)
 
     }
     
@@ -506,6 +574,10 @@ extension DashboardVC {
     
     @objc func reload(){
         callIndexPageAPI()
+    }
+    
+    @objc func reloadcommonTableView(){
+        commonTableView.reloadData()
     }
     
     func gotoNoInternetConnectionVC() {

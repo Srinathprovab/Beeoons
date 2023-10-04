@@ -46,7 +46,6 @@ class FlightResultVC: BaseTableVC, TimerManagerDelegate {
         
         addObserver()
         if callapibool == true {
-            loderBool = true
             holderView.isHidden = true
             callAPI()
         }
@@ -169,7 +168,6 @@ extension FlightResultVC:OnewayViewModelDelegate {
         
         if response.status == 1 {
             holderView.isHidden = false
-            loderBool = false
             
             searchid = "\(response.data?.search_id ?? 0)"
             bookingsource = "\(response.data?.booking_source_key ?? "")"
@@ -269,7 +267,6 @@ extension FlightResultVC:OnewayViewModelDelegate {
         if response.status == 1 {
             
             holderView.isHidden = false
-            loderBool = false
             searchid = "\(response.data?.search_id ?? 0)"
             bookingsource = "\(response.data?.booking_source_key ?? "")"
             oneWayFlights = response.data?.j_flight_list ?? [[]]

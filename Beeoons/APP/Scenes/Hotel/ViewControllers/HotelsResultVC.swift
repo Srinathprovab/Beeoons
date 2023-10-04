@@ -114,12 +114,10 @@ class HotelsResultVC: BaseTableVC, HotelSearchViewModelDelegate {
 extension HotelsResultVC {
     
     func callSearchAPI() {
-        loderBool = true
         vm?.CALL_GET_HOTEL_LIST_API(dictParam: payload)
     }
     
     func hotelList(response: HotelSearchModel) {
-        loderBool = false
         holderView.isHidden = false
         citylbl.text = defaults.string(forKey: UserDefaultsKeys.locationcity)
         dateslbl.text = "\(convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.checkin) ?? "", f1: "dd-MM-yyyy", f2: "dd MMM yyyy")) - \(convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.checkout) ?? "", f1: "dd-MM-yyyy", f2: "dd MMM yyyy")), \(defaults.string(forKey: UserDefaultsKeys.hoteladultscount) ?? "") Adults,\(defaults.string(forKey: UserDefaultsKeys.roomcount) ?? "") Room"

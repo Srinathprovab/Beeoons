@@ -696,6 +696,48 @@
             </objects>
             <point key="canvasLocation" x="3259" y="6"/>
         </scene>
+        <!--New Side MenuVC-->
+        <scene sceneID="K7n-cR-rLu">
+            <objects>
+                <viewController storyboardIdentifier="NewSideMenuVC" id="WaC-xA-ylf" customClass="NewSideMenuVC" customModule="Beeoons" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RAk-m3-kev">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f7s-gu-44G">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4CI-eJ-eMF">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBrownColor"/>
+                                <constraints>
+                                    <constraint firstItem="4CI-eJ-eMF" firstAttribute="top" secondItem="f7s-gu-44G" secondAttribute="top" id="C14-vJ-cgv"/>
+                                    <constraint firstAttribute="trailing" secondItem="4CI-eJ-eMF" secondAttribute="trailing" id="DD7-QZ-eZO"/>
+                                    <constraint firstAttribute="bottom" secondItem="4CI-eJ-eMF" secondAttribute="bottom" id="Sgd-bv-gUh"/>
+                                    <constraint firstItem="4CI-eJ-eMF" firstAttribute="leading" secondItem="f7s-gu-44G" secondAttribute="leading" id="daQ-Dy-8vx"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="l7w-l2-152"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="f7s-gu-44G" firstAttribute="leading" secondItem="l7w-l2-152" secondAttribute="leading" id="FVD-YZ-7xT"/>
+                            <constraint firstItem="l7w-l2-152" firstAttribute="trailing" secondItem="f7s-gu-44G" secondAttribute="trailing" id="Ibe-g6-ZQi"/>
+                            <constraint firstItem="f7s-gu-44G" firstAttribute="top" secondItem="RAk-m3-kev" secondAttribute="top" id="eJG-JA-Etd"/>
+                            <constraint firstAttribute="bottom" secondItem="f7s-gu-44G" secondAttribute="bottom" id="pMR-w5-hay"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="commonTableView" destination="4CI-eJ-eMF" id="j1p-MY-gsl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aHV-J0-C1A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4048" y="6"/>
+        </scene>
     </scenes>
     <resources>
         <image name="chevron.backward" catalog="system" width="97" height="128"/>
@@ -716,6 +758,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

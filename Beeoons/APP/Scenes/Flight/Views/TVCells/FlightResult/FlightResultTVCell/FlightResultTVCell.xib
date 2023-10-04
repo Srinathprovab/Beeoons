@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -31,7 +30,7 @@
                         <rect key="frame" x="16" y="12" width="437" height="128"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s6s-GZ-y1n">
-                                <rect key="frame" x="341" y="16" width="86" height="36"/>
+                                <rect key="frame" x="341" y="10" width="86" height="36"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KWD 35.50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GIc-DX-Ac1">
                                         <rect key="frame" x="2" y="6" width="82" height="24"/>
@@ -108,10 +107,10 @@
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="128" id="LkZ-N2-kVJ"/>
                             <constraint firstAttribute="trailing" secondItem="s6s-GZ-y1n" secondAttribute="trailing" constant="10" id="MKT-Zw-dBL"/>
                             <constraint firstItem="ppS-Zn-Nge" firstAttribute="centerX" secondItem="s6s-GZ-y1n" secondAttribute="centerX" id="Njh-mG-FHG"/>
-                            <constraint firstItem="ppS-Zn-Nge" firstAttribute="top" secondItem="s6s-GZ-y1n" secondAttribute="bottom" id="ai6-vE-SXj"/>
                             <constraint firstAttribute="trailing" secondItem="ppS-Zn-Nge" secondAttribute="trailing" constant="10" id="c3s-kZ-12o"/>
                             <constraint firstAttribute="bottom" secondItem="CpC-wV-7CQ" secondAttribute="bottom" constant="10" id="ebw-cI-NMe"/>
                             <constraint firstItem="CpC-wV-7CQ" firstAttribute="leading" secondItem="gg8-gs-Ttj" secondAttribute="leading" constant="10" id="f8q-vH-53s"/>
+                            <constraint firstItem="s6s-GZ-y1n" firstAttribute="top" secondItem="CpC-wV-7CQ" secondAttribute="top" id="rir-TY-BMT"/>
                             <constraint firstItem="CpC-wV-7CQ" firstAttribute="top" secondItem="gg8-gs-Ttj" secondAttribute="top" constant="10" id="xev-Rf-NbW"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -150,7 +149,7 @@
             <color red="0.83899998664855957" green="0.83899998664855957" blue="0.83899998664855957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="ButtonColor">
-            <color red="0.75686274509803919" green="0.63137254901960782" blue="0.49019607843137253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.75700002908706665" green="0.63099998235702515" blue="0.49000000953674316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="PriceBoxColor">
             <color red="0.17299999296665192" green="0.41600000858306885" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -10,6 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Oswald-Bold.ttf">
+            <string>Oswald-Bold</string>
+        </array>
         <array key="Oswald-Regular.ttf">
             <string>Oswald-Regular</string>
         </array>
@@ -30,73 +32,99 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ub4-9k-V7m">
                                 <rect key="frame" x="0.0" y="0.0" width="208" height="175"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qe2-Xb-VPC">
+                                        <rect key="frame" x="0.0" y="0.0" width="208" height="175"/>
+                                    </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg1" translatesAutoresizingMaskIntoConstraints="NO" id="2if-1p-HGD">
                                         <rect key="frame" x="0.0" y="0.0" width="208" height="175"/>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Per Night" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Phb-jO-iWj">
+                                        <rect key="frame" x="13.333333333333332" y="148" width="46.666666666666671" height="18"/>
+                                        <fontDescription key="fontDescription" name="Oswald-Bold" family="Oswald" pointSize="12"/>
+                                        <color key="textColor" name="WhiteColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3K1-an-JUQ">
+                                        <rect key="frame" x="78" y="125" width="54.666666666666657" height="21"/>
+                                        <fontDescription key="fontDescription" name="Oswald-Bold" family="Oswald" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="74 KWD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FhM-db-KRT">
-                                        <rect key="frame" x="10" y="77" width="34.333333333333336" height="18"/>
-                                        <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald" pointSize="12"/>
+                                        <rect key="frame" x="10" y="77" width="36.666666666666664" height="18"/>
+                                        <fontDescription key="fontDescription" name="Oswald-Bold" family="Oswald" pointSize="12"/>
                                         <color key="textColor" name="WhiteColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xo4-m5-gTg">
-                                        <rect key="frame" x="9.9999999999999964" y="56" width="46.666666666666657" height="18"/>
-                                        <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald" pointSize="12"/>
+                                        <rect key="frame" x="10" y="56" width="53" height="18"/>
+                                        <fontDescription key="fontDescription" name="Oswald-Bold" family="Oswald" pointSize="12"/>
                                         <color key="textColor" name="WhiteColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DUBAI- EMIRATES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dc5-MM-xkE">
-                                        <rect key="frame" x="89.666666666666657" y="32" width="90.666666666666657" height="21"/>
-                                        <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald" pointSize="14"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DUBAI- EMIRATES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dc5-MM-xkE">
+                                        <rect key="frame" x="10" y="32" width="188" height="21"/>
+                                        <fontDescription key="fontDescription" name="Oswald-Bold" family="Oswald" pointSize="14"/>
                                         <color key="textColor" name="WhiteColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JUMEIRAH BEACH HOTEL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kff-Bf-T63">
-                                        <rect key="frame" x="71.666666666666686" y="10" width="126.33333333333331" height="21"/>
-                                        <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald" pointSize="14"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JUMEIRAH BEACH HOTEL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kff-Bf-T63">
+                                        <rect key="frame" x="10" y="10" width="188" height="21"/>
+                                        <fontDescription key="fontDescription" name="Oswald-Bold" family="Oswald" pointSize="14"/>
                                         <color key="textColor" name="WhiteColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4o-cf-teN">
-                                        <rect key="frame" x="12" y="118" width="14" height="21"/>
-                                        <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald" pointSize="14"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkin:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4o-cf-teN">
+                                        <rect key="frame" x="10" y="125" width="53" height="21"/>
+                                        <fontDescription key="fontDescription" name="Oswald-Bold" family="Oswald" pointSize="14"/>
                                         <color key="textColor" name="WhiteColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hy6-gX-7Va">
-                                        <rect key="frame" x="12" y="139" width="14" height="21"/>
-                                        <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald" pointSize="14"/>
-                                        <color key="textColor" name="ButtonColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Per Night" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYP-da-f4P">
+                                        <rect key="frame" x="9.9999999999999964" y="97" width="46.666666666666657" height="18"/>
+                                        <fontDescription key="fontDescription" name="Oswald-Bold" family="Oswald" pointSize="12"/>
+                                        <color key="textColor" name="WhiteColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Er nights" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYP-da-f4P">
-                                        <rect key="frame" x="10" y="97" width="38.333333333333336" height="18"/>
-                                        <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald" pointSize="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Per Night" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wWu-PO-mVf">
+                                        <rect key="frame" x="82" y="148" width="46.666666666666657" height="18"/>
+                                        <fontDescription key="fontDescription" name="Oswald-Bold" family="Oswald" pointSize="12"/>
                                         <color key="textColor" name="WhiteColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" name="WhiteColor"/>
                                 <constraints>
-                                    <constraint firstItem="hy6-gX-7Va" firstAttribute="top" secondItem="a4o-cf-teN" secondAttribute="bottom" id="4wm-0p-LMz"/>
                                     <constraint firstItem="Dc5-MM-xkE" firstAttribute="centerX" secondItem="Kff-Bf-T63" secondAttribute="centerX" id="6tk-lq-Lv5"/>
                                     <constraint firstItem="2if-1p-HGD" firstAttribute="top" secondItem="ub4-9k-V7m" secondAttribute="top" id="7Oj-z8-5bz"/>
+                                    <constraint firstAttribute="bottom" secondItem="Qe2-Xb-VPC" secondAttribute="bottom" id="7eB-yB-kkd"/>
+                                    <constraint firstItem="a4o-cf-teN" firstAttribute="leading" secondItem="eYP-da-f4P" secondAttribute="leading" id="Clz-0a-ds1"/>
                                     <constraint firstItem="Dc5-MM-xkE" firstAttribute="top" secondItem="Kff-Bf-T63" secondAttribute="bottom" constant="1" id="Ds8-9f-on4"/>
+                                    <constraint firstItem="wWu-PO-mVf" firstAttribute="top" secondItem="3K1-an-JUQ" secondAttribute="bottom" constant="2" id="Fh7-Hz-2qL"/>
                                     <constraint firstItem="2if-1p-HGD" firstAttribute="leading" secondItem="ub4-9k-V7m" secondAttribute="leading" id="Ifq-Ir-eP8"/>
                                     <constraint firstItem="Kff-Bf-T63" firstAttribute="top" secondItem="ub4-9k-V7m" secondAttribute="top" constant="10" id="KIu-4F-LgH"/>
+                                    <constraint firstItem="3K1-an-JUQ" firstAttribute="centerY" secondItem="a4o-cf-teN" secondAttribute="centerY" id="LLD-qO-vYt"/>
                                     <constraint firstItem="eYP-da-f4P" firstAttribute="top" secondItem="FhM-db-KRT" secondAttribute="bottom" constant="2" id="NLG-H4-GYD"/>
-                                    <constraint firstItem="eYP-da-f4P" firstAttribute="leading" secondItem="ub4-9k-V7m" secondAttribute="leading" constant="10" id="X3e-hm-7Tg"/>
+                                    <constraint firstItem="Phb-jO-iWj" firstAttribute="top" secondItem="a4o-cf-teN" secondAttribute="bottom" constant="2" id="Q0V-ou-2DL"/>
+                                    <constraint firstItem="Phb-jO-iWj" firstAttribute="centerX" secondItem="a4o-cf-teN" secondAttribute="centerX" id="Vz4-A6-uVj"/>
                                     <constraint firstItem="Xo4-m5-gTg" firstAttribute="leading" secondItem="ub4-9k-V7m" secondAttribute="leading" constant="10" id="X9r-FC-j08"/>
-                                    <constraint firstAttribute="bottom" secondItem="hy6-gX-7Va" secondAttribute="bottom" constant="15" id="br1-iA-UiY"/>
+                                    <constraint firstItem="eYP-da-f4P" firstAttribute="leading" secondItem="FhM-db-KRT" secondAttribute="leading" id="XQB-cE-Zes"/>
+                                    <constraint firstItem="3K1-an-JUQ" firstAttribute="leading" secondItem="a4o-cf-teN" secondAttribute="trailing" constant="15" id="YDP-Mv-b3L"/>
+                                    <constraint firstItem="Dc5-MM-xkE" firstAttribute="trailing" secondItem="Kff-Bf-T63" secondAttribute="trailing" id="YMd-3f-wzf"/>
                                     <constraint firstItem="Xo4-m5-gTg" firstAttribute="top" secondItem="Dc5-MM-xkE" secondAttribute="bottom" constant="3" id="dt3-4u-ZHx"/>
                                     <constraint firstAttribute="trailing" secondItem="Kff-Bf-T63" secondAttribute="trailing" constant="10" id="ex3-2q-WbE"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qe2-Xb-VPC" secondAttribute="trailing" id="fRp-bu-HHI"/>
+                                    <constraint firstItem="Qe2-Xb-VPC" firstAttribute="leading" secondItem="ub4-9k-V7m" secondAttribute="leading" id="fac-GI-PmK"/>
                                     <constraint firstAttribute="height" constant="175" id="fgV-m8-kko"/>
-                                    <constraint firstItem="hy6-gX-7Va" firstAttribute="leading" secondItem="ub4-9k-V7m" secondAttribute="leading" constant="12" id="g7a-4b-Etv"/>
                                     <constraint firstAttribute="trailing" secondItem="2if-1p-HGD" secondAttribute="trailing" id="jYR-0S-obo"/>
+                                    <constraint firstItem="wWu-PO-mVf" firstAttribute="centerX" secondItem="3K1-an-JUQ" secondAttribute="centerX" id="kgl-g5-aSY"/>
+                                    <constraint firstItem="a4o-cf-teN" firstAttribute="top" secondItem="eYP-da-f4P" secondAttribute="bottom" constant="10" id="lwF-6v-0rC"/>
                                     <constraint firstItem="FhM-db-KRT" firstAttribute="leading" secondItem="ub4-9k-V7m" secondAttribute="leading" constant="10" id="mIK-oq-ykP"/>
+                                    <constraint firstItem="Kff-Bf-T63" firstAttribute="leading" secondItem="ub4-9k-V7m" secondAttribute="leading" constant="10" id="qV3-eJ-yLR"/>
                                     <constraint firstAttribute="bottom" secondItem="2if-1p-HGD" secondAttribute="bottom" id="rjx-Q2-WSa"/>
-                                    <constraint firstItem="a4o-cf-teN" firstAttribute="leading" secondItem="ub4-9k-V7m" secondAttribute="leading" constant="12" id="tUq-p3-5da"/>
+                                    <constraint firstItem="a4o-cf-teN" firstAttribute="centerX" secondItem="Xo4-m5-gTg" secondAttribute="centerX" id="xED-D5-WgX"/>
                                     <constraint firstItem="FhM-db-KRT" firstAttribute="top" secondItem="Xo4-m5-gTg" secondAttribute="bottom" constant="3" id="xLk-aa-uHh"/>
+                                    <constraint firstItem="Qe2-Xb-VPC" firstAttribute="top" secondItem="ub4-9k-V7m" secondAttribute="top" id="z7S-6D-eBn"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nan-3c-Hlx">
@@ -184,7 +212,14 @@ sands world of hospitality</string>
             <size key="customSize" width="310" height="171"/>
             <connections>
                 <outlet property="bookBtn" destination="Z3F-ma-rtF" id="Gh1-XA-R1d"/>
+                <outlet property="checkinValuelbl" destination="Phb-jO-iWj" id="ZfT-J2-svK"/>
+                <outlet property="checkoutValuelbl" destination="wWu-PO-mVf" id="Yua-Qc-Ept"/>
+                <outlet property="citylbl" destination="Dc5-MM-xkE" id="RFT-H1-HH6"/>
                 <outlet property="holderView" destination="0Ay-3i-zsJ" id="wNM-TV-VbN"/>
+                <outlet property="hotelImg" destination="Qe2-Xb-VPC" id="SR5-Qa-rmh"/>
+                <outlet property="hotelNamelbl" destination="Kff-Bf-T63" id="lXD-jg-Zrp"/>
+                <outlet property="hotetextlbl" destination="Yg2-rg-7We" id="Sr7-o2-CnF"/>
+                <outlet property="pricelbl" destination="FhM-db-KRT" id="aZ8-mO-vId"/>
             </connections>
             <point key="canvasLocation" x="267.17557251908397" y="61.971830985915496"/>
         </collectionViewCell>

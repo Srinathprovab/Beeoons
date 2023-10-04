@@ -39,6 +39,9 @@ var profildata:ProfileUpdateData?
 
 //index page
 var topflightDest = [Flight_top_destinations1]()
+var topdesthotel = [Top_dest_hotel]()
+var flight_hotel_top_destinations = [Flight_hotel_top_destinations]()
+
 var indeximagepath = String()
 var currencylist = [Currency_list]()
 var airlinelist1 = [Airline_list]()

@@ -125,6 +125,7 @@
 		655CBD762A8FB0E300946F47 /* BookingConformVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655CBD752A8FB0E300946F47 /* BookingConformVC.swift */; };
 		655CBD782A8FB18F00946F47 /* ShowVoucherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655CBD772A8FB18F00946F47 /* ShowVoucherViewModel.swift */; };
 		655CBD7A2A8FB35500946F47 /* Booking_customer_details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655CBD792A8FB35500946F47 /* Booking_customer_details.swift */; };
+		657563332ACC221F00E25388 /* NewSideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657563322ACC221F00E25388 /* NewSideMenuVC.swift */; };
 		658094762A91EC9E007C2EA5 /* TotalTravellerCountTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658094742A91EC9E007C2EA5 /* TotalTravellerCountTVCell.swift */; };
 		658094772A91EC9E007C2EA5 /* TotalTravellerCountTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 658094752A91EC9E007C2EA5 /* TotalTravellerCountTVCell.xib */; };
 		65942CB32A87CC6A0091756B /* PayNowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65942CB22A87CC6A0091756B /* PayNowVC.swift */; };
@@ -426,6 +427,7 @@
 		655CBD752A8FB0E300946F47 /* BookingConformVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingConformVC.swift; sourceTree = "<group>"; };
 		655CBD772A8FB18F00946F47 /* ShowVoucherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowVoucherViewModel.swift; sourceTree = "<group>"; };
 		655CBD792A8FB35500946F47 /* Booking_customer_details.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Booking_customer_details.swift; sourceTree = "<group>"; };
+		657563322ACC221F00E25388 /* NewSideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSideMenuVC.swift; sourceTree = "<group>"; };
 		658094742A91EC9E007C2EA5 /* TotalTravellerCountTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalTravellerCountTVCell.swift; sourceTree = "<group>"; };
 		658094752A91EC9E007C2EA5 /* TotalTravellerCountTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TotalTravellerCountTVCell.xib; sourceTree = "<group>"; };
 		65942CB22A87CC6A0091756B /* PayNowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayNowVC.swift; sourceTree = "<group>"; };
@@ -1639,6 +1641,7 @@
 				65D482182A825C9600E7423E /* MyBookingsVC.swift */,
 				65E538052A85F7C5007EE11A /* NoInternetConnectionVC.swift */,
 				65E538072A85F99D007EE11A /* SideMenuVC.swift */,
+				657563322ACC221F00E25388 /* NewSideMenuVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -2310,6 +2313,7 @@
 				650344DE2A83704500B13434 /* SelectCityVC.swift in Sources */,
 				65D481B72A82212300E7423E /* DateExtension.swift in Sources */,
 				655CBD4D2A8F448900946F47 /* Pre_booking_params.swift in Sources */,
+				657563332ACC221F00E25388 /* NewSideMenuVC.swift in Sources */,
 				650C313E2A887493002DF7D4 /* PreProcessBookingViewModel.swift in Sources */,
 				655CBD562A8F50D000946F47 /* ProcessPassangerDetailModel.swift in Sources */,
 				6507B4D12A8A39E3007FD2DD /* IndexPageViewModel.swift in Sources */,
@@ -2674,7 +2678,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 5TLY5PME9K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Beeoons/Info.plist;
@@ -2698,9 +2702,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.provab.Beeoons;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -2711,7 +2718,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 5TLY5PME9K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Beeoons/Info.plist;
@@ -2735,9 +2742,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.provab.Beeoons;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

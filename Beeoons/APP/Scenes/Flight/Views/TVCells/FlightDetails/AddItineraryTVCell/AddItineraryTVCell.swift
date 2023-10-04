@@ -88,10 +88,10 @@ extension AddItineraryTVCell:UITableViewDelegate,UITableViewDataSource {
             cell.operatorImg.sd_setImage(with: URL(string: data.operator_image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
             
             
-            if tableView.isLast(for: indexPath) == true {
-                cell.bottomView.isHidden = true
-            }
-            
+//            if tableView.isLast(for: indexPath) == true {
+//                cell.bottomView.isHidden = true
+//            }
+            cell.bottomView.isHidden = true
             c = cell
         }
         return c

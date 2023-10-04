@@ -2,13 +2,17 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Oswald-Regular.ttf">
+            <string>Oswald-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -23,8 +27,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="419" height="80"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="lhW-e3-9To">
-                                <rect key="frame" x="0.0" y="0.0" width="419" height="80"/>
+                                <rect key="frame" x="0.0" y="0.0" width="339" height="80"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="ZBH-71-JBA"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="x7d-Yg-Kx2">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -32,14 +39,55 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XKV-Sg-BSH">
+                                <rect key="frame" x="339" y="0.0" width="80" height="80"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downarrow 1" translatesAutoresizingMaskIntoConstraints="NO" id="zsi-YT-bHE">
+                                        <rect key="frame" x="35" y="30" width="10" height="5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="5" id="42A-ac-3Eu"/>
+                                            <constraint firstAttribute="width" constant="10" id="swL-Va-0AV"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nxW-ic-FqV">
+                                        <rect key="frame" x="25.333333333333314" y="40" width="29.333333333333329" height="24"/>
+                                        <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald" pointSize="16"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMZ-8z-0pK">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="disTaoOnMoreBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="sJs-oa-O3Z"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="PriceBoxColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="5iI-9x-rbD"/>
+                                    <constraint firstAttribute="height" constant="80" id="MMU-rE-HPQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="xMZ-8z-0pK" secondAttribute="bottom" id="Mmt-Fe-Ewe"/>
+                                    <constraint firstItem="nxW-ic-FqV" firstAttribute="top" secondItem="zsi-YT-bHE" secondAttribute="bottom" constant="5" id="Otp-zz-S4A"/>
+                                    <constraint firstAttribute="trailing" secondItem="xMZ-8z-0pK" secondAttribute="trailing" id="Swy-38-52J"/>
+                                    <constraint firstItem="zsi-YT-bHE" firstAttribute="centerX" secondItem="XKV-Sg-BSH" secondAttribute="centerX" id="V8T-Uf-bQ2"/>
+                                    <constraint firstItem="nxW-ic-FqV" firstAttribute="centerX" secondItem="zsi-YT-bHE" secondAttribute="centerX" id="h2P-Fa-BjH"/>
+                                    <constraint firstItem="xMZ-8z-0pK" firstAttribute="top" secondItem="XKV-Sg-BSH" secondAttribute="top" id="kLa-qk-XK8"/>
+                                    <constraint firstItem="xMZ-8z-0pK" firstAttribute="leading" secondItem="XKV-Sg-BSH" secondAttribute="leading" id="mDe-hS-Fbp"/>
+                                    <constraint firstItem="zsi-YT-bHE" firstAttribute="top" secondItem="XKV-Sg-BSH" secondAttribute="top" constant="30" id="vVf-wc-lze"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" name="NavBackColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="lhW-e3-9To" secondAttribute="bottom" id="6Iy-2x-THx"/>
-                            <constraint firstAttribute="trailing" secondItem="lhW-e3-9To" secondAttribute="trailing" id="B0f-NH-f9X"/>
+                            <constraint firstItem="XKV-Sg-BSH" firstAttribute="leading" secondItem="lhW-e3-9To" secondAttribute="trailing" id="Pbo-ca-3qZ"/>
+                            <constraint firstAttribute="trailing" secondItem="XKV-Sg-BSH" secondAttribute="trailing" id="TkC-ML-PvB"/>
                             <constraint firstItem="lhW-e3-9To" firstAttribute="top" secondItem="3uu-hw-m0N" secondAttribute="top" id="WvO-wj-PP8"/>
-                            <constraint firstAttribute="height" constant="80" id="Yej-N6-miq"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="Yej-N6-miq"/>
                             <constraint firstItem="lhW-e3-9To" firstAttribute="leading" secondItem="3uu-hw-m0N" secondAttribute="leading" id="cTr-8S-zFa"/>
+                            <constraint firstItem="XKV-Sg-BSH" firstAttribute="top" secondItem="3uu-hw-m0N" secondAttribute="top" id="ukE-RO-t5R"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -52,13 +100,20 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="cvHeight" destination="ZBH-71-JBA" id="l2n-WP-xdF"/>
+                <outlet property="dropDownImg" destination="zsi-YT-bHE" id="xsm-yc-yUS"/>
+                <outlet property="morelbl" destination="nxW-ic-FqV" id="uYp-4c-cYd"/>
                 <outlet property="tabscv" destination="lhW-e3-9To" id="KYD-w2-iIS"/>
             </connections>
-            <point key="canvasLocation" x="164.12213740458014" y="46.126760563380287"/>
+            <point key="canvasLocation" x="164.12213740458014" y="45.774647887323944"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="downarrow 1" width="8.6666669845581055" height="4.3333334922790527"/>
         <namedColor name="NavBackColor">
+            <color red="0.17299999296665192" green="0.41600000858306885" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PriceBoxColor">
             <color red="0.17299999296665192" green="0.41600000858306885" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">

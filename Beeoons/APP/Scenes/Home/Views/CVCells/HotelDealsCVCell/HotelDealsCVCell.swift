@@ -15,7 +15,16 @@ class HotelDealsCVCell: UICollectionViewCell {
 
     @IBOutlet weak var bookBtn: UIButton!
     @IBOutlet weak var holderView: UIView!
+    @IBOutlet weak var hotelImg: UIImageView!
+    @IBOutlet weak var hotelNamelbl: UILabel!
+    @IBOutlet weak var citylbl: UILabel!
+    @IBOutlet weak var pricelbl: UILabel!
+    @IBOutlet weak var checkinValuelbl: UILabel!
+    @IBOutlet weak var checkoutValuelbl: UILabel!
+    @IBOutlet weak var hotetextlbl: UILabel!
     
+    
+    var citycode = String()
     var delegate:HotelDealsCVCellDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()

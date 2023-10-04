@@ -127,7 +127,7 @@ extension FlightDetailsVC:FlightDetailsViewModelDelegate {
         farepricedetails = response.priceDetails
         grandTotal = response.priceDetails?.grand_total ?? ""
         bggAllowance = response.baggageAllowance ?? []
-        totalPricelbl.text = grandTotal
+        totalPricelbl.text = "\(response.priceDetails?.api_currency ?? "") : \(response.priceDetails?.grand_total ?? "")"
         
         
         bggAllowance.forEach { i in
