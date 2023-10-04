@@ -11,17 +11,14 @@ protocol FareRulesTVCellDelegate {
     func showContentBtnAction(cell:FareRulesTVCell)
 }
 
-class FareRulesTVCell: TableViewCell {
-
+class FareRulesTVCell: UITableViewCell {
+    
     @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var titlelbl: UILabel!
     @IBOutlet weak var subTitlelbl: UILabel!
     @IBOutlet weak var downBtn: UIButton!
     @IBOutlet weak var dropDownImg: UIImageView!
-   
-    @IBAction func showContentBtnAction(_ sender: Any) {
-        delegate?.showContentBtnAction(cell: self)
-    }
+    
     
     var showBool = true
     var delegate:FareRulesTVCellDelegate?
@@ -36,33 +33,31 @@ class FareRulesTVCell: TableViewCell {
         
         // Configure the view for the selected state
         
-        
     }
     
     override func prepareForReuse() {
         hide()
     }
-   
     
-    override func updateUI() {
-        titlelbl.text = cellInfo?.title ?? ""
-        subTitlelbl.text = cellInfo?.subTitle ?? ""
-    }
+    
+//    override func updateUI() {
+//        titlelbl.text = cellInfo?.title ?? ""
+//        subTitlelbl.text = cellInfo?.subTitle ?? ""
+//    }
     
     
     func setupUI() {
         holderView.backgroundColor = .WhiteColor
-        holderView.layer.cornerRadius = 5
+        holderView.layer.cornerRadius = 4
         holderView.clipsToBounds = true
-        holderView.layer.borderWidth = 1
-        holderView.layer.borderColor = UIColor.AppBorderColor.cgColor
+        //        holderView.layer.borderWidth = 1
+        //        holderView.layer.borderColor = UIColor.AppBorderColor.cgColor
         
         subTitlelbl.isHidden = true
         setuplabels(lbl: titlelbl, text: "Cancellation fees", textcolor: .TitleColor, font: .OswaldMedium(size: 14), align: .left)
         setuplabels(lbl: subTitlelbl, text: "", textcolor: .TitleColor, font: .OswaldRegular(size: 12), align: .left)
         
         dropDownImg.image = UIImage(named: "down")?.withRenderingMode(.alwaysOriginal).withTintColor(.NavBackColor)
-        
         downBtn.isHidden = true
     }
     
@@ -77,5 +72,11 @@ class FareRulesTVCell: TableViewCell {
         subTitlelbl.isHidden = true
         dropDownImg.image = UIImage(named: "down")?.withRenderingMode(.alwaysOriginal).withTintColor(.NavBackColor)
     }
+    
+    @IBAction func showContentBtnAction(_ sender: Any) {
+        delegate?.showContentBtnAction(cell: self)
+    }
+    
+    
     
 }

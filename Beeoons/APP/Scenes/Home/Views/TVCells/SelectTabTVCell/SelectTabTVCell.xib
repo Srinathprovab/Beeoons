@@ -42,7 +42,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XKV-Sg-BSH">
                                 <rect key="frame" x="339" y="0.0" width="80" height="80"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downarrow 1" translatesAutoresizingMaskIntoConstraints="NO" id="zsi-YT-bHE">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downarrow1" translatesAutoresizingMaskIntoConstraints="NO" id="zsi-YT-bHE">
                                         <rect key="frame" x="35" y="30" width="10" height="5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="5" id="42A-ac-3Eu"/>
@@ -109,7 +109,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="downarrow 1" width="8.6666669845581055" height="4.3333334922790527"/>
+        <image name="downarrow1" width="8.6666669845581055" height="4.3333334922790527"/>
         <namedColor name="NavBackColor">
             <color red="0.17299999296665192" green="0.41600000858306885" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

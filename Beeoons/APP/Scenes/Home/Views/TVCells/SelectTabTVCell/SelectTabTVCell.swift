@@ -37,7 +37,7 @@ class SelectTabTVCell: TableViewCell {
     
     func setupCV() {
         
-        dropDownImg.image = UIImage(named: "downarrow 1")?.withRenderingMode(.alwaysOriginal).withTintColor(.WhiteColor)
+        dropDownImg.image = UIImage(named: "downarrow1")?.withRenderingMode(.alwaysOriginal).withTintColor(.WhiteColor)
         let nib = UINib(nibName: "SelectTabCVCell", bundle: nil)
         tabscv.register(nib, forCellWithReuseIdentifier: "cell")
         tabscv.delegate = self
@@ -74,7 +74,7 @@ class SelectTabTVCell: TableViewCell {
     func actionIfFalse() {
         cvHeight.constant = 80
         morelbl.text = "More"
-        dropDownImg.image = UIImage(named: "downarrow 1")?.withRenderingMode(.alwaysOriginal).withTintColor(.WhiteColor)
+        dropDownImg.image = UIImage(named: "downarrow1")?.withRenderingMode(.alwaysOriginal).withTintColor(.WhiteColor)
     }
 }
 

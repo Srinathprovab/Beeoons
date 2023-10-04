@@ -32,7 +32,7 @@ class ContactInfoVC: BaseTableVC {
     
     
     func setupUI() {
-        totalPricelbl.text = grandTotal
+        totalPricelbl.text = "\(defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? ""):\(grandTotal)"
         bottomView.layer.borderWidth = 0.2
         bottomView.layer.borderColor = UIColor.UnselectedBtnColor.cgColor
         commonTableView.registerTVCells(["PrimaryContactInfoTVCell",

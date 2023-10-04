@@ -112,6 +112,9 @@ class FlightResultVC: BaseTableVC, TimerManagerDelegate {
         guard let vc = FlightDetailsVC.newInstance.self else {return}
         vc.modalPresentationStyle = .overCurrentContext
         callapibool = true
+        vc.citysString = self.cityslbl.text ?? ""
+        vc.datesString = self.datelbl.text ?? ""
+        
         self.present(vc, animated: false)
     }
     

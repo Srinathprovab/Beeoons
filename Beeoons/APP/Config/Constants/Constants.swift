@@ -27,7 +27,7 @@ let KAccesstokenValue = ""
 var key = ""
 let screenHeight = UIScreen.main.bounds.size.height
 //var data : Data?
-var loderBool = false
+var loderBool = true
 var callapibool = false
 var menubool = false
 var mobilenoMaxLengthBool = false
@@ -72,6 +72,8 @@ var fd = [[FlightDetails]]()
 var bggAllowance = [BaggageAllowance]()
 var farepricedetails:PriceDetails?
 var fareRulesData = [FareRulehtml]()
+var fareRulesData1 = [FareRuleData]()
+
 var Adults_Base_Price = String()
 var Adults_Tax_Price = String()
 var Childs_Base_Price = String()

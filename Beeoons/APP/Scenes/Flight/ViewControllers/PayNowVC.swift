@@ -26,10 +26,8 @@ class PayNowVC: BaseTableVC, TimerManagerDelegate {
     var searchTextArray = [String]()
     var tmpFlightPreBookingId = String()
     var tokenkey1 = String()
-    var callpaymentbool = true
-    var fnameCharBool = true
-    var lnameCharBool = true
-    var billingaddressBool = true
+    
+    
     var payload = [String:Any]()
     var payload1 = [String:Any]()
     var secureapidonebool = false
@@ -39,7 +37,7 @@ class PayNowVC: BaseTableVC, TimerManagerDelegate {
     var stateSelected = String()
     var citySelected = String()
     var postalCode = String()
-    
+    var passengertypeArray = [String]()
     
     var dates = String()
     var citys = String()
@@ -111,10 +109,11 @@ class PayNowVC: BaseTableVC, TimerManagerDelegate {
     
     //MARK: - setupUI
     func setupUI() {
+        travelerArray.removeAll()
         bottomView.addCornerRadiusWithShadow(color: .AppBorderColor, borderColor: .clear, cornerRadius: 4)
         bottomView.layer.borderColor = UIColor.AppBorderColor.cgColor
         bottomView.layer.borderWidth = 1
-        totalPricelbl.text = grandTotal
+        totalPricelbl.text = "\(defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? ""):\(grandTotal)"
         
         commonTableView.registerTVCells(["TDetailsLoginTVCell",
                                          "PurchaseSummaryTVCell",
@@ -133,14 +132,14 @@ class PayNowVC: BaseTableVC, TimerManagerDelegate {
     func setupTV() {
         
         tablerow.removeAll()
+        passengertypeArray.removeAll()
+        
         
         if let loginstatus = defaults.object(forKey: UserDefaultsKeys.loggedInStatus) as? Bool , loginstatus == false {
             tablerow.append(TableRow(cellType:.TDetailsLoginTVCell))
-            positionsCount = 2
         }
         
         tablerow.append(TableRow(moreData:flightsummary,cellType:.ViewFlightDetailsTVCell))
-        
         tablerow.append(TableRow(height:20,cellType:.EmptyTVCell))
         tablerow.append(TableRow(title:"\(adultsCount)",
                                  subTitle: "\(childCount)",
@@ -148,11 +147,11 @@ class PayNowVC: BaseTableVC, TimerManagerDelegate {
                                  cellType:.TotalTravellerCountTVCell))
         
         
-        tablerow.append(TableRow(height:2,cellType:.EmptyTVCell))
+        
         for i in 1...adultsCount {
             positionsCount += 1
+            passengertypeArray.append("Adult")
             let travellerCell = TableRow(title: "Adult \(i)", key: "adult", characterLimit: positionsCount, cellType: .AddDeatilsOfTravellerTVCell)
-            searchTextArray.append("Adult \(i)")
             tablerow.append(travellerCell)
             
         }
@@ -161,16 +160,16 @@ class PayNowVC: BaseTableVC, TimerManagerDelegate {
         if childCount != 0 {
             for i in 1...childCount {
                 positionsCount += 1
+                passengertypeArray.append("Child")
                 tablerow.append(TableRow(title:"Child \(i)",key:"child",characterLimit: positionsCount,cellType:.AddDeatilsOfTravellerTVCell))
-                searchTextArray.append("Child \(i)")
             }
         }
         
         if infantsCount != 0 {
             for i in 1...infantsCount {
                 positionsCount += 1
+                passengertypeArray.append("Infant")
                 tablerow.append(TableRow(title:"Infant \(i)",key:"infant",characterLimit: positionsCount,cellType:.AddDeatilsOfTravellerTVCell))
-                searchTextArray.append("Infant \(i)")
             }
         }
         
@@ -333,15 +332,18 @@ extension PayNowVC {
         
         
         holderView.isHidden = false
-        tmpFlightPreBookingId = response.pre_booking_params?.transaction_id ?? ""
-        tokenkey1 = response.pre_booking_params?.token_key ?? ""
-        flightsummary = response.flight_data?.summary ?? []
+        
+      //  flightsummary = response.flight_data?.summary ?? []
+        selectedAccesskey = response.access_key_tp ?? ""
+        tokenkey1 = response.token_key ?? ""
+        tmpFlightPreBookingId = response.tmp_flight_pre_booking_id ?? ""
         
         
-        flightsummary.forEach { i in
-            citys = "\(i.origin?.city ?? "")(\(i.origin?.loc ?? "")) to \(i.destination?.city ?? "")(\(i.destination?.loc ?? ""))"
-            dates = "\(i.origin?.date ?? "")"
-        }
+        
+//        flightsummary.forEach { i in
+//            citys = "\(i.origin?.city ?? "")(\(i.origin?.loc ?? "")) to \(i.destination?.city ?? "")(\(i.destination?.loc ?? ""))"
+//            dates = "\(i.origin?.date ?? "")"
+//        }
         
         DispatchQueue.main.async {[self] in
             setupTV()
@@ -365,23 +367,24 @@ extension PayNowVC: PreProcessBookingViewModelDelegate{
         payload.removeAll()
         payload1.removeAll()
         
-        var textfilldshouldmorethan3lettersBool = true
         
-        
+        var callpaymentbool = true
+        var fnameCharBool = true
+        var lnameCharBool = true
+        var billingaddressBool = true
         
         
         for traveler in travelerArray {
             
             if traveler.firstName == nil  || traveler.firstName?.isEmpty == true{
                 callpaymentbool = false
-                
             }
             
             if (traveler.firstName?.count ?? 0) <= 3 {
                 fnameCharBool = false
             }
             
-            if traveler.lastName == nil || traveler.firstName?.isEmpty == true{
+            if traveler.lastName == nil || traveler.lastName?.isEmpty == true{
                 callpaymentbool = false
             }
             
@@ -416,6 +419,8 @@ extension PayNowVC: PreProcessBookingViewModelDelegate{
         
         for position in 0..<positionsCount {
             // Fetch the cell for the given position
+            
+            // Fetch the cell for the given position
             if let cell = commonTableView.cellForRow(at: IndexPath(row: position, section: 0)) as? AddDeatilsOfTravellerTVCell {
                 
                 if cell.titleTF.text?.isEmpty == true {
@@ -425,37 +430,29 @@ extension PayNowVC: PreProcessBookingViewModelDelegate{
                     
                 } else {
                     // Textfield is not empty
-                    callpaymentbool = true
                 }
                 
-                if cell.fnameTF.text?.isEmpty == true{
+                if cell.fnameTF.text?.isEmpty == true {
                     // Textfield is empty
                     cell.fnameView.layer.borderColor = UIColor.red.cgColor
-                    cell.callpaymentbool = false
-                }else if ((cell.fnameTF.text?.count ?? 0) <= 3) {
-                    // Textfield is empty
-                    showToast(message: "Enter More Than 3 Chars")
-                    cell.fnameView.layer.borderColor = UIColor.red.cgColor
-                    textfilldshouldmorethan3lettersBool = false
                     callpaymentbool = false
+                }else if (cell.fnameTF.text?.count ?? 0) <= 3{
+                    cell.fnameView.layer.borderColor = UIColor.red.cgColor
+                    fnameCharBool = false
                 }else {
-                    // Textfield is not empty
-                    callpaymentbool = true
+                    fnameCharBool = true
                 }
                 
                 if cell.lnameTF.text?.isEmpty == true {
                     // Textfield is empty
                     cell.lnameView.layer.borderColor = UIColor.red.cgColor
                     callpaymentbool = false
-                } else if ((cell.lnameTF.text?.count ?? 0) <= 3) {
-                    // Textfield is empty
-                    showToast(message: "Enter More Than 3 Chars")
+                }else if (cell.lnameTF.text?.count ?? 0) <= 3{
                     cell.lnameView.layer.borderColor = UIColor.red.cgColor
-                    textfilldshouldmorethan3lettersBool = false
-                    cell.callpaymentbool = false
-                }else {
+                    lnameCharBool = false
+                } else {
                     // Textfield is not empty
-                    callpaymentbool = true
+                    lnameCharBool = true
                 }
                 
                 
@@ -465,11 +462,7 @@ extension PayNowVC: PreProcessBookingViewModelDelegate{
                     callpaymentbool = false
                 } else {
                     // Textfield is not empty
-                    callpaymentbool = true
                 }
-                
-                
-                
                 
                 
                 if cell.passportnoTF.text?.isEmpty == true {
@@ -478,7 +471,6 @@ extension PayNowVC: PreProcessBookingViewModelDelegate{
                     callpaymentbool = false
                 } else {
                     // Textfield is not empty
-                    callpaymentbool = true
                 }
                 
                 
@@ -488,7 +480,6 @@ extension PayNowVC: PreProcessBookingViewModelDelegate{
                     callpaymentbool = false
                 } else {
                     // Textfield is not empty
-                    callpaymentbool = true
                 }
                 
                 
@@ -498,11 +489,10 @@ extension PayNowVC: PreProcessBookingViewModelDelegate{
                     callpaymentbool = false
                 } else {
                     // Textfield is not empty
-                    callpaymentbool = true
                 }
                 
-                
             }
+            
             
             
             
@@ -587,7 +577,7 @@ extension PayNowVC: PreProcessBookingViewModelDelegate{
                 } else {
                     // Textfield is not empty
                     billingaddressBool = true
-                    countryCode = cell.countryTF.text ?? ""
+                    countrySelected = cell.countryTF.text ?? ""
                 }
                 
                 
@@ -611,23 +601,6 @@ extension PayNowVC: PreProcessBookingViewModelDelegate{
         }
         
         
-        //        let mrtitleArray = travelerArray.compactMap({$0.mrtitle})
-        //        let laedpassengerArray = travelerArray.compactMap({$0.laedpassenger})
-        //        let middlenameArray = travelerArray.compactMap({$0.middlename})
-        //        let passengertypeArray = travelerArray.compactMap({$0.passengertype})
-        //        let firstnameArray = travelerArray.compactMap({$0.firstName})
-        //        let lastNameArray = travelerArray.compactMap({$0.lastName})
-        //        let dobArray = travelerArray.compactMap({$0.dob})
-        //        let passportnoArray = travelerArray.compactMap({$0.passportno})
-        //        let passportIssuingCountryArray = travelerArray.compactMap({$0.passportIssuingCountry})
-        //        let passportExpireDateArray = travelerArray.compactMap({$0.passportExpireDate})
-        //        //        let frequentFlyrNoArray = travelerArray.compactMap({$0.frequentFlyrNo})
-        //        //        let mealNameArray = travelerArray.compactMap({$0.meal})
-        //        //        let specialAssicintenceArray = travelerArray.compactMap({$0.specialAssicintence})
-        //            let genderArray = travelerArray.compactMap({$0.gender})
-        //        //        let nationalityArray = travelerArray.compactMap({$0.nationality})
-        
-        
         
         let laedpassengerArray = travelerArray.compactMap({$0.laedpassenger})
         let mrtitleArray = travelerArray.compactMap({$0.mrtitle})
@@ -640,7 +613,7 @@ extension PayNowVC: PreProcessBookingViewModelDelegate{
         //   let nationalityArray = travelerArray.compactMap({$0.nationality})
         let passportIssuingCountryArray = travelerArray.compactMap({$0.passportIssuingCountry})
         let passportExpireDateArray = travelerArray.compactMap({$0.passportExpireDate})
-        let passengertypeArray = travelerArray.compactMap({$0.passengertype})
+      //  let passengertypeArray = travelerArray.compactMap({$0.passengertype})
         
         
         // Convert arrays to string representations
@@ -677,7 +650,7 @@ extension PayNowVC: PreProcessBookingViewModelDelegate{
         payload["passenger_type"] = passengertypeArrayString
         payload["lead_passenger"] = laedpassengerString
         payload["gender"] = genderString
-        //        payload["passenger_nationality"] = ["92"]
+        payload["passenger_nationality"] = passportIssuingCountryString
         payload["name_title"] =  mrtitleString
         payload["first_name"] =  firstnameString
         payload["middle_name"] =  middlenameString
@@ -686,10 +659,11 @@ extension PayNowVC: PreProcessBookingViewModelDelegate{
         payload["passenger_passport_number"] =  passportnoString
         payload["passenger_passport_issuing_country"] =  passportIssuingCountryString
         payload["passenger_passport_expiry"] =  passportExpireDateString
-        payload["Frequent"] = [["Select"]]
-        payload["ff_no"] = [[""]]
-        payload["payment_method"] =  "PNHB1"
         
+        payload["Frequent"] = "\([["Select"]])"
+        payload["ff_no"] = "\([[""]])"
+        
+        payload["payment_method"] =  "PNHB1"
         payload["address2"] = street
         payload["billing_address_1"] = aprtment
         payload["billing_state"] = stateSelected
@@ -714,8 +688,6 @@ extension PayNowVC: PreProcessBookingViewModelDelegate{
             showToast(message: "First Name Should More Than 3 Chars")
         }else if lnameCharBool == false {
             showToast(message: "Last Name Should More Than 3 Chars")
-        }else if callpaymentbool == false {
-            showToast(message: "Add Details")
         }else if checkTermsAndCondationStatus == false {
             showToast(message: "Please Accept T&C and Privacy Policy")
         }else {

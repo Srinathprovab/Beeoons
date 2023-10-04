@@ -7,7 +7,8 @@
 
 import UIKit
 
-class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVCellDelegate, FlightDealsTVCellDelegate, BookFlightTVCellDelegate, TravellerEconomyTVCellDelegate, ButtonTVCellDelegate, FlightResultTVCellDelegate, CheckBoxTVCellDelegate, checkOptionsTVCellDelegate, SliderTVCellDelegate, SortByPriceTVCellDelegate, MenuOptionTVCellDelegate, MenuBGTVCellDelegate, RegisterUserTVCellDelegate, UserNameTextFieldTVCellDelegate, FareRulesTVCellDelegate, ViewFlightDetailsTVCellDelegate, BookFlightMCTVCellDelegate, PromocodeTVCellDelegate, PrimaryContactInfoTVCellDelegate, TDetailsLoginTVCellDelegate, AddDeatilsOfTravellerTVCellDelegate, AcceptTermsAndConditionTVCellDelegate, ResetPasswordTVCellDelegate, BillingAddressTVCellDelegate, BookHotelTVCellDelegate, HotelsResultVCTVCellDelegate {
+class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVCellDelegate, FlightDealsTVCellDelegate, BookFlightTVCellDelegate, TravellerEconomyTVCellDelegate, ButtonTVCellDelegate, FlightResultTVCellDelegate, CheckBoxTVCellDelegate, checkOptionsTVCellDelegate, SliderTVCellDelegate, SortByPriceTVCellDelegate, MenuOptionTVCellDelegate, MenuBGTVCellDelegate, RegisterUserTVCellDelegate, UserNameTextFieldTVCellDelegate, FareRulesTVCellDelegate, ViewFlightDetailsTVCellDelegate, BookFlightMCTVCellDelegate, PromocodeTVCellDelegate, PrimaryContactInfoTVCellDelegate, TDetailsLoginTVCellDelegate, AddDeatilsOfTravellerTVCellDelegate, AcceptTermsAndConditionTVCellDelegate, ResetPasswordTVCellDelegate, BillingAddressTVCellDelegate, BookHotelTVCellDelegate, HotelsResultVCTVCellDelegate, AddFareRulesTVCellDelegate {
+    
     
     
     @IBOutlet weak var commonScrollView: UITableView!
@@ -174,6 +175,7 @@ class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVC
     func didTapOnSearchHotelBtnAction(cell: BookHotelTVCell) {}
     func didTapOnHotelDetailsBtnAction(cell: HotelsResultVCTVCell) {}
     func didTapOnCancellationBtnAction(cell: HotelsResultVCTVCell) {}
+    func didTapOnFareRulesBtnAction(cell: AddFareRulesTVCell) {}
     
     
     
@@ -382,10 +384,10 @@ extension BaseTableVC: UITableViewDataSource {
                 
                 
                 
-            case .FareRulesTVCell:
-                let cell:  FareRulesTVCell = commonTV.dequeTVCell(indexPath: indexPath)
-                cell.delegate = self
-                commonCell = cell
+//            case .FareRulesTVCell:
+//                let cell:  FareRulesTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+//                cell.delegate = self
+//                commonCell = cell
                 
                 
                 
@@ -493,7 +495,16 @@ extension BaseTableVC: UITableViewDataSource {
                 commonCell = cell
                 
                 
+            case .AddFareBreakDownTVCell:
+                let cell:  AddFareBreakDownTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
                 
+                
+                
+            case .AddFareRulesTVCell:
+                let cell:  AddFareRulesTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
                 
                 
                 

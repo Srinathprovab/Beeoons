@@ -33,7 +33,7 @@ class DashboardVC: BaseTableVC {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        loderBool = true
         addObserver()
         
         if !UserDefaults.standard.bool(forKey: "ExecuteOnce") {
@@ -149,7 +149,7 @@ class DashboardVC: BaseTableVC {
             break
             
         case "HOTEL":
-            gotoBookHotelVC()
+          // gotoBookHotelVC()
             break
             
         case "RENT A CAR":
@@ -258,7 +258,6 @@ class DashboardVC: BaseTableVC {
     func gotoFlightResultVC() {
         guard let vc = FlightResultVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
-        loderBool = true
         callapibool = true
         vc.payload = payload
         self.present(vc, animated: true)

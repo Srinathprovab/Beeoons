@@ -33,10 +33,10 @@ class MenuBtnWithLogoTVCell: TableViewCell {
         // Initialization code
         setupDropDown()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -48,7 +48,6 @@ class MenuBtnWithLogoTVCell: TableViewCell {
     }
     
     
-   
     
     func loadCountryNamesAndCode(){
         countryNames.removeAll()
@@ -58,7 +57,7 @@ class MenuBtnWithLogoTVCell: TableViewCell {
         filterdcountrylist.forEach { i in
             countryNames.append(i.name ?? "")
             countrySymbols.append(i.symbol ?? "")
-           
+            
         }
         
         DispatchQueue.main.async {[self] in

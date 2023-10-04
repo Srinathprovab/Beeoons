@@ -53,8 +53,11 @@ class FarBreakdownTVCell: TableViewCell {
     
     
     func setupUI(){
-        holderView.layer.borderWidth = 1
-        holderView.layer.borderColor = UIColor.UnselectedBtnColor.cgColor
+//        holderView.layer.borderWidth = 1
+//        holderView.layer.borderColor = UIColor.UnselectedBtnColor.cgColor
     }
+    
+    
+    
     
 }

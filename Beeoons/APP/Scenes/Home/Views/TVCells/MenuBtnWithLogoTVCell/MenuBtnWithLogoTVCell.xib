@@ -73,18 +73,6 @@
                                     <constraint firstAttribute="bottom" secondItem="WsW-I9-os0" secondAttribute="bottom" id="nbp-rS-V8D"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AUK-6V-i3t">
-                                <rect key="frame" x="366" y="25" width="20" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="BCu-gc-G7l"/>
-                                    <constraint firstAttribute="width" constant="20" id="diR-h2-i6e"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="menu"/>
-                                <connections>
-                                    <action selector="didTapOnMenuBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="M66-Gw-yz5"/>
-                                </connections>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play" translatesAutoresizingMaskIntoConstraints="NO" id="LXd-3E-Yqe">
                                 <rect key="frame" x="10" y="10" width="80" height="50"/>
                                 <constraints>
@@ -92,18 +80,60 @@
                                     <constraint firstAttribute="width" constant="80" id="dZ4-Hj-dDj"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BEx-5B-PMr" customClass="BorderedView" customModule="Beeoons" customModuleProvider="target">
+                                <rect key="frame" x="366" y="22.666666666666671" width="25" height="25"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu" translatesAutoresizingMaskIntoConstraints="NO" id="9WF-Oj-1pZ">
+                                        <rect key="frame" x="5" y="5" width="15" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="KqC-9Z-3OC"/>
+                                            <constraint firstAttribute="width" constant="15" id="qRe-hD-Joi"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEO-LH-Hug">
+                                        <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="didTapOnMenuBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Tlj-bQ-TQG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="0cn-4S-lM8"/>
+                                    <constraint firstItem="xEO-LH-Hug" firstAttribute="top" secondItem="BEx-5B-PMr" secondAttribute="top" id="FF3-D4-fdf"/>
+                                    <constraint firstAttribute="bottom" secondItem="xEO-LH-Hug" secondAttribute="bottom" id="Nau-ik-Uql"/>
+                                    <constraint firstItem="9WF-Oj-1pZ" firstAttribute="centerX" secondItem="BEx-5B-PMr" secondAttribute="centerX" id="Ofn-7m-ijW"/>
+                                    <constraint firstAttribute="height" constant="25" id="Xgm-0Z-jr9"/>
+                                    <constraint firstItem="xEO-LH-Hug" firstAttribute="leading" secondItem="BEx-5B-PMr" secondAttribute="leading" id="b5a-Es-xMe"/>
+                                    <constraint firstAttribute="trailing" secondItem="xEO-LH-Hug" secondAttribute="trailing" id="hUx-Y7-8Fr"/>
+                                    <constraint firstItem="9WF-Oj-1pZ" firstAttribute="centerY" secondItem="BEx-5B-PMr" secondAttribute="centerY" id="pJP-j6-0pW"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="CalenderRangeColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="299-Ce-IJK" firstAttribute="leading" secondItem="BEx-5B-PMr" secondAttribute="trailing" id="1SJ-LC-GlI"/>
                             <constraint firstItem="N2Z-cF-Fg0" firstAttribute="centerX" secondItem="h2C-uh-Aok" secondAttribute="centerX" id="3XD-sS-S8a"/>
                             <constraint firstAttribute="trailing" secondItem="299-Ce-IJK" secondAttribute="trailing" constant="15" id="4Z5-Qe-JGk"/>
                             <constraint firstItem="LXd-3E-Yqe" firstAttribute="leading" secondItem="h2C-uh-Aok" secondAttribute="leading" constant="10" id="5OM-IW-waL"/>
+                            <constraint firstItem="BEx-5B-PMr" firstAttribute="centerY" secondItem="WsW-I9-os0" secondAttribute="centerY" id="KjC-L5-ZYR"/>
                             <constraint firstItem="LXd-3E-Yqe" firstAttribute="centerY" secondItem="N2Z-cF-Fg0" secondAttribute="centerY" id="QFI-f3-xHD"/>
                             <constraint firstItem="N2Z-cF-Fg0" firstAttribute="centerY" secondItem="h2C-uh-Aok" secondAttribute="centerY" id="QMe-yi-Zop"/>
                             <constraint firstItem="299-Ce-IJK" firstAttribute="centerY" secondItem="N2Z-cF-Fg0" secondAttribute="centerY" id="Txg-nm-2PE"/>
-                            <constraint firstItem="299-Ce-IJK" firstAttribute="leading" secondItem="AUK-6V-i3t" secondAttribute="trailing" constant="5" id="Vlf-if-sI0"/>
                             <constraint firstAttribute="height" constant="70" id="npC-od-ESS"/>
-                            <constraint firstItem="AUK-6V-i3t" firstAttribute="centerY" secondItem="WsW-I9-os0" secondAttribute="centerY" id="qvC-cE-xXs"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -127,6 +157,9 @@
         <image name="logo1" width="123.33333587646484" height="41.666667938232422"/>
         <image name="menu" width="30" height="30"/>
         <image name="play" width="64.69000244140625" height="36.380001068115234"/>
+        <namedColor name="CalenderRangeColor">
+            <color red="0.75700002908706665" green="0.63099998235702515" blue="0.49000000953674316" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="TitleColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

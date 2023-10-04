@@ -30,7 +30,7 @@
                         <rect key="frame" x="16" y="12" width="437" height="128"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s6s-GZ-y1n">
-                                <rect key="frame" x="341" y="10" width="86" height="36"/>
+                                <rect key="frame" x="341" y="13" width="86" height="36"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KWD 35.50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GIc-DX-Ac1">
                                         <rect key="frame" x="2" y="6" width="82" height="24"/>
@@ -50,8 +50,8 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Refundable" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppS-Zn-Nge">
-                                <rect key="frame" x="341" y="52" width="86" height="24"/>
-                                <fontDescription key="fontDescription" name="Oswald-Light" family="Oswald" pointSize="16"/>
+                                <rect key="frame" x="341" y="55" width="86" height="21"/>
+                                <fontDescription key="fontDescription" name="Oswald-Light" family="Oswald" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -110,7 +110,7 @@
                             <constraint firstAttribute="trailing" secondItem="ppS-Zn-Nge" secondAttribute="trailing" constant="10" id="c3s-kZ-12o"/>
                             <constraint firstAttribute="bottom" secondItem="CpC-wV-7CQ" secondAttribute="bottom" constant="10" id="ebw-cI-NMe"/>
                             <constraint firstItem="CpC-wV-7CQ" firstAttribute="leading" secondItem="gg8-gs-Ttj" secondAttribute="leading" constant="10" id="f8q-vH-53s"/>
-                            <constraint firstItem="s6s-GZ-y1n" firstAttribute="top" secondItem="CpC-wV-7CQ" secondAttribute="top" id="rir-TY-BMT"/>
+                            <constraint firstItem="ppS-Zn-Nge" firstAttribute="top" secondItem="s6s-GZ-y1n" secondAttribute="bottom" constant="6" id="woN-lk-Wuw"/>
                             <constraint firstItem="CpC-wV-7CQ" firstAttribute="top" secondItem="gg8-gs-Ttj" secondAttribute="top" constant="10" id="xev-Rf-NbW"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>

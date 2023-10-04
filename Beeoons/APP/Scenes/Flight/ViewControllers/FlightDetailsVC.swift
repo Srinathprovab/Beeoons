@@ -7,17 +7,25 @@
 
 import UIKit
 
+
+struct FareRuleData {
+    var rule_heading: String?
+    var rule_content: String?
+    var isExpanded: Bool = false // Initially, all cells are collapsed
+}
+
 class FlightDetailsVC: BaseTableVC, TimerManagerDelegate {
     
     
     @IBOutlet weak var holderView: UIView!
-    @IBOutlet weak var cityHolderView: UIView!
-    @IBOutlet weak var cityslbl: UILabel!
-    @IBOutlet weak var hourlbl: UILabel!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var totalPricelbl: UILabel!
+    @IBOutlet weak var cityslbl: UILabel!
+    @IBOutlet weak var datelbl: UILabel!
     
-    
+    var citysArray = [String]()
+    var citysString = String()
+    var datesString = String()
     var tablerow = [TableRow]()
     var vm : FlightDetailsViewModel?
     var payload = [String:Any]()
@@ -77,22 +85,25 @@ class FlightDetailsVC: BaseTableVC, TimerManagerDelegate {
     
     func setupUI() {
         bottomView.addCornerRadiusWithShadow(color: .AppBorderColor, borderColor: .clear, cornerRadius: 4)
-        cityHolderView.addCornerRadiusWithShadow(color: .clear, borderColor: .AppBorderColor, cornerRadius: 0)
         commonTableView.registerTVCells(["AddItineraryTVCell",
                                          "EmptyTVCell",
                                          "LabelTVCell",
                                          "FarBreakdownTVCell",
+                                         "AddFareBreakDownTVCell",
                                          "BaggageInfoTVCell",
+                                         "AddFareRulesTVCell",
                                          "FareRulesTVCell"])
         
     }
     
     
     
-    @IBAction func didTapOnCloseBtnAction(_ sender: Any) {
-        NotificationCenter.default.post(name: NSNotification.Name("reloadTimer"), object: nil)
+    //MARK: -didTapOnBackBtnAction
+    @IBAction func didTapOnBackBtnAction(_ sender: Any) {
         dismiss(animated: true)
     }
+    
+    
     
     
     
@@ -104,7 +115,27 @@ class FlightDetailsVC: BaseTableVC, TimerManagerDelegate {
     }
     
     
-    var citysArray = [String]()
+    
+    
+    override func didTapOnFareRulesBtnAction(cell: AddFareRulesTVCell) {
+        commonTableView.reloadData()
+    }
+    
+    
+    override func showContentBtnAction(cell:FareRulesTVCell){
+        if cell.showBool == true {
+            cell.show()
+            cell.showBool = false
+        }else {
+            cell.hide()
+            cell.showBool = true
+        }
+        
+        
+        commonTableView.reloadData()
+    }
+    
+    
 }
 
 
@@ -134,13 +165,19 @@ extension FlightDetailsVC:FlightDetailsViewModelDelegate {
             citysArray.append("\(i.journeySummary ?? "")")
         }
         
-        fd.forEach { i in
-            i.forEach { j in
-                hourlbl.text = j.duration ?? ""
+        
+       
+        if let fareRulehtmlArray = response.fareRulehtml {
+            for item in fareRulehtmlArray {
+                let rule_heading = item.rule_heading
+                let rule_content = item.rule_content
+
+                // Now you can use rule_heading and rule_content for each item
+                let fareRule = FareRuleData(rule_heading: rule_heading, rule_content: rule_content)
+                fareRulesData1.append(fareRule)
             }
         }
-       
-        cityslbl.text = citysArray.joined(separator: "-")
+
         
         DispatchQueue.main.async {
             self.setupItineraryTVCells()
@@ -157,99 +194,12 @@ extension FlightDetailsVC:FlightDetailsViewModelDelegate {
             tablerow.append(TableRow(moreData:i,cellType:.AddItineraryTVCell))
         }
         
-        
         tablerow.append(TableRow(title:"Fare Breakdown",cellType:.LabelTVCell))
-        if adultsCount > 0 && childCount == 0 && infantsCount == 0 {
-            tablerow.append(TableRow(passengerType:"Adult",
-                                     basefare: farepricedetails?.adultsBasePrice,
-                                     tax:farepricedetails?.adultsTaxPrice,
-                                     subtotal: farepricedetails?.sub_total_adult,
-                                     noofpassengers: "\(adultsCount)",
-                                     totalBreakdown:farepricedetails?.adultsTotalPrice,
-                                     tripCost:farepricedetails?.grand_total,
-                                     cellType: .FarBreakdownTVCell))
-            
-        }else if adultsCount > 0 && childCount > 0 && infantsCount == 0 {
-            
-            tablerow.append(TableRow(passengerType:"Adult",
-                                     basefare: farepricedetails?.adultsBasePrice,
-                                     tax:farepricedetails?.adultsTaxPrice,
-                                     subtotal: farepricedetails?.sub_total_adult,
-                                     noofpassengers: "\(adultsCount)",
-                                     totalBreakdown:farepricedetails?.adultsTotalPrice,
-                                     tripCost:farepricedetails?.grand_total,
-                                     key: "hide",
-                                     cellType: .FarBreakdownTVCell))
-            
-            tablerow.append(TableRow(passengerType:"Child",
-                                     basefare: farepricedetails?.childBasePrice,
-                                     tax:farepricedetails?.childTaxPrice,
-                                     subtotal: farepricedetails?.sub_total_child,
-                                     noofpassengers: "\(childCount)",
-                                     totalBreakdown:farepricedetails?.childTotalPrice,
-                                     tripCost:farepricedetails?.grand_total,
-                                     cellType: .FarBreakdownTVCell))
-            
-        }else if adultsCount > 0 && childCount == 0 && infantsCount > 0 {
-            
-            tablerow.append(TableRow(passengerType:"Adult",
-                                     basefare: farepricedetails?.adultsBasePrice,
-                                     tax:farepricedetails?.adultsTaxPrice,
-                                     subtotal: farepricedetails?.sub_total_adult,
-                                     noofpassengers: "\(adultsCount)",
-                                     totalBreakdown:farepricedetails?.adultsTotalPrice,
-                                     tripCost:farepricedetails?.grand_total,
-                                     key: "hide",
-                                     cellType: .FarBreakdownTVCell))
-            
-            tablerow.append(TableRow(passengerType:"Infant",
-                                     basefare: farepricedetails?.infantBasePrice,
-                                     tax:farepricedetails?.infantTaxPrice,
-                                     subtotal: farepricedetails?.sub_total_infant,
-                                     noofpassengers: "\(infantsCount)",
-                                     totalBreakdown:farepricedetails?.infantTotalPrice,
-                                     tripCost:farepricedetails?.grand_total,
-                                     cellType: .FarBreakdownTVCell))
-        }else {
-            tablerow.append(TableRow(passengerType:"Adult",
-                                     basefare: farepricedetails?.adultsBasePrice,
-                                     tax:farepricedetails?.adultsTaxPrice,
-                                     subtotal: farepricedetails?.sub_total_adult,
-                                     noofpassengers: "\(adultsCount)",
-                                     totalBreakdown:farepricedetails?.adultsTotalPrice,
-                                     tripCost:farepricedetails?.grand_total,
-                                     key: "hide",
-                                     cellType: .FarBreakdownTVCell))
-            
-            tablerow.append(TableRow(passengerType:"Child",
-                                     basefare: farepricedetails?.childBasePrice,
-                                     tax:farepricedetails?.childTaxPrice,
-                                     subtotal: farepricedetails?.sub_total_child,
-                                     noofpassengers: "\(childCount)",
-                                     totalBreakdown:farepricedetails?.childTotalPrice,
-                                     tripCost:farepricedetails?.grand_total,
-                                     key: "hide",
-                                     cellType: .FarBreakdownTVCell))
-            
-            tablerow.append(TableRow(passengerType:"Infant",
-                                     basefare: farepricedetails?.infantBasePrice,
-                                     tax:farepricedetails?.infantTaxPrice,
-                                     subtotal: farepricedetails?.sub_total_infant,
-                                     noofpassengers: "\(infantsCount)",
-                                     totalBreakdown:farepricedetails?.infantTotalPrice,
-                                     tripCost:farepricedetails?.grand_total,
-                                     cellType: .FarBreakdownTVCell))
-            
-            
-        }
-        
-        tablerow.append(TableRow(title:"Fare Rules",cellType:.LabelTVCell))
+        tablerow.append(TableRow(cellType:.AddFareBreakDownTVCell))
         if fareRulesData.count != 0 {
-            fareRulesData.forEach { i in
-                tablerow.append(TableRow(title:i.rule_heading,subTitle: i.rule_content?.htmlToString,cellType:.FareRulesTVCell))
-            }
+            tablerow.append(TableRow(cellType:.AddFareRulesTVCell))
         }
-        tablerow.append(TableRow(height:20,bgColor: .WhiteColor,cellType:.EmptyTVCell))
+
         tablerow.append(TableRow(title:"Baggage Info",cellType:.LabelTVCell))
         tablerow.append(TableRow(cellType:.BaggageInfoTVCell))
         tablerow.append(TableRow(height:20,bgColor: .WhiteColor,cellType:.EmptyTVCell))
@@ -266,26 +216,6 @@ extension FlightDetailsVC:FlightDetailsViewModelDelegate {
 
 
 extension FlightDetailsVC {
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) as? FareRulesTVCell {
-            if cell.showBool == true {
-                cell.show()
-                cell.showBool = false
-            }else {
-                cell.hide()
-                cell.showBool = true
-            }
-        }
-        
-        commonTableView.beginUpdates()
-        commonTableView.endUpdates()
-    }
-    
-}
-
-
-
-extension FlightDetailsVC {
     
     func addObserver() {
         TimerManager.shared.delegate = self
@@ -293,10 +223,10 @@ extension FlightDetailsVC {
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name("reloadTV"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTimer), name: NSNotification.Name("reloadTimer"), object: nil)
-
+        
     }
     
-
+    
     
     @objc func reloadTimer(){
         DispatchQueue.main.async {

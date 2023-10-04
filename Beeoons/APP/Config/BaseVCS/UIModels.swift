@@ -54,7 +54,8 @@ enum TVCellType {
     case AcceptTermsAndConditionTVCell
     case ResetPasswordTVCell
     case TotalTravellerCountTVCell
-    
+    case AddFareBreakDownTVCell
+    case AddFareRulesTVCell
     
     
     //HOTEL
