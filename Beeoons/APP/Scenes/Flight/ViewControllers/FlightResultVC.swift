@@ -178,7 +178,7 @@ extension FlightResultVC:OnewayViewModelDelegate {
             cityCodes = "\(response.data?.search_params?.from_loc ?? "")"
             flightscountlbl.text = "\(response.data?.j_flight_list?.count ?? 0) Flights Found"
             
-            TimerManager.shared.totalTime = 900
+            TimerManager.shared.setTotalTime(900)
             TimerManager.shared.startTimer()
             
             let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
@@ -487,7 +487,7 @@ extension FlightResultVC:AppliedFilters{
         print("==== connectingAirportsFA ==== \(connectingAirportsFA)")
         
         
-        if let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType) {
+       
             
             let sortedArray = oneWayFlights.filter { flightList in
                 
@@ -521,9 +521,6 @@ extension FlightResultVC:AppliedFilters{
             
             setupTVCells(jfl: sortedArray)
             
-        }
-        
-        
         
     }
     
@@ -597,7 +594,7 @@ extension FlightResultVC {
     }
     
     func updateTimer() {
-        let totalTime = TimerManager.shared.totalTime
+        let totalTime = TimerManager.shared.getTotalTime()
         let minutes =  totalTime / 60
         let seconds = totalTime % 60
         let formattedTime = String(format: "%02d:%02d", minutes, seconds)

@@ -144,7 +144,7 @@ class PrimaryContactInfoTVCell: TableViewCell {
         v.backgroundColor = color
         v.layer.cornerRadius = radius
         v.clipsToBounds = true
-        v.layer.borderWidth = 0.2
+        v.layer.borderWidth = 1
         v.layer.borderColor = UIColor.UnselectedBtnColor.cgColor
     }
     

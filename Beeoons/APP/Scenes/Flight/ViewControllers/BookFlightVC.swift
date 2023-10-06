@@ -231,7 +231,8 @@ class BookFlightVC: BaseTableVC {
         if let cell = commonTableView.cellForRow(at: IndexPath(item: 0, section: 0)) as? BookFlightTVCell {
             
             payload.removeAll()
-            
+            NotificationCenter.default.post(name: NSNotification.Name("resetallFilters"), object: nil)
+
             let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
             if journyType == "oneway" {
                 
@@ -373,7 +374,8 @@ class BookFlightVC: BaseTableVC {
         payload1.removeAll()
         payload2.removeAll()
         fromdataArray.removeAll()
-        
+        NotificationCenter.default.post(name: NSNotification.Name("resetallFilters"), object: nil)
+
         for (index,_) in fromCityShortNameArray.enumerated() {
             
             payload2["from"] = fromCityNameArray[index]
@@ -469,7 +471,7 @@ class BookFlightVC: BaseTableVC {
     //MARK: - didTapOnBookFlightBtn
     override func didTapOnBookFlightBtn(cell: DealsCVCell) {
         payload.removeAll()
-        
+        NotificationCenter.default.post(name: NSNotification.Name("resetallFilters"), object: nil)
         defaults.set(cell.trip_type, forKey: UserDefaultsKeys.journeyType)
 
         

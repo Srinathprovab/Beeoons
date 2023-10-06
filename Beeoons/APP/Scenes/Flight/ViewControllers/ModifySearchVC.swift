@@ -215,12 +215,12 @@ class ModifySearchVC: BaseTableVC {
     //MARK: - didTapOnAddAirlineButtonAction
     override func didTapOnSearchFlightBtnAction(cell:BookFlightTVCell) {
         
-        
-        
-        
         if let cell = commonTableView.cellForRow(at: IndexPath(item: 0, section: 0)) as? BookFlightTVCell {
             
             payload.removeAll()
+            NotificationCenter.default.post(name: NSNotification.Name("resetallFilters"), object: nil)
+
+            
             
             let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
             if journyType == "oneway" {
@@ -237,7 +237,7 @@ class ModifySearchVC: BaseTableVC {
                 payload["depature"] = defaults.string(forKey: UserDefaultsKeys.calDepDate)
                 payload["return"] = ""
                 payload["carrier"] = ""
-                payload["psscarrier"] = ""
+                payload["psscarrier"] = selectedAirlineName
                 payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass) ?? "Economy"
                 payload["search_flight"] = "Search"
                 payload["search_source"] = "search"
@@ -279,7 +279,7 @@ class ModifySearchVC: BaseTableVC {
                 payload["depature"] = defaults.string(forKey: UserDefaultsKeys.rcalDepDate)
                 payload["return"] = defaults.string(forKey: UserDefaultsKeys.rcalRetDate)
                 payload["carrier"] = ""
-                payload["psscarrier"] = ""
+                payload["psscarrier"] = selectedAirlineName
                 payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass) ?? "Economy"
                 payload["search_flight"] = "Search"
                 payload["search_source"] = "search"
@@ -362,7 +362,7 @@ class ModifySearchVC: BaseTableVC {
         payload1.removeAll()
         payload2.removeAll()
         fromdataArray.removeAll()
-        
+        NotificationCenter.default.post(name: NSNotification.Name("resetallFilters"), object: nil)
         for (index,_) in fromCityShortNameArray.enumerated() {
             
             payload2["from"] = fromCityNameArray[index]

@@ -46,6 +46,13 @@ var indeximagepath = String()
 var currencylist = [Currency_list]()
 var airlinelist1 = [Airline_list]()
 
+
+//Filters
+var filterModel = FlightFilterModel()
+var sortBy: SortParameter = .nothing
+var hotelfiltermodel = HotelFilterModel()
+
+
 //Multicity
 var fromCityNameArray = ["From","From"]
 var fromCityShortNameArray = ["From","From"]

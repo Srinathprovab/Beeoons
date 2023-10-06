@@ -16,7 +16,7 @@ protocol CheckBoxTVCellDelegate {
 }
 
 class CheckBoxTVCell: TableViewCell {
-
+    
     @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var titlelbl: UILabel!
     @IBOutlet weak var checkOptionsTV: UITableView!
@@ -30,6 +30,7 @@ class CheckBoxTVCell: TableViewCell {
     var nameArray = [String]()
     var tvheight = CGFloat()
     var showbool = true
+    var selectedIndices = [IndexPath]()
     var delegate:CheckBoxTVCellDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -107,42 +108,381 @@ class CheckBoxTVCell: TableViewCell {
 
 extension CheckBoxTVCell:UITableViewDataSource,UITableViewDelegate {
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return nameArray.count
     }
     
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var commonCell = UITableViewCell()
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? checkOptionsTVCell {
-            cell.selectionStyle = .none
-            cell.titlelbl.text = nameArray[indexPath.row]
-            cell.filtertitle = self.titlelbl.text ?? ""
-            if self.key == "time" {
-                cell.sunImg.isHidden = false
-                cell.sunImg.image = UIImage(named: timeArray[indexPath.row])
-            }
-            commonCell = cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! checkOptionsTVCell
+        cell.selectionStyle = .none
+        cell.titlelbl.text = nameArray[indexPath.row]
+        cell.filtertitle = self.titlelbl.text ?? ""
+        
+        
+        // Check if this indexPath is in the selectedIndices array
+        if selectedIndices.contains(indexPath) {
+            cell.sele()
+        } else {
+            cell.unselected()
         }
-        return commonCell
+        
+        
+        if let tabselect = defaults.string(forKey: UserDefaultsKeys.tabselect) {
+            if tabselect == "FLIGHT" {
+                showSelectedFlightsFilterValues(cell: cell, indexPath: indexPath)
+            }else {
+                showSelectedHotelFilterValues(cell: cell, indexPath: indexPath)
+            }
+        }
+        
+        
+        return cell
     }
+    
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) as? checkOptionsTVCell {
-            cell.checkImg.image = UIImage(named: "chk")?.withRenderingMode(.alwaysOriginal)
+            cell.sele()
+            selectedIndices.append(indexPath)
+            
+            // Update your data source to reflect the selected state
+            // For example, if you're using filterModel:
+            filterModel.luggage.append(cell.titlelbl.text ?? "")
+            
             delegate?.didTapOnCheckBox(cell: cell)
         }
     }
     
-    
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) as? checkOptionsTVCell {
-            cell.checkImg.image = UIImage(named: "uncheck")?.withRenderingMode(.alwaysOriginal)
+            cell.unselected()
+            if let index = selectedIndices.firstIndex(of: indexPath) {
+                selectedIndices.remove(at: index)
+                
+                // Update your data source to reflect the deselected state
+                // For example, if you're using filterModel:
+                //                if let deselectedItem = cell.titlelbl.text {
+                //                    filterModel.luggage.removeAll { $0 == deselectedItem }
+                //                }
+            }
+            
             delegate?.didTapOnDeselectCheckBox(cell: cell)
+        }
+        
+        
+    }
+    
+    
+    
+    //MARK: - showSelectedFlightsFilterValues checkOptionsTVCell
+    
+    func showSelectedFlightsFilterValues(cell:checkOptionsTVCell,indexPath:IndexPath) {
+        
+        
+        
+        // Check the section title to determine which filter to apply
+        switch titlelbl.text {
+            
+            
+        case "Inbound Departurn Time":
+            if !filterModel.arrivalTime.isEmpty {
+                // Check if the cell's title matches any value in the luggage array
+                
+                
+                if filterModel.arrivalTime.contains(cell.titlelbl.text ?? "") {
+                    
+                    DispatchQueue.main.async {
+                        cell.sele()
+                        self.selectedIndices.append(indexPath)
+                        self.checkOptionsTV.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+                    }
+                    print("Selected: \(cell.titlelbl.text ?? "")")
+                } else {
+                    
+                    DispatchQueue.main.async {
+                        cell.unselected() // Deselect the cell
+                    }
+                    print("Deselected: \(cell.titlelbl.text ?? "")")
+                }
+            }else {
+                DispatchQueue.main.async {
+                    cell.unselected() // Deselect the cell
+                }
+            }
+            
+            
+            
+        case "Outbound Departurn Time":
+            if !filterModel.departureTime.isEmpty {
+                // Check if the cell's title matches any value in the luggage array
+                
+                
+                if filterModel.departureTime.contains(cell.titlelbl.text ?? "") {
+                    
+                    DispatchQueue.main.async {
+                        cell.sele()
+                        self.selectedIndices.append(indexPath)
+                        self.checkOptionsTV.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+                    }
+                    print("Selected: \(cell.titlelbl.text ?? "")")
+                } else {
+                    
+                    DispatchQueue.main.async {
+                        cell.unselected() // Deselect the cell
+                    }
+                    print("Deselected: \(cell.titlelbl.text ?? "")")
+                }
+            }else {
+                DispatchQueue.main.async {
+                    cell.unselected() // Deselect the cell
+                }
+            }
+            
+            
+            
+            
+        case "Cancellations Type":
+            if !filterModel.refundableTypes.isEmpty {
+                // Check if the cell's title matches any value in the luggage array
+                
+                
+                if filterModel.refundableTypes.contains(cell.titlelbl.text ?? "") {
+                    
+                    DispatchQueue.main.async {
+                        cell.sele()
+                        self.selectedIndices.append(indexPath)
+                        self.checkOptionsTV.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+                    }
+                    print("Selected: \(cell.titlelbl.text ?? "")")
+                } else {
+                    
+                    DispatchQueue.main.async {
+                        cell.unselected() // Deselect the cell
+                    }
+                    print("Deselected: \(cell.titlelbl.text ?? "")")
+                }
+            }else {
+                DispatchQueue.main.async {
+                    cell.unselected() // Deselect the cell
+                }
+            }
+            
+            
+            
+            
+        case "Airlines":
+            if !filterModel.airlines.isEmpty {
+                // Check if the cell's title matches any value in the luggage array
+                if filterModel.airlines.contains(cell.titlelbl.text ?? "") {
+                    
+                    DispatchQueue.main.async {
+                        cell.sele()
+                        self.selectedIndices.append(indexPath)
+                        self.checkOptionsTV.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+                    }
+                    print("Selected: \(cell.titlelbl.text ?? "")")
+                } else {
+                    
+                    DispatchQueue.main.async {
+                        cell.unselected() // Deselect the cell
+                    }
+                    print("Deselected: \(cell.titlelbl.text ?? "")")
+                }
+            }else {
+                DispatchQueue.main.async {
+                    cell.unselected() // Deselect the cell
+                }
+            }
+            
+            
+            
+        case "Connecting Flights":
+            if !filterModel.connectingFlights.isEmpty {
+                // Check if the cell's title matches any value in the luggage array
+                if filterModel.connectingFlights.contains(cell.titlelbl.text ?? "") {
+                    
+                    DispatchQueue.main.async {
+                        cell.sele()
+                        self.selectedIndices.append(indexPath)
+                        self.checkOptionsTV.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+                    }
+                    print("Selected: \(cell.titlelbl.text ?? "")")
+                } else {
+                    
+                    DispatchQueue.main.async {
+                        cell.unselected() // Deselect the cell
+                    }
+                    print("Deselected: \(cell.titlelbl.text ?? "")")
+                }
+            }else {
+                DispatchQueue.main.async {
+                    cell.unselected() // Deselect the cell
+                }
+            }
+            
+            
+        case "Connecting Airports":
+            if !filterModel.connectingAirports.isEmpty {
+                // Check if the cell's title matches any value in the luggage array
+                if filterModel.connectingAirports.contains(cell.titlelbl.text ?? "") {
+                    
+                    DispatchQueue.main.async {
+                        cell.sele()
+                        self.selectedIndices.append(indexPath)
+                        self.checkOptionsTV.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+                    }
+                    print("Selected: \(cell.titlelbl.text ?? "")")
+                } else {
+                    
+                    DispatchQueue.main.async {
+                        cell.unselected() // Deselect the cell
+                    }
+                    print("Deselected: \(cell.titlelbl.text ?? "")")
+                }
+            }else {
+                DispatchQueue.main.async {
+                    cell.unselected() // Deselect the cell
+                }
+            }
+        default:
+            break
         }
     }
     
     
     
     
+    
+    //MARK: - showSelectedHotelFilterValues checkOptionsTVCell
+    
+    func showSelectedHotelFilterValues(cell:checkOptionsTVCell,indexPath:IndexPath) {
+        
+        
+        
+        // Check the section title to determine which filter to apply
+        switch titlelbl.text {
+            
+        case "Booking Type":
+            if !hotelfiltermodel.refundableTypes.isEmpty {
+                // Check if the cell's title matches any value in the luggage array
+                
+                
+                if hotelfiltermodel.refundableTypes.contains(cell.titlelbl.text ?? "") {
+                    
+                    DispatchQueue.main.async {
+                        cell.sele()
+                        self.selectedIndices.append(indexPath)
+                        self.checkOptionsTV.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+                    }
+                    print("Selected: \(cell.titlelbl.text ?? "")")
+                } else {
+                    
+                    DispatchQueue.main.async {
+                        cell.unselected() // Deselect the cell
+                    }
+                    print("Deselected: \(cell.titlelbl.text ?? "")")
+                }
+            }else {
+                DispatchQueue.main.async {
+                    cell.unselected() // Deselect the cell
+                }
+            }
+            
+            
+            
+        case "Neighbourhood":
+            if !hotelfiltermodel.niberhoodA.isEmpty {
+                // Check if the cell's title matches any value in the luggage array
+                
+                
+                if hotelfiltermodel.niberhoodA.contains(cell.titlelbl.text ?? "") {
+                    
+                    DispatchQueue.main.async {
+                        cell.sele()
+                        self.selectedIndices.append(indexPath)
+                        self.checkOptionsTV.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+                    }
+                    print("Selected: \(cell.titlelbl.text ?? "")")
+                } else {
+                    
+                    DispatchQueue.main.async {
+                        cell.unselected() // Deselect the cell
+                    }
+                    print("Deselected: \(cell.titlelbl.text ?? "")")
+                }
+            }else {
+                DispatchQueue.main.async {
+                    cell.unselected() // Deselect the cell
+                }
+            }
+            
+            
+            
+        case "Near By Location's":
+            if !hotelfiltermodel.nearByLocA.isEmpty {
+                // Check if the cell's title matches any value in the luggage array
+                
+                
+                if hotelfiltermodel.nearByLocA.contains(cell.titlelbl.text ?? "") {
+                    
+                    DispatchQueue.main.async {
+                        cell.sele()
+                        self.selectedIndices.append(indexPath)
+                        self.checkOptionsTV.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+                    }
+                    print("Selected: \(cell.titlelbl.text ?? "")")
+                } else {
+                    
+                    DispatchQueue.main.async {
+                        cell.unselected() // Deselect the cell
+                    }
+                    print("Deselected: \(cell.titlelbl.text ?? "")")
+                }
+            }else {
+                DispatchQueue.main.async {
+                    cell.unselected() // Deselect the cell
+                }
+            }
+            
+            
+            
+        case "Amenities":
+            if !hotelfiltermodel.nearByLocA.isEmpty {
+                // Check if the cell's title matches any value in the luggage array
+                
+                
+                if hotelfiltermodel.nearByLocA.contains(cell.titlelbl.text ?? "") {
+                    
+                    DispatchQueue.main.async {
+                        cell.sele()
+                        self.selectedIndices.append(indexPath)
+                        self.checkOptionsTV.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+                    }
+                    print("Selected: \(cell.titlelbl.text ?? "")")
+                } else {
+                    
+                    DispatchQueue.main.async {
+                        cell.unselected() // Deselect the cell
+                    }
+                    print("Deselected: \(cell.titlelbl.text ?? "")")
+                }
+            }else {
+                DispatchQueue.main.async {
+                    cell.unselected() // Deselect the cell
+                }
+            }
+            
+            
+            
+        default:
+            break
+        }
+    }
+    
 }
+
+

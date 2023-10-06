@@ -1266,8 +1266,12 @@ stops</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CgS-6w-1wo">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8vz-e6-HGc">
+                                        <rect key="frame" x="0.0" y="175" width="393" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="DZH-aW-hD3">
-                                        <rect key="frame" x="0.0" y="175" width="393" height="677"/>
+                                        <rect key="frame" x="0.0" y="225" width="393" height="627"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n2t-Sa-ePT">
@@ -1392,16 +1396,60 @@ stops</string>
                                             <action selector="didTapOnCloseBtn:" destination="Lrk-68-CXa" eventType="touchUpInside" id="1v4-Wb-JMf"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qng-RP-FKl" customClass="BorderedView" customModule="Beeoons" customModuleProvider="target">
+                                        <rect key="frame" x="313" y="185" width="70" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVe-a8-zjz">
+                                                <rect key="frame" x="19.333333333333314" y="3" width="31.333333333333329" height="24"/>
+                                                <fontDescription key="fontDescription" name="Oswald-Light" family="Oswald" pointSize="16"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYe-lN-pm3">
+                                                <rect key="frame" x="0.0" y="0.0" width="70" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="didTapOnResetBtn:" destination="Lrk-68-CXa" eventType="touchUpInside" id="Du3-zQ-Qnk"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" name="ButtonColor"/>
+                                        <constraints>
+                                            <constraint firstItem="QYe-lN-pm3" firstAttribute="top" secondItem="Qng-RP-FKl" secondAttribute="top" id="23y-P6-ept"/>
+                                            <constraint firstAttribute="width" constant="70" id="JLb-3r-faY"/>
+                                            <constraint firstAttribute="bottom" secondItem="QYe-lN-pm3" secondAttribute="bottom" id="fEA-je-sUk"/>
+                                            <constraint firstItem="LVe-a8-zjz" firstAttribute="centerY" secondItem="Qng-RP-FKl" secondAttribute="centerY" id="fyq-dq-O5v"/>
+                                            <constraint firstItem="LVe-a8-zjz" firstAttribute="centerX" secondItem="Qng-RP-FKl" secondAttribute="centerX" id="oIV-Id-Sr1"/>
+                                            <constraint firstItem="QYe-lN-pm3" firstAttribute="leading" secondItem="Qng-RP-FKl" secondAttribute="leading" id="qcy-jx-oED"/>
+                                            <constraint firstAttribute="height" constant="30" id="r2Q-rr-Ghi"/>
+                                            <constraint firstAttribute="trailing" secondItem="QYe-lN-pm3" secondAttribute="trailing" id="wx7-we-nNM"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="8vz-e6-HGc" secondAttribute="trailing" id="0XZ-5O-ScD"/>
                                     <constraint firstAttribute="bottom" secondItem="DZH-aW-hD3" secondAttribute="bottom" id="4Mr-ow-rtm"/>
                                     <constraint firstItem="n2t-Sa-ePT" firstAttribute="top" secondItem="CgS-6w-1wo" secondAttribute="top" constant="125" id="5D4-n1-IZZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qng-RP-FKl" secondAttribute="trailing" constant="10" id="C2t-7z-RXY"/>
                                     <constraint firstItem="n2t-Sa-ePT" firstAttribute="top" secondItem="v4F-zX-yds" secondAttribute="bottom" id="DCF-PQ-RrI"/>
+                                    <constraint firstItem="DZH-aW-hD3" firstAttribute="top" secondItem="Qng-RP-FKl" secondAttribute="bottom" constant="10" id="EOb-VL-CHb"/>
+                                    <constraint firstItem="Qng-RP-FKl" firstAttribute="top" secondItem="n2t-Sa-ePT" secondAttribute="bottom" constant="10" id="ROx-2Y-ttK"/>
                                     <constraint firstItem="DZH-aW-hD3" firstAttribute="leading" secondItem="CgS-6w-1wo" secondAttribute="leading" id="VrP-Lg-kLU"/>
+                                    <constraint firstItem="8vz-e6-HGc" firstAttribute="leading" secondItem="CgS-6w-1wo" secondAttribute="leading" id="cVn-Jg-5Ro"/>
                                     <constraint firstItem="n2t-Sa-ePT" firstAttribute="leading" secondItem="CgS-6w-1wo" secondAttribute="leading" id="fXe-cc-cBy"/>
+                                    <constraint firstItem="DZH-aW-hD3" firstAttribute="top" secondItem="8vz-e6-HGc" secondAttribute="bottom" id="feS-pa-wSX"/>
                                     <constraint firstAttribute="trailing" secondItem="DZH-aW-hD3" secondAttribute="trailing" id="g3E-pm-eYK"/>
-                                    <constraint firstItem="DZH-aW-hD3" firstAttribute="top" secondItem="n2t-Sa-ePT" secondAttribute="bottom" id="tAx-xH-TEj"/>
+                                    <constraint firstItem="8vz-e6-HGc" firstAttribute="top" secondItem="n2t-Sa-ePT" secondAttribute="bottom" id="mTH-gH-ybz"/>
                                     <constraint firstAttribute="trailing" secondItem="v4F-zX-yds" secondAttribute="trailing" constant="20" id="ueg-sg-d9c"/>
                                     <constraint firstAttribute="trailing" secondItem="n2t-Sa-ePT" secondAttribute="trailing" id="yS8-Ah-IRi"/>
                                 </constraints>
@@ -1434,7 +1482,7 @@ stops</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DCb-U7-uEe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3346" y="735"/>
+            <point key="canvasLocation" x="3345.801526717557" y="734.50704225352115"/>
         </scene>
         <!--Flight DetailsVC-->
         <scene sceneID="Ntx-yc-syL">
