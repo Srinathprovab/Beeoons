@@ -178,8 +178,8 @@ extension FlightResultVC:OnewayViewModelDelegate {
             cityCodes = "\(response.data?.search_params?.from_loc ?? "")"
             flightscountlbl.text = "\(response.data?.j_flight_list?.count ?? 0) Flights Found"
             
-            TimerManager.shared.setTotalTime(900)
-            TimerManager.shared.startTimer()
+            TimerManager.shared.stopTimer()
+            TimerManager.shared.startTimer(time: 900)
             
             let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
             if journyType == "oneway" {
@@ -594,7 +594,7 @@ extension FlightResultVC {
     }
     
     func updateTimer() {
-        let totalTime = TimerManager.shared.getTotalTime()
+        let totalTime = TimerManager.shared.totalTime
         let minutes =  totalTime / 60
         let seconds = totalTime % 60
         let formattedTime = String(format: "%02d:%02d", minutes, seconds)

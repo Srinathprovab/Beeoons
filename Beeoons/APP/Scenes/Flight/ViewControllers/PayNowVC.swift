@@ -814,7 +814,7 @@ extension PayNowVC {
     }
     
     func updateTimer() {
-        let totalTime = TimerManager.shared.getTotalTime()
+        let totalTime = TimerManager.shared.totalTime
         let minutes =  totalTime / 60
         let seconds = totalTime % 60
         let formattedTime = String(format: "%02d:%02d", minutes, seconds)
