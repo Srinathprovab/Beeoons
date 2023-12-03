@@ -122,7 +122,7 @@ class BookFlightVC: BaseTableVC {
     }
     
     func gotoHomeVC() {
-       
+        
         guard let vc = HomeVC.newInstance.self else {return}
         vc.modalPresentationStyle = .overCurrentContext
         callapibool = true
@@ -232,7 +232,7 @@ class BookFlightVC: BaseTableVC {
             
             payload.removeAll()
             NotificationCenter.default.post(name: NSNotification.Name("resetallFilters"), object: nil)
-
+            
             let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
             if journyType == "oneway" {
                 
@@ -256,10 +256,10 @@ class BookFlightVC: BaseTableVC {
                 payload["currency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? "KWD"
                 
                 
-                if defaults.string(forKey:UserDefaultsKeys.fromCity) == nil {
+                if defaults.string(forKey:UserDefaultsKeys.fromCity) == nil || defaults.string(forKey:UserDefaultsKeys.fromCity) == ""{
                     showToast(message: "Please Select From City")
                     cell.fromView.layer.borderColor = UIColor.red.cgColor
-                }else if defaults.string(forKey:UserDefaultsKeys.toCity) == nil {
+                }else if defaults.string(forKey:UserDefaultsKeys.toCity) == nil || defaults.string(forKey:UserDefaultsKeys.toCity) == ""{
                     showToast(message: "Please Select To City")
                     cell.toView.layer.borderColor = UIColor.red.cgColor
                 }else if defaults.string(forKey:UserDefaultsKeys.toCity) == defaults.string(forKey:UserDefaultsKeys.fromCity) {
@@ -375,7 +375,7 @@ class BookFlightVC: BaseTableVC {
         payload2.removeAll()
         fromdataArray.removeAll()
         NotificationCenter.default.post(name: NSNotification.Name("resetallFilters"), object: nil)
-
+        
         for (index,_) in fromCityShortNameArray.enumerated() {
             
             payload2["from"] = fromCityNameArray[index]
@@ -473,7 +473,7 @@ class BookFlightVC: BaseTableVC {
         payload.removeAll()
         NotificationCenter.default.post(name: NSNotification.Name("resetallFilters"), object: nil)
         defaults.set(cell.trip_type, forKey: UserDefaultsKeys.journeyType)
-
+        
         
         if cell.trip_type == "oneway" {
             defaults.set(cell.fromcityname, forKey: UserDefaultsKeys.fromcityname)
@@ -518,6 +518,32 @@ class BookFlightVC: BaseTableVC {
         
     }
     
+    
+    
+    //MARK: - donedatePicker cancelDatePicker
+    override func donedatePicker(cell:BookFlightTVCell){
+        
+        let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
+        if journyType == "oneway" {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd-MM-yyyy"
+            defaults.set(formatter.string(from: cell.depDatePicker.date), forKey: UserDefaultsKeys.calDepDate)
+            
+        }else {
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd-MM-yyyy"
+            defaults.set(formatter.string(from: cell.retdepDatePicker.date), forKey: UserDefaultsKeys.rcalDepDate)
+            defaults.set(formatter.string(from: cell.retDatePicker.date), forKey: UserDefaultsKeys.rcalRetDate)
+        }
+        
+        commonTableView.reloadData()
+        self.view.endEditing(true)
+    }
+    
+    override func cancelDatePicker(cell:BookFlightTVCell){
+        self.view.endEditing(true)
+    }
     
 }
 

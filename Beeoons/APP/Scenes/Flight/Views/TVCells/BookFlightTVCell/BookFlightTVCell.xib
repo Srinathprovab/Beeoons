@@ -149,19 +149,29 @@
                                                             <action selector="didTapOnSelectDepartureDateBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="OrC-te-YhD"/>
                                                         </connections>
                                                     </button>
+                                                    <textField hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SNt-OG-FEe">
+                                                        <rect key="frame" x="47" y="0.0" width="129" height="50"/>
+                                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
+                                                    <constraint firstItem="SNt-OG-FEe" firstAttribute="leading" secondItem="gUI-Ca-h3e" secondAttribute="trailing" constant="7" id="182-5Z-G2t"/>
                                                     <constraint firstAttribute="trailing" secondItem="wVP-Zm-phF" secondAttribute="trailing" id="8A1-Dd-kzp"/>
                                                     <constraint firstAttribute="width" constant="176" id="BQQ-6i-Zn6"/>
+                                                    <constraint firstAttribute="trailing" secondItem="SNt-OG-FEe" secondAttribute="trailing" id="FJO-9B-cTS"/>
                                                     <constraint firstAttribute="height" constant="50" id="I3r-PO-d5I"/>
                                                     <constraint firstAttribute="bottom" secondItem="ews-mT-rLf" secondAttribute="bottom" id="Igz-LD-Ttt"/>
+                                                    <constraint firstAttribute="bottom" secondItem="SNt-OG-FEe" secondAttribute="bottom" id="Ltn-Uc-qOu"/>
                                                     <constraint firstAttribute="bottom" secondItem="wVP-Zm-phF" secondAttribute="bottom" id="PvS-qF-bQ6"/>
                                                     <constraint firstAttribute="trailing" secondItem="ews-mT-rLf" secondAttribute="trailing" id="Qgg-L0-acQ"/>
                                                     <constraint firstItem="gUI-Ca-h3e" firstAttribute="leading" secondItem="HYK-md-7Km" secondAttribute="leading" constant="10" id="QpH-oe-rJJ"/>
                                                     <constraint firstItem="ews-mT-rLf" firstAttribute="leading" secondItem="gUI-Ca-h3e" secondAttribute="trailing" constant="7" id="R6A-CD-fjk"/>
                                                     <constraint firstItem="wVP-Zm-phF" firstAttribute="top" secondItem="HYK-md-7Km" secondAttribute="top" id="SDe-9a-I96"/>
                                                     <constraint firstItem="wVP-Zm-phF" firstAttribute="leading" secondItem="HYK-md-7Km" secondAttribute="leading" id="bZi-Ud-Zn3"/>
+                                                    <constraint firstItem="SNt-OG-FEe" firstAttribute="top" secondItem="HYK-md-7Km" secondAttribute="top" id="g7h-Rv-c3Z"/>
                                                     <constraint firstItem="gUI-Ca-h3e" firstAttribute="centerY" secondItem="HYK-md-7Km" secondAttribute="centerY" id="rVx-1z-Qtx"/>
                                                     <constraint firstItem="ews-mT-rLf" firstAttribute="top" secondItem="HYK-md-7Km" secondAttribute="top" id="xDi-0t-wEr"/>
                                                 </constraints>
@@ -195,19 +205,29 @@
                                                             <action selector="didTapOnArrivalDateBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="zll-Kr-gCb"/>
                                                         </connections>
                                                     </button>
+                                                    <textField hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l4n-RY-meV">
+                                                        <rect key="frame" x="47" y="0.0" width="129" height="50"/>
+                                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstItem="COd-ye-wzP" firstAttribute="leading" secondItem="BXR-xJ-LHw" secondAttribute="trailing" constant="7" id="1qJ-cg-lk9"/>
+                                                    <constraint firstItem="l4n-RY-meV" firstAttribute="leading" secondItem="BXR-xJ-LHw" secondAttribute="trailing" constant="7" id="23h-FG-s2l"/>
                                                     <constraint firstAttribute="trailing" secondItem="COd-ye-wzP" secondAttribute="trailing" id="6L9-S4-aK0"/>
                                                     <constraint firstItem="COd-ye-wzP" firstAttribute="top" secondItem="9GP-46-Rjy" secondAttribute="top" id="Aak-GS-ySC"/>
                                                     <constraint firstItem="BXR-xJ-LHw" firstAttribute="centerY" secondItem="9GP-46-Rjy" secondAttribute="centerY" id="B0N-PT-InP"/>
                                                     <constraint firstItem="BXR-xJ-LHw" firstAttribute="leading" secondItem="9GP-46-Rjy" secondAttribute="leading" constant="10" id="CXj-Cr-TgT"/>
+                                                    <constraint firstAttribute="bottom" secondItem="l4n-RY-meV" secondAttribute="bottom" id="Mjy-7g-gcz"/>
                                                     <constraint firstItem="MuC-t0-KaA" firstAttribute="leading" secondItem="9GP-46-Rjy" secondAttribute="leading" id="a1F-Li-pLn"/>
                                                     <constraint firstAttribute="bottom" secondItem="MuC-t0-KaA" secondAttribute="bottom" id="bl1-90-Npn"/>
+                                                    <constraint firstItem="l4n-RY-meV" firstAttribute="top" secondItem="9GP-46-Rjy" secondAttribute="top" id="dBv-tx-xdl"/>
                                                     <constraint firstItem="MuC-t0-KaA" firstAttribute="top" secondItem="9GP-46-Rjy" secondAttribute="top" id="iO1-g8-3T5"/>
                                                     <constraint firstAttribute="bottom" secondItem="COd-ye-wzP" secondAttribute="bottom" id="jlC-un-Gff"/>
                                                     <constraint firstAttribute="trailing" secondItem="MuC-t0-KaA" secondAttribute="trailing" id="lGn-Yg-tcS"/>
+                                                    <constraint firstAttribute="trailing" secondItem="l4n-RY-meV" secondAttribute="trailing" id="r4Q-hY-7dF"/>
                                                     <constraint firstAttribute="height" constant="50" id="tyQ-gd-FBj"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -492,11 +512,13 @@
                 <outlet property="arrivalDatelbl" destination="COd-ye-wzP" id="yLu-6Z-IvP"/>
                 <outlet property="classView" destination="grF-Oi-qWe" id="aiU-Ve-jwg"/>
                 <outlet property="classlbl" destination="JpT-0q-euz" id="eyI-Yi-qCr"/>
+                <outlet property="depTF" destination="SNt-OG-FEe" id="CkU-ER-pqf"/>
                 <outlet property="depView" destination="HYK-md-7Km" id="yeh-kV-oW4"/>
                 <outlet property="departureDatelbl" destination="ews-mT-rLf" id="KoC-Ng-ola"/>
                 <outlet property="fromView" destination="C2D-aZ-NQN" id="B9G-LQ-I8N"/>
                 <outlet property="fromlbl" destination="DgJ-9R-Ftk" id="98d-h3-VRJ"/>
                 <outlet property="holderView" destination="PdS-O1-yqp" id="4ig-Wi-Zi1"/>
+                <outlet property="retTF" destination="l4n-RY-meV" id="CSJ-bt-lRa"/>
                 <outlet property="retView" destination="9GP-46-Rjy" id="JHo-gB-oAk"/>
                 <outlet property="toView" destination="kt3-xo-2Uh" id="F7q-Lk-EuT"/>
                 <outlet property="tocitylbl" destination="RET-Iq-6S6" id="6WY-0Y-djm"/>

@@ -111,6 +111,8 @@ class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVC
     func didTapOnSearchFlightBtnAction(cell:BookFlightTVCell) {}
     func didTapOnFlightDetails(cell:FlightResultTVCell){}
     func didTapOnAirLineDropDownBtn(cell:BookFlightTVCell){}
+    func donedatePicker(cell:BookFlightTVCell){}
+    func cancelDatePicker(cell:BookFlightTVCell){}
     
     func didTapOnSelectTravellersBtnAction(cell: BookFlightMCTVCell) {}
     func didTapOnSelectClassBtnAction(cell: BookFlightMCTVCell) {}
@@ -177,27 +179,9 @@ class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVC
     func didTapOnCancellationBtnAction(cell: HotelsResultVCTVCell) {}
     func didTapOnFareRulesBtnAction(cell: AddFareRulesTVCell) {}
     
+   
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+ 
 }
 
 extension BaseTableVC: UITableViewDelegate {
