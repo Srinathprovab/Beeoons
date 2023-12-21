@@ -35,6 +35,7 @@ class ContactInfoVC: BaseTableVC {
         totalPricelbl.text = "\(defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? ""):\(grandTotal)"
         bottomView.layer.borderWidth = 0.5
         bottomView.layer.borderColor = UIColor.UnselectedBtnColor.cgColor
+        commonTableView.bounces = false
         commonTableView.registerTVCells(["PrimaryContactInfoTVCell",
                                          "EmptyTVCell"])
         setupItineraryTVCells()

@@ -41,6 +41,7 @@ class SideMenuVC: BaseTableVC {
     
     
     func setupUI() {
+        commonTableView.bounces = false
         commonTableView.registerTVCells(["MenuBGTVCell",
                                          "MenuOptionTVCell",
                                          "EmptyTVCell",

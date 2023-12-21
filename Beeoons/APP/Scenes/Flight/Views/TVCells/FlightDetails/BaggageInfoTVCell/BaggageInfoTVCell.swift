@@ -101,7 +101,7 @@ class BaggageInfoTVCell: TableViewCell {
         checkedInBaggageCV.layer.cornerRadius = 4
         checkedInBaggageCV.clipsToBounds = true
         checkedInBaggageCV.showsHorizontalScrollIndicator = false
-        
+        checkedInBaggageCV.bounces = false
         
     }
     

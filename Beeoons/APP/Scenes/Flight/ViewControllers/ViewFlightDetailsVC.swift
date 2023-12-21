@@ -32,6 +32,7 @@ class ViewFlightDetailsVC: BaseTableVC {
     
     func setupUI() {
         self.view.backgroundColor = .black.withAlphaComponent(0.6)
+        commonTableView.bounces = false
         commonTableView.registerTVCells(["AddItineraryTVCell"])
         setupItineraryTVCells()
     }

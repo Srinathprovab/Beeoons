@@ -102,6 +102,7 @@ class DashboardVC: BaseTableVC {
     func setupUI() {
         
         setupMenu()
+        commonTableView.bounces = false
         commonTableView.registerTVCells(["EmptyTVCell",
                                          "MenuBtnWithLogoTVCell",
                                          "SelectTabTVCell",

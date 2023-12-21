@@ -85,6 +85,7 @@ class FlightDetailsVC: BaseTableVC, TimerManagerDelegate {
     
     func setupUI() {
         bottomView.addCornerRadiusWithShadow(color: .AppBorderColor, borderColor: .clear, cornerRadius: 4)
+        commonTableView.bounces = false
         commonTableView.registerTVCells(["AddItineraryTVCell",
                                          "EmptyTVCell",
                                          "LabelTVCell",

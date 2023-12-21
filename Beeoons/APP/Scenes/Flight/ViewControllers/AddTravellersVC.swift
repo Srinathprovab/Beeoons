@@ -74,6 +74,7 @@ class AddTravellersVC: BaseTableVC {
     func setupUI() {
         titlelbl.text = "Choose a passenger"
         commonTableView.backgroundColor = .WhiteColor
+        commonTableView.bounces = false
         commonTableView.registerTVCells(["RadioButtonTVCell",
                                          "TravellerEconomyTVCell",
                                          "TitleLblTVCell",

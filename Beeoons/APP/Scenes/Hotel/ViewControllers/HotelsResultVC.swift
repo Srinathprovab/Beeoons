@@ -56,6 +56,7 @@ class HotelsResultVC: BaseTableVC, HotelSearchViewModelDelegate {
         setupDropDown()
         setupstarDropDown()
         setupatozDropDown()
+        commonTableView.bounces = false
         commonTableView.registerTVCells(["HotelsResultVCTVCell"])
     }
     

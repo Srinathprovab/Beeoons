@@ -84,7 +84,7 @@ class FlightDealsTVCell: TableViewCell, DealsCVCellDelegate, HotelDealsCVCellDel
         dealsCV.layer.cornerRadius = 4
         dealsCV.clipsToBounds = true
         dealsCV.showsVerticalScrollIndicator = false
-        
+        dealsCV.bounces = false
     }
     
     func setupHotelCV() {
@@ -104,7 +104,7 @@ class FlightDealsTVCell: TableViewCell, DealsCVCellDelegate, HotelDealsCVCellDel
         dealsCV.layer.cornerRadius = 4
         dealsCV.clipsToBounds = true
         dealsCV.showsVerticalScrollIndicator = false
-        
+        dealsCV.bounces = false
     }
     
     

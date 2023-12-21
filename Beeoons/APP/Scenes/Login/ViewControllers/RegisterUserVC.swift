@@ -37,6 +37,7 @@ class RegisterUserVC: BaseTableVC {
     
     
     func setupUI() {
+        commonTableView.bounces = false
         commonTableView.registerTVCells(["RegisterUserTVCell",
                                          "EmptyTVCell"])
         setupTV()

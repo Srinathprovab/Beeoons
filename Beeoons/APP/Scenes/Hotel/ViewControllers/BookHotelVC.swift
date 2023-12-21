@@ -34,6 +34,7 @@ class BookHotelVC: BaseTableVC {
     
     
     func setupUI() {
+        commonTableView.bounces = false
         commonTableView.registerTVCells(["BookHotelTVCell",
                                          "FlightDealsTVCell"])
         setuTVCells()

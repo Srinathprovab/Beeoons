@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeVC: UIViewController {
+class HomeVC: BaseTableVC {
     
     
     @IBOutlet weak var tab1img: UIImageView!

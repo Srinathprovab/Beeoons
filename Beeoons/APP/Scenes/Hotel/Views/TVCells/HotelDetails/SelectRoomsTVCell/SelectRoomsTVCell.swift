@@ -57,7 +57,7 @@ extension SelectRoomsTVCell:UICollectionViewDelegate,UICollectionViewDataSource 
         layout.minimumLineSpacing = 5
         hdTabsCV.collectionViewLayout = layout
         hdTabsCV.showsVerticalScrollIndicator = false
-        
+        hdTabsCV.bounces = false
     }
     
     

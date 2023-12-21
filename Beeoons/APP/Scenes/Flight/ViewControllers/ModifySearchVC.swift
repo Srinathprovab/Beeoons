@@ -60,6 +60,7 @@ class ModifySearchVC: BaseTableVC {
         }else{
             setupMulticityUI()
         }
+        commonTableView.bounces = false
         commonTableView.registerTVCells(["BookFlightTVCell",
                                          "FlightDealsTVCell",
                                         "BookFlightMCTVCell"])

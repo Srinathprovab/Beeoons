@@ -146,6 +146,7 @@ class FilterSearchVC: BaseTableVC {
         filterbtn.setTitle("", for: .normal)
         filterbtn.addTarget(self, action: #selector(didTapOnFilterBtnAction(_:)), for: .touchUpInside)
         
+        commonTableView.bounces = false
         commonTableView.registerTVCells(["EmptyTVCell",
                                          "CheckBoxTVCell",
                                          "SliderTVCell",

@@ -114,7 +114,7 @@ class PayNowVC: BaseTableVC, TimerManagerDelegate {
         bottomView.layer.borderColor = UIColor.AppBorderColor.cgColor
         bottomView.layer.borderWidth = 1
         totalPricelbl.text = "\(defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? ""):\(grandTotal)"
-        
+        commonTableView.bounces = false
         commonTableView.registerTVCells(["TDetailsLoginTVCell",
                                          "PurchaseSummaryTVCell",
                                          "PromocodeTVCell",

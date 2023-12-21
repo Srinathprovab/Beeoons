@@ -21,12 +21,16 @@ class BaseTableVC: UIViewController, MenuBtnWithLogoTVCellDelegate, SelectTabTVC
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       
+        
         self.modalPresentationCapturesStatusBarAppearance = true
         self.navigationController?.navigationBar.isHidden = true
         configureTableView()
         //        self.automaticallyAdjustsScrollViewInsets = false
         
         // Do any additional setup after loading the view.
+        
+//        commonTableView.bounces = false
     }
     
     

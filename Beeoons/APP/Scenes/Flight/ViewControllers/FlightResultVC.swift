@@ -73,6 +73,7 @@ class FlightResultVC: BaseTableVC, TimerManagerDelegate {
         oneStopBtn.addTarget(self, action: #selector(didTapOnStopsFilter(_:)), for: .touchUpInside)
         moreStopBtn.addTarget(self, action: #selector(didTapOnStopsFilter(_:)), for: .touchUpInside)
         setupRefreshControl()
+        commonTableView.bounces = false
         commonTableView.registerTVCells(["FlightResultTVCell"])
     }
     

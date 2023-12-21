@@ -36,6 +36,7 @@ class ResetPasswordVC: BaseTableVC {
     
     
     func setupUI() {
+        commonTableView.bounces = false
         commonTableView.registerTVCells(["ResetPasswordTVCell",
                                          "EmptyTVCell"])
         setupTV()

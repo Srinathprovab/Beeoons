@@ -44,6 +44,7 @@ class SelectedHotelDetailsVC: BaseTableVC, HotelDetailsViewModelDelegate {
     
     
     func setupUI() {
+        commonTableView.bounces = false
         commonTableView.registerTVCells(["HotelImagesTVCell",
                                         "SelectRoomsTVCell"])
     }

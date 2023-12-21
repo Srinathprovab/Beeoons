@@ -64,7 +64,7 @@ extension HotelImagesTVCell:UICollectionViewDelegate,UICollectionViewDataSource 
         layout.minimumLineSpacing = 5
         hotelImagesCV.collectionViewLayout = layout
         hotelImagesCV.showsVerticalScrollIndicator = false
-        
+        hotelImagesCV.bounces = false
     }
     
     

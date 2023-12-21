@@ -50,7 +50,7 @@ class BookFlightVC: BaseTableVC {
     //MARK: -
     func setupUI() {
         
-        multicityView.isHidden = true
+      //  multicityView.isHidden = true
         
         let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
         if journyType == "oneway" {
@@ -60,6 +60,7 @@ class BookFlightVC: BaseTableVC {
         }else{
             setupMulticityUI()
         }
+        commonTableView.bounces = false
         commonTableView.registerTVCells(["BookFlightTVCell",
                                          "FlightDealsTVCell",
                                          "BookFlightMCTVCell"])

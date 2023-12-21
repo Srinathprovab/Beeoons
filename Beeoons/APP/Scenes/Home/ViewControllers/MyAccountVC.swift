@@ -105,6 +105,7 @@ class MyAccountVC: BaseTableVC {
         self.changeProfileView.isHidden = true
         loginBtn.isHidden = false
         loginBtn.addBottomBorderWithColor(color: .AppBorderColor, width: 1)
+        commonTableView.bounces = false
         commonTableView.registerTVCells(["UserNameTextFieldTVCell",
                                          "EmptyTVCell",
                                          "ButtonTVCell"])
